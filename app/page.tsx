@@ -1,13 +1,9 @@
 import localFont from "next/font/local"
 
-const geistSans = localFont ( { src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-}), geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+/* istanbul ignore next */
+const geistSans = localFont ( { src: "./fonts/GeistVF.woff", variable: "--font-geist-sans",
+  weight: "100 900" } ), geistMono = localFont({ src: "./fonts/GeistMonoVF.woff",
+  variable: "--font-geist-mono", weight: "100 900" } );
 
 export default function Home() {
   return <body aria-describedby=":Rdd9lab:"
