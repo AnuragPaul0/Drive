@@ -1,9 +1,9 @@
 import localFont from "next/font/local"
 
 /* istanbul ignore next */
-const geistSans = localFont ( { src: "./fonts/GeistVF.woff", variable: "--font-geist-sans",
-  weight: "100 900" } ), geistMono = localFont({ src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono", weight: "100 900" } );
+const geistMono = localFont({ src: "./fonts/GeistMonoVF.woff",
+  variable: "--font-geist-mono", weight: "100 900" } ), geistSans = localFont ( { src: "./fonts/GeistVF.woff", variable: "--font-geist-sans",
+  weight: "100 900" } );
 
 export default function Home() {
   return <body aria-describedby=":Rdd9lab:"
@@ -33,7 +33,7 @@ export default function Home() {
   //       document.body.style.zoom = "80%"
   //       a[i].href = d + a[i].href
   //       a[i].textContent = a[i].href
-  </script><div id="__primerPortalRoot__" style="position: absolute; top: 0px; left: 0px;">
+    </script><div id="__primerPortalRoot__" style="position: absolute; top: 0px; left: 0px;">
     <div style="position: relative; z-index: 1;">
         <span role="tooltip" aria-label="Copy path" data-visible-text="Copy path"
             aria-hidden="true" id=":Rdd9lab:"
