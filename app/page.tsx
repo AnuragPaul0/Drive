@@ -23,8 +23,7 @@ export default function Home() {
                     <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z">
                     </path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z">
     </path></svg></button>
-
-    <script> console.clear(); ta = "table[class='", t1 = ta+"1']"
+    {/* <script> */}
       {/* //   s = screen, d = 'https://drive.google.com/viewerng/viewer?embedded=true&url='
         // l = location,
       //   , l = a.length, p = ['AvailableChoicesN.pdf', 'N.pdf']
@@ -33,7 +32,8 @@ export default function Home() {
       //       document.body.style.zoom = "80%"
       //       a[i].href = d + a[i].href
       //       a[i].textContent = a[i].href */}
-    </script><div id="__primerPortalRoot__" style="position: absolute; top: 0px; left: 0px;">
+    {/* </script> */}
+    <div id="__primerPortalRoot__" style="position: absolute; top: 0px; left: 0px;">
       <div style="position: relative; z-index: 1;">
         <span role="tooltip" aria-label="Copy path" data-visible-text="Copy path"
           aria-hidden="true" id=":Rdd9lab:"
