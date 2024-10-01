@@ -25,17 +25,17 @@ export default function Home() {
     </path></svg></button>
 
     <script> console.clear(); ta = "table[class='", t1 = ta+"1']"
-  //   s = screen, d = 'https://drive.google.com/viewerng/viewer?embedded=true&url='
-    // l = location,
-  //   , l = a.length, p = ['AvailableChoicesN.pdf', 'N.pdf']
-  //       a[i].href = m + p[i]
-  //       a[i].textContent = a[i].href
-  //       document.body.style.zoom = "80%"
-  //       a[i].href = d + a[i].href
-  //       a[i].textContent = a[i].href
+      {/* //   s = screen, d = 'https://drive.google.com/viewerng/viewer?embedded=true&url='
+        // l = location,
+      //   , l = a.length, p = ['AvailableChoicesN.pdf', 'N.pdf']
+      //       a[i].href = m + p[i]
+      //       a[i].textContent = a[i].href
+      //       document.body.style.zoom = "80%"
+      //       a[i].href = d + a[i].href
+      //       a[i].textContent = a[i].href */}
     </script><div id="__primerPortalRoot__" style="position: absolute; top: 0px; left: 0px;">
-    <div style="position: relative; z-index: 1;">
+      <div style="position: relative; z-index: 1;">
         <span role="tooltip" aria-label="Copy path" data-visible-text="Copy path"
-            aria-hidden="true" id=":Rdd9lab:"
-            className="ControlledTooltip__TooltipBase-sc-9d998f82-0 eAydfi tooltipped-nw"
+          aria-hidden="true" id=":Rdd9lab:"
+          className="ControlledTooltip__TooltipBase-sc-9d998f82-0 eAydfi tooltipped-nw"
 style="position: absolute; left: 441.453px; top: 122px"></span></div></div></body> }
