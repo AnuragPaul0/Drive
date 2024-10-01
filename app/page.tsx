@@ -1,8 +1,9 @@
-import localFont from "next/font/local"
+import localFont from "next/font/local"; let p = 0;
 
 const geistSans = localFont ( { src: "./fonts/GeistVF.woff", variable: "--font-geist-sans",
 weight: "100 900" } )
-const geistMono = localFont({ src: "./fonts/GeistMonoVF.woff", variable: "--font-geist-mono",
+
+const geistMono = localFont( { src: "./fonts/GeistMonoVF.woff", variable: "--font-geist-mono",
 weight: "100 900" } )
 
 export default function Home() {
@@ -13,7 +14,8 @@ export default function Home() {
         aria-label="Search" aria-controls="top-search" data-controller="s-popover"
         data-action="focus->s-popover#show" data-s-popover-placement="bottom-start"
     aria-expanded="false"/>
-    <button data-component="IconButton" type="button" aria-label="Copy path" tabIndex={0}
+    <button data-component="IconButton" onMouseEnter={ () => {p = 1} }
+      onMouseLeave={ () => {p=0} } type="button" aria-label="Copy path" tabIndex={0}
       className="types__StyledButton-sc-ws60qy-0 hQsKGs prc-Button-IconButton-szpyj"
       data-loading="false" data-no-visuals="true" data-size="small"
       aria-describedby=":R1td9lab:-loading-announcement">
@@ -33,5 +35,6 @@ export default function Home() {
     <div id="__primerPortalRoot__"><div id='rel'>
       <span role="tooltip" aria-label="Copy path" data-visible-text="Copy path"
         aria-hidden="true" id=":Rdd9lab:"
-        className="ControlledTooltip__TooltipBase-sc-9d998f82-0 eAydfi tooltipped-nw"
+        className={ "ControlledTooltip__TooltipBase-sc-9d998f82-0 eAydfi tooltipped-nw" +
+        p ? 'tooltipped-open' : '' }
 ></span></div></div></body> }
