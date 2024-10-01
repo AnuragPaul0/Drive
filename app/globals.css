@@ -12,12 +12,10 @@ input { border-width: 2px; border-color: light-dark(rgb(118, 118, 118), rgb(133,
 input[type="text" i] { padding-block: 1px; padding-inline: 2px }
 svg { display:inline-block; user-select:none; vertical-align:text-bottom; overflow:visible }
 
-.hQsKGs { color: var(--button-invisible-iconColor-rest, var(--fgColor-muted,
-  var(--color-fg-muted, #848d97)));
-  background-color: var(--control-transparent-bgColor-hover,
-    var(--color-action-list-item-default-hover-bg, unset)); padding: unset;
-  cursor: pointer; user-select: none; border-radius: 6px; border-width: 1px; border-style: solid;
-border-color: transparent }
+.hQsKGs { margin-left: 1vw; color: var(--button-invisible-iconColor-rest, var(--fgColor-muted,
+  var(--color-fg-muted, #848d97))); padding: unset; user-select: none; border-radius: 6px;
+
+border-width: 1px; border-style: solid; border-color: transparent }
 
 .hQsKGs:hover:not([disabled]) { background-color: var(--control-transparent-bgColor-hover,
 var(--color-action-list-item-default-hover-bg, rgba(177, 186, 196, 0.12) ) ) }
