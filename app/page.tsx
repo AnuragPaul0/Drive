@@ -1,9 +1,9 @@
 import localFont from "next/font/local"
 
-const w = {weight: "100 900"}, geistSans = localFont ( { src: "./fonts/GeistVF.woff", variable: "--font-geist-sans",
-...w } )
+const geistSans = localFont ( { src: "./fonts/GeistVF.woff", variable: "--font-geist-sans",
+weight: "100 900" } )
 const geistMono = localFont({ src: "./fonts/GeistMonoVF.woff", variable: "--font-geist-mono",
-...w } )
+weight: "100 900" } )
 
 export default function Home() {
   return <body aria-describedby=":Rdd9lab:"
