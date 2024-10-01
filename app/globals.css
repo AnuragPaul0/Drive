@@ -9,6 +9,7 @@ body { color: var(--foreground); background: var(--background); margin: 8px;
 font-family: Arial, Helvetica, sans-serif }
 
 input { border-width: 2px; border-color: light-dark(rgb(118, 118, 118), rgb(133, 133, 133)) }
+input[type="text" i] { padding-block: 1px; padding-inline: 2px }
 svg { display:inline-block; user-select:none; vertical-align:text-bottom; overflow:visible }
 
 .hQsKGs { color: var(--button-invisible-iconColor-rest, var(--fgColor-muted,
