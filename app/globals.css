@@ -22,6 +22,8 @@ border-width: 1px; border-style: solid; border-color: transparent }
 .hQsKGs:hover:not([disabled]) { background-color: var(--control-transparent-bgColor-hover,
 var(--color-action-list-item-default-hover-bg, rgba(177, 186, 196, 0.12) ) ) }
 
+.hQsKGs[data-size="small"][data-component="IconButton"] { width: 28px; height: 28px }
+
 .__primerPortalRoot__ { position: absolute; top: 0px; left: 0px }
 #rel { position: relative; z-index: 1 }
 .eAydfi { position: absolute; left: 441.453px; top: 122px }
