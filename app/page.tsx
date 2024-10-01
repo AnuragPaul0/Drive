@@ -1,100 +1,45 @@
-import Image from "next/image";
+import localFont from "next/font/local"
+
+const geistSans = localFont ( { src: "./fonts/GeistVF.woff",
+  variable: "--font-geist-sans",
+  weight: "100 900",
+}), geistMono = localFont({
+  src: "./fonts/GeistMonoVF.woff",
+  variable: "--font-geist-mono",
+  weight: "100 900",
+});
 
 export default function Home() {
-  return <div className=
-    "grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  return <body aria-describedby=":Rdd9lab:"
+    className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+    <input name="q" type="text" role="combobox" placeholder="Search…" value=""
+        autoComplete="off" maxLength={240} className="s-input s-input__search js-search-field wmn1"
+        aria-label="Search" aria-controls="top-search" data-controller="s-popover"
+        data-action="focus->s-popover#show" data-s-popover-placement="bottom-start"
+    aria-expanded="false"/>
+    <button data-component="IconButton" type="button" aria-label="Copy path" tabIndex={0}
+      className="types__StyledButton-sc-ws60qy-0 hQsKGs prc-Button-IconButton-szpyj"
+      data-loading="false" data-no-visuals="true" data-size="small"
+      aria-describedby=":R1td9lab:-loading-announcement">
+          <svg aria-hidden="true" focusable="false" className="octicon octicon-copy"
+                viewBox="0 0 16 16" width="16" height="16" fill="currentColor"
+                style="display:inline-block;user-select:none;vertical-align:text-bottom;overflow:visible">
+                    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z">
+                    </path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z">
+    </path></svg></button>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-}
+    <script> console.clear(); ta = "table[class='", t1 = ta+"1']"
+  //   s = screen, d = 'https://drive.google.com/viewerng/viewer?embedded=true&url='
+    // l = location,
+  //   , l = a.length, p = ['AvailableChoicesN.pdf', 'N.pdf']
+  //       a[i].href = m + p[i]
+  //       a[i].textContent = a[i].href
+  //       document.body.style.zoom = "80%"
+  //       a[i].href = d + a[i].href
+  //       a[i].textContent = a[i].href
+  </script><div id="__primerPortalRoot__" style="position: absolute; top: 0px; left: 0px;">
+    <div style="position: relative; z-index: 1;">
+        <span role="tooltip" aria-label="Copy path" data-visible-text="Copy path"
+            aria-hidden="true" id=":Rdd9lab:"
+            className="ControlledTooltip__TooltipBase-sc-9d998f82-0 eAydfi tooltipped-nw"
+style="position: absolute; left: 441.453px; top: 122px"></span></div></div></body> }
