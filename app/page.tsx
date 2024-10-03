@@ -1,5 +1,6 @@
 'use client'
 import localFont from "next/font/local"; import '@github/clipboard-copy-element'
+import {CopyToClipboardButton} from '@github-ui/copy-to-clipboard'
 let p = 0, copied = 0;
 
 const geistSans = localFont ( { src: "./fonts/GeistVF.woff", variable: "--font-geist-sans",
