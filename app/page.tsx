@@ -1,14 +1,27 @@
 'use client'
 import localFont from "next/font/local"; import '@github/clipboard-copy-element'
-// @ts-ignore
-import {CopyToClipboardButton} from '@github-ui/copy-to-clipboard'
-import {useMemo} from 'react'
+// @ts-ignore:Cannot find module git merge
+import {CopyToClipboardButton} from '@github-ui/copy-to-clipboard'// @ts-ignore
+import type {Repository} from '@github-ui/current-repository'// @ts-ignore
+import {repositoryTreePath} from '@github-ui/paths'// @ts-ignore
+import {Link} from '@github-ui/react-core/link'// @ts-ignore
+import {ScreenReaderHeading} from '@github-ui/screen-reader-heading'
 import {Box, Heading, Link as PrimerLink, Text} from '@primer/react'
-let p = 0, copied = 0; interface BreadcrumbProps {
+import {useMemo} from 'react'
+
+const geistSans = localFont ( { src: "./fonts/GeistVF.woff", variable: "--font-geist-sans",
+weight: "100 900" } )
+
+const geistMono = localFont( { src: "./fonts/GeistMonoVF.woff", variable: "--font-geist-mono",
+weight: "100 900" } ), separatorCharacter = '/'
+
+// , copied = 0
+let p = 0; interface BreadcrumbProps {
   id?: string
   fileNameId?: string
   commitish: string
   path: string
+  repo: Repository
   isFolder: boolean
   fontSize?: number
   showCopyPathButton?: boolean
@@ -18,6 +31,7 @@ export function Breadcrumb({
   id = 'breadcrumb',
   fileNameId,
   path,
+  repo,
   commitish,
   isFolder,
   fontSize,
@@ -78,6 +92,57 @@ export function Breadcrumb({
     </Box>
   )
 }
+
+function RepoLink({repo, commitish}: {repo: Repository; commitish: string}) {
+  return (
+    <PrimerLink
+      as={Link}
+      sx={{fontWeight: 'bold'}}
+      to={repositoryTreePath({repo, commitish, action: 'tree'})}
+      data-testid="breadcrumbs-repo-link"
+      reloadDocument
+    >
+      {repo.name}
+    </PrimerLink>
+  )
+}
+
+interface DirectoryLinkProps {
+  commitish: string
+  directoryName: string
+  path: string
+  repo: Repository
+}
+
+function DirectoryLink({directoryName, path, repo, commitish}: DirectoryLinkProps) {
+  return (
+    <PrimerLink as={Link} to={repositoryTreePath({repo, commitish, path, action: 'tree'})} sx={{fontWeight: 400}}>
+      {directoryName}
+    </PrimerLink>
+  )
+}
+
+export function Separator({fontSize}: {fontSize?: number}) {
+  return (
+    <Text sx={{px: 1, fontWeight: 400, color: 'fg.muted', fontSize: fontSize ?? 2}} aria-hidden="true">
+      /
+    </Text>
+  )
+}
+
+function FileName({value, id, fontSize}: {value: string; id?: string; fontSize?: number}) {
+  return (
+    <Heading
+      as="h1"
+      tabIndex={-1}
+      sx={{fontWeight: 600, display: 'inline-block', maxWidth: '100%', fontSize: fontSize ?? 2}}
+      id={id}
+    >
+      {value}
+    </Heading>
+  )
+}
+
 function getPathSegmentData(path: string) {
   const segments = path.split(separatorCharacter)
   const fileName = segments.pop()!
@@ -91,12 +156,6 @@ function getPathSegmentData(path: string) {
   }
 }
 
-const geistSans = localFont ( { src: "./fonts/GeistVF.woff", variable: "--font-geist-sans",
-weight: "100 900" } )
-
-const geistMono = localFont( { src: "./fonts/GeistMonoVF.woff", variable: "--font-geist-mono",
-weight: "100 900" } )
-
 export default function Home() {
   return <body aria-describedby=":Rdd9lab:"
     className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
@@ -105,7 +164,7 @@ export default function Home() {
         aria-label="Search" aria-controls="top-search" data-controller="s-popover"
         data-action="focus->s-popover#show" data-s-popover-placement="bottom-start"
     aria-expanded="false"/>
-    <span data-view-component="true">
+    {/* <span data-view-component="true">
       <clipboard-copy id="clipboard-button" aria-label="Copy" type="button" value="Text to copy"
         data-view-component="true" class="Button--secondary Button--medium Button">
         <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"
@@ -121,7 +180,7 @@ export default function Home() {
       <div aria-live="polite" aria-atomic="true" class="sr-only" data-clipboard-copy-feedback></div>
     </span><tool-tip id="tooltip-47ec3eb3-b354-45e8-87b5-43045b55d353" for="clipboard-button"
       popover="manual" data-direction="s" data-type="description" data-view-component="true"
-    class="sr-only position-absolute">Copy some text</tool-tip>
+    class="sr-only position-absolute">Copy some text</tool-tip> */}
 {/* <button data-component="IconButton" onMouseEnter={ () => {p = 1} }
       onMouseLeave={ () => {p=0} }
       onClick={ () => {
