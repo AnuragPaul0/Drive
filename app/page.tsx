@@ -1,6 +1,95 @@
 'use client'
 import localFont from "next/font/local"; import '@github/clipboard-copy-element'
-let p = 0, copied = 0;
+// @ts-ignore
+import {CopyToClipboardButton} from '@github-ui/copy-to-clipboard'
+import {useMemo} from 'react'
+import {Box, Heading, Link as PrimerLink, Text} from '@primer/react'
+let p = 0, copied = 0; interface BreadcrumbProps {
+  id?: string
+  fileNameId?: string
+  commitish: string
+  path: string
+  isFolder: boolean
+  fontSize?: number
+  showCopyPathButton?: boolean
+}
+
+export function Breadcrumb({
+  id = 'breadcrumb',
+  fileNameId,
+  path,
+  commitish,
+  isFolder,
+  fontSize,
+  showCopyPathButton,
+}: BreadcrumbProps) {
+  const {fileName, segments} = useMemo(() => getPathSegmentData(path), [path])
+  const isRoot = !path
+
+  return (
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'row',
+        fontSize: fontSize ?? 2,
+        minWidth: 0,
+        flexShrink: 1,
+        flexWrap: 'wrap',
+        maxWidth: '100%',
+        alignItems: 'center',
+      }}
+    >
+      <Box as="nav" data-testid="breadcrumbs" aria-labelledby={`${id}-heading`} id={id} sx={{maxWidth: '100%'}}>
+        <ScreenReaderHeading id={`${id}-heading`} as="h2" text="Breadcrumbs" />
+
+        <Box as="ol" sx={{maxWidth: '100%', listStyle: 'none', display: 'inline-block'}}>
+          <Box as="li" sx={{display: 'inline-block', maxWidth: '100%'}}>
+            <RepoLink repo={repo} commitish={commitish} />
+          </Box>
+          {segments.map(({directoryName, directoryPath}) => (
+            <Box as="li" sx={{display: 'inline-block', maxWidth: '100%'}} key={directoryPath}>
+              <Separator fontSize={fontSize} />
+              {directoryName ? (
+                <DirectoryLink path={directoryPath} directoryName={directoryName} repo={repo} commitish={commitish} />
+              ) : null}
+            </Box>
+          ))}
+        </Box>
+      </Box>
+      {fileName && (
+        <Box data-testid="breadcrumbs-filename" sx={{display: 'inline-block', maxWidth: '100%'}} key={fileName}>
+          <Separator fontSize={fontSize} />
+
+          <FileName value={fileName} id={fileNameId} fontSize={fontSize} />
+
+          {!isRoot && isFolder && <Separator />}
+        </Box>
+      )}
+      {showCopyPathButton && (
+        <CopyToClipboardButton
+          ariaLabel="Copy path"
+          textToCopy={path}
+          tooltipProps={{direction: 'nw'}}
+          size="small"
+          hasPortalTooltip={true}
+          className="ml-2"
+        />
+      )}
+    </Box>
+  )
+}
+function getPathSegmentData(path: string) {
+  const segments = path.split(separatorCharacter)
+  const fileName = segments.pop()!
+
+  return {
+    fileName,
+    segments: segments.map((segment, i) => ({
+      directoryName: segment,
+      directoryPath: segments.slice(0, i + 1).join(separatorCharacter),
+    })),
+  }
+}
 
 const geistSans = localFont ( { src: "./fonts/GeistVF.woff", variable: "--font-geist-sans",
 weight: "100 900" } )
