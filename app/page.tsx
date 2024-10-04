@@ -1,6 +1,9 @@
 'use client'
 import localFont from "next/font/local"; import '@github/clipboard-copy-element'
-import {CopyToClipboardButton} from '../assets/ui/packages/copy-to-clipboard'
+// @ts-ignore
+import {CopyToClipboardButton} from '@github-ui/copy-to-clipboard'
+import {useMemo} from 'react'
+import {Box, Heading, Link as PrimerLink, Text} from '@primer/react'
 let p = 0, copied = 0; interface BreadcrumbProps {
   id?: string
   fileNameId?: string
@@ -75,7 +78,18 @@ export function Breadcrumb({
     </Box>
   )
 }
+function getPathSegmentData(path: string) {
+  const segments = path.split(separatorCharacter)
+  const fileName = segments.pop()!
 
+  return {
+    fileName,
+    segments: segments.map((segment, i) => ({
+      directoryName: segment,
+      directoryPath: segments.slice(0, i + 1).join(separatorCharacter),
+    })),
+  }
+}
 
 const geistSans = localFont ( { src: "./fonts/GeistVF.woff", variable: "--font-geist-sans",
 weight: "100 900" } )
