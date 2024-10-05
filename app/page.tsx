@@ -1,10 +1,10 @@
-'use client'// @ts-ignore:Cannot find module git merge
+'use client'
 import localFont from "next/font/local"; import '@github/clipboard-copy-element'
-
-import {CopyToClipboardButton} from '@github-ui/copy-to-clipboard/Button'
-import type {Repository} from '@github-ui/current-repository'// @ts-ignore
-import {repositoryTreePath} from '@github-ui/paths'// @ts-ignore
-import {Link} from '@github-ui/react-core/link'// @ts-ignore
+// @ts-ignore:Cannot find module git merge
+import {CopyToClipboardButton} from '@github-ui/copy-to-clipboard/Button'// @ts-ignore
+import type {Repository} from '@github-ui/current-repository'
+// import {repositoryTreePath} from '@github-ui/paths'// @ts-ignore
+// import {Link} from '@github-ui/react-core/link'// @ts-ignore
 import {ScreenReaderHeading} from '@github-ui/screen-reader-heading'
 import {Box, Heading, Link as PrimerLink, Text} from '@primer/react'
 import {useMemo} from 'react'
@@ -58,14 +58,14 @@ export function Breadcrumb({
 
         <Box as="ol" sx={{maxWidth: '100%', listStyle: 'none', display: 'inline-block'}}>
           <Box as="li" sx={{display: 'inline-block', maxWidth: '100%'}}>
-            <RepoLink repo={repo} commitish={commitish} />
+             {/* <RepoLink repo={repo} commitish={commitish} />*/}
           </Box>
           {segments.map(({directoryName, directoryPath}) => (
             <Box as="li" sx={{display: 'inline-block', maxWidth: '100%'}} key={directoryPath}>
               <Separator fontSize={fontSize} />
-              {directoryName ? (
+              {/* {directoryName ? (
                 <DirectoryLink path={directoryPath} directoryName={directoryName} repo={repo} commitish={commitish} />
-              ) : null}
+              ) : null} */}
             </Box>
           ))}
         </Box>
@@ -93,34 +93,34 @@ export function Breadcrumb({
   )
 }
 
-function RepoLink({repo, commitish}: {repo: Repository; commitish: string}) {
-  return (
-    <PrimerLink
-      as={Link}
-      sx={{fontWeight: 'bold'}}
-      to={repositoryTreePath({repo, commitish, action: 'tree'})}
-      data-testid="breadcrumbs-repo-link"
-      reloadDocument
-    >
-      {repo.name}
-    </PrimerLink>
-  )
-}
+// function RepoLink({repo, commitish}: {repo: Repository; commitish: string}) {
+//   return (
+//     <PrimerLink
+//       as={Link}
+//       sx={{fontWeight: 'bold'}}
+//       to={repositoryTreePath({repo, commitish, action: 'tree'})}
+//       data-testid="breadcrumbs-repo-link"
+//       reloadDocument
+//     >
+//       {repo.name}
+//     </PrimerLink>
+//   )
+// }
 
-interface DirectoryLinkProps {
-  commitish: string
-  directoryName: string
-  path: string
-  repo: Repository
-}
+// interface DirectoryLinkProps {
+//   commitish: string
+//   directoryName: string
+//   path: string
+//   repo: Repository
+// }
 
-function DirectoryLink({directoryName, path, repo, commitish}: DirectoryLinkProps) {
-  return (
-    <PrimerLink as={Link} to={repositoryTreePath({repo, commitish, path, action: 'tree'})} sx={{fontWeight: 400}}>
-      {directoryName}
-    </PrimerLink>
-  )
-}
+// function DirectoryLink({directoryName, path, repo, commitish}: DirectoryLinkProps) {
+//   return (
+//     <PrimerLink as={Link} to={repositoryTreePath({repo, commitish, path, action: 'tree'})} sx={{fontWeight: 400}}>
+//       {directoryName}
+//     </PrimerLink>
+//   )
+// }
 
 export function Separator({fontSize}: {fontSize?: number}) {
   return (

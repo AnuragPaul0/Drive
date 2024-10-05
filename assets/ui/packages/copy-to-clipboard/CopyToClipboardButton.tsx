@@ -1,3 +1,4 @@
+// @ts-ignore
 import {usePortalTooltip, type PortalTooltipProps} from '@github-ui/portal-tooltip/use-portal-tooltip'
 import useIsMounted from '@github-ui/use-is-mounted'
 import type {Icon} from '@primer/octicons-react'

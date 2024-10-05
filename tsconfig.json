@@ -19,6 +19,7 @@
     "paths": {
       "@/*": ["./*"],
       "@github-ui/*": ["./assets/ui/packages/*"],
+      "portal-tooltip/*": ["portal-tooltip/hooks/*"]
       // "Button": ["CopyToClipboardButton"],
       // "copy-to-clipboard/Button": ["./copy-to-clipboard/CopyToClipboardButton"]
     }
