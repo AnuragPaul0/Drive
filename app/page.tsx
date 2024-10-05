@@ -1,7 +1,7 @@
-'use client'
+'use client'// @ts-ignore:Cannot find module git merge
 import localFont from "next/font/local"; import '@github/clipboard-copy-element'
-// @ts-ignore:Cannot find module git merge
-import {CopyToClipboardButton} from '@github-ui/copy-to-clipboard'// @ts-ignore
+
+import {CopyToClipboardButton} from '@github-ui/copy-to-clipboard/Button'
 import type {Repository} from '@github-ui/current-repository'// @ts-ignore
 import {repositoryTreePath} from '@github-ui/paths'// @ts-ignore
 import {Link} from '@github-ui/react-core/link'// @ts-ignore

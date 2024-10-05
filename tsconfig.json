@@ -1,6 +1,5 @@
 {
-  "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+  "compilerOptions": { "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -15,12 +14,13 @@
     "plugins": [
       {
         "name": "next"
-      }
-    ],
+      } ],
     // "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      "@github-ui/*": ["../assets/ui/packages/*"],
+      "@github-ui/*": ["./assets/ui/packages/*"],
+      "Button": ["CopyToClipboardButton"],
+      // "copy-to-clipboard/Button": ["./copy-to-clipboard/CopyToClipboardButton"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
