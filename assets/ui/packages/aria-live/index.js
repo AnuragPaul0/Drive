@@ -1,3 +1,2 @@
-import announce from "./aria-live.js";
-// import { arrayMove, arrayRemove } from "./utils.js";
+import announce from "./aria-live.ts"
 export { announce }
