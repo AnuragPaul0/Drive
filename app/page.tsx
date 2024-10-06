@@ -6,7 +6,7 @@ import type {Repository} from '@github-ui/current-repository'
 // import {Link} from '@github-ui/react-core/link', Link as PrimerLink
 import {ScreenReaderHeading} from '@github-ui/screen-reader-heading'
 import {Box, Heading, Text} from '@primer/react'
-import {useMemo} from 'react'
+import {useMemo} from 'react' 
 
 const geistSans = localFont ( { src: "./fonts/GeistVF.woff", variable: "--font-geist-sans",
 weight: "100 900" } )
