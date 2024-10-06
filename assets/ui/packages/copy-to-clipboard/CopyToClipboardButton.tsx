@@ -4,9 +4,8 @@ import type {Icon} from '@primer/octicons-react'
 import {CheckIcon, CopyIcon} from '@primer/octicons-react'
 import type {SxProp} from '@primer/react'
 import {IconButton} from '@primer/react'
-// import type {TooltipProps} from '@primer/react/deprecated'
-// @ts-ignore
-import {Octicon} from '@primer/react/deprecated'
+import type {TooltipProps} from '@primer/react/deprecated'
+import Octicon from '@primer/react/deprecated'
 import React from 'react'
 import {clsx} from 'clsx'
 import {Tooltip} from '@primer/react/next'
@@ -38,7 +37,7 @@ export interface CopyToClipboardButtonProps extends SxProp {
   /**
    * Props that will be applied to tooltips
    */
-  tooltipProps: PortalTooltipProps
+  tooltipProps?: TooltipProps | PortalTooltipProps
   /**
    * Text that will be displayed in the tooltip
    */

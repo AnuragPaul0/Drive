@@ -3,9 +3,9 @@ import localFont from "next/font/local"; import '@github/clipboard-copy-element'
 import {CopyToClipboardButton} from '@github-ui/copy-to-clipboard/Button'
 import type {Repository} from '@github-ui/current-repository'
 // import {repositoryTreePath} from '@github-ui/paths'// @ts-ignore
-// import {Link} from '@github-ui/react-core/link'
+// import {Link} from '@github-ui/react-core/link', Link as PrimerLink
 import {ScreenReaderHeading} from '@github-ui/screen-reader-heading'
-import {Box, Heading, Link as PrimerLink, Text} from '@primer/react'
+import {Box, Heading, Text} from '@primer/react'
 import {useMemo} from 'react'
 
 const geistSans = localFont ( { src: "./fonts/GeistVF.woff", variable: "--font-geist-sans",
@@ -15,7 +15,10 @@ const geistMono = localFont( { src: "./fonts/GeistMonoVF.woff", variable: "--fon
 weight: "100 900" } ), separatorCharacter = '/'
 
 // , copied = 0
-let p = 0; interface BreadcrumbProps {
+// let p = 0;
+  // repo,
+  // commitish,
+interface BreadcrumbProps {
   id?: string
   fileNameId?: string
   commitish: string
@@ -30,8 +33,6 @@ export function Breadcrumb({
   id = 'breadcrumb',
   fileNameId,
   path,
-  repo,
-  commitish,
   isFolder,
   fontSize,
   showCopyPathButton,
@@ -59,10 +60,10 @@ export function Breadcrumb({
           <Box as="li" sx={{display: 'inline-block', maxWidth: '100%'}}>
              {/* <RepoLink repo={repo} commitish={commitish} />*/}
           </Box>
-          {segments.map(({directoryName, directoryPath}) => (
+          {segments.map(({directoryPath}) => (
             <Box as="li" sx={{display: 'inline-block', maxWidth: '100%'}} key={directoryPath}>
               <Separator fontSize={fontSize} />
-              {/* {directoryName ? (
+              {/* {directoryName ? (directoryName, 
                 <DirectoryLink path={directoryPath} directoryName={directoryName} repo={repo} commitish={commitish} />
               ) : null} */}
             </Box>
@@ -216,9 +217,11 @@ export default function Home() {
       //       a[i].href = d + a[i].href
       //       a[i].textContent = a[i].href */}
     {/* </script> */}
-    <div id="__primerPortalRoot__"><div id='rel'>
+    {/* <div id="__primerPortalRoot__"><div id='rel'>
       <span role="tooltip" aria-label="Copy path" data-visible-text="Copy path"
         aria-hidden="true" id=":Rdd9lab:"
         className={ "ControlledTooltip__TooltipBase-sc-9d998f82-0 eAydfi tooltipped-nw" +
         p ? 'tooltipped-open' : '' }
-></span></div></div></body> }
+></span>
+</div></div> */}
+</body> }

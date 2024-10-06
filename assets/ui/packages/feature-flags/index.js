@@ -1,2 +1,2 @@
-import isFeatureEnabled from "./feature-flags.ts"
+import {isFeatureEnabled} from "./feature-flags.ts"
 export { isFeatureEnabled }

@@ -1,2 +1,2 @@
-import getScrollableParent from "./get-scrollable-parent"
+import {getScrollableParent} from "./get-scrollable-parent"
 export { getScrollableParent }

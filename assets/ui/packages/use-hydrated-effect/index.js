@@ -1,2 +1,2 @@
-import useHydratedEffect from "./use-hydrated-effect.ts"
+import {useHydratedEffect} from "./use-hydrated-effect.ts"
 export { useHydratedEffect }
