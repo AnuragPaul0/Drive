@@ -1,7 +1,7 @@
 import {getAnchoredPosition, type PositionSettings} from '@primer/behaviors'
 import {forwardRef, useCallback, useImperativeHandle, useRef, useSyncExternalStore} from 'react'
 
-import {ControlledTooltip, type ControlledTooltipProps} from './ControlledTooltip'// @ts-ignore
+import {ControlledTooltip, type ControlledTooltipProps} from './ControlledTooltip'
 import {getScrollableParent} from '@github-ui/get-scrollable-parent'
 
 export interface PortalTooltipProps extends ControlledTooltipProps {

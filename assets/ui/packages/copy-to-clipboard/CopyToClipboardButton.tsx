@@ -170,10 +170,10 @@ function PortalTooltipCopyButton({
 }: PortalTooltipCopyButtonProps) {
   const contentRef = React.useRef<HTMLDivElement>(null)
   const [buttonContentProps, buttonTooltipElement] = usePortalTooltip({
-    contentRef,
     'aria-label': label,
     text,
     ...tooltipProps,
+    contentRef,
   })
 
   return (
