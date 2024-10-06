@@ -1,3 +1,2 @@
-import usePortalTooltip from "../hooks/usePortalTooltip.tsx";
-// import { arrayMove, arrayRemove } from "./utils.js";
+import { usePortalTooltip, PortalTooltipProps } from "../hooks/usePortalTooltip.tsx"
 export { usePortalTooltip , PortalTooltipProps }
