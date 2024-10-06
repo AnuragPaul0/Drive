@@ -38,4 +38,4 @@ export interface Repository {
 export type RepositoryNWO = Pick<Repository, 'ownerLogin' | 'name'>
 
 try{ CurrentRepositoryContext.displayName ||= 'CurrentRepositoryContext' } catch {}
-try{ CurrentRepositoryProvider.displayName ||= 'CurrentRepositoryProvider' } catch {}
+try{ (CurrentRepositoryProvider as any).displayName ||= 'CurrentRepositoryProvider' } catch {}

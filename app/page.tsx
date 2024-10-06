@@ -1,10 +1,9 @@
 'use client'
 import localFont from "next/font/local"; import '@github/clipboard-copy-element'
-// @ts-ignore:Cannot find module git merge
-import {CopyToClipboardButton} from '@github-ui/copy-to-clipboard/Button'// @ts-ignore
+import {CopyToClipboardButton} from '@github-ui/copy-to-clipboard/Button'
 import type {Repository} from '@github-ui/current-repository'
 // import {repositoryTreePath} from '@github-ui/paths'// @ts-ignore
-// import {Link} from '@github-ui/react-core/link'// @ts-ignore
+// import {Link} from '@github-ui/react-core/link'
 import {ScreenReaderHeading} from '@github-ui/screen-reader-heading'
 import {Box, Heading, Link as PrimerLink, Text} from '@primer/react'
 import {useMemo} from 'react'

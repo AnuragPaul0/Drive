@@ -38,7 +38,7 @@ export interface CopyToClipboardButtonProps extends SxProp {
   /**
    * Props that will be applied to tooltips
    */
-  tooltipProps?: TooltipProps | PortalTooltipProps
+  tooltipProps: PortalTooltipProps
   /**
    * Text that will be displayed in the tooltip
    */
@@ -250,6 +250,6 @@ function PortalCopyIconButton({
   )
 }
 
-try{ CopyToClipboardButton.displayName ||= 'CopyToClipboardButton' } catch {}
-try{ PortalTooltipCopyButton.displayName ||= 'PortalTooltipCopyButton' } catch {}
-try{ PortalCopyIconButton.displayName ||= 'PortalCopyIconButton' } catch {}
+try{ (CopyToClipboardButton as any).displayName ||= 'CopyToClipboardButton' } catch {}
+try{ (PortalTooltipCopyButton as any).displayName ||= 'PortalTooltipCopyButton' } catch {}
+try{ (PortalCopyIconButton as any).displayName ||= 'PortalCopyIconButton' } catch {}

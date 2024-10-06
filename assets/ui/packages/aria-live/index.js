@@ -1,3 +1,3 @@
-import usePortalTooltip from "../hooks/usePortalTooltip.tsx";
+import announce from "./aria-live.js";
 // import { arrayMove, arrayRemove } from "./utils.js";
-export { usePortalTooltip , PortalTooltipProps }
+export { announce }
