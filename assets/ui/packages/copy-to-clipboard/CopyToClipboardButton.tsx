@@ -5,7 +5,7 @@ import {CheckIcon, CopyIcon} from '@primer/octicons-react'
 import type {SxProp} from '@primer/react'
 import {IconButton} from '@primer/react' 
 import type {TooltipProps} from '@primer/react/deprecated'
-import {Octicon} from '@primer/react/deprecated' 
+import {Octico} from '@primer/react/deprecated' 
 import React from 'react'
 import {clsx} from 'clsx'
 import {Tooltip} from '@primer/react/next'
@@ -227,7 +227,7 @@ function PortalCopyIconButton({
         )}
         onClick={onClickCopy}
       >
-        {copied ? <CheckIcon /> : <Octicon icon={icon} />}
+        {copied ? <CheckIcon /> : <Octico icon={icon} />}
       </button>
     )
   }
