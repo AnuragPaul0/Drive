@@ -5,7 +5,7 @@ import {CheckIcon, CopyIcon} from '@primer/octicons-react'
 import type {SxProp} from '@primer/react'
 import {IconButton} from '@primer/react' 
 import type {TooltipProps} from '@primer/react/deprecated'
-import {Octicon} from '@primer/react/deprecated' 
+// import {Octicon} from '@primer/react/deprecated' 
 import React from 'react'
 import {clsx} from 'clsx'
 import {Tooltip} from '@primer/react/next'
@@ -227,11 +227,11 @@ function PortalCopyIconButton({
         )}
         onClick={onClickCopy}
       >
-        {copied ? <CheckIcon /> : <Octicon icon={icon} />}
+        {copied ? <CheckIcon /> : <CopyIcon/>}
       </button>
     )
   }
-
+{/* <Octicon icon={icon} /> */}
   return (
     // eslint-disable-next-line primer-react/a11y-remove-disable-tooltip
     <IconButton
