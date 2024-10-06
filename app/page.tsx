@@ -3,7 +3,7 @@ import localFont from "next/font/local"; import '@github/clipboard-copy-element'
 import {CopyToClipboardButton} from '@github-ui/copy-to-clipboard/Button'
 import type {Repository} from '@github-ui/current-repository'
 // import {repositoryTreePath} from '@github-ui/paths'// @ts-ignore
-// import {Link} from '@github-ui/react-core/link', Link as PrimerLink 
+// import {Link} from '@github-ui/react-core/link', Link as PrimerLink
 import {ScreenReaderHeading} from '@github-ui/screen-reader-heading'
 import {Box, Heading, Text} from '@primer/react'
 import {useMemo} from 'react'
