@@ -1,2 +1,2 @@
-import { usePortalTooltip, PortalTooltipProps } from "../hooks/usePortalTooltip.tsx"
+import { usePortalTooltip, PortalTooltipProps } from "../hooks/UsePortalTooltip"
 export { usePortalTooltip , PortalTooltipProps }
