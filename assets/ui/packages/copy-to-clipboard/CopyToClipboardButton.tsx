@@ -10,7 +10,6 @@ import React from 'react'
 import {clsx} from 'clsx'
 import {Tooltip} from '@primer/react/next'
 import {announce} from '@github-ui/aria-live'
-
 import {copyText} from './copy'
 
 const copyConfirmationMsDelay = 2000
