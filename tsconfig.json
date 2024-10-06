@@ -24,6 +24,6 @@
       // "copy-to-clipboard/Button": ["./copy-to-clipboard/CopyToClipboardButton"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "assets/ui/packages/portal-tooltip/use-portal-tooltip/index.js"],
   "exclude": ["node_modules"]
 }
