@@ -9,8 +9,7 @@ import {useMemo} from 'react'
 const separatorCharacter = '/'
   // commitish: string
 
-interface BreadcrumbProps {
-  id?: string
+interface BreadcrumbProps { id?: string
   fileNameId?: string
   path: string
   repo: Repository
@@ -158,7 +157,7 @@ function getPathSegmentData(path: string) {
 }
 
 try{ (Breadcrumb as any).displayName ||= 'Breadcrumb' } catch {}
-// try{ (RepoLink as any).displayName ||= 'RepoLink' } catch {}
+try{ (RepoLink as any).displayName ||= 'RepoLink' } catch {}
 // try{ DirectoryLink.displayName ||= 'DirectoryLink' } catch {}
 try{ (Separator as any).displayName ||= 'Separator' } catch {}
 try{ (FileName as any).displayName ||= 'FileName' } catch {}
