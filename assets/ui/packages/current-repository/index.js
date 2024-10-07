@@ -1,2 +1,2 @@
-import Repository from "./CurrentRepository.tsx"
-export { Repository }
+import {Repository, useCurrentRepository} from "./CurrentRepository.tsx"
+export { Repository, useCurrentRepository }
