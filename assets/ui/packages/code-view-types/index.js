@@ -1,1 +1,2 @@
-export { BlobPayload } from "./blob-types"
+export { BlobPayload, BlackbirdSymbol, StylingDirectivesDocument, SplitCodeownersError,
+    StylingDirectivesLine } from "./blob-types"

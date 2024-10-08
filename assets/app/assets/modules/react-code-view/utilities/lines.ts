@@ -1,6 +1,6 @@
-import type {CodeSection} from '@github-ui/code-nav'
-import {ObservableSet} from '@github-ui/observable'
-import {useObservedState, useObservedStateMap, useSubscription} from '@github-ui/react-observable'
+// import type {CodeSection} from '@github-ui/code-nav'
+// import {ObservableSet} from '@github-ui/observable'
+// import {useObservedState, useObservedStateMap, useSubscription} from '@github-ui/react-observable'
 import type {SafeHTMLString} from '@github-ui/safe-html'
 import {ssrSafeDocument} from '@github-ui/ssr-utils'
 import {useSyncExternalStore} from 'react'
@@ -8,9 +8,9 @@ import {useSyncExternalStore} from 'react'
 // eslint-disable-next-line no-restricted-imports
 import {type BlobOffset, type BlobRange, DOMRangeFromBlob} from '../../github/blob-anchor'
 import type {CodeLineData} from '../components/blob/BlobContent/Code/hooks/use-code-lines'
-import {matchElementId} from '../components/blob/BlobContent/HighlightedOverlay'
-import {charWidthMac, useIsCursorEnabled} from '../hooks/use-cursor-navigation'
-import type {SetStickyLinesType} from '../hooks/use-sticky-lines'
+// import {matchElementId} from '../components/blob/BlobContent/HighlightedOverlay'
+// import {charWidthMac, useIsCursorEnabled} from '../hooks/use-cursor-navigation'
+// import type {SetStickyLinesType} from '../hooks/use-sticky-lines'
 
 const rowCollapseStyleId = 'collapse-show-rows-styles'
 const CODE_CELL_PADDING = 10
@@ -20,34 +20,34 @@ export function queryLineElement(anchorPrefix: string, line: number) {
   return document.querySelector<HTMLElement>(`#${anchorPrefix}LC${line}`)
 }
 
-export function queryMatchElement(line: number, column: number) {
-  return document.querySelector<HTMLElement>(`main #${matchElementId(line, column)}`)
-}
+// export function queryMatchElement(line: number, column: number) {
+//   return document.querySelector<HTMLElement>(`main #${matchElementId(line, column)}`)
+// }
 
-const collapsedRows = new ObservableSet<number>()
+// const collapsedRows = new ObservableSet<number>()
 
-export function useIsLineCollapsed(lineNumber: number) {
-  return useObservedState(collapsedRows.has(lineNumber))
-}
-export function useLinesSubscription(callbackFunc: (collapsedSections: Set<number>) => void) {
-  return useSubscription(collapsedRows, callbackFunc)
-}
-export function useCollapsedLinesSubscription(): Set<number> {
-  return useObservedStateMap(collapsedRows)
-}
+// export function useIsLineCollapsed(lineNumber: number) {
+//   return useObservedState(collapsedRows.has(lineNumber))
+// }
+// export function useLinesSubscription(callbackFunc: (collapsedSections: Set<number>) => void) {
+//   return useSubscription(collapsedRows, callbackFunc)
+// }
+// export function useCollapsedLinesSubscription(): Set<number> {
+//   return useObservedStateMap(collapsedRows)
+// }
 
-export function useShouldUseInert() {
-  const isFirefox = useIsFirefox()
-  const firefoxVersion = useFirefoxVersion() ?? 0
-  const isChromiumOrEdge = useIsChromeOrEdge()
-  const chromiumVersion = useChromiumVersion() ?? 0
+// export function useShouldUseInert() {
+//   const isFirefox = useIsFirefox()
+//   const firefoxVersion = useFirefoxVersion() ?? 0
+//   const isChromiumOrEdge = useIsChromeOrEdge()
+//   const chromiumVersion = useChromiumVersion() ?? 0
 
-  // 124 is the first version that supports inert hiding text
-  const isSupportedVersion = firefoxVersion >= 124 || chromiumVersion >= 124
+//   // 124 is the first version that supports inert hiding text
+//   const isSupportedVersion = firefoxVersion >= 124 || chromiumVersion >= 124
 
-  // we only current use inert on the textarea overlay
-  return useIsCursorEnabled() && (isFirefox || isChromiumOrEdge) && isSupportedVersion
-}
+//   // we only current use inert on the textarea overlay
+//   return useIsCursorEnabled() && (isFirefox || isChromiumOrEdge) && isSupportedVersion
+// }
 
 export function useIsFirefox(): boolean {
   return useSyncExternalStore(
@@ -57,29 +57,29 @@ export function useIsFirefox(): boolean {
   )
 }
 
-function useIsChromeOrEdge(): boolean {
-  return useSyncExternalStore(
-    () => () => {},
+// function useIsChromeOrEdge(): boolean {
+//   return useSyncExternalStore(
+//     () => () => {},
 
-    () =>
-      navigator.userAgent.toLowerCase().indexOf('chrome') > -1 ||
-      navigator.userAgent.toLowerCase().indexOf('chromium') > -1 ||
-      navigator.userAgent.toLowerCase().indexOf('edge') > -1,
-    () => false,
-  )
-}
+//     () =>
+//       navigator.userAgent.toLowerCase().indexOf('chrome') > -1 ||
+//       navigator.userAgent.toLowerCase().indexOf('chromium') > -1 ||
+//       navigator.userAgent.toLowerCase().indexOf('edge') > -1,
+//     () => false,
+//   )
+// }
 
 /**
  * Extracts the Firefox major version number from the user agent string
  * @param userAgent - User agent string
  * @returns Firefox major version number or null if not found
  */
-function getFirefoxVersion(userAgent: string) {
-  // example - Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:97.0) Gecko/20100101 Firefox/97.0"; => 97
-  // example - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36' => null
-  const match = userAgent.toLowerCase().match(/firefox\/(\d+(\.\d+)?)/)
-  return match && match.length >= 2 && match[1] ? parseFloat(match[1]) : null
-}
+// function getFirefoxVersion(userAgent: string) {
+//   // example - Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:97.0) Gecko/20100101 Firefox/97.0"; => 97
+//   // example - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36' => null
+//   const match = userAgent.toLowerCase().match(/firefox\/(\d+(\.\d+)?)/)
+//   return match && match.length >= 2 && match[1] ? parseFloat(match[1]) : null
+// }
 
 /**
  * Extracts the edge or chrome major version number from the user agent string
@@ -94,113 +94,113 @@ function getChromiumVersion(userAgent: string) {
   return match && match.length >= 3 && match[2] ? parseFloat(match[2]) : null
 }
 
-function useChromiumVersion(): number | null {
-  return useSyncExternalStore(
-    () => () => {},
-    () => getChromiumVersion(navigator.userAgent),
-    () => null,
-  )
-}
+// function useChromiumVersion(): number | null {
+//   return useSyncExternalStore(
+//     () => () => {},
+//     () => getChromiumVersion(navigator.userAgent),
+//     () => null,
+//   )
+// }
 
-function useFirefoxVersion(): number | null {
-  return useSyncExternalStore(
-    () => () => {},
-    () => getFirefoxVersion(navigator.userAgent),
-    () => null,
-  )
-}
+// function useFirefoxVersion(): number | null {
+//   return useSyncExternalStore(
+//     () => () => {},
+//     () => getFirefoxVersion(navigator.userAgent),
+//     () => null,
+//   )
+// }
 
-export function buildRowClass(
-  codeSectionArray: CodeSection[],
-  lineNumber: number,
-  isEndLine: boolean,
-  ownedCodeSections: Map<number, CodeSection[]> | null,
-) {
-  if (!ownedCodeSections) return ''
+// export function buildRowClass(
+//   codeSectionArray: CodeSection[],
+//   lineNumber: number,
+//   isEndLine: boolean,
+//   ownedCodeSections: Map<number, CodeSection[]> | null,
+// ) {
+//   if (!ownedCodeSections) return ''
 
-  let rowHideClassName = ''
-  for (let i = 0; i < codeSectionArray.length; i++) {
-    rowHideClassName += `${getLineChildClassName(codeSectionArray[i]!.startLine - 1)} `
-  }
-  if (isEndLine && ownedCodeSections.has(lineNumber)) {
-    const sections = ownedCodeSections.get(lineNumber)
-    if (sections) {
-      for (let j = 0; j < sections.length; j++) {
-        rowHideClassName += `${getLineChildClassName(sections[j]!.startLine - 1)} `
-      }
-    }
-  }
-  return rowHideClassName
-}
+//   let rowHideClassName = ''
+//   for (let i = 0; i < codeSectionArray.length; i++) {
+//     rowHideClassName += `${getLineChildClassName(codeSectionArray[i]!.startLine - 1)} `
+//   }
+//   if (isEndLine && ownedCodeSections.has(lineNumber)) {
+//     const sections = ownedCodeSections.get(lineNumber)
+//     if (sections) {
+//       for (let j = 0; j < sections.length; j++) {
+//         rowHideClassName += `${getLineChildClassName(sections[j]!.startLine - 1)} `
+//       }
+//     }
+//   }
+//   return rowHideClassName
+// }
 
 function getLineChildClassName(lineNumber: number) {
   return `child-of-line-${lineNumber}`
 }
 
-export function applyStickyToParentStartLines(
-  map: Map<number, CodeLineData[]>,
-  line: number,
-  codeLineToSectionMap: Map<number, CodeSection[]> | undefined,
-  onLineStickOrUnstick: SetStickyLinesType,
-) {
-  if (!codeLineToSectionMap) return
-  const sections = codeLineToSectionMap.get(line)
-  if (sections) {
-    for (const section of sections) {
-      const startLines = map.get(section.endLine)
-      if (startLines) {
-        for (const startLine of startLines) {
-          if (line > startLine.lineNumber) {
-            onLineStickOrUnstick(startLine, false)
-          }
-        }
-      }
-    }
-  }
-}
+// export function applyStickyToParentStartLines(
+//   map: Map<number, CodeLineData[]>,
+//   line: number,
+//   codeLineToSectionMap: Map<number, CodeSection[]> | undefined,
+//   onLineStickOrUnstick: SetStickyLinesType,
+// ) {
+//   if (!codeLineToSectionMap) return
+//   const sections = codeLineToSectionMap.get(line)
+//   if (sections) {
+//     for (const section of sections) {
+//       const startLines = map.get(section.endLine)
+//       if (startLines) {
+//         for (const startLine of startLines) {
+//           if (line > startLine.lineNumber) {
+//             onLineStickOrUnstick(startLine, false)
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 
-export function expandRow(lineNumber: number) {
-  setStylesForRow(lineNumber, false)
-  collapsedRows.delete(lineNumber)
-}
-export function collapseRow(lineNumber: number) {
-  setStylesForRow(lineNumber, true)
-  collapsedRows.add(lineNumber)
-}
+// export function expandRow(lineNumber: number) {
+//   setStylesForRow(lineNumber, false)
+//   collapsedRows.delete(lineNumber)
+// }
+// export function collapseRow(lineNumber: number) {
+//   setStylesForRow(lineNumber, true)
+//   collapsedRows.add(lineNumber)
+// }
 
-export function expandAllRows() {
-  const styleSheet = document.getElementById(rowCollapseStyleId)
-  if (styleSheet) {
-    styleSheet.textContent = ''
-  }
+// export function expandAllRows() {
+//   const styleSheet = document.getElementById(rowCollapseStyleId)
+//   if (styleSheet) {
+//     styleSheet.textContent = ''
+//   }
 
-  collapsedRows.clear()
-}
+//   collapsedRows.clear()
+// }
 
 //This is using direct dom manipulation for the styling becasue doing it in a react way would potentially
 //cause a lot of re-renders, and we don't want to have constant re-rendering when someone is simply expanding and
 //collapsing a given row. I did a reasonable amount of research trying to find if there was a react specific way to
 //add and remove stylesheets, but there weren't any examples that came up in my googling.
-function setStylesForRow(lineNumber: number, isCollapsed: boolean) {
-  const styles = `.${getLineChildClassName(lineNumber - 1)} { display: none; } `
+// function setStylesForRow(lineNumber: number, isCollapsed: boolean) {
+//   const styles = `.${getLineChildClassName(lineNumber - 1)} { display: none; } `
 
-  if (document.getElementById(rowCollapseStyleId)) {
-    const styleSheet = document.getElementById(rowCollapseStyleId)
-    if (isCollapsed) {
-      styleSheet!.textContent += styles
-    } else {
-      let sheetTextContent = styleSheet?.textContent || ''
-      sheetTextContent = sheetTextContent.replace(styles, '')
-      styleSheet!.textContent = sheetTextContent
-    }
-  } else {
-    //this case will ideally only run once, the very first time someone collapses a row
-    const styleSheet = document.createElement('style')
-    styleSheet.id = rowCollapseStyleId
-    styleSheet.textContent = styles
-    document.head.appendChild(styleSheet)
-  }
-}
+//   if (document.getElementById(rowCollapseStyleId)) {
+//     const styleSheet = document.getElementById(rowCollapseStyleId)
+//     if (isCollapsed) {
+//       styleSheet!.textContent += styles
+//     } else {
+//       let sheetTextContent = styleSheet?.textContent || ''
+//       sheetTextContent = sheetTextContent.replace(styles, '')
+//       styleSheet!.textContent = sheetTextContent
+//     }
+//   } else {
+//     //this case will ideally only run once, the very first time someone collapses a row
+//     const styleSheet = document.createElement('style')
+//     styleSheet.id = rowCollapseStyleId
+//     styleSheet.textContent = styles
+//     document.head.appendChild(styleSheet)
+//   }
+// }
 
 const codeTextAttribute = 'data-code-text'
 
@@ -257,23 +257,23 @@ export function isSymbol(text: string, className: string) {
   return true
 }
 
-export function getCodeSymbolFromPoint(x: number, y: number): string | null {
-  let nodeAtPoint: Node | undefined = undefined
+// export function getCodeSymbolFromPoint(x: number, y: number): string | null {
+//   let nodeAtPoint: Node | undefined = undefined
 
-  nodeAtPoint ??= document.caretPositionFromPoint?.(x, y)?.offsetNode
-  if (nodeAtPoint) {
-    //for firefox we need to do additional massaging to get the actual element that has the clicked text
-    const offset = document.caretPositionFromPoint?.(x, y)?.offset ?? 1
-    //item list is 0 indexed, offset is 1 indexed
-    nodeAtPoint = nodeAtPoint.childNodes.item(offset - 1)
-  }
-  // eslint-disable-next-line compat/compat
-  nodeAtPoint ??= document.caretRangeFromPoint?.(x, y)?.startContainer
+//   nodeAtPoint ??= document.caretPositionFromPoint?.(x, y)?.offsetNode
+//   if (nodeAtPoint) {
+//     //for firefox we need to do additional massaging to get the actual element that has the clicked text
+//     const offset = document.caretPositionFromPoint?.(x, y)?.offset ?? 1
+//     //item list is 0 indexed, offset is 1 indexed
+//     nodeAtPoint = nodeAtPoint.childNodes.item(offset - 1)
+//   }
+//   // eslint-disable-next-line compat/compat
+//   nodeAtPoint ??= document.caretRangeFromPoint?.(x, y)?.startContainer
 
-  if (!nodeAtPoint || !isSymbolNode(nodeAtPoint)) return null
+//   if (!nodeAtPoint || !isSymbolNode(nodeAtPoint)) return null
 
-  return nodeAtPoint.getAttribute(codeTextAttribute)
-}
+//   return nodeAtPoint.getAttribute(codeTextAttribute)
+// }
 
 /**
  * From a text node and offset, find the line number that line is on and the offset within that line
@@ -339,10 +339,10 @@ export function determineProperOffsetWithDummyDiv(charOffset: number, lineRawTex
   document.body.appendChild(dummyDiv)
   const offset = dummyDiv.clientWidth
   document.body.removeChild(dummyDiv)
-  if (offset === 0 && charOffset !== 0) {
-    //we are in a test or some other issue came up, return approximation
-    return charOffset * charWidthMac
-  }
+  // if (offset === 0 && charOffset !== 0) {
+  //   //we are in a test or some other issue came up, return approximation
+  //   return charOffset * charWidthMac
+  // }
   return offset
   // else {
   //   //TODO: this needs a lot of work, need to figure out the char offset in the last part of the line somehow
