@@ -162,7 +162,8 @@ const getClientSideState = () => true
  * An extended `@primer/react` tooltip (based on version 35.21 and prior) which allows for external control
  * using an `open` prop
  */
-export const ControlledTooltip = forwardRef<HTMLSpanElement, ControlledTooltipProps>(function ControlledPortalTooltip(
+export const ControlledTooltip = forwardRef<HTMLSpanElement,
+  ControlledTooltipProps>(function ControlledPortalTooltip(
   {direction = 'n', className, text, noDelay, align, wrap, open = false, portalProps = {}, ...rest},
   ref,
 ) {
