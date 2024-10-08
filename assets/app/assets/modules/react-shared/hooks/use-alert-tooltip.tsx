@@ -62,4 +62,4 @@ function AlertTooltip({
   ) : null
 }
 
-try{ AlertTooltip.displayName ||= 'AlertTooltip' } catch {}
+try{ (AlertTooltip as any).displayName ||= 'AlertTooltip' } catch {}
