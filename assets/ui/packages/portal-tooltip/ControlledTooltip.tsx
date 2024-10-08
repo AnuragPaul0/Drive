@@ -1,5 +1,6 @@
 import {Portal, type PortalProps, sx, type SxProp, themeGet} from '@primer/react'
-import type {TooltipProps} from '@primer/react/deprecated'
+import type {TooltipProps} from '@primer/react'
+// /deprecated
 import {clsx} from 'clsx'
 import {forwardRef, useSyncExternalStore} from 'react'
 import styled from 'styled-components'
