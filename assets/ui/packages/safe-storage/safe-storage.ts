@@ -1,5 +1,5 @@
 import {ssrSafeWindow} from '@github-ui/ssr-utils'
-import {sendStats} from '@github-ui/stats'
+// import {sendStats} from '@github-ui/stats'
 
 type StorageBackend = 'sessionStorage' | 'localStorage'
 
@@ -69,11 +69,11 @@ export default function safeStorage<T = string>(
 
   const {throwQuotaErrorsOnSet} = options
 
-  function emitStats(key: PlatformBrowserIncrementKey) {
-    if (options.sendCacheStats) {
-      sendStats({incrementKey: key})
-    }
-  }
+  // function emitStats(key: PlatformBrowserIncrementKey) {
+  //   if (options.sendCacheStats) {
+  //     sendStats({incrementKey: key})
+  //   }
+  // }
 
   /**  Safely get storage item. Returns `null` if the item is older than the provided ttl */
   function getItem(key: string, now: number = new Date().getTime()): T | null {
@@ -87,10 +87,10 @@ export default function safeStorage<T = string>(
       if (expiry && now > expiry) {
         removeItem(key)
         removeItem(expiryKey)
-        emitStats('SAFE_STORAGE_VALUE_EXPIRED')
+        // emitStats('SAFE_STORAGE_VALUE_EXPIRED')
         return null
       } else {
-        emitStats('SAFE_STORAGE_VALUE_WITHIN_TTL')
+        // emitStats('SAFE_STORAGE_VALUE_WITHIN_TTL')
         return deserialize(value)
       }
     } catch (error) {
