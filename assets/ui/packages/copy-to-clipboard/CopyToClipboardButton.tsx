@@ -1,5 +1,5 @@
 import {usePortalTooltip, type PortalTooltipProps} from '@github-ui/portal-tooltip/use-portal-tooltip'
-import {useIsMounted} from '@github-ui/use-is-mounted'
+import useIsMounted from '@github-ui/use-is-mounted'
 import type {Icon} from '@primer/octicons-react'
 import {CheckIcon, CopyIcon} from '@primer/octicons-react'
 import type {SxProp} from '@primer/react'
