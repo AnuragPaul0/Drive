@@ -1,5 +1,5 @@
 import {DuplicateOnKeydownButton} from '@github-ui/code-view-shared/components/DuplicateOnKeydownButton'
-import {ExpandButton} from '@github-ui/code-view-shared/components/ExpandButton'
+// import {ExpandButton} from '@github-ui/code-view-shared/components/ExpandButton'
 import {useShortcut} from '@github-ui/code-view-shared/hooks/shortcuts'
 import {useClientValue} from '@github-ui/use-client-value'
 import {ArrowLeftIcon} from '@primer/octicons-react'
@@ -55,7 +55,7 @@ export const ExpandFileTreeButton = React.forwardRef(
             Files
           </Button>
         )}
-        <ExpandButton
+        {/* <ExpandButton
           dataHotkey={toggleTreeShortcut.hotkey}
           className={className}
           expanded={expanded}
@@ -74,7 +74,7 @@ export const ExpandFileTreeButton = React.forwardRef(
               ? {'@media screen and (max-width: 768px)': {display: !expanded || isSSR ? 'none' : 'flex'}}
               : {display: 'flex'}),
           }}
-        />
+        /> */}
         <DuplicateOnKeydownButton
           buttonFocusId={textAreaId}
           buttonHotkey={toggleTreeShortcut.hotkey}

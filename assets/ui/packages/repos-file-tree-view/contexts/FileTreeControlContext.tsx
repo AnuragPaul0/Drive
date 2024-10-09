@@ -54,4 +54,4 @@ export function useFileTreeControlContext() {
 }
 
 try{ FileTreeControlContext.displayName ||= 'FileTreeControlContext' } catch {}
-try{ FileTreeControlProvider.displayName ||= 'FileTreeControlProvider' } catch {}
+try{ (FileTreeControlProvider as any).displayName ||= 'FileTreeControlProvider' } catch {}

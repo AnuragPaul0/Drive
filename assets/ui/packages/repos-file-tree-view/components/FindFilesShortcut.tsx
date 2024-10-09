@@ -1,6 +1,6 @@
 import {DuplicateOnKeydownButton} from '@github-ui/code-view-shared/components/DuplicateOnKeydownButton'
 import {useShortcut} from '@github-ui/code-view-shared/hooks/shortcuts'
-import {useReposAnalytics} from '@github-ui/code-view-shared/hooks/use-repos-analytics'
+// import {useReposAnalytics} from '@github-ui/code-view-shared/hooks/use-repos-analytics'
 import type React from 'react'
 
 export function FindFilesShortcut({
@@ -12,7 +12,7 @@ export function FindFilesShortcut({
   onFindFilesShortcut?: () => void
   textAreaId: string
 }) {
-  const {sendRepoKeyDownEvent} = useReposAnalytics()
+  // const {sendRepoKeyDownEvent} = useReposAnalytics()
   const {findFilesShortcut} = useShortcut()
 
   return (
@@ -22,10 +22,10 @@ export function FindFilesShortcut({
       onButtonClick={() => {
         onFindFilesShortcut?.()
         inputRef?.current?.focus()
-        sendRepoKeyDownEvent('GO_TO_FILE')
+        // sendRepoKeyDownEvent('GO_TO_FILE')
       }}
     />
   )
 }
 
-try{ FindFilesShortcut.displayName ||= 'FindFilesShortcut' } catch {}
+try{ (FindFilesShortcut as any).displayName ||= 'FindFilesShortcut' } catch {}
