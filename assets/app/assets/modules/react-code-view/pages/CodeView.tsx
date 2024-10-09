@@ -1,8 +1,8 @@
-import {CodeViewBannersProvider} from '@github-ui/code-view-shared/contexts/CodeViewBannersContext'
+// import {CodeViewBannersProvider} from '@github-ui/code-view-shared/contexts/CodeViewBannersContext'
 import {useCodeViewOptions} from '@github-ui/use-code-view-options'
 import {Box, SplitPageLayout } from '@primer/react'
 import React from 'react'
-// import CodeViewHeader from '../components/headers/CodeViewHeader'
+import CodeViewHeader from '../components/headers/CodeViewHeader'
 
 export default function CodeView(
 ) {
@@ -35,19 +35,19 @@ export default function CodeView(
                           data-selector="repos-split-pane-content"
                           tabIndex={0}
                         >
-                            <CodeViewBannersProvider>
+                            {/* <CodeViewBannersProvider> */}
                               <Box
                                 sx={{
                                   display: isEdit ? 'none' : 'inherit',
                                 }}
                               >
-                                {/* <CodeViewHeader
+                                <CodeViewHeader
                                   // payload={payload}
                                   showTree={!0
                                     // isTreeExpanded
-                                  }/> */}
+                                  }/>
                                </Box>
-                            </CodeViewBannersProvider>
+                            {/* </CodeViewBannersProvider> */}
                         </Box>
                        </SplitPageLayout.Content>
   </SplitPageLayout>
