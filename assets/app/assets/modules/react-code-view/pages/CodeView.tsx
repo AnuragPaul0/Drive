@@ -1,4 +1,4 @@
-// import {CodeViewBannersProvider} from '@github-ui/code-view-shared/contexts/CodeViewBannersContext'
+import {CodeViewBannersProvider} from '@github-ui/code-view-shared/contexts/CodeViewBannersContext'
 import {useCodeViewOptions} from '@github-ui/use-code-view-options'
 import {Box, SplitPageLayout } from '@primer/react'
 import React from 'react'
@@ -6,8 +6,7 @@ import React from 'react'
 
 export default function CodeView(
 ) {
-  // const isEdit = 1
-  const isTreeExpanded = !0
+  const isEdit = 1,  isTreeExpanded = !0
   const {codeCenterOption} = useCodeViewOptions()
   return (
   // <h1 id="file-name-id-wide">.eslintrc.json</h1>
@@ -36,19 +35,19 @@ export default function CodeView(
                           data-selector="repos-split-pane-content"
                           tabIndex={0}
                         >
-                            {/* <CodeViewBannersProvider>
+                            <CodeViewBannersProvider>
                               <Box
                                 sx={{
                                   display: isEdit ? 'none' : 'inherit',
                                 }}
                               >
-                                <CodeViewHeader
+                                {/* <CodeViewHeader
                                   // payload={payload}
                                   showTree={!0
                                     // isTreeExpanded
-                                  }/>
+                                  }/> */}
                                </Box>
-                            </CodeViewBannersProvider> */}
+                            </CodeViewBannersProvider>
                         </Box>
                        </SplitPageLayout.Content>
   </SplitPageLayout>
