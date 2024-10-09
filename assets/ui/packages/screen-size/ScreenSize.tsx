@@ -82,4 +82,4 @@ export function getCurrentSize(elementWidth: number) {
 }
 
 try{ ScreenContext.displayName ||= 'ScreenContext' } catch {}
-try{ ScreenSizeProvider.displayName ||= 'ScreenSizeProvider' } catch {}
+try{ (ScreenSizeProvider as any).displayName ||= 'ScreenSizeProvider' } catch {}
