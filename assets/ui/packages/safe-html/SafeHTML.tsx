@@ -92,7 +92,7 @@ function getSafeHTMLAndProps<T>(propsWithHtml: PropsWithHTML<T>) {
  * `unverifiedHTML` supports arbitrary strings; they will be run through
  * DOMPurify before being put in the DOM.
  */
-export const SafeHTMLBox = withSafeHTML<BoxProps>(Box) as PolymorphicForwardRefComponent<
+export const SafeHTMLBox = withSafeHTML<BoxProps>(Box) as PolymorphicForwardRefComponent <
   'div' | 'span' | 'pre' | 'table' | 'tbody' | 'tr' | 'td' | 'ul' | 'ol' | 'li',
   PropsWithHTML<BoxProps>
 >
@@ -116,6 +116,7 @@ export const SafeHTMLText = withSafeHTML<TextProps>(Text) as PolymorphicForwardR
 >
 SafeHTMLText.displayName = 'SafeHTMLText'
 
+let SafeHTMLComponent: any
 /**
  * A higher-order component that extends a basic component by offering
  * `html` and `unverifiedHTML` props that are safe alternatives to `dangerouslySetInnerHTML`.
@@ -123,11 +124,12 @@ SafeHTMLText.displayName = 'SafeHTMLText'
 function withSafeHTML<T>(Component: React.ComponentType<T>) {
   // We give these display names above
   // eslint-disable-next-line react/display-name
-  const SafeHTMLComponent = forwardRef<HTMLSpanElement, PropsWithHTML<T>>((propsWithHtml, ref) => {
+  SafeHTMLComponent = forwardRef<HTMLSpanElement, PropsWithHTML<T>>((propsWithHtml, ref) => {
     const {safeHTML, props} = getSafeHTMLAndProps(propsWithHtml)
     // This is the only place in the codebase where `dangerouslySetInnerHTML` should be allowed
     // eslint-disable-next-line react/forbid-component-props
-    return <Component ref={ref} {...props} dangerouslySetInnerHTML={safeHTML ? {__html: safeHTML} : undefined} />
+    return <Component ref={ref} {...props as T} dangerouslySetInnerHTML={safeHTML ? {__html: safeHTML} :
+    undefined} />
   })
 
   return SafeHTMLComponent
@@ -153,5 +155,5 @@ export const SafeHTMLDiv = forwardRef<
   return <div ref={ref} {...props} dangerouslySetInnerHTML={safeHTML ? {__html: safeHTML} : undefined} />
 })
 SafeHTMLDiv.displayName = 'SafeHTMLDiv'
-
+// ( as any)
 try{ SafeHTMLComponent.displayName ||= 'SafeHTMLComponent' } catch {}
