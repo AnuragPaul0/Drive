@@ -1,38 +1,7 @@
-// import {useCurrentRepository} from '@github-ui/current-repository'
-
-// import {FileTreeControlProvider, ReposFileTreePane, useTreePane} from '@github-ui/repos-file-tree-view'
-
-// import {ScreenSize} from '@github-ui/screen-size'
-
-// import {useCodeViewOptions} from '@github-ui/use-code-view-options'
-
-// import {useDisableUserContentScrolling} from '@github-ui/use-disable-user-content-scrolling'
-// import {useHideFooter} from '@github-ui/use-hide-footer'
-// import {Box, Heading, SplitPageLayout} from '@primer/react'
-
 import React
 // , {lazy, Suspense, useCallback, useEffect, useState}
 from 'react'
-
-// import {symbolsHeaderId} from '../components/blob/BlobContent/CodeNav/CodeNavSymbolNavigation'
-// import {ScrollMarksContainer} from '../components/blob/BlobContent/CodeNav/ScrollMarksContainer'
-
-// import {BlobViewContent} from '../components/BlobViewContent' big
-// import CodeViewBanners from '../components/CodeViewBanners'
-// import {DeleteViewContent} from '../components/delete/DeleteViewContent'
-// import FileTreeViewContent from '../components/FileTreeViewContent'
 import CodeViewHeader from '../components/headers/CodeViewHeader'
-// import {LoadingFallback} from '../components/SuspenseFallback'
-// import {DeferredASTProvider, useLoadDeferredAST} from '../contexts/DeferredASTContext'
-// import {DeferredMetadataProvider, useLoadDeferredMetadata} from '../contexts/DeferredMetadataContext'
-// import {FindInFileOpenProvider} from '../contexts/FindInFileOpenContext'
-// import {useUpdatePanelExpandPreferences} from '../hooks/use-update-panel-expand-preferences'
-
-// import {textAreaId} from '../utilities/lines'
-
-// const isTreeExpanded = true
-
-// BlobEditor = lazy(() => import('../components/blob-edit/BlobEditor'))
 
 export default function CodeView(
 // {
