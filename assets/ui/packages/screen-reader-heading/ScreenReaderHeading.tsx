@@ -13,4 +13,4 @@ export function ScreenReaderHeading({as, text, ...props}: ScreenReaderHeadingPro
   )
 }
 
-try{ ScreenReaderHeading.displayName ||= 'ScreenReaderHeading' } catch {}
+try{ (ScreenReaderHeading as any).displayName ||= 'ScreenReaderHeading' } catch {}
