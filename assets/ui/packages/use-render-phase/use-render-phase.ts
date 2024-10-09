@@ -1,5 +1,5 @@
-import {RenderPhaseContext, RenderPhase} from '@github-ui/render-phase-provider'
-import {useContext} from 'react'
+// import {RenderPhaseContext, RenderPhase} from '@github-ui/render-phase-provider'
+// import {useContext} from 'react'
 
 /**
  * @package
@@ -12,9 +12,9 @@ import {useContext} from 'react'
  * - During SSR, there are three distinct phases of rendering: `ServerRender`, `ClientHydrate` and `ClientRender`.
  * - During CSR, there is only one phase: `ClientRender`.
  */
-export function useRenderPhase() {
-  const renderPhase = useContext(RenderPhaseContext)
-  return renderPhase
-}
+// export function useRenderPhase() {
+//   const renderPhase = useContext(RenderPhaseContext)
+//   return renderPhase
+// }
 
-export {RenderPhase}
+// export {RenderPhase}
