@@ -4,7 +4,7 @@ import {useShortcut} from '@github-ui/code-view-shared/hooks/shortcuts'
 import {useClientValue} from '@github-ui/use-client-value'
 import {ArrowLeftIcon} from '@primer/octicons-react'
 import {Button, type ButtonProps} from '@primer/react'
-import type {TooltipProps} from '@primer/react/deprecated'
+// import type {TooltipProps} from '@primer/react/deprecated'
 import React from 'react'
 
 export interface ExpandFileTreeButtonProps extends Pick<ButtonProps, 'variant'> {
@@ -14,7 +14,7 @@ export interface ExpandFileTreeButtonProps extends Pick<ButtonProps, 'variant'> 
   ariaControls: string
   textAreaId: string
   useFilesButtonBreakpoint?: boolean
-  getTooltipDirection?: (expanded?: boolean) => TooltipProps['direction']
+  // getTooltipDirection?: (expanded?: boolean) => TooltipProps['direction']
 }
 
 export const ExpandFileTreeButton = React.forwardRef(
@@ -22,18 +22,18 @@ export const ExpandFileTreeButton = React.forwardRef(
     {
       expanded,
       onToggleExpanded,
-      className,
-      ariaControls,
+      // className,
+      // ariaControls,
       textAreaId,
       useFilesButtonBreakpoint = true,
       variant,
-      getTooltipDirection,
+      // getTooltipDirection,
     }: ExpandFileTreeButtonProps,
     ref: React.ForwardedRef<HTMLButtonElement>,
   ) => {
     const {toggleTreeShortcut} = useShortcut()
     const [isSSR] = useClientValue(() => false, true, [])
-    const tooltipDirection = getTooltipDirection?.(expanded) ?? 'se'
+    // const tooltipDirection = getTooltipDirection?.(expanded) ?? 'se'
 
     return (
       <>
