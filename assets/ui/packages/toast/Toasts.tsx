@@ -37,4 +37,4 @@ export function Toasts() {
   )
 }
 
-try{ Toasts.displayName ||= 'Toasts' } catch {}
+try{ (Toasts as any).displayName ||= 'Toasts' } catch {}
