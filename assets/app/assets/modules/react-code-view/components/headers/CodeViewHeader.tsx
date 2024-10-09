@@ -1,22 +1,3 @@
-// import {AddFileDropdownButton} from '@github-ui/code-view-shared/components/AddFileDropdownButton'
-// import {DuplicateOnKeydownButton} from '@github-ui/code-view-shared/components/DuplicateOnKeydownButton'
-// import FileResultsList from '@github-ui/code-view-shared/components/files-search/FileResultsList'
-// anchoroverlay primer
-// import {ReposHeaderRefSelector} from '@github-ui/code-view-shared/components/ReposHeaderRefSelector'
-// import {useFilesPageInfo, useReposAppPayload} from '@github-ui/code-view-shared/contexts/FilesPageInfoContext'
-// import {useShortcut} from '@github-ui/code-view-shared/hooks/shortcuts'
-// import {useReposAnalytics} from '@github-ui/code-view-shared/hooks/use-repos-analytics'
-// import {useUrlCreator} from '@github-ui/code-view-shared/hooks/use-url-creator'
-// import {type FilePagePayload, isBlobPayload, isDeletePayload, isTreePayload} from '@github-ui/code-view-types'
-// import {useCurrentRepository} from '@github-ui/current-repository'
-// import {repositoryTreePath} from '@github-ui/paths'
-// import {Link} from '@github-ui/react-core/link'
-// import {FindFilesShortcut} from '@github-ui/repos-file-tree-view'
-// import {ScreenReaderHeading} from '@github-ui/screen-reader-heading'
-// eslint-disable-next-line no-restricted-imports
-// import {useToastContext} from '@github-ui/toast/ToastContext'
-// import {useCodeViewOptions} from '@github-ui/use-code-view-options'
-// import {KebabHorizontalIcon, PlusIcon, UploadIcon} from '@primer/octicons-react'
 import {
   // ActionList, ActionMenu,
   Box

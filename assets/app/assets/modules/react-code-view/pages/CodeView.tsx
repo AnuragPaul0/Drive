@@ -1,31 +1,3 @@
-// import {CodeViewError} from '@github-ui/code-view-shared/components/CodeViewError'
-// unused
-// import {DuplicateOnKeydownButton} from '@github-ui/code-view-shared/components/DuplicateOnKeydownButton'
-// import {AllShortcutsEnabledProvider} from '@github-ui/code-view-shared/contexts/AllShortcutsEnabledContext'
-// import {CodeViewBannersProvider} from '@github-ui/code-view-shared/contexts/CodeViewBannersContext'
-// import {FileQueryProvider} from '@github-ui/code-view-shared/contexts/FileQueryContext'
-
-// import {
-//   type FilesPageAction,
-//   FilesPageInfoProvider,
-//   useReposAppPayload,
-// } from '@github-ui/code-view-shared/contexts/FilesPageInfoContext'
-// import {OpenPanelProvider} from '@github-ui/code-view-shared/contexts/OpenPanelContext'
-// import {useShortcut} from '@github-ui/code-view-shared/hooks/shortcuts'
-
-// import {useCanonicalObject} from '@github-ui/code-view-shared/hooks/use-canonical-object'
-// import {useFilePagePayload} from '@github-ui/code-view-shared/hooks/use-file-page-payload'
-// import {useUrlCreator} from '@github-ui/code-view-shared/hooks/use-url-creator'
-// import {extractFileTree} from '@github-ui/code-view-shared/utilities/make-payload'
-// import {
-//   type FilePagePayload,
-//   isBlamePayload,
-//   isBlobPayload,
-//   isDeletePayload,
-//   isEditPayload,
-//   isTreePayload,
-// } from '@github-ui/code-view-types'
-
 // import {useCurrentRepository} from '@github-ui/current-repository'
 
 // import {FileTreeControlProvider, ReposFileTreePane, useTreePane} from '@github-ui/repos-file-tree-view'
