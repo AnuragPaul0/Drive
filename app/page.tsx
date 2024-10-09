@@ -1,5 +1,6 @@
 'use client'
 import localFont from "next/font/local"
+import CodeViewHeader from '@g-assets/modules/react-code-view/components/headers/CodeViewHeader'
 // import '@github/clipboard-copy-element'
 
 const geistSans = localFont ( { src: "./fonts/GeistVF.woff", variable: "--font-geist-sans",
@@ -9,7 +10,7 @@ const geistMono = localFont( { src: "./fonts/GeistMonoVF.woff", variable: "--fon
 weight: "100 900" } )
 
 // , copied = 0 
-// let p = 0;
+// let p = 0
 
 export default function Home() {
   return <body aria-describedby=":Rdd9lab:"

@@ -1,8 +1,8 @@
-import type {Repository} from '@github-ui/current-repository'
-import type {StylingDirectivesLine} from '@github-ui/code-view-types'
+// import type {Repository} from '@github-ui/current-repository'
+// import type {StylingDirectivesLine} from '@github-ui/code-view-types'
 // import {blamePath, blobPath} from '@github-ui/paths'
 // import type {RefInfo} from '@github-ui/repos-types'
-import type {SafeHTMLString} from '@github-ui/safe-html'
+// import type {SafeHTMLString} from '@github-ui/safe-html'
 
 interface Position {
   line: number

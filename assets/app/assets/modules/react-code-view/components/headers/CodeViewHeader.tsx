@@ -4,7 +4,7 @@
 // anchoroverlay primer
 // import {ReposHeaderRefSelector} from '@github-ui/code-view-shared/components/ReposHeaderRefSelector'
 // import {useFilesPageInfo, useReposAppPayload} from '@github-ui/code-view-shared/contexts/FilesPageInfoContext'
-import {useShortcut} from '@github-ui/code-view-shared/hooks/shortcuts'
+// import {useShortcut} from '@github-ui/code-view-shared/hooks/shortcuts'
 // import {useReposAnalytics} from '@github-ui/code-view-shared/hooks/use-repos-analytics'
 // import {useUrlCreator} from '@github-ui/code-view-shared/hooks/use-url-creator'
 // import {type FilePagePayload, isBlobPayload, isDeletePayload, isTreePayload} from '@github-ui/code-view-types'
@@ -17,15 +17,19 @@ import {useShortcut} from '@github-ui/code-view-shared/hooks/shortcuts'
 // import {useToastContext} from '@github-ui/toast/ToastContext'
 // import {useCodeViewOptions} from '@github-ui/use-code-view-options'
 // import {KebabHorizontalIcon, PlusIcon, UploadIcon} from '@primer/octicons-react'
-import {ActionList, ActionMenu, Box, Button, IconButton, Link as PrimerLink} from '@primer/react'
+import {
+  // ActionList, ActionMenu,
+  Box
+  // , Button, IconButton, Link as PrimerLink
+} from '@primer/react'
 // import {useRef} from 'react'
 
 // eslint-disable-next-line no-restricted-imports
-import {copyText} from '../../../github/command-palette/copy'
+// import {copyText} from '../../../github/command-palette/copy'
 // import {useAlertTooltip} from '../../../react-shared/hooks/use-alert-tooltip'
 // import {CurrentBlobProvider} from '../../hooks/CurrentBlob'
 // import {useCopyRawBlobContents} from '../../hooks/use-copy-raw-blob-contents'
-import {KeyboardVisual} from '../../utilities/KeyboardVisual'
+// import {KeyboardVisual} from '../../utilities/KeyboardVisual'
 // import {textAreaId} from '../../utilities/lines'
 // import {useWorkflowRedirectUrl} from '../blob/BlobNavigationButtons'
 // import {DeleteDirectoryItem} from '../directory/TreeOverflowMenu'
@@ -49,8 +53,7 @@ export default function CodeViewHeader({
 }) {
   // const {codeCenterOption} = useCodeViewOptions()
 
-  return (
-    <Box className="container" sx={{width: '100%'}}>
+  return <Box className="container" sx={{width: '100%'}}>
       <div className="px-3 pt-3 pb-0" id="StickyHeader">
         <Box sx={{display: 'flex', gap: 2, flexDirection: 'column', width: '100%'}}>
           <Box sx={{display: 'flex', alignItems: 'start', justifyContent: 'space-between', gap: 2}}>
@@ -128,9 +131,7 @@ export default function CodeViewHeader({
           </Box>
         </Box>
       </div>
-    </Box>
-  )
-}
+</Box> }
 
 // function PageActions({
 //   payload,
