@@ -96,4 +96,4 @@ export function useToastContext() {
 
 try{ ToastContext.displayName ||= 'ToastContext' } catch {}
 try{ InternalToastsContext.displayName ||= 'InternalToastsContext' } catch {}
-try{ ToastContextProvider.displayName ||= 'ToastContextProvider' } catch {}
+try{ (ToastContextProvider as any).displayName ||= 'ToastContextProvider' } catch {}
