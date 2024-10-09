@@ -1,6 +1,6 @@
 'use client'
 import localFont from "next/font/local"
-import CodeViewHeader from '@g-assets/modules/react-code-view/components/headers/CodeViewHeader'
+import CodeView from '@g-assets/modules/react-code-view/pages/CodeView'
 // import '@github/clipboard-copy-element'
 
 const geistSans = localFont ( { src: "./fonts/GeistVF.woff", variable: "--font-geist-sans",
@@ -19,7 +19,7 @@ export default function Home() {
         autoComplete="off" maxLength={240} className="s-input s-input__search js-search-field wmn1"
         aria-label="Search" aria-controls="top-search" data-controller="s-popover"
         data-action="focus->s-popover#show" data-s-popover-placement="bottom-start"
-    aria-expanded="false"/>
+    aria-expanded="false"/><CodeView/>
     {/* <span data-view-component="true">
       <clipboard-copy id="clipboard-button" aria-label="Copy" type="button" value="Text to copy"
         data-view-component="true" class="Button--secondary Button--medium Button">

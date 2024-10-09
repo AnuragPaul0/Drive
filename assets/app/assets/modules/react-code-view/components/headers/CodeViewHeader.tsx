@@ -38,7 +38,8 @@ import {
 // import {OptionsElement} from './header-components/SettingsMenuItems'
 import {ReposHeaderBreadcrumb} from './ReposHeaderBreadcrumb'
 
-export default function CodeViewHeader({
+export default function CodeViewHeader(
+  {
   // payload,
   showTree,
   // treeToggleElement,
@@ -47,10 +48,11 @@ export default function CodeViewHeader({
 }: {
   // payload: FilePagePayload
   showTree: boolean
-  treeToggleElement: JSX.Element
-  validCodeNav: boolean
-  onFindFilesShortcut?: () => void
-}) {
+  // treeToggleElement: JSX.Element
+  // validCodeNav: boolean
+  // onFindFilesShortcut?: () => void
+}
+) {
   // const {codeCenterOption} = useCodeViewOptions()
 
   return <Box className="container" sx={{width: '100%'}}>
