@@ -14,9 +14,7 @@ export function ReposHeaderBreadcrumb({
   showCopyPathButton?: boolean
 }) {
   const repo = useCurrentRepository()
-  const {
-    // refInfo,
-    path, action} = useFilesPageInfo()
+  const { path, action} = useFilesPageInfo()
 
   return (
     <>
