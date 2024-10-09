@@ -1,37 +1,13 @@
-import {
-  // ActionList, ActionMenu,
-  Box
-  // , Button, IconButton, Link as PrimerLink
-} from '@primer/react'
-// import {useRef} from 'react'
-
-// eslint-disable-next-line no-restricted-imports
-// import {copyText} from '../../../github/command-palette/copy'
-// import {useAlertTooltip} from '../../../react-shared/hooks/use-alert-tooltip'
-// import {CurrentBlobProvider} from '../../hooks/CurrentBlob'
-// import {useCopyRawBlobContents} from '../../hooks/use-copy-raw-blob-contents'
-// import {KeyboardVisual} from '../../utilities/KeyboardVisual'
-// import {textAreaId} from '../../utilities/lines'
-// import {useWorkflowRedirectUrl} from '../blob/BlobNavigationButtons'
-// import {DeleteDirectoryItem} from '../directory/TreeOverflowMenu'
-// import {DeleteHeaderButtons} from './header-components/DeleteHeaderButtons'
-// import NavigationMenu from './header-components/NavigationMenu'
-// import {OptionsElement} from './header-components/SettingsMenuItems'
+import { Box } from '@primer/react'
 import {ReposHeaderBreadcrumb} from './ReposHeaderBreadcrumb'
 
 export default function CodeViewHeader(
   {
   // payload,
-  showTree,
-  // treeToggleElement,
-  // validCodeNav,
-  // onFindFilesShortcut,
+  showTree
 }: {
   // payload: FilePagePayload
   showTree: boolean
-  // treeToggleElement: JSX.Element
-  // validCodeNav: boolean
-  // onFindFilesShortcut?: () => void
 }
 ) {
   // const {codeCenterOption} = useCodeViewOptions()
