@@ -1,6 +1,6 @@
 import {CheckIcon} from '@primer/octicons-react'
 import {ActionList, Label} from '@primer/react'
-import {Octicon} from '@primer/react/deprecated'
+// import {Octicon} from '@primer/react/deprecated'
 import React from 'react'
 
 import {HighlightedText} from './HighlightedText'
@@ -65,9 +65,9 @@ export const RefItemContent = React.memo(function RefItemInner({
   return (
     <div style={{display: 'flex', justifyContent: 'space-between'}}>
       <div style={{display: 'flex', minWidth: 0, alignItems: 'flex-end'}}>
-        {showLeadingVisual && (
+        {/* {showLeadingVisual && (
           <Octicon icon={CheckIcon} aria-hidden sx={{pr: 1, visibility: isCurrent ? undefined : 'hidden'}} />
-        )}
+        )} */}
         <HighlightedText key={gitRef} hideOverflow search={filterText} text={gitRef} />
       </div>
       {isDefault && <Label>default</Label>}
