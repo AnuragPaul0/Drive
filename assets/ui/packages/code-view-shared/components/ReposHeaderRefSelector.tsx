@@ -6,7 +6,7 @@ import type {ButtonProps} from '@primer/react'
 import {useRefCreateErrorHandling} from '../hooks/use-ref-create-error-handling'
 import {useFilesPageInfo} from '../contexts/FilesPageInfoContext'
 import {useShortcut} from '../hooks/shortcuts'
-import {useReposAnalytics} from '../hooks/use-repos-analytics'
+// import {useReposAnalytics} from '../hooks/use-repos-analytics'
 
 export function ReposHeaderRefSelector({
   size,
@@ -20,11 +20,11 @@ export function ReposHeaderRefSelector({
   idEnding?: string
 }) {
   const repo = useCurrentRepository()
-  const {
+  // const {
     // refInfo,
-    path, action} = useFilesPageInfo()
+    // path, action} = useFilesPageInfo()
   const onCreateError = useRefCreateErrorHandling()
-  const {sendRepoClickEvent} = useReposAnalytics()
+  // const {sendRepoClickEvent} = useReposAnalytics()
   const {refSelectorShortcut} = useShortcut()
 
   return (
@@ -40,9 +40,9 @@ export function ReposHeaderRefSelector({
       //   // , commitish: refName
       //   , action, path})}${window.location.search}`}
       hotKey={refSelectorShortcut.hotkey}
-      onBeforeCreate={refName => sendRepoClickEvent('REF_SELECTOR_MENU.CREATE_BRANCH', {['ref_name']: refName})}
+      // onBeforeCreate={refName => sendRepoClickEvent('REF_SELECTOR_MENU.CREATE_BRANCH', {['ref_name']: refName})}
       onCreateError={onCreateError}
-      onOpenChange={open => open && sendRepoClickEvent('REF_SELECTOR_MENU')}
+      // onOpenChange={open => open && sendRepoClickEvent('REF_SELECTOR_MENU')}
       size={size}
       buttonClassName={buttonClassName}
       allowResizing={allowResizing}
