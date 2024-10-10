@@ -1,4 +1,5 @@
 // import {CodeViewBannersProvider} from '@github-ui/code-view-shared/contexts/CodeViewBannersContext'
+import {FileQueryProvider} from '@github-ui/code-view-shared/contexts/FileQueryContext'
 import {OpenPanelProvider} from '@github-ui/code-view-shared/contexts/OpenPanelContext'
 // import {
 //   // FileTreeControlProvider,
@@ -18,7 +19,9 @@ export default function CodeView(
     openPanelRef = React.useRef<string | undefined>()
   return (
   // <h1 id="file-name-id-wide">.eslintrc.json</h1>
-  <OpenPanelProvider
+  
+  <div>
+  <FileQueryProvider><OpenPanelProvider
     // payload={payload}
     openPanelRef={openPanelRef}>
     <SplitPageLayout><Box ref={treeRef} tabIndex={0} sx={{width: ['100%', '100%', 'auto']}}>
@@ -49,8 +52,7 @@ export default function CodeView(
         </Box>
       }
     /> */}
-  </Box><SplitPageLayout.Content as="div"
-                        padding="none"
+  </Box><SplitPageLayout.Content as="div" padding="none"
                         width={codeCenterOption.enabled ? 'xlarge' : 'full'}
                         hidden={{narrow: isTreeExpanded}}
                         sx={{
@@ -60,8 +62,7 @@ export default function CodeView(
                           },
                         }}
                       >
-                        <Box
-                          sx={{
+                        <Box sx={{
                             marginLeft: 'auto',
                             marginRight: 'auto',
                             flexDirection: 'column',
@@ -89,5 +90,6 @@ export default function CodeView(
                         </Box>
                        </SplitPageLayout.Content>
   </SplitPageLayout></OpenPanelProvider>
+  </FileQueryProvider></div>
   ) }
 try{ (CodeView as any).displayName ||= 'CodeView' } catch {}
