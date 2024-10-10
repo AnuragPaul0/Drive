@@ -5,7 +5,7 @@ import {FileQueryProvider} from '@github-ui/code-view-shared/contexts/FileQueryC
 import {OpenPanelProvider} from '@github-ui/code-view-shared/contexts/OpenPanelContext'
 // import {
 //   // FileTreeControlProvider,
-//   ReposFileTreePane
+//   ReposFileTreePane nc b
 //   // , useTreePane
 // } from '@github-ui/repos-file-tree-view'
 import {useCodeViewOptions} from '@github-ui/use-code-view-options'
@@ -64,8 +64,7 @@ export default function CodeView(
                           '@media print': {
                             display: 'flex !important',
                           },
-                        }}
-                      >
+                        }}>
                         <Box sx={{
                             marginLeft: 'auto',
                             marginRight: 'auto',
