@@ -1,3 +1,6 @@
+
+import {AllShortcutsEnabledProvider} from
+  '@github-ui/code-view-shared/contexts/AllShortcutsEnabledContext'
 // import {CodeViewBannersProvider} from '@github-ui/code-view-shared/contexts/CodeViewBannersContext'
 import {FileQueryProvider} from '@github-ui/code-view-shared/contexts/FileQueryContext'
 import {OpenPanelProvider} from '@github-ui/code-view-shared/contexts/OpenPanelContext'
@@ -19,9 +22,11 @@ export default function CodeView(
     openPanelRef = React.useRef<string | undefined>()
   return (
   // <h1 id="file-name-id-wide">.eslintrc.json</h1>
-  
-  <div>
-  <FileQueryProvider><OpenPanelProvider
+  <AllShortcutsEnabledProvider allShortcutsEnabled={!0
+    // payload.allShortcutsEnabled
+    }>
+            {/* <FileTreeControlProvider> */}
+              <div><FileQueryProvider><OpenPanelProvider
     // payload={payload}
     openPanelRef={openPanelRef}>
     <SplitPageLayout><Box ref={treeRef} tabIndex={0} sx={{width: ['100%', '100%', 'auto']}}>
@@ -91,5 +96,7 @@ export default function CodeView(
                        </SplitPageLayout.Content>
   </SplitPageLayout></OpenPanelProvider>
   </FileQueryProvider></div>
+            {/* </FileTreeControlProvider> */}
+          </AllShortcutsEnabledProvider>
   ) }
 try{ (CodeView as any).displayName ||= 'CodeView' } catch {}
