@@ -1,373 +1,177 @@
 // main button
 // import {ReposHeaderRefSelector} from '@github-ui/code-view-shared/components/ReposHeaderRefSelector'
-import {useFileQueryContext} from '@github-ui/code-view-shared/contexts/FileQueryContext'
-import {useOpenPanel} from '@github-ui/code-view-shared/contexts/OpenPanelContext'
-// import {useUrlCreator} from '@github-ui/code-view-shared/hooks/use-url-creator'
-import {ScreenSize , useScreenSize} from '@github-ui/screen-size'
-// import type {CollapseTreeFunction, DirectoryItem, ReposFileTreeData} from '@github-ui/code-view-types'
-import type {Repository} from '@github-ui/current-repository'
 
-import {useClientValue} from '@github-ui/use-client-value'
-// import {useCodeViewOptions} from '@github-ui/use-code-view-options'
+// import {useFileQueryContext} from '@github-ui/code-view-shared/contexts/FileQueryContext'
+// import {useOpenPanel} from '@github-ui/code-view-shared/contexts/OpenPanelContext'
+// import {ScreenSize , useScreenSize} from '@github-ui/screen-size'
+// import type {Repository} from '@github-ui/current-repository'
+
+// import {useClientValue} from '@github-ui/use-client-value'
 // import {verifiedFetchJSON} from '@github-ui/verified-fetch' nr
 
-import {scrollIntoView} from '@primer/behaviors'
-// import {AlertFillIcon, PlusIcon} from '@primer/octicons-react'
+// import {scrollIntoView} from '@primer/behaviors'
 import {Box
   // , IconButton
   // , Overlay
   , SplitPageLayout
 } from '@primer/react'
-// // import {Octicon, Tooltip} from '@primer/react/deprecated'
-import type {BetterSystemStyleObject} from '@primer/react/lib-esm/sx'
-import React
-// , {useMemo}
-from 'react'
-// import {createHtmlPortalNode, InPortal, OutPortal} from 'react-reverse-portal'
+// import type {BetterSystemStyleObject} from '@primer/react/lib-esm/sx'
+import React from 'react'
 
-// import FileTreeContext from '../contexts/FileTreeContext'
-
-// import type {TreeItem} from '../types/tree-item' na
-
-// import {FindFilesShortcut} from './FindFilesShortcut'
-// import {buildReposFileTree, ReposFileTreeView} from './ReposFileTreeView'
-// import SearchButton from './SearchButton'
-
-export const TreeOverlayBreakpoint = ScreenSize.xxxlarge
+// export const TreeOverlayBreakpoint = ScreenSize.xxxlarge
 
 export function ReposFileTreePane({
-  // clientOnlyFilePaths,
-  // collapseTree,
-  showTree,
-  // fileTree,
-  // treeToggleElement,
-  // treeToggleRef,
-  // onItemSelected,
-  // processingTime,
-  // searchBoxRef,
-  // repo,
-  // path,
-  // refInfo,
-  // isFilePath,
-  // foldersToFetch,
-  id,
-  // onFindFilesShortcut,
-  // textAreaId,
-  // getItemUrlOverride,
-  headerSx,
-  // paneSx,
-  paneContentsSx,
-  // treeContainerSx,
-  // findFileWorkerPath,
-  headerContent,
-  // getFileTrailingVisual,
-  // getFileIcon,
-  // sortDirectoryItems,
-  // showFindFile = true,
-  // directoryNavigateOnClick = true,
-  showRefSelectorRow = true,
-  // paneResizable = true,
+  // showTree,
+  // id,
+  // headerSx,
+  // paneContentsSx,
+  // headerContent,
+  // showRefSelectorRow = true
 }: {
-  // clientOnlyFilePaths?: string[]
-  // collapseTree: CollapseTreeFunction
-  showTree: boolean
-  // fileTree: ReposFileTreeData
-  // onItemSelected: () => void
-  // processingTime: number
-  // treeToggleElement?: JSX.Element
-  // treeToggleRef: React.RefObject<HTMLButtonElement>
-  // searchBoxRef: React.RefObject<HTMLInputElement>
-  repo: Repository
-  // path: string
-  // refInfo: RefInfo
-  isFilePath: boolean
-  // foldersToFetch: string[]
-  id: string
-  // onFindFilesShortcut: () => void
-  // textAreaId: string
-  // getItemUrlOverride?: (item: DirectoryItem) => string
-  // sortDirectoryItems?: (items: Array<TreeItem<DirectoryItem>>) => void
-  headerSx?: BetterSystemStyleObject
-  // paneSx?: BetterSystemStyleObject
-  paneContentsSx?: BetterSystemStyleObject
-  // treeContainerSx?: BetterSystemStyleObject
-  // findFileWorkerPath?: string
-  headerContent?: JSX.Element
-  // getFileTrailingVisual?: (item: DirectoryItem) =>
-  //   | {
-  //       trailingVisual: JSX.Element
-  //       screenReaderText?: string
-  //     }
-  //   | undefined
-  // getFileIcon?: (item: DirectoryItem) => JSX.Element | null
-  // showFindFile?: boolean
-  // directoryNavigateOnClick?: boolean
-  showRefSelectorRow?: boolean
-  // paneResizable?: boolean
+  // showTree: boolean
+  // repo: Repository
+  // isFilePath: boolean
+  // id: string
+  // headerSx?: BetterSystemStyleObject
+  // paneContentsSx?: BetterSystemStyleObject
+  // headerContent?: JSX.Element
+  // showRefSelectorRow?: boolean
 }) {
-  // if (showFindFile && findFileWorkerPath === undefined) {
-  //   throw new Error('findFileWorkerPath must be provided when showFindFile is true')
-  // }
 
-  const {openPanel} = useOpenPanel()
-  // const [treeLoading, setTreeLoading] = React.useState(foldersToFetch.length > 0)
-  // const [fetchError, setFetchError] = React.useState(false)
-  // const fetchedFolders = React.useRef<string[]>([])
-  const scrollingRef = React.useRef<HTMLDivElement | null>(null)
-  // const hasAttemptedToFetchFolders = React.useRef(false)
-  // const ignoreNextScroll = React.useRef(false)
-  const selectedElement = React.useRef<HTMLElement | null>(null)
-  const {query} = useFileQueryContext()
-  // const {codeCenterOption} = useCodeViewOptions()
-  // const lastOpenPanel = React.useRef(openPanel)
-  const [isSSR] = useClientValue(() => false, true, [])
-  // const {getItemUrl} = useUrlCreator()
-  // const getTreeItemUrl = getItemUrlOverride || getItemUrl
-
-  // let initialRenderRootItems: Array<TreeItem<DirectoryItem>> = []
-  // const newKnownFolders = new Map<string, TreeItem<DirectoryItem>>()
-
-  // const hasDoneInitialRender = React.useRef(treeLoading)
-  // if (!hasDoneInitialRender.current && fileTree) {
-  //   // const newKnownRootItems: Array<TreeItem<DirectoryItem>> = []
-  //   // const resultingTree = buildReposFileTree(fileTree, newKnownFolders, newKnownRootItems, sortDirectoryItems)
-  //   // initialRenderRootItems = resultingTree.newRootItems
-  // }
-  // hasDoneInitialRender.current = true
-  // const [knownFolders, dispatchKnownFolders] = React.useReducer(knownFolderReducer, newKnownFolders)
-  // const [rootItems, setRootItems] = React.useState<Array<TreeItem<DirectoryItem>>>(initialRenderRootItems)
-
-  React.useEffect(() => {
-    if (!showTree || !(!query || window.innerWidth >= ScreenSize.large)) {
-      selectedElement.current = null
-    }
-  }, [showTree, query])
-
+  // const {openPanel} = useOpenPanel()
+  // const scrollingRef = React.useRef<HTMLDivElement | null>(null)
+  // const selectedElement = React.useRef<HTMLElement | null>(null)
+  // const {query} = useFileQueryContext()
+  // const [isSSR] = useClientValue(() => false, true, [])
   // React.useEffect(() => {
-  //   if (openPanel && lastOpenPanel.current !== openPanel && window.innerWidth < TreeOverlayBreakpoint) {
-  //     collapseTree({setCookie: false})
+  //   if (!showTree || !(!query || window.innerWidth >= ScreenSize.large)) {
+  //     selectedElement.current = null
   //   }
-  //   lastOpenPanel.current = openPanel
-  // }, [collapseTree, openPanel])
+  // }, [showTree, query])
 
-  // const fetchFolder = React.useCallback(
-  //   async (folderPath: string) => {
-  //     const folder: DirectoryItem = {contentType: 'directory', path: folderPath, name: folderPath}
-  //     // const contentUrl = getItemUrl(folder)
-  //     try {
-  //       // const response = await verifiedFetchJSON(`${contentUrl}?noancestors=1`)
-  //       // if (response.ok) {
-  //       //   const folderPayload = await response.json()
-  //       //   const folderData = {
-  //       //     items: folderPayload.payload.tree.items,
-  //       //     totalCount: folderPayload.payload.tree.totalCount,
-  //       //   }
-  //       //   fileTree[folderPath] = folderData
-  //       // } else {
-  //       //   setFetchError(true)
-  //       // }
-  //     } catch {
-  //       setFetchError(true)
-  //     }
-  //     fetchedFolders.current.push(folderPath)
-  //     if (fetchedFolders.current.length === foldersToFetch.length) {
-  //       setTreeLoading(false)
-  //     }
-  //   },
-  //   [fileTree, foldersToFetch.length, getItemUrl],
-  // )
-
-  // React.useEffect(() => {
-  //   if (foldersToFetch && !hasAttemptedToFetchFolders.current) {
-  //     for (const folder of foldersToFetch) {
-  //       fetchFolder(folder)
-  //     }
-  //   }
-  //   hasAttemptedToFetchFolders.current = true
-  // }, [fetchFolder, foldersToFetch, knownFolders.size])
-
-  const focusActiveItem = React.useCallback(
-    (selectedItemElement: HTMLElement | null) => {
-      if (
-        showTree &&
-        (!query || window.innerWidth >= ScreenSize.large) &&
-        scrollingRef.current &&
-        selectedItemElement
-      ) {
-        // On becoming visible, the tree should scroll to the selected item
-        // Simulate "block: center" mode by adding an endMargin and startMargin of half the window height
-        scrollIntoView(selectedItemElement, scrollingRef.current, {
-          endMargin: window.innerHeight / 2,
-          startMargin: window.innerHeight / 2,
-          behavior: 'auto',
-        })
-      }
-    },
-    [query, showTree],
-  )
-
-  // const setSelectedItemRef = React.useCallback(
+  // const focusActiveItem = React.useCallback(
   //   (selectedItemElement: HTMLElement | null) => {
-  //     if (selectedItemElement && ignoreNextScroll.current) {
-  //       ignoreNextScroll.current = false
-  //     } else if (selectedElement.current !== selectedItemElement) {
-  //       focusActiveItem(selectedItemElement)
+  //     if (
+  //       showTree &&
+  //       (!query || window.innerWidth >= ScreenSize.large) &&
+  //       scrollingRef.current &&
+  //       selectedItemElement
+  //     ) {
+  //       // On becoming visible, the tree should scroll to the selected item
+  //       // Simulate "block: center" mode by adding an endMargin and startMargin of half the window height
+  //       scrollIntoView(selectedItemElement, scrollingRef.current, {
+  //         endMargin: window.innerHeight / 2,
+  //         startMargin: window.innerHeight / 2,
+  //         behavior: 'auto',
+  //       })
   //     }
-  //     selectedElement.current = selectedItemElement
   //   },
-  //   [focusActiveItem],
+  //   [query, showTree],
   // )
 
-  const setScrollingRef = React.useCallback(
-    (element: HTMLDivElement) => {
-      scrollingRef.current = element
-      const screenWidth = window.innerWidth
-      // When the tree is a pane, focus after the scrollable container renders.
-      if (screenWidth >= TreeOverlayBreakpoint) {
-        focusActiveItem(selectedElement.current)
-      }
-    },
-    [focusActiveItem],
-  )
-
-  // const setOverlayRef = React.useCallback(
+  // const setScrollingRef = React.useCallback(
   //   (element: HTMLDivElement) => {
-  //     // When the tree is in an overlay, we need to wait for the overlay container to mount
-  //     // before focusing the active element.
-  //     if (element) {
+  //     scrollingRef.current = element
+  //     const screenWidth = window.innerWidth
+  //     // When the tree is a pane, focus after the scrollable container renders.
+  //     if (screenWidth >= TreeOverlayBreakpoint) {
   //       focusActiveItem(selectedElement.current)
   //     }
   //   },
   //   [focusActiveItem],
   // )
 
-  const {screenSize} = useScreenSize()
-  const showTreeOverlay =
-    !isSSR &&
-    ((openPanel && screenSize < TreeOverlayBreakpoint) || screenSize < ScreenSize.xlarge) &&
-    screenSize >= ScreenSize.large
-
-  // const onTreeItemSelected = React.useCallback(() => {
-  //   if (!showTreeOverlay) {
-  //     onItemSelected()
-  //   }
-  //   ignoreNextScroll.current = true
-  // }, [onItemSelected, showTreeOverlay])
-
-  // const displayNoneSx = !showTree ? {display: 'none'} : {}
-
-  // const parentDirPath = isFilePath ? path.substring(0, path.lastIndexOf('/')) : path
-
-  // const fileTreeContextValue = useMemo(() => {
-  //   return {knownFolders, dispatchKnownFolders}
-  // }, [knownFolders])
-
-  // These are the widths where the distance to the first header element is less than the header tree toggle's padding
-  // const marginToggleTreeDisplaySx = {
-  //   '@media screen and (min-width: 1360px)': {
-  //     display: 'block',
-  //   },
-  // }
-
-  // Create a portal node: this holds your rendered content
-  // const portalNode = React.useMemo(() => {
-  //   if (isSSR) {
-  //     return null
-  //   }
-  //   return createHtmlPortalNode()
-  // }, [isSSR])
-
-  // const exitOverlay = React.useCallback(() => {
-  //   if (window.innerWidth > ScreenSize.large && window.innerWidth < ScreenSize.xxxxlarge) {
-  //     collapseTree({setCookie: false})
-  //   }
-  // }, [collapseTree])
+  // const {screenSize} = useScreenSize()
+  // const showTreeOverlay =
+  //   !isSSR &&
+  //   ((openPanel && screenSize < TreeOverlayBreakpoint) || screenSize < ScreenSize.xlarge) &&
+  //   screenSize >= ScreenSize.large
 
   /* on the server during SSR, the expanded value will purely be whatever their saved
   setting is, which might be expanded. On mobile widths we don't ever default to
   having the tree expanded, so on the server we need to just hard code it to
   show the regular not expanded version of everything*/
-  const paneContents = (
-    <Box
-      id={id}
-      sx={{
-        maxHeight: '100%',
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        '@media screen and (max-width: 768px)': isSSR ? {display: 'none'} : undefined,
-        '@media screen and (min-width: 768px)': {
-          maxHeight: '100vh',
-          height: '100vh',
-        },
-        ...paneContentsSx,
-      }}
-    >
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          px: 3,
-          pb: 2,
-          pt: 3,
-          ...headerSx,
-        }}
-      >
-        {headerContent}
-        {showRefSelectorRow && (
-          <Box sx={{mx: 4, display: 'flex', width: '100%'}}>
-            <Box sx={{flexGrow: 1}}>
-              {/* <ReposHeaderRefSelector ddn btn
-                buttonClassName="react-repos-tree-pane-ref-selector width-full ref-selector-class"
-                allowResizing={true}
-              /> */}
-            </Box>
-            <Box
-              sx={{
-                ml: 2,
-                whiteSpace: 'nowrap',
-                '&:hover button:not(:hover)': {
-                  borderLeftColor: 'var(--button-default-borderColor-hover, var(--color-btn-hover-border))',
-                },
-              }}
-            >
-              {/* <SearchButton
-                sx={refInfo.canEdit ? {borderTopLeftRadius: 0, borderBottomLeftRadius: 0} : undefined}
-                onClick={exitOverlay}
-                textAreaId={textAreaId}
-              /> */}
-            </Box>
-          </Box>
-        )}
-      </Box>
-      <TreeBorder scrollingRef={scrollingRef} />
-      <Box
-        ref={setScrollingRef}
-        sx={{
-          flexGrow: 1,
-          maxHeight: '100% !important',
-          overflowY: 'auto',
-          '@media screen and (max-width: 768px)': isSSR ? {display: 'none'} : undefined,
-          scrollbarGutter: 'stable',
-        }}
-      ></Box>
-    </Box>
-  )
+  // const paneContents = (
+  //   <Box
+  //     id={id}
+  //     sx={{
+  //       maxHeight: '100%',
+  //       height: '100%',
+  //       display: 'flex',
+  //       flexDirection: 'column',
+  //       '@media screen and (max-width: 768px)': isSSR ? {display: 'none'} : undefined,
+  //       '@media screen and (min-width: 768px)': {
+  //         maxHeight: '100vh',
+  //         height: '100vh',
+  //       },
+  //       ...paneContentsSx,
+  //     }}
+  //   >
+  //     <Box
+  //       sx={{
+  //         display: 'flex',
+  //         flexDirection: 'column',
+  //         alignItems: 'center',
+  //         px: 3,
+  //         pb: 2,
+  //         pt: 3,
+  //         ...headerSx,
+  //       }}
+  //     >
+  //       {headerContent}
+  //       {showRefSelectorRow && (
+  //         <Box sx={{mx: 4, display: 'flex', width: '100%'}}>
+  //           <Box sx={{flexGrow: 1}}>
+  //             {/* <ReposHeaderRefSelector ddn btn
+  //               buttonClassName="react-repos-tree-pane-ref-selector width-full ref-selector-class"
+  //               allowResizing={true}
+  //             /> */}
+  //           </Box>
+  //           <Box
+  //             sx={{
+  //               ml: 2,
+  //               whiteSpace: 'nowrap',
+  //               '&:hover button:not(:hover)': {
+  //                 borderLeftColor: 'var(--button-default-borderColor-hover, var(--color-btn-hover-border))',
+  //               },
+  //             }}
+  //           >
+  //             {/* <SearchButton
+  //               sx={refInfo.canEdit ? {borderTopLeftRadius: 0, borderBottomLeftRadius: 0} : undefined}
+  //               onClick={exitOverlay}
+  //               textAreaId={textAreaId}
+  //             /> */}
+  //           </Box>
+  //         </Box>
+  //       )}
+  //     </Box>
+  //     <TreeBorder scrollingRef={scrollingRef} />
+  //     <Box
+  //       ref={setScrollingRef}
+  //       sx={{
+  //         flexGrow: 1,
+  //         maxHeight: '100% !important',
+  //         overflowY: 'auto',
+  //         '@media screen and (max-width: 768px)': isSSR ? {display: 'none'} : undefined,
+  //         scrollbarGutter: 'stable',
+  //       }}
+  //     ></Box>
+  //   </Box>
+  // )
 
-  const hidePaneSx =
-    showTreeOverlay || openPanel
-      ? {
-          // 1349 is TreeOverlayBreakpoint - 1
-          '@media print, screen and (max-width: 1349px) and (min-width: 768px)': {
-            display: 'none',
-          },
-        }
-      : {
-          '@media print, screen and (max-width: 1011px) and (min-width: 768px)': {
-            display: 'none',
-          },
-        }
+  // const hidePaneSx =
+  //   showTreeOverlay || openPanel
+  //     ? {
+  //         // 1349 is TreeOverlayBreakpoint - 1
+  //         '@media print, screen and (max-width: 1349px) and (min-width: 768px)': {
+  //           display: 'none',
+  //         },
+  //       }
+  //     : {
+  //         '@media print, screen and (max-width: 1011px) and (min-width: 768px)': {
+  //           display: 'none',
+  //         },
+  //       }
 
   return (
   <p>Hello.</p>)
@@ -442,37 +246,36 @@ export function ReposFileTreePane({
 //   }
 // }
 
-function TreeBorder({scrollingRef}: {scrollingRef: React.RefObject<HTMLDivElement>}) {
-  const [visible, setVisible] = React.useState(scrollingRef.current && scrollingRef.current.scrollTop > 0)
+// function TreeBorder({scrollingRef}: {scrollingRef: React.RefObject<HTMLDivElement>}) {
+//   const [visible, setVisible] = React.useState(scrollingRef.current && scrollingRef.current.scrollTop > 0)
 
-  React.useEffect(() => {
-    if (scrollingRef.current) {
-      const scrollElement = scrollingRef.current
-      const scrollHandler = () => {
-        if (scrollElement && scrollElement.scrollTop > 0) {
-          setVisible(true)
-        } else {
-          setVisible(false)
-        }
-      }
-      // eslint-disable-next-line github/prefer-observers
-      scrollElement.addEventListener('scroll', scrollHandler)
-      return () => {
-        scrollElement.removeEventListener('scroll', scrollHandler)
-      }
-    }
-  }, [scrollingRef])
+//   React.useEffect(() => {
+//     if (scrollingRef.current) {
+//       const scrollElement = scrollingRef.current
+//       const scrollHandler = () => {
+//         if (scrollElement && scrollElement.scrollTop > 0) {
+//           setVisible(true)
+//         } else {
+//           setVisible(false)
+//         }
+//       }
+//       // eslint-disable-next-line github/prefer-observers
+//       scrollElement.addEventListener('scroll', scrollHandler)
+//       return () => {
+//         scrollElement.removeEventListener('scroll', scrollHandler)
+//       }
+//     }
+//   }, [scrollingRef])
 
-  return visible ? (
-    <Box
-      sx={{
-        borderBottom: '1px solid',
-        borderColor: 'border.default',
-        boxShadow: '0 3px 8px rgba(0, 0, 0, 0.3)',
-      }}
-    />
-  ) : null
-}
+//   return visible ? (
+//     <Box
+//       sx={{
+//         borderBottom: '1px solid',
+//         borderColor: 'border.default',
+//         boxShadow: '0 3px 8px rgba(0, 0, 0, 0.3)',
+//       }}
+//     />
+//   ) : null
+// }
 
-// try{ ReposFileTreePane.displayName ||= 'ReposFileTreePane' } catch {}
-try{ (TreeBorder as any).displayName ||= 'TreeBorder' } catch {}
+// try{ (TreeBorder as any).displayName ||= 'TreeBorder' } catch {}
