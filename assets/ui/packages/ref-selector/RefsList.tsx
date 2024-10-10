@@ -1,6 +1,6 @@
 import {Box} from '@primer/react'
 
-import {FixedSizeVirtualList} from './FixedSizeVirtualList'
+// import {FixedSizeVirtualList} from './FixedSizeVirtualList'
 import {RefItem} from './RefItem'
 
 interface RefsListProps {
@@ -25,9 +25,9 @@ const maxHeight = 330
 /**
  * A list of refs that is virtualized to allow very large lists.
  */
-export function RefsList(props: RefsListProps) {
-  return props.refs.length > virtualizationThreshold ? <VirtualRefsList {...props} /> : <FullRefsList {...props} />
-}
+// export function RefsList(props: RefsListProps) {
+//   return props.refs.length > virtualizationThreshold ? <VirtualRefsList {...props} /> : <FullRefsList {...props} />
+// }
 
 /**
  * Non-virtual implementation, currentCommitish
@@ -53,31 +53,31 @@ function FullRefsList({refs, defaultBranch, getHref, filterText, onSelectItem}: 
   )
 }
 // , currentCommitish
-function VirtualRefsList({refs, defaultBranch, getHref, filterText, onSelectItem}: RefsListProps) {
-  return (
-    <FixedSizeVirtualList
-      items={refs}
-      itemHeight={32}
-      sx={{maxHeight, overflowY: 'auto'}}
-      makeKey={gitRef => gitRef}
-      renderItem={gitRef => (
-        <RefItem
-          key={gitRef}
-          href={getHref?.(gitRef)}
-          // isCurrent={currentCommitish === gitRef}
-          isDefault={defaultBranch === gitRef}
-          filterText={filterText}
-          gitRef={gitRef}
-          onSelect={onSelectItem}
-          onClick={onSelectItem}
-          ariaPosInSet={refs.indexOf(gitRef) + 1}
-          ariaSetSize={refs.length}
-        />
-      )}
-    />
-  )
-}
+// function VirtualRefsList({refs, defaultBranch, getHref, filterText, onSelectItem}: RefsListProps) {
+//   return (
+//     <FixedSizeVirtualList
+//       items={refs}
+//       itemHeight={32}
+//       sx={{maxHeight, overflowY: 'auto'}}
+//       makeKey={gitRef => gitRef}
+//       renderItem={gitRef => (
+//         <RefItem
+//           key={gitRef}
+//           href={getHref?.(gitRef)}
+//           // isCurrent={currentCommitish === gitRef}
+//           isDefault={defaultBranch === gitRef}
+//           filterText={filterText}
+//           gitRef={gitRef}
+//           onSelect={onSelectItem}
+//           onClick={onSelectItem}
+//           ariaPosInSet={refs.indexOf(gitRef) + 1}
+//           ariaSetSize={refs.length}
+//         />
+//       )}
+//     />
+//   )
+// }
 
-try{ (RefsList as any).displayName ||= 'RefsList' } catch {}
+// try{ (RefsList as any).displayName ||= 'RefsList' } catch {}
 try{ (FullRefsList as any).displayName ||= 'FullRefsList' } catch {}
-try{ (VirtualRefsList as any).displayName ||= 'VirtualRefsList' } catch {}
+// try{ (VirtualRefsList as any).displayName ||= 'VirtualRefsList' } catch {}

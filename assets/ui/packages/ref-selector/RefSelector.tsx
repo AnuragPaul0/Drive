@@ -2,7 +2,7 @@ import {type ActionListItemProps, type ActionListLinkItemProps, Button, type But
 // import type {TabNavProps} from '@primer/react/deprecated'
 // import {TabNav} from '@primer/react/deprecated'
 
-import {RefSelectorV1} from './RefSelectorV1'
+// import {RefSelectorV1} from './RefSelectorV1'
 
 export interface RefSelectorFooterProps {
   text: string
@@ -139,9 +139,9 @@ export const defaultTypes: RefType[] = ['branch', 'tag']
  *   through a template, since those DOM nodes are all going to be copied in
  *   a way that is not managed by React.
  */
-export function RefSelector(props: RefSelectorProps) {
-  return <RefSelectorV1 {...props} />
-}
+// export function RefSelector(props: RefSelectorProps) {
+//   return <RefSelectorV1 {...props} />
+// }
 
 // interface RefTypeTabsProps {
 //   refType: RefType
@@ -180,6 +180,6 @@ export function LoadingFailed({refType}: {refType: RefType}) {
   return <Flash variant="danger">Could not load {refType === 'branch' ? 'branches' : 'tags'}</Flash>
 }
 
-try{ (RefSelector as any).displayName ||= 'RefSelector' } catch {}
+// try{ (RefSelector as any).displayName ||= 'RefSelector' } catch {}
 // try{ RefTypeTabs.displayName ||= 'RefTypeTabs' } catch {}
 try{ (LoadingFailed as any).displayName ||= 'LoadingFailed' } catch {}

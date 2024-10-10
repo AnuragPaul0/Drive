@@ -21,4 +21,4 @@ export function RefSelectorFooter({text, onClick, href, sx}: RefSelectorFooterPr
   )
 }
 
-try{ RefSelectorFooter.displayName ||= 'RefSelectorFooter' } catch {}
+try{ (RefSelectorFooter as any).displayName ||= 'RefSelectorFooter' } catch {}

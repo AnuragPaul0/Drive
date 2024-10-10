@@ -66,4 +66,4 @@ export function HighlightedText({
   )
 }
 
-try{ HighlightedText.displayName ||= 'HighlightedText' } catch {}
+try{ (HighlightedText as any).displayName ||= 'HighlightedText' } catch {}
