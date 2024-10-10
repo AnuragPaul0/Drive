@@ -1,5 +1,5 @@
 // main button
-import {ReposHeaderRefSelector} from '@github-ui/code-view-shared/components/ReposHeaderRefSelector'
+// import {ReposHeaderRefSelector} from '@github-ui/code-view-shared/components/ReposHeaderRefSelector'
 import {useFileQueryContext} from '@github-ui/code-view-shared/contexts/FileQueryContext'
 import {useOpenPanel} from '@github-ui/code-view-shared/contexts/OpenPanelContext'
 // import {useUrlCreator} from '@github-ui/code-view-shared/hooks/use-url-creator'
@@ -286,73 +286,73 @@ export function ReposFileTreePane({
   setting is, which might be expanded. On mobile widths we don't ever default to
   having the tree expanded, so on the server we need to just hard code it to
   show the regular not expanded version of everything*/
-  const paneContents = (
-    <Box
-      id={id}
-      sx={{
-        maxHeight: '100%',
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        '@media screen and (max-width: 768px)': isSSR ? {display: 'none'} : undefined,
-        '@media screen and (min-width: 768px)': {
-          maxHeight: '100vh',
-          height: '100vh',
-        },
-        ...paneContentsSx,
-      }}
-    >
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          px: 3,
-          pb: 2,
-          pt: 3,
-          ...headerSx,
-        }}
-      >
-        {headerContent}
-        {showRefSelectorRow && (
-          <Box sx={{mx: 4, display: 'flex', width: '100%'}}>
-            <Box sx={{flexGrow: 1}}>
-              <ReposHeaderRefSelector
-                buttonClassName="react-repos-tree-pane-ref-selector width-full ref-selector-class"
-                allowResizing={true}
-              />
-            </Box>
-            <Box
-              sx={{
-                ml: 2,
-                whiteSpace: 'nowrap',
-                '&:hover button:not(:hover)': {
-                  borderLeftColor: 'var(--button-default-borderColor-hover, var(--color-btn-hover-border))',
-                },
-              }}
-            >
-              {/* <SearchButton
-                sx={refInfo.canEdit ? {borderTopLeftRadius: 0, borderBottomLeftRadius: 0} : undefined}
-                onClick={exitOverlay}
-                textAreaId={textAreaId}
-              /> */}
-            </Box>
-          </Box>
-        )}
-      </Box>
-      <TreeBorder scrollingRef={scrollingRef} />
-      <Box
-        ref={setScrollingRef}
-        sx={{
-          flexGrow: 1,
-          maxHeight: '100% !important',
-          overflowY: 'auto',
-          '@media screen and (max-width: 768px)': isSSR ? {display: 'none'} : undefined,
-          scrollbarGutter: 'stable',
-        }}
-      ></Box>
-    </Box>
-  )
+  // const paneContents = (
+  //   <Box
+  //     id={id}
+  //     sx={{
+  //       maxHeight: '100%',
+  //       height: '100%',
+  //       display: 'flex',
+  //       flexDirection: 'column',
+  //       '@media screen and (max-width: 768px)': isSSR ? {display: 'none'} : undefined,
+  //       '@media screen and (min-width: 768px)': {
+  //         maxHeight: '100vh',
+  //         height: '100vh',
+  //       },
+  //       ...paneContentsSx,
+  //     }}
+  //   >
+  //     <Box
+  //       sx={{
+  //         display: 'flex',
+  //         flexDirection: 'column',
+  //         alignItems: 'center',
+  //         px: 3,
+  //         pb: 2,
+  //         pt: 3,
+  //         ...headerSx,
+  //       }}
+  //     >
+  //       {headerContent}
+  //       {showRefSelectorRow && (
+  //         <Box sx={{mx: 4, display: 'flex', width: '100%'}}>
+  //           <Box sx={{flexGrow: 1}}>
+  //             <ReposHeaderRefSelector
+  //               buttonClassName="react-repos-tree-pane-ref-selector width-full ref-selector-class"
+  //               allowResizing={true}
+  //             />
+  //           </Box>
+  //           <Box
+  //             sx={{
+  //               ml: 2,
+  //               whiteSpace: 'nowrap',
+  //               '&:hover button:not(:hover)': {
+  //                 borderLeftColor: 'var(--button-default-borderColor-hover, var(--color-btn-hover-border))',
+  //               },
+  //             }}
+  //           >
+  //             {/* <SearchButton
+  //               sx={refInfo.canEdit ? {borderTopLeftRadius: 0, borderBottomLeftRadius: 0} : undefined}
+  //               onClick={exitOverlay}
+  //               textAreaId={textAreaId}
+  //             /> */}
+  //           </Box>
+  //         </Box>
+  //       )}
+  //     </Box>
+  //     <TreeBorder scrollingRef={scrollingRef} />
+  //     <Box
+  //       ref={setScrollingRef}
+  //       sx={{
+  //         flexGrow: 1,
+  //         maxHeight: '100% !important',
+  //         overflowY: 'auto',
+  //         '@media screen and (max-width: 768px)': isSSR ? {display: 'none'} : undefined,
+  //         scrollbarGutter: 'stable',
+  //       }}
+  //     ></Box>
+  //   </Box>
+  // )
 
   const hidePaneSx =
     showTreeOverlay || openPanel
@@ -391,7 +391,7 @@ export function ReposFileTreePane({
         widthStorageKey="codeView.tree-pane-width"
         divider={{regular: 'none', narrow: 'none'}}
       >
-        {showTree && !showTreeOverlay && (
+        {/* {showTree && !showTreeOverlay && (
           <div
             className={
               isSSR ? (openPanel ? 'react-tree-pane-contents-3-panel' : 'react-tree-pane-contents') : undefined
@@ -399,7 +399,7 @@ export function ReposFileTreePane({
           >
             <>{paneContents}</>
           </div>
-        )}
+        )} */}
       </SplitPageLayout.Pane>
     // </FileTreeContext.Provider>
   )
