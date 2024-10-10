@@ -1,4 +1,3 @@
-
 import {AllShortcutsEnabledProvider} from
   '@github-ui/code-view-shared/contexts/AllShortcutsEnabledContext'
 // import {CodeViewBannersProvider} from '@github-ui/code-view-shared/contexts/CodeViewBannersContext'
@@ -85,7 +84,12 @@ export default function CodeView(
                                   display: isEdit ? 'none' : 'inherit',
                                 }}
                               >
-                                {/* <CodeViewHeader
+                              <input name="q" type="text" role="combobox" placeholder="Search…"
+                                  autoComplete="off" maxLength={240} className="s-input s-input__search js-search-field wmn1"
+                                  aria-label="Search" aria-controls="top-search" data-controller="s-popover"
+                                  data-action="focus->s-popover#show" data-s-popover-placement="bottom-start"
+                              aria-expanded="false"/>
+                              {/* <CodeViewHeader
                                   // payload={payload}
                                   showTree={!0
                                     // isTreeExpanded

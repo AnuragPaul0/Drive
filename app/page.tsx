@@ -14,13 +14,7 @@ weight: "100 900" } )
 export default function Home() {
   return <body
   // aria-describedby=":Rdd9lab:"
-    className={`${geistSans.variable} ${geistMono.variable} antialiased`}><main>
-    <input name="q" type="text" role="combobox" placeholder="Search…"
-        autoComplete="off" maxLength={240} className="s-input s-input__search js-search-field wmn1"
-        aria-label="Search" aria-controls="top-search" data-controller="s-popover"
-        data-action="focus->s-popover#show" data-s-popover-placement="bottom-start"
-    aria-expanded="false"/>
-    <CodeView/></main>
+    className={`${geistSans.variable} ${geistMono.variable} antialiased`}><main><CodeView/></main>
     {/* <span data-view-component="true">
       <clipboard-copy id="clipboard-button" aria-label="Copy" type="button" value="Text to copy"
         data-view-component="true" class="Button--secondary Button--medium Button">
