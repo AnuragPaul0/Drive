@@ -1,26 +1,32 @@
-import {ScreenSize
-  // , useScreenSize
-} from '@github-ui/screen-size'
+// main button
+import {ReposHeaderRefSelector} from '@github-ui/code-view-shared/components/ReposHeaderRefSelector'
+import {useFileQueryContext} from '@github-ui/code-view-shared/contexts/FileQueryContext'
+import {useOpenPanel} from '@github-ui/code-view-shared/contexts/OpenPanelContext'
+// import {useUrlCreator} from '@github-ui/code-view-shared/hooks/use-url-creator'
+import {ScreenSize , useScreenSize} from '@github-ui/screen-size'
+import type {CollapseTreeFunction, DirectoryItem, ReposFileTreeData} from '@github-ui/code-view-types'
+import type {Repository} from '@github-ui/current-repository'
 
-// import {useClientValue} from '@github-ui/use-client-value'
-// import {useCodeViewOptions} from '@github-ui/use-code-view-options'
-// import {verifiedFetchJSON} from '@github-ui/verified-fetch' n
+import {useClientValue} from '@github-ui/use-client-value'
+import {useCodeViewOptions} from '@github-ui/use-code-view-options'
+// import {verifiedFetchJSON} from '@github-ui/verified-fetch' nr
 
-// import {scrollIntoView} from '@primer/behaviors'
+import {scrollIntoView} from '@primer/behaviors'
 // import {AlertFillIcon, PlusIcon} from '@primer/octicons-react'
 import {Box
-  // , IconButton, Overlay, SplitPageLayout
+  // , IconButton
+  , Overlay, SplitPageLayout
 } from '@primer/react'
 // // import {Octicon, Tooltip} from '@primer/react/deprecated'
-// import type {BetterSystemStyleObject} from '@primer/react/lib-esm/sx'
+import type {BetterSystemStyleObject} from '@primer/react/lib-esm/sx'
 import React
 // , {useMemo}
 from 'react'
-// import {createHtmlPortalNode, InPortal, OutPortal} from 'react-reverse-portal'
+import {createHtmlPortalNode, InPortal, OutPortal} from 'react-reverse-portal'
 
 // import FileTreeContext from '../contexts/FileTreeContext'
 
-// import type {TreeItem} from '../types/tree-item' n
+// import type {TreeItem} from '../types/tree-item' na
 
 // import {FindFilesShortcut} from './FindFilesShortcut'
 // import {buildReposFileTree, ReposFileTreeView} from './ReposFileTreeView'
@@ -110,7 +116,7 @@ export function ReposFileTreePane({
   const hasAttemptedToFetchFolders = React.useRef(false)
   const ignoreNextScroll = React.useRef(false)
   const selectedElement = React.useRef<HTMLElement | null>(null)
-  // const {query} = useFileQueryContext()
+  const {query} = useFileQueryContext()
   const {codeCenterOption} = useCodeViewOptions()
   const lastOpenPanel = React.useRef(openPanel)
   const [isSSR] = useClientValue(() => false, true, [])
@@ -130,11 +136,11 @@ export function ReposFileTreePane({
   // const [knownFolders, dispatchKnownFolders] = React.useReducer(knownFolderReducer, newKnownFolders)
   // const [rootItems, setRootItems] = React.useState<Array<TreeItem<DirectoryItem>>>(initialRenderRootItems)
 
-  // React.useEffect(() => {
-  //   if (!showTree || !(!query || window.innerWidth >= ScreenSize.large)) {
-  //     selectedElement.current = null
-  //   }
-  // }, [showTree, query])
+  React.useEffect(() => {
+    if (!showTree || !(!query || window.innerWidth >= ScreenSize.large)) {
+      selectedElement.current = null
+    }
+  }, [showTree, query])
 
   React.useEffect(() => {
     if (openPanel && lastOpenPanel.current !== openPanel && window.innerWidth < TreeOverlayBreakpoint) {
@@ -143,41 +149,41 @@ export function ReposFileTreePane({
     lastOpenPanel.current = openPanel
   }, [collapseTree, openPanel])
 
-  const fetchFolder = React.useCallback(
-    async (folderPath: string) => {
-      const folder: DirectoryItem = {contentType: 'directory', path: folderPath, name: folderPath}
-      const contentUrl = getItemUrl(folder)
-      try {
-        const response = await verifiedFetchJSON(`${contentUrl}?noancestors=1`)
-        if (response.ok) {
-          const folderPayload = await response.json()
-          const folderData = {
-            items: folderPayload.payload.tree.items,
-            totalCount: folderPayload.payload.tree.totalCount,
-          }
-          fileTree[folderPath] = folderData
-        } else {
-          setFetchError(true)
-        }
-      } catch {
-        setFetchError(true)
-      }
-      fetchedFolders.current.push(folderPath)
-      if (fetchedFolders.current.length === foldersToFetch.length) {
-        setTreeLoading(false)
-      }
-    },
-    [fileTree, foldersToFetch.length, getItemUrl],
-  )
+  // const fetchFolder = React.useCallback(
+  //   async (folderPath: string) => {
+  //     const folder: DirectoryItem = {contentType: 'directory', path: folderPath, name: folderPath}
+  //     // const contentUrl = getItemUrl(folder)
+  //     try {
+  //       // const response = await verifiedFetchJSON(`${contentUrl}?noancestors=1`)
+  //       // if (response.ok) {
+  //       //   const folderPayload = await response.json()
+  //       //   const folderData = {
+  //       //     items: folderPayload.payload.tree.items,
+  //       //     totalCount: folderPayload.payload.tree.totalCount,
+  //       //   }
+  //       //   fileTree[folderPath] = folderData
+  //       // } else {
+  //       //   setFetchError(true)
+  //       // }
+  //     } catch {
+  //       setFetchError(true)
+  //     }
+  //     fetchedFolders.current.push(folderPath)
+  //     if (fetchedFolders.current.length === foldersToFetch.length) {
+  //       setTreeLoading(false)
+  //     }
+  //   },
+  //   [fileTree, foldersToFetch.length, getItemUrl],
+  // )
 
-  React.useEffect(() => {
-    if (foldersToFetch && !hasAttemptedToFetchFolders.current) {
-      for (const folder of foldersToFetch) {
-        fetchFolder(folder)
-      }
-    }
-    hasAttemptedToFetchFolders.current = true
-  }, [fetchFolder, foldersToFetch, knownFolders.size])
+  // React.useEffect(() => {
+  //   if (foldersToFetch && !hasAttemptedToFetchFolders.current) {
+  //     for (const folder of foldersToFetch) {
+  //       fetchFolder(folder)
+  //     }
+  //   }
+  //   hasAttemptedToFetchFolders.current = true
+  // }, [fetchFolder, foldersToFetch, knownFolders.size])
 
   const focusActiveItem = React.useCallback(
     (selectedItemElement: HTMLElement | null) => {
@@ -251,9 +257,9 @@ export function ReposFileTreePane({
 
   const parentDirPath = isFilePath ? path.substring(0, path.lastIndexOf('/')) : path
 
-  const fileTreeContextValue = useMemo(() => {
-    return {knownFolders, dispatchKnownFolders}
-  }, [knownFolders])
+  // const fileTreeContextValue = useMemo(() => {
+  //   return {knownFolders, dispatchKnownFolders}
+  // }, [knownFolders])
 
   // These are the widths where the distance to the first header element is less than the header tree toggle's padding
   const marginToggleTreeDisplaySx = {
@@ -325,57 +331,15 @@ export function ReposFileTreePane({
                 },
               }}
             >
-              {refInfo.canEdit && (
-                <Tooltip aria-label="Add file" direction="s">
-                  {/* eslint-disable-next-line primer-react/a11y-remove-disable-tooltip */}
-                  <IconButton
-                    unsafeDisableTooltip={true}
-                    aria-label="Add file"
-                    as={Link}
-                    sx={{
-                      color: 'fg.subtle',
-                      borderTopRightRadius: 0,
-                      borderBottomRightRadius: 0,
-                      borderRight: 0,
-                    }}
-                    icon={PlusIcon}
-                    to={repositoryTreePath({repo, path: parentDirPath, commitish: refInfo.name, action: 'new'})}
-                    // This callback will close the tree if this is a narrow viewport
-                    onClick={onTreeItemSelected}
-                  />
-                </Tooltip>
-              )}
-              <SearchButton
+              {/* <SearchButton
                 sx={refInfo.canEdit ? {borderTopLeftRadius: 0, borderBottomLeftRadius: 0} : undefined}
                 onClick={exitOverlay}
                 textAreaId={textAreaId}
-              />
+              /> */}
             </Box>
           </Box>
         )}
       </Box>
-
-      {refInfo.currentOid && showFindFile && findFileWorkerPath && (
-        <>
-          <FileResultsList
-            commitOid={refInfo.currentOid}
-            findFileWorkerPath={findFileWorkerPath}
-            onItemSelected={onItemSelected}
-            searchBoxRef={searchBoxRef}
-            sx={{
-              ml: 3,
-              mr: 3,
-              mb: '12px',
-              '@media screen and (max-width: 768px)': isSSR ? {display: 'none'} : undefined,
-            }}
-          />
-          <FindFilesShortcut
-            inputRef={searchBoxRef}
-            onFindFilesShortcut={onFindFilesShortcut}
-            textAreaId={textAreaId}
-          />
-        </>
-      )}
       <TreeBorder scrollingRef={scrollingRef} />
       <Box
         ref={setScrollingRef}
@@ -386,46 +350,7 @@ export function ReposFileTreePane({
           '@media screen and (max-width: 768px)': isSSR ? {display: 'none'} : undefined,
           scrollbarGutter: 'stable',
         }}
-      >
-        {isSSR
-          ? refInfo.currentOid && (
-              <div className={!query ? 'react-tree-show-tree-items' : 'react-tree-show-tree-items-on-large-screen'}>
-                <ReposFileTreeView
-                  clientOnlyFilePaths={clientOnlyFilePaths}
-                  data={fileTree}
-                  rootItems={rootItems}
-                  selectedItemRef={setSelectedItemRef}
-                  setRootItems={setRootItems}
-                  onItemSelected={onTreeItemSelected}
-                  processingTime={processingTime}
-                  loading={treeLoading}
-                  fetchError={fetchError}
-                  directoryNavigateOnClick={directoryNavigateOnClick}
-                  getItemUrl={getTreeItemUrl}
-                  sx={treeContainerSx}
-                  getFileTrailingVisual={getFileTrailingVisual}
-                  getFileIcon={getFileIcon}
-                  sortDirectoryItems={sortDirectoryItems}
-                />
-              </div>
-            )
-          : portalNode && <OutPortal node={portalNode} />}
-        {!refInfo.currentOid && !repo.isEmpty && (
-          <Box
-            sx={{
-              mt: 2,
-              mx: 4,
-              mb: '12px',
-              fontSize: 1,
-              alignItems: 'center',
-              color: 'danger.fg',
-            }}
-          >
-            <Octicon icon={AlertFillIcon} />
-            &nbsp;Ref is invalid
-          </Box>
-        )}
-      </Box>
+      ></Box>
     </Box>
   )
 
@@ -444,45 +369,8 @@ export function ReposFileTreePane({
         }
 
   return (
-    <FileTreeContext.Provider value={fileTreeContextValue}>
-      {/* Render the TreeView in a portal that can be moved to different containers without rerendering */}
-      {portalNode && (
-        <InPortal node={portalNode}>
-          {refInfo.currentOid && (
-            <div className={!query ? 'react-tree-show-tree-items' : 'react-tree-show-tree-items-on-large-screen'}>
-              <ReposFileTreeView
-                clientOnlyFilePaths={clientOnlyFilePaths}
-                data={fileTree}
-                directoryNavigateOnClick={directoryNavigateOnClick}
-                rootItems={rootItems}
-                selectedItemRef={setSelectedItemRef}
-                setRootItems={setRootItems}
-                onItemSelected={onTreeItemSelected}
-                processingTime={processingTime}
-                loading={treeLoading}
-                fetchError={fetchError}
-                getItemUrl={getTreeItemUrl}
-                sx={treeContainerSx}
-                getFileTrailingVisual={getFileTrailingVisual}
-                getFileIcon={getFileIcon}
-                sortDirectoryItems={sortDirectoryItems}
-              />
-            </div>
-          )}
-        </InPortal>
-      )}
-      {!showTree && codeCenterOption.enabled && treeToggleElement && (
-        <Box
-          sx={{
-            position: 'absolute',
-            p: 3,
-            display: 'none',
-            ...marginToggleTreeDisplaySx,
-          }}
-        >
-          {treeToggleElement}
-        </Box>
-      )}
+    // <FileTreeContext.Provider value={fileTreeContextValue}>
+      // {/* Render the TreeView in a portal that can be moved to different containers without rerendering */}
       <SplitPageLayout.Pane
         position="start"
         sticky
@@ -513,64 +401,43 @@ export function ReposFileTreePane({
           </div>
         )}
       </SplitPageLayout.Pane>
-      {showTree && showTreeOverlay && lastOpenPanel.current === openPanel && (
-        <Overlay
-          className={isSSR ? (openPanel ? 'react-tree-pane-overlay-3-panel' : 'react-tree-pane-overlay') : undefined}
-          ref={setOverlayRef}
-          returnFocusRef={treeToggleRef}
-          onClickOutside={exitOverlay}
-          onEscape={exitOverlay}
-          top={0}
-          position="fixed"
-          sx={{
-            ...displayNoneSx,
-            width: '440px',
-            height: '100vh',
-            maxHeight: '100vh',
-            borderTopLeftRadius: 0,
-            borderBottomLeftRadius: 0,
-          }}
-        >
-          <>{paneContents}</>
-        </Overlay>
-      )}
-    </FileTreeContext.Provider>
+    // </FileTreeContext.Provider>
   )
 }
 
-function knownFolderReducer(
-  state: Map<string, TreeItem<DirectoryItem>>,
-  action: {
-    type: string
-    folders: Map<string, TreeItem<DirectoryItem>>
-    processingTime: number
-  },
-) {
-  switch (action.type) {
-    case 'set': {
-      const stateInitialized = state?.size > 0
-      sendEvent('file-tree', {
-        'fetch-count': stateInitialized ? action.folders.size - state.size : action.folders.size,
-        'file-count': action.folders.size,
-        'nav-type': stateInitialized ? 'soft' : 'hard',
-        'processing-time': action.processingTime,
-      })
-      return action.folders
-    }
-    case 'add': {
-      const newState = new Map([...state, ...action.folders])
-      sendEvent('file-tree', {
-        'fetch-count': action.folders.size,
-        'file-count': newState.size,
-        'nav-type': 'fetch',
-        'processing-time': action.processingTime,
-      })
-      return newState
-    }
-    default:
-      throw new Error(`Unknown action type: ${action.type}`)
-  }
-}
+// function knownFolderReducer(
+//   state: Map<string, TreeItem<DirectoryItem>>,
+//   action: {
+//     type: string
+//     folders: Map<string, TreeItem<DirectoryItem>>
+//     processingTime: number
+//   },
+// ) {
+//   switch (action.type) {
+//     case 'set': {
+//       const stateInitialized = state?.size > 0
+//       sendEvent('file-tree', {
+//         'fetch-count': stateInitialized ? action.folders.size - state.size : action.folders.size,
+//         'file-count': action.folders.size,
+//         'nav-type': stateInitialized ? 'soft' : 'hard',
+//         'processing-time': action.processingTime,
+//       })
+//       return action.folders
+//     }
+//     case 'add': {
+//       const newState = new Map([...state, ...action.folders])
+//       sendEvent('file-tree', {
+//         'fetch-count': action.folders.size,
+//         'file-count': newState.size,
+//         'nav-type': 'fetch',
+//         'processing-time': action.processingTime,
+//       })
+//       return newState
+//     }
+//     default:
+//       throw new Error(`Unknown action type: ${action.type}`)
+//   }
+// }
 
 function TreeBorder({scrollingRef}: {scrollingRef: React.RefObject<HTMLDivElement>}) {
   const [visible, setVisible] = React.useState(scrollingRef.current && scrollingRef.current.scrollTop > 0)

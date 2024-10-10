@@ -25,81 +25,81 @@ export default function CodeView(
     // payload.allShortcutsEnabled
     }>
             {/* <FileTreeControlProvider> */}
-              <div><FileQueryProvider><OpenPanelProvider
+      <div><FileQueryProvider><OpenPanelProvider
     // payload={payload}
-    openPanelRef={openPanelRef}>
-    <SplitPageLayout><Box ref={treeRef} tabIndex={0} sx={{width: ['100%', '100%', 'auto']}}>
-    {/* <ReposFileTreePane
-      id={reposFileTreeId}
-      repo={repo}
-      path={path}
-      isFilePath={isBlob || isEdit || isDelete}
-      refInfo={refInfo}
-      collapseTree={collapseTree}
-      showTree={isTreeExpanded}
-      fileTree={fileTree}
-      onItemSelected={onTreeItemSelected}
-      processingTime={payload.fileTreeProcessingTime}
-      treeToggleElement={treeToggleElement}
-      treeToggleRef={treeToggleRef}
-      searchBoxRef={searchBoxRef}
-      foldersToFetch={payload.foldersToFetch}
-      onFindFilesShortcut={onFindFilesShortcut}
-      textAreaId={textAreaId}
-      findFileWorkerPath={findFileWorkerPath}
-      headerContent={
-        <Box sx={{display: 'flex', width: '100%', mb: 3, alignItems: 'center'}}>
-          {isTreeExpanded && treeToggleElement}
-          <Heading as="h2" sx={{fontSize: 2, ml: 2}}>
-            Files
-          </Heading>
-        </Box>
-      }
-    /> */}
-  </Box><SplitPageLayout.Content as="div" padding="none"
-                        width={codeCenterOption.enabled ? 'xlarge' : 'full'}
-                        hidden={{narrow: isTreeExpanded}}
-                        sx={{
-                          marginRight: 'auto',
-                          '@media print': {
-                            display: 'flex !important',
-                          },
-                        }}>
-                        <Box sx={{
-                            marginLeft: 'auto',
-                            marginRight: 'auto',
-                            flexDirection: 'column',
-                            pb: 6,
-                            maxWidth: '100%',
-                            mt: 0,
-                          }}
-                          // ref={setContentRef}
-                          data-selector="repos-split-pane-content"
-                          tabIndex={0}
-                        >
-                            {/* <CodeViewBannersProvider> */}
-                              <Box
-                                sx={{
-                                  display: isEdit ? 'none' : 'inherit',
-                                }}
-                              >
-                              <input name="q" type="text" role="combobox" placeholder="Search…"
-                                  autoComplete="off" maxLength={240} className="s-input s-input__search js-search-field wmn1"
-                                  aria-label="Search" aria-controls="top-search" data-controller="s-popover"
-                                  data-action="focus->s-popover#show" data-s-popover-placement="bottom-start"
-                              aria-expanded="false"/>
-                              {/* <CodeViewHeader
-                                  // payload={payload}
-                                  showTree={!0
-                                    // isTreeExpanded
-                                  }/> */}
-                               </Box>
-                            {/* </CodeViewBannersProvider> */}
-                        </Box>
-                       </SplitPageLayout.Content>
-  </SplitPageLayout></OpenPanelProvider>
-  </FileQueryProvider></div>
+      openPanelRef={openPanelRef}>
+      <SplitPageLayout><Box ref={treeRef} tabIndex={0} sx={{width: ['100%', '100%', 'auto']}}>
+      {/* <ReposFileTreePane
+        id={reposFileTreeId}
+        repo={repo}
+        path={path}
+        isFilePath={isBlob || isEdit || isDelete}
+        refInfo={refInfo}
+        collapseTree={collapseTree}
+        showTree={isTreeExpanded}
+        fileTree={fileTree}
+        onItemSelected={onTreeItemSelected}
+        processingTime={payload.fileTreeProcessingTime}
+        treeToggleElement={treeToggleElement}
+        treeToggleRef={treeToggleRef}
+        searchBoxRef={searchBoxRef}
+        foldersToFetch={payload.foldersToFetch}
+        onFindFilesShortcut={onFindFilesShortcut}
+        textAreaId={textAreaId}
+        findFileWorkerPath={findFileWorkerPath}
+        headerContent={
+          <Box sx={{display: 'flex', width: '100%', mb: 3, alignItems: 'center'}}>
+            {isTreeExpanded && treeToggleElement}
+            <Heading as="h2" sx={{fontSize: 2, ml: 2}}>
+              Files
+            </Heading>
+          </Box>
+        }
+      /> */}
+        </Box><SplitPageLayout.Content as="div" padding="none"
+            width={codeCenterOption.enabled ? 'xlarge' : 'full'}
+            hidden={{narrow: isTreeExpanded}}
+            sx={{
+              marginRight: 'auto',
+              '@media print': {
+                display: 'flex !important',
+              },
+            }}>
+            <Box sx={{
+                marginLeft: 'auto',
+                marginRight: 'auto',
+                flexDirection: 'column',
+                pb: 6,
+                maxWidth: '100%',
+                mt: 0,
+              }}
+              // ref={setContentRef}
+              data-selector="repos-split-pane-content"
+              tabIndex={0}
+            >
+                {/* <CodeViewBannersProvider> */}
+                  <Box
+                    sx={{
+                      display: isEdit ? 'none' : 'inherit',
+                    }}
+                  >
+                  <input name="q" type="text" role="combobox" placeholder="Search…"
+                      autoComplete="off" maxLength={240} className="s-input s-input__search js-search-field wmn1"
+                      aria-label="Search" aria-controls="top-search" data-controller="s-popover"
+                      data-action="focus->s-popover#show" data-s-popover-placement="bottom-start"
+                  aria-expanded="false"/>
+                  {/* <CodeViewHeader
+                      // payload={payload}
+                      showTree={!0
+                        // isTreeExpanded
+                      }/> */}
+                  </Box>
+                {/* </CodeViewBannersProvider> */}
+            </Box>
+        </SplitPageLayout.Content>
+      </SplitPageLayout></OpenPanelProvider>
+    </FileQueryProvider></div>
             {/* </FileTreeControlProvider> */}
-          </AllShortcutsEnabledProvider>
+  </AllShortcutsEnabledProvider>
   ) }
 try{ (CodeView as any).displayName ||= 'CodeView' } catch {}

@@ -1,5 +1,5 @@
 // import {ssrSafeLocation} from '@github-ui/ssr-utils'
-// import type {PathFunction} from './types'
+// import type {PathFunction} from './types' na
 import {encodePart} from './utils'
 
 type Repository = {

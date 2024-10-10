@@ -1,2 +1,2 @@
-export { repositoryTreePath, codeNavigationPath } from './path'
+export * from './path'
 //# sourceMappingURL=index.d.ts.map

@@ -1,18 +1,18 @@
 // import type {DirectoryItem} from '@github-ui/code-view-types'
 // import {createContext, useContext} from 'react'
 
-// // import type {TreeItem} from '../types/tree-item'
+// import type {TreeItem} from '../types/tree-item'
 
-// // type FileTreeContextType = {
-// //   knownFolders: Map<string, TreeItem<DirectoryItem>>
-// //   dispatchKnownFolders: dispatchKnownFoldersFunction
-// // }
+// type FileTreeContextType = {
+//   knownFolders: Map<string, TreeItem<DirectoryItem>>
+//   dispatchKnownFolders: dispatchKnownFoldersFunction
+// }
 
-// // const FileTreeContext = createContext<FileTreeContextType>({
-// //   knownFolders: new Map<string, TreeItem<DirectoryItem>>(),
+// const FileTreeContext = createContext<FileTreeContextType>({
+//   knownFolders: new Map<string, TreeItem<DirectoryItem>>(),
 
-// //   dispatchKnownFolders: () => {},
-// // })
+//   dispatchKnownFolders: () => {},
+// })
 
 // export default FileTreeContext
 
