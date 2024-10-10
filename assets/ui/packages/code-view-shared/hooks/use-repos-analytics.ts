@@ -1,16 +1,16 @@
-import type {RepositoryClickTarget, RepositoryStats, RepositoryUIEventTarget} from '@github-ui/code-view-types'
-import {useCurrentRepository} from '@github-ui/current-repository'
-import {getRelativeHref, repositoryStatsPath} from '@github-ui/paths'
-import {useFeatureFlag} from '@github-ui/react-core/use-feature-flag'
-import {useAnalytics} from '@github-ui/use-analytics'
-import {verifiedFetchJSON} from '@github-ui/verified-fetch'
-import {useCallback, useMemo} from 'react'
-import {useCurrentUser} from '@github-ui/current-user'
+// import type {RepositoryClickTarget, RepositoryStats, RepositoryUIEventTarget} from '@github-ui/code-view-types'
+// import {useCurrentRepository} from '@github-ui/current-repository'
+// import {getRelativeHref, repositoryStatsPath} from '@github-ui/paths'
+// import {useFeatureFlag} from '@github-ui/react-core/use-feature-flag'
+// import {useAnalytics} from '@github-ui/use-analytics'
+// import {verifiedFetchJSON} from '@github-ui/verified-fetch'
+// import {useCallback, useMemo} from 'react'
+// import {useCurrentUser} from '@github-ui/current-user'
 
 type EventContext = Record<string, string | number | boolean>
 
-type SendRepoEventFunction = (target: RepositoryClickTarget, context?: EventContext) => void
-type SendRepoStatsFunction = (type: RepositoryStats, context?: EventContext) => void
+// type SendRepoEventFunction = (target: RepositoryClickTarget, context?: EventContext) => void
+// type SendRepoStatsFunction = (type: RepositoryStats, context?: EventContext) => void
 
 /**
  * Use this hook to send user analytics events to the data warehouse.
@@ -34,79 +34,79 @@ type SendRepoStatsFunction = (type: RepositoryStats, context?: EventContext) => 
  * ```
  *
  */
-export function useReposAnalytics(): {
-  sendRepoClickEvent: SendRepoEventFunction
-  sendRepoKeyDownEvent: SendRepoEventFunction
-  sendStats: SendRepoStatsFunction
-  sendMarketplaceActionEvent: SendRepoEventFunction
-} {
-  const {sendAnalyticsEvent} = useAnalytics()
-  const sendReposUIEvent = useSendReposUIEvent()
-  const shouldUseUIEventTable = useFeatureFlag('code_nav_ui_events')
+// export function useReposAnalytics(): {
+//   sendRepoClickEvent: SendRepoEventFunction
+//   sendRepoKeyDownEvent: SendRepoEventFunction
+//   sendStats: SendRepoStatsFunction
+//   sendMarketplaceActionEvent: SendRepoEventFunction
+// } {
+//   const {sendAnalyticsEvent} = useAnalytics()
+//   const sendReposUIEvent = useSendReposUIEvent()
+//   const shouldUseUIEventTable = useFeatureFlag('code_nav_ui_events')
 
-  return {
-    sendRepoClickEvent: useCallback(
-      (target, payload = {}) => {
-        sendAnalyticsEvent('repository.click', target, payload)
-        if (shouldUseUIEventTable) {
-          sendReposUIEvent(target, 'click', payload)
-        }
-      },
-      [sendAnalyticsEvent, sendReposUIEvent, shouldUseUIEventTable],
-    ),
-    sendRepoKeyDownEvent: useCallback(
-      (target, payload = {}) => {
-        sendAnalyticsEvent('repository.keydown', target, payload)
-        if (shouldUseUIEventTable) {
-          sendReposUIEvent(target, 'keydown', payload)
-        }
-      },
-      [sendAnalyticsEvent, sendReposUIEvent, shouldUseUIEventTable],
-    ),
-    sendStats: useCallback(
-      (type, payload = {}) => {
-        sendAnalyticsEvent(type, '', payload)
-        if (shouldUseUIEventTable) {
-          sendReposUIEvent(type, 'stats', payload)
-        }
-      },
-      [sendAnalyticsEvent, sendReposUIEvent, shouldUseUIEventTable],
-    ),
-    sendMarketplaceActionEvent: useCallback(
-      (target, payload = {}) => {
-        sendAnalyticsEvent('marketplace.action.click', target, payload)
-      },
-      [sendAnalyticsEvent],
-    ),
-  }
-}
+//   return {
+//     sendRepoClickEvent: useCallback(
+//       (target, payload = {}) => {
+//         sendAnalyticsEvent('repository.click', target, payload)
+//         if (shouldUseUIEventTable) {
+//           sendReposUIEvent(target, 'click', payload)
+//         }
+//       },
+//       [sendAnalyticsEvent, sendReposUIEvent, shouldUseUIEventTable],
+//     ),
+//     sendRepoKeyDownEvent: useCallback(
+//       (target, payload = {}) => {
+//         sendAnalyticsEvent('repository.keydown', target, payload)
+//         if (shouldUseUIEventTable) {
+//           sendReposUIEvent(target, 'keydown', payload)
+//         }
+//       },
+//       [sendAnalyticsEvent, sendReposUIEvent, shouldUseUIEventTable],
+//     ),
+//     sendStats: useCallback(
+//       (type, payload = {}) => {
+//         sendAnalyticsEvent(type, '', payload)
+//         if (shouldUseUIEventTable) {
+//           sendReposUIEvent(type, 'stats', payload)
+//         }
+//       },
+//       [sendAnalyticsEvent, sendReposUIEvent, shouldUseUIEventTable],
+//     ),
+//     sendMarketplaceActionEvent: useCallback(
+//       (target, payload = {}) => {
+//         sendAnalyticsEvent('marketplace.action.click', target, payload)
+//       },
+//       [sendAnalyticsEvent],
+//     ),
+//   }
+// }
 
-function useSendReposUIEvent() {
-  const repoMetadata = useRepositoryEventMetadata()
-  const repo = useCurrentRepository()
-  const statsPath = getRelativeHref(repositoryStatsPath, {owner: repo.ownerLogin, repo: repo.name})
+// function useSendReposUIEvent() {
+//   const repoMetadata = useRepositoryEventMetadata()
+//   const repo = useCurrentRepository()
+//   const statsPath = getRelativeHref(repositoryStatsPath, {owner: repo.ownerLogin, repo: repo.name})
 
-  return useCallback(
-    (target: RepositoryUIEventTarget, interaction: Interaction, context: EventContext) => {
-      const method = 'POST'
-      const body: RepositoryUIEvent = {
-        target,
-        interaction,
-        context,
-        ...repoMetadata,
-        ...getBrowserEventMetadata(),
-      } as RepositoryUIEvent
+//   return useCallback(
+//     (target: RepositoryUIEventTarget, interaction: Interaction, context: EventContext) => {
+//       const method = 'POST'
+//       const body: RepositoryUIEvent = {
+//         target,
+//         interaction,
+//         context,
+//         ...repoMetadata,
+//         ...getBrowserEventMetadata(),
+//       } as RepositoryUIEvent
 
-      verifiedFetchJSON(statsPath, {method, body})
-    },
-    [repoMetadata, statsPath],
-  )
-}
+//       verifiedFetchJSON(statsPath, {method, body})
+//     },
+//     [repoMetadata, statsPath],
+//   )
+// }
 
 type Interaction = 'click' | 'keydown' | 'stats'
 
 interface RepositoryUIEvent {
-  target: RepositoryUIEventTarget
+  // target: RepositoryUIEventTarget
   interaction: Interaction
   performed_at?: number
   context?: EventContext
@@ -134,31 +134,31 @@ function getBrowserEventMetadata(): BrowserEventMetadata {
   }
 }
 
-type RepositoryEventMetadata = Pick<
-  RepositoryUIEvent,
-  | 'react_app'
-  | 'repository_id'
-  | 'repository_nwo'
-  | 'repository_public'
-  | 'repository_is_fork'
-  | 'actor_id'
-  | 'actor_login'
->
+// type RepositoryEventMetadata = Pick<
+//   RepositoryUIEvent,
+//   | 'react_app'
+//   | 'repository_id'
+//   | 'repository_nwo'
+//   | 'repository_public'
+//   | 'repository_is_fork'
+//   | 'actor_id'
+//   | 'actor_login'
+// >
 
-function useRepositoryEventMetadata(): RepositoryEventMetadata {
-  const repo = useCurrentRepository()
-  const actor = useCurrentUser()
+// function useRepositoryEventMetadata(): RepositoryEventMetadata {
+//   const repo = useCurrentRepository()
+//   // const actor = useCurrentUser()
 
-  return useMemo(
-    () => ({
-      react_app: 'code-view',
-      repository_id: repo.id,
-      repository_nwo: `${repo.ownerLogin}/${repo.name}`,
-      repository_public: repo.public,
-      repository_is_fork: repo.isFork,
-      actor_id: actor?.id,
-      actor_login: actor?.login,
-    }),
-    [repo, actor],
-  )
-}
+//   // return useMemo(
+//   //   () => ({
+//   //     react_app: 'code-view',
+//   //     repository_id: repo.id,
+//   //     repository_nwo: `${repo.ownerLogin}/${repo.name}`,
+//   //     repository_public: repo.public,
+//   //     repository_is_fork: repo.isFork,
+//   //     // actor_id: actor?.id,
+//   //     // actor_login: actor?.login,
+//   //   }),
+//   //   [repo, actor],
+//   // )
+// }
