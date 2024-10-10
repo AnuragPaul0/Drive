@@ -1,19 +1,19 @@
 import {
-  // type FilePagePayload, n/a isTreePayload,
+  // type FilePagePayload, n/a |-> isTreePayload,
   type PanelType} from '@github-ui/code-view-types'
 // uu
-// import {useCurrentUser} from '@github-ui/current-user'
-// import safeStorage from '@github-ui/safe-storage'
+// import {useCurrentUser} from '@github-ui/current-user' ua
+import safeStorage from '@github-ui/safe-storage'
 // import {ScreenSize, useScreenSize} from '@github-ui/screen-size'
-import
-// React,
-{createContext,
-  // useCallback,
-  useContext,
-  // useEffect, useMemo, useRef, useState
-} from 'react'
+import React,
+  {createContext, useCallback,
+    useContext,
+    // useEffect,
+    useMemo,
+    useRef, useState
+  } from 'react'
 
-// const safeLocalStorage = safeStorage('localStorage')
+const safeLocalStorage = safeStorage('localStorage')
 
 export type SetPanelOpenType = (panelType: PanelType | undefined, returnFocusTarget?:
   HTMLElement | null) => void
@@ -30,61 +30,65 @@ const OpenPanelContext = createContext<OpenPanelContextType>({openPanel: undefin
  * state as 'codeNav' or allow it to be set to 'codeNav' when on the blame page.
  * This also adds a listener to hide the panel on smaller viewports
  */
-// export function OpenPanelProvider({
-//   children,
-//   // payload,
-//   openPanelRef,
-// }: {
-//   children: React.ReactNode
-//   // payload: FilePagePayload
-//   openPanelRef: React.MutableRefObject<string | undefined>
-// }) {
-//   // const hasBlame = 'blame' in payload
-//   // const isTreeView = isTreePayload(payload)
-//   const currentUser = useCurrentUser()
+export function OpenPanelProvider({
+  children,
+  // payload,
+  openPanelRef,
+}: {
+  children: React.ReactNode
+  // payload: FilePagePayload
+  openPanelRef: React.MutableRefObject<string | undefined>
+}) {
+  const hasBlame = 'blame'
+  // in payload
+  const isTreeView = hasBlame
+  // isTreePayload(payload)
+  // const currentUser = useCurrentUser() ua
 
-//   const returnFocusTargetRef = useRef<HTMLElement | null | undefined>()
-//   const [rawOpenPanel, setRawOpenPanel] = useState<PanelType | undefined>(() => {
-//     const storedSetting = safeLocalStorage.getItem('codeNavOpen')
-//     //only use the cookie if the user isn't logged in
-//     if (!currentUser && storedSetting !== '' && storedSetting !== null) {
-//       return 'codeNav'
-//     }
-//     if (currentUser && payload.symbolsExpanded) {
-//       return 'codeNav'
-//     }
-//   })
+  const returnFocusTargetRef = useRef<HTMLElement | null | undefined>()
+  const [rawOpenPanel, setRawOpenPanel] = useState<PanelType | undefined>(() => {
+    const storedSetting = safeLocalStorage.getItem('codeNavOpen')
+    //only use the cookie if the user isn't logged in
+    if (
+      // !currentUser &&
+      storedSetting !== '' && storedSetting !== null) {
+      return 'codeNav'
+    }
+    // if (currentUser && payload.symbolsExpanded) {
+    //   return 'codeNav'
+    // }
+  })
 
-//   // const openPanel = (hasBlame || isTreeView) && rawOpenPanel === 'codeNav' ? undefined : rawOpenPanel
+  const openPanel = (hasBlame || isTreeView) && rawOpenPanel === 'codeNav' ? undefined : rawOpenPanel
 
-//   // React.useEffect(() => {
-//   //   openPanelRef.current = openPanel
-//   // }, [openPanel, openPanelRef])
+  React.useEffect(() => {
+    openPanelRef.current = openPanel
+  }, [openPanel, openPanelRef])
 
-//   // const setOpenPanel = useCallback(
-//   //   (panelType: PanelType | undefined, returnFocusTarget?: HTMLElement | null) => {
-//   //     setRawOpenPanel(currentPanel => {
-//   //       if (currentPanel && returnFocusTargetRef.current) {
-//   //         returnFocusTargetRef.current.focus()
-//   //       }
-//   //       returnFocusTargetRef.current = returnFocusTarget
-//   //       return hasBlame || (isTreeView && panelType === 'codeNav') ? undefined : panelType
-//   //     })
-//   //   },
-//   //   [hasBlame, isTreeView],
-//   // )
+  const setOpenPanel = useCallback(
+    (panelType: PanelType | undefined, returnFocusTarget?: HTMLElement | null) => {
+      setRawOpenPanel(currentPanel => {
+        if (currentPanel && returnFocusTargetRef.current) {
+          returnFocusTargetRef.current.focus()
+        }
+        returnFocusTargetRef.current = returnFocusTarget
+        return hasBlame || (isTreeView && panelType === 'codeNav') ? undefined : panelType
+      })
+    },
+    [hasBlame, isTreeView],
+  )
 
-//   // useHandlePanelScreenResize(setOpenPanel)
+  // useHandlePanelScreenResize(setOpenPanel)
 
-//   // const contextValue: OpenPanelContextType = useMemo(() => {
-//   //   return {
-//   //     openPanel,
-//   //     setOpenPanel,
-//   //   }
-//   // }, [openPanel, setOpenPanel])
+  const contextValue: OpenPanelContextType = useMemo(() => {
+    return {
+      openPanel,
+      setOpenPanel,
+    }
+  }, [openPanel, setOpenPanel])
 
-//   return <OpenPanelContext.Provider value={contextValue}>{children}</OpenPanelContext.Provider>
-// }
+  return <OpenPanelContext.Provider value={contextValue}>{children}</OpenPanelContext.Provider>
+}
 
 // This should be SSR safe since it won't run on the server
 // function useHandlePanelScreenResize(setOpenPanel: (panel: PanelType | undefined) => void) {

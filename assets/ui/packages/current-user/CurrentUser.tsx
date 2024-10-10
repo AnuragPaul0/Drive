@@ -1,6 +1,6 @@
 // import React from 'react'
 
-// import type {CurrentUser} from '@github-ui/repos-types'
+// import type {CurrentUser} from '@github-ui/repos-types' ua
 
 // const CurrentUserContext = React.createContext<CurrentUser | undefined>(undefined)
 
