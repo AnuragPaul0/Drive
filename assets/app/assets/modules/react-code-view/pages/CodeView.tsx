@@ -15,7 +15,7 @@ import React from 'react'
 
 export default function CodeView(
 ) {
-  const isEdit = 1,  isTreeExpanded = !0, treeRef = React.useRef<HTMLDivElement>(null),
+  const isEdit = 0,  isTreeExpanded = !0, treeRef = React.useRef<HTMLDivElement>(null),
     {codeCenterOption} = useCodeViewOptions(),
     // reposFileTreeId = 'repos-file-tree',
     openPanelRef = React.useRef<string | undefined>()
