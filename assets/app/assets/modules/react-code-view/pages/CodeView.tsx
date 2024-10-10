@@ -34,7 +34,33 @@ export default function CodeView(
       openPanelRef={openPanelRef}>
       <SplitPageLayout>
         <Box ref={treeRef} tabIndex={0} sx={{width: ['100%', '100%', 'auto']}}>
-          
+          <ReposFileTreePane
+          id={reposFileTreeId}
+          repo={repo}
+          // path={path}
+          isFilePath={isBlob || isEdit || isDelete}
+          // refInfo={refInfo}
+          // collapseTree={collapseTree}
+          showTree={isTreeExpanded}
+          // fileTree={fileTree}
+          // onItemSelected={onTreeItemSelected}
+          // processingTime={payload.fileTreeProcessingTime}
+          // treeToggleElement={treeToggleElement}
+          // treeToggleRef={treeToggleRef}
+          // searchBoxRef={searchBoxRef}
+          // foldersToFetch={payload.foldersToFetch}
+          // onFindFilesShortcut={onFindFilesShortcut}
+          // textAreaId={textAreaId}
+          // findFileWorkerPath={findFileWorkerPath}
+          headerContent={
+            <Box sx={{display: 'flex', width: '100%', mb: 3, alignItems: 'center'}}>
+              {/* {isTreeExpanded && treeToggleElement} */}
+              <Heading as="h2" sx={{fontSize: 2, ml: 2}}>
+                Files
+              </Heading>
+            </Box>
+          }
+        />
         </Box><SplitPageLayout.Content as="div" padding="none"
             width={codeCenterOption.enabled ? 'xlarge' : 'full'}
             hidden={{narrow: isTreeExpanded}}
