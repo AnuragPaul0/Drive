@@ -4,25 +4,26 @@ import {useFileQueryContext} from '@github-ui/code-view-shared/contexts/FileQuer
 import {useOpenPanel} from '@github-ui/code-view-shared/contexts/OpenPanelContext'
 // import {useUrlCreator} from '@github-ui/code-view-shared/hooks/use-url-creator'
 import {ScreenSize , useScreenSize} from '@github-ui/screen-size'
-import type {CollapseTreeFunction, DirectoryItem, ReposFileTreeData} from '@github-ui/code-view-types'
+// import type {CollapseTreeFunction, DirectoryItem, ReposFileTreeData} from '@github-ui/code-view-types'
 import type {Repository} from '@github-ui/current-repository'
 
 import {useClientValue} from '@github-ui/use-client-value'
-import {useCodeViewOptions} from '@github-ui/use-code-view-options'
+// import {useCodeViewOptions} from '@github-ui/use-code-view-options'
 // import {verifiedFetchJSON} from '@github-ui/verified-fetch' nr
 
 import {scrollIntoView} from '@primer/behaviors'
 // import {AlertFillIcon, PlusIcon} from '@primer/octicons-react'
 import {Box
   // , IconButton
-  , Overlay, SplitPageLayout
+  // , Overlay
+  , SplitPageLayout
 } from '@primer/react'
 // // import {Octicon, Tooltip} from '@primer/react/deprecated'
 import type {BetterSystemStyleObject} from '@primer/react/lib-esm/sx'
 import React
 // , {useMemo}
 from 'react'
-import {createHtmlPortalNode, InPortal, OutPortal} from 'react-reverse-portal'
+// import {createHtmlPortalNode, InPortal, OutPortal} from 'react-reverse-portal'
 
 // import FileTreeContext from '../contexts/FileTreeContext'
 
@@ -118,7 +119,7 @@ export function ReposFileTreePane({
   const selectedElement = React.useRef<HTMLElement | null>(null)
   const {query} = useFileQueryContext()
   // const {codeCenterOption} = useCodeViewOptions()
-  const lastOpenPanel = React.useRef(openPanel)
+  // const lastOpenPanel = React.useRef(openPanel)
   const [isSSR] = useClientValue(() => false, true, [])
   // const {getItemUrl} = useUrlCreator()
   // const getTreeItemUrl = getItemUrlOverride || getItemUrl
