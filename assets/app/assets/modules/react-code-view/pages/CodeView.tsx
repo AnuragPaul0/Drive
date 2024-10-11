@@ -5,7 +5,7 @@ import {FileQueryProvider} from '@github-ui/code-view-shared/contexts/FileQueryC
 import {OpenPanelProvider} from '@github-ui/code-view-shared/contexts/OpenPanelContext'
 import {useCurrentRepository} from '@github-ui/current-repository'
 import {
-  // FileTreeControlProvider,
+  FileTreeControlProvider,
 // nc b
    ReposFileTreePane
   // , useTreePane
@@ -28,30 +28,81 @@ export default function CodeView(
   <AllShortcutsEnabledProvider allShortcutsEnabled={!0
     // payload.allShortcutsEnabled
     }>
-            {/* <FileTreeControlProvider> */}
+            <FileTreeControlProvider>
       <div>
-        {/* <FileQueryProvider><OpenPanelProvider */}
-    {/* // payload={payload} */}
-      {/* openPanelRef={openPanelRef}> */}
-      {/* <SplitPageLayout>
-        
-        <SplitPageLayout.Header>
-          <Placeholder label="Header" height={100} />
-        </SplitPageLayout.Header>
-        <SplitPageLayout.Pane position="start">
-          <Placeholder label="Pane" height={400} />
-        </SplitPageLayout.Pane>
-        <SplitPageLayout.Content>
-          <Placeholder label="Content" height={600} />
+        <FileQueryProvider><OpenPanelProvider
+      openPanelRef={openPanelRef}>
+      <SplitPageLayout>
+      <Box ref={treeRef} tabIndex={0} sx={{width: ['100%', '100%', 'auto']}}>
+        </Box>
+        {/* <SplitPageLayout.Pane
+        position="start"
+        sticky
+        sx={{
+          minWidth: 0,
+          // ...displayNoneSx,
+          flexDirection: ['column', 'column', 'inherit'],
+          '@media screen and (min-width: 768px)': {
+            height: '100vh',
+            maxHeight: '100vh !important',
+          },
+          // ...hidePaneSx,
+          // ...paneSx,
+        }}
+        padding="none"
+        width="large"
+        // resizable={paneResizable ? true : false}
+        widthStorageKey="codeView.tree-pane-width"
+        divider={{regular: 'none', narrow: 'none'}}
+      >
+        <p>Hello.</p>
+      </SplitPageLayout.Pane> */}
+      <SplitPageLayout.Content as="div" padding="none"
+            width={codeCenterOption.enabled ? 'xlarge' : 'full'}
+            hidden={{narrow: isTreeExpanded}}
+            sx={{
+              marginRight: 'auto',
+              '@media print': {
+                display: 'flex !important',
+              },
+            }}>
+            <Box sx={{
+                marginLeft: 'auto',
+                marginRight: 'auto',
+                flexDirection: 'column',
+                pb: 6,
+                maxWidth: '100%',
+                mt: 0,
+              }}
+              // ref={setContentRef}
+              data-selector="repos-split-pane-content"
+              tabIndex={0}
+            >
+                {/* <CodeViewBannersProvider> */}
+                  <Box
+                    sx={{
+                      display: isEdit ? 'none' : 'inherit',
+                    }}
+                  >
+                  <input name="q" type="text" role="combobox" placeholder="Search…"
+                      autoComplete="off" maxLength={240} className="s-input s-input__search js-search-field wmn1"
+                      aria-label="Search" aria-controls="top-search" data-controller="s-popover"
+                      data-action="focus->s-popover#show" data-s-popover-placement="bottom-start"
+                  aria-expanded="false"/>
+                  {/* <CodeViewHeader
+                      // payload={payload}
+                      showTree={!0
+                        // isTreeExpanded
+                      }/> */}
+                  </Box>
+                {/* </CodeViewBannersProvider> */}
+            </Box>
         </SplitPageLayout.Content>
-        <SplitPageLayout.Footer>
-          <Placeholder label="Footer" height={100} />
-        </SplitPageLayout.Footer>
-      </SplitPageLayout> */}
-      {/* </OpenPanelProvider>
-      </FileQueryProvider> */}
+      </SplitPageLayout>
+      </OpenPanelProvider>
+      </FileQueryProvider>
       </div>
-            {/* </FileTreeControlProvider> */}
+            </FileTreeControlProvider>
   </AllShortcutsEnabledProvider>
   ) }
 
