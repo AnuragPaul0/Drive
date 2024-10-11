@@ -19,7 +19,8 @@ export default function Home() {
   return <body
   // aria-describedby=":Rdd9lab:"
     // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-    ><main>
+    >
+      {/* <main> */}
       <SplitPageLayout>
         
       <SplitPageLayout.Header>
@@ -36,7 +37,7 @@ export default function Home() {
       </SplitPageLayout.Footer>
     </SplitPageLayout>
     {/* <CodeView/> */}
-    </main>
+    {/* </main> */}
     {/* <span data-view-component="true">
       <clipboard-copy id="clipboard-button" aria-label="Copy" type="button" value="Text to copy"
         data-view-component="true" class="Button--secondary Button--medium Button">
