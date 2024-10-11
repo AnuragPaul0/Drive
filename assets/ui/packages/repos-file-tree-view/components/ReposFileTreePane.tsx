@@ -200,7 +200,7 @@ export function ReposFileTreePane({
         padding="none"
         width="large"
         resizable={paneResizable ? true : false}
-        widthStorageKey="codeView.tree-pane-width"
+        // widthStorageKey="codeView.tree-pane-width"
         divider={{regular: 'none', narrow: 'none'}}
       >
         <p>Hello.</p>
