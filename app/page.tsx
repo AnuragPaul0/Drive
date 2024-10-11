@@ -1,4 +1,4 @@
-// 'use client'
+'use client'
 import localFont from "next/font/local"
 import CodeView from '@g-assets/modules/react-code-view/pages/CodeView'
 import {
