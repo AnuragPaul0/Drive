@@ -184,8 +184,8 @@ export function ReposFileTreePane({
   //   // <FileTreeContext.Provider value={fileTreeContextValue}>
       // {/* Render the TreeView in a portal that can be moved to different containers without
       //   rerendering */}
-      <SplitPageLayout.Pane
-        position="start"
+      // <SplitPageLayout.Pane
+      //   position="start"
         // sticky
         // sx={{
         //   minWidth: 0,
@@ -203,9 +203,9 @@ export function ReposFileTreePane({
         // resizable={paneResizable ? true : false}
         // widthStorageKey="codeView.tree-pane-width"
         // divider={{regular: 'none', narrow: 'none'}}
-      >
+      // >
         <p>Hello.</p>
-      </SplitPageLayout.Pane>
+      // </SplitPageLayout.Pane>
   //   // </FileTreeContext.Provider>
   )
 }
