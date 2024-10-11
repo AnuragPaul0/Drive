@@ -15,27 +15,27 @@ import {Box
   // , Overlay
   , SplitPageLayout
 } from '@primer/react'
-// import type {BetterSystemStyleObject} from '@primer/react/lib-esm/sx'
+import type {BetterSystemStyleObject} from '@primer/react/lib-esm/sx'
 import React from 'react'
 
-// export const TreeOverlayBreakpoint = ScreenSize.xxxlarge
+export const TreeOverlayBreakpoint = ScreenSize.xxxlarge
 
 export function ReposFileTreePane({
-  // showTree,
-  // id,
-  // headerSx,
-  // paneContentsSx,
-  // headerContent,
-  // showRefSelectorRow = true
+  showTree,
+  id,
+  headerSx,
+  paneContentsSx,
+  headerContent,
+  showRefSelectorRow = true
 }: {
-  // showTree: boolean
-  // repo: Repository
-  // isFilePath: boolean
-  // id: string
-  // headerSx?: BetterSystemStyleObject
-  // paneContentsSx?: BetterSystemStyleObject
-  // headerContent?: JSX.Element
-  // showRefSelectorRow?: boolean
+  showTree: boolean
+  repo: Repository
+  isFilePath: boolean
+  id: string
+  headerSx?: BetterSystemStyleObject
+  paneContentsSx?: BetterSystemStyleObject
+  headerContent?: JSX.Element
+  showRefSelectorRow?: boolean
 }) {
 
   // const {openPanel} = useOpenPanel()
@@ -211,40 +211,6 @@ export function ReposFileTreePane({
   //   // </FileTreeContext.Provider>
   // )
 }
-
-// function knownFolderReducer(
-//   state: Map<string, TreeItem<DirectoryItem>>,
-//   action: {
-//     type: string
-//     folders: Map<string, TreeItem<DirectoryItem>>
-//     processingTime: number
-//   },
-// ) {
-//   switch (action.type) {
-//     case 'set': {
-//       const stateInitialized = state?.size > 0
-//       sendEvent('file-tree', {
-//         'fetch-count': stateInitialized ? action.folders.size - state.size : action.folders.size,
-//         'file-count': action.folders.size,
-//         'nav-type': stateInitialized ? 'soft' : 'hard',
-//         'processing-time': action.processingTime,
-//       })
-//       return action.folders
-//     }
-//     case 'add': {
-//       const newState = new Map([...state, ...action.folders])
-//       sendEvent('file-tree', {
-//         'fetch-count': action.folders.size,
-//         'file-count': newState.size,
-//         'nav-type': 'fetch',
-//         'processing-time': action.processingTime,
-//       })
-//       return newState
-//     }
-//     default:
-//       throw new Error(`Unknown action type: ${action.type}`)
-//   }
-// }
 
 // function TreeBorder({scrollingRef}: {scrollingRef: React.RefObject<HTMLDivElement>}) {
 //   const [visible, setVisible] = React.useState(scrollingRef.current && scrollingRef.current.scrollTop > 0)

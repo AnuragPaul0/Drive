@@ -37,18 +37,18 @@ export default function CodeView(
       <SplitPageLayout>
         <Box ref={treeRef} tabIndex={0} sx={{width: ['100%', '100%', 'auto']}}>
           <ReposFileTreePane
-          // id={reposFileTreeId}
-          // repo={repo}
-          // isFilePath={isBlob || isEdit || isDelete}
-          // showTree={isTreeExpanded}
-          // headerContent={
-          //   <Box sx={{display: 'flex', width: '100%', mb: 3, alignItems: 'center'}}>
-          //     {/* {isTreeExpanded && treeToggleElement} */}
-          //     <Heading as="h2" sx={{fontSize: 2, ml: 2}}>
-          //       Files
-          //     </Heading>
-          //   </Box>
-          // }
+          id={reposFileTreeId}
+          repo={repo}
+          isFilePath={isBlob || isEdit || isDelete}
+          showTree={isTreeExpanded}
+          headerContent={
+            <Box sx={{display: 'flex', width: '100%', mb: 3, alignItems: 'center'}}>
+              {/* {isTreeExpanded && treeToggleElement} */}
+              <Heading as="h2" sx={{fontSize: 2, ml: 2}}>
+                Files
+              </Heading>
+            </Box>
+          }
         />
         </Box><SplitPageLayout.Content as="div" padding="none"
             width={codeCenterOption.enabled ? 'xlarge' : 'full'}
