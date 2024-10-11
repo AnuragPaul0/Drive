@@ -182,21 +182,22 @@ export function ReposFileTreePane({
   // <p>Hello.</p>
   
   //   // <FileTreeContext.Provider value={fileTreeContextValue}>
-  //     // {/* Render the TreeView in a portal that can be moved to different containers without rerendering */}
+      // {/* Render the TreeView in a portal that can be moved to different containers without
+      //   rerendering */}
       <SplitPageLayout.Pane
         position="start"
         sticky
-        sx={{
-          minWidth: 0,
-          // ...displayNoneSx,
-          flexDirection: ['column', 'column', 'inherit'],
-          '@media screen and (min-width: 768px)': {
-            height: '100vh',
-            maxHeight: '100vh !important',
-          },
-          ...hidePaneSx,
-          // ...paneSx,
-        }}
+        // sx={{
+        //   minWidth: 0,
+        //   // ...displayNoneSx,
+        //   flexDirection: ['column', 'column', 'inherit'],
+        //   '@media screen and (min-width: 768px)': {
+        //     height: '100vh',
+        //     maxHeight: '100vh !important',
+        //   },
+        //   ...hidePaneSx,
+        //   // ...paneSx,
+        // }}
         padding="none"
         width="large"
         resizable={paneResizable ? true : false}
