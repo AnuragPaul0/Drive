@@ -201,15 +201,6 @@ export function ReposFileTreePane({
         widthStorageKey="codeView.tree-pane-width"
         divider={{regular: 'none', narrow: 'none'}}
       >
-        {showTree && !showTreeOverlay && (
-          <div
-            className={
-              isSSR ? (openPanel ? 'react-tree-pane-contents-3-panel' : 'react-tree-pane-contents') : undefined
-            }
-          >
-            {/* <>{paneContents}</> */}
-          </div>
-        )}
       </SplitPageLayout.Pane>
   //   // </FileTreeContext.Provider>
   )
