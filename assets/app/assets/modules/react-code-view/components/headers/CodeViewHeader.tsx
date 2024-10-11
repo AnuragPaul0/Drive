@@ -12,7 +12,67 @@ export default function CodeViewHeader(
 ) {
   // const {codeCenterOption} = useCodeViewOptions()
 
-  return <Box className="container" sx={{width: '100%'}}></Box> }
+  return <Box className="container" sx={{width: '100%'}}>
+      <div className="px-3 pt-3 pb-0" id="StickyHeader">
+        <Box sx={{display: 'flex', gap: 2, flexDirection: 'column', width: '100%'}}>
+          <Box sx={{display: 'flex', alignItems: 'start', justifyContent: 'space-between', gap: 2}}>
+            {!showTree ? (
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'start',
+                  minWidth: 0,
+                }}
+                className="react-code-view-header-wrap--narrow"
+              >
+                {/* <Box
+                  sx={{
+                    display: 'block',
+                    '@media screen and (min-width: 1360px)': {
+                      display: codeCenterOption.enabled ? 'none' : 'block',
+                    },
+                    mr: 2,
+                  }}
+                >
+                  {treeToggleElement}
+                </Box> */}
+                {/* <div className="react-code-view-header-mb--narrow mr-2">
+                  <ReposHeaderRefSelector
+                    buttonClassName="ref-selector-class"
+                    idEnding="repos-header-ref-selector-wide"
+                  />
+                </div> */}
+                <Box
+                  sx={{alignSelf: 'center', display: 'flex', px: 2, minWidth: 0}}
+                  className="react-code-view-header-mb--narrow"
+                >
+                  <ReposHeaderBreadcrumb
+                    id="repos-header-breadcrumb"
+                    fileNameId="file-name-id"
+                    showCopyPathButton={true}
+                  />
+                </Box>
+              </Box>
+            ) : (
+              <Box
+                sx={{
+                  alignSelf: 'center',
+                  display: 'flex',
+                  pr: 2,
+                  minWidth: 0,
+                }}
+              >
+                {/* <ReposHeaderBreadcrumb
+                  id="repos-header-breadcrumb--wide"
+                  fileNameId="file-name-id-wide"
+                  showCopyPathButton={true}
+                /> */}
+              </Box>
+            )}
+          </Box>
+        </Box>
+      </div>
+</Box> }
 
 // function PageActions({
 //   payload,
