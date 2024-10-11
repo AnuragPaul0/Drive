@@ -34,7 +34,7 @@ export default function CodeView(
       openPanelRef={openPanelRef}>
       <SplitPageLayout>
         <Box ref={treeRef} tabIndex={0} sx={{width: ['100%', '100%', 'auto']}}>
-        <SplitPageLayout.Pane
+        </Box><SplitPageLayout.Pane
         position="start"
         sticky
         sx={{
@@ -54,9 +54,8 @@ export default function CodeView(
         widthStorageKey="codeView.tree-pane-width"
         divider={{regular: 'none', narrow: 'none'}}
       >
-        // <p>Hello.</p>
-      </SplitPageLayout.Pane>
-        </Box><SplitPageLayout.Content as="div" padding="none"
+        <p>Hello.</p>
+      </SplitPageLayout.Pane><SplitPageLayout.Content as="div" padding="none"
             width={codeCenterOption.enabled ? 'xlarge' : 'full'}
             hidden={{narrow: isTreeExpanded}}
             sx={{
