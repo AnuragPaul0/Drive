@@ -7,13 +7,14 @@ import {RenderPhase, useRenderPhase} from '@github-ui/use-render-phase'
 type ClientValueCallback<T> = (previousValue?: T) => T
 
 /**
- * This hook allows reading browser-only values in an SSR / hydration safe manner while guaranteeing the minimum
- * number of re-renders during CSR.
+ * This hook allows reading browser-only values in an SSR / hydration safe manner while guaranteeing
+ * the minimum number of re-renders during CSR.
  * - In CSR, this hook will resolve the `clientValueCallback` on first render.
  * - In SSR, the `serverValue` will be returned.
  * - Finally, after hydration, the `clientValueCallback` will be resolved.
  *
- * Note that between SSR and hydration, this can cause flashes of unhydrated content when server and client values
+ * Note that between SSR and hydration, this can cause flashes of unhydrated content when server and
+ * client values
  * differ, however this hook will not result in hydration mismatch warnings and bugs.
  *
  * @see https://thehub.github.com/epd/engineering/dev-practicals/frontend/react/ssr/ssr-tools/#useclientvalue-source
