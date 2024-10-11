@@ -18,7 +18,7 @@ export function ReposHeaderBreadcrumb({
 
   return (
     <>
-      <Breadcrumb
+      {/* <Breadcrumb
         path={path}
         repo={repo}
         // commitish={refInfo.name}
@@ -27,7 +27,7 @@ export function ReposHeaderBreadcrumb({
         id={id}
         fontSize={fontSize}
         showCopyPathButton={showCopyPathButton && path !== '' && path !== '/'}
-      />
+      /> */}
     </>
   )
 }

@@ -62,11 +62,11 @@ export default function CodeViewHeader(
                   minWidth: 0,
                 }}
               >
-                {/* <ReposHeaderBreadcrumb
+                <ReposHeaderBreadcrumb
                   id="repos-header-breadcrumb--wide"
                   fileNameId="file-name-id-wide"
                   showCopyPathButton={true}
-                /> */}
+                />
               </Box>
             )}
           </Box>
