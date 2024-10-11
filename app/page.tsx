@@ -1,7 +1,9 @@
 'use client'
 import localFont from "next/font/local"
-import CodeView from '@g-assets/modules/react-code-view/pages/CodeView'
-import {Box, Heading, SplitPageLayout } from '@primer/react'
+// import CodeView from '@g-assets/modules/react-code-view/pages/CodeView'
+import {
+  // Box, Heading,
+  SplitPageLayout } from '@primer/react'
 import {Placeholder} from '../Placeholder'
 // import '@github/clipboard-copy-element'
 
