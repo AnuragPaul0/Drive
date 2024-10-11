@@ -26,7 +26,8 @@ export function ReposFileTreePane({
   headerSx,
   paneContentsSx,
   headerContent,
-  showRefSelectorRow = true
+  showRefSelectorRow = true,
+  paneResizable = true
 }: {
   showTree: boolean
   repo: Repository
@@ -36,6 +37,7 @@ export function ReposFileTreePane({
   paneContentsSx?: BetterSystemStyleObject
   headerContent?: JSX.Element
   showRefSelectorRow?: boolean
+  paneResizable?: boolean
 }) {
 
   const {openPanel} = useOpenPanel()
@@ -197,7 +199,7 @@ export function ReposFileTreePane({
         }}
         padding="none"
         width="large"
-        // resizable={paneResizable ? true : false}
+        resizable={paneResizable ? true : false}
         widthStorageKey="codeView.tree-pane-width"
         divider={{regular: 'none', narrow: 'none'}}
       >
