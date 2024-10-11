@@ -13,7 +13,7 @@ import {
 import {useCodeViewOptions} from '@github-ui/use-code-view-options'
 import {Box, Heading, SplitPageLayout } from '@primer/react'
 import React from 'react'
-// import CodeViewHeader from '../components/headers/CodeViewHeader'
+import CodeViewHeader from '../components/headers/CodeViewHeader'
 
 export default function CodeView(
 ) {
@@ -89,11 +89,11 @@ export default function CodeView(
                       aria-label="Search" aria-controls="top-search" data-controller="s-popover"
                       data-action="focus->s-popover#show" data-s-popover-placement="bottom-start"
                   aria-expanded="false"/>
-                  {/* <CodeViewHeader
+                  <CodeViewHeader
                       // payload={payload}
                       showTree={!0
                         // isTreeExpanded
-                      }/> */}
+                      }/>
                   </Box>
                 {/* </CodeViewBannersProvider> */}
             </Box>
