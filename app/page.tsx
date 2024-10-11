@@ -1,6 +1,8 @@
 'use client'
 import localFont from "next/font/local"
 import CodeView from '@g-assets/modules/react-code-view/pages/CodeView'
+import {Box, Heading, SplitPageLayout } from '@primer/react'
+import {Placeholder} from '../Placeholder'
 // import '@github/clipboard-copy-element'
 
 const geistSans = localFont ( { src: "./fonts/GeistVF.woff", variable: "--font-geist-sans",
@@ -14,7 +16,24 @@ weight: "100 900" } )
 export default function Home() {
   return <body
   // aria-describedby=":Rdd9lab:"
-    className={`${geistSans.variable} ${geistMono.variable} antialiased`}><main><CodeView/></main>
+    className={`${geistSans.variable} ${geistMono.variable} antialiased`}><main>
+      <SplitPageLayout>
+        
+      <SplitPageLayout.Header>
+        <Placeholder label="Header" height={100} />
+      </SplitPageLayout.Header>
+      <SplitPageLayout.Pane position="start">
+        <Placeholder label="Pane" height={400} />
+      </SplitPageLayout.Pane>
+      <SplitPageLayout.Content>
+        <Placeholder label="Content" height={600} />
+      </SplitPageLayout.Content>
+      <SplitPageLayout.Footer>
+        <Placeholder label="Footer" height={100} />
+      </SplitPageLayout.Footer>
+    </SplitPageLayout>
+    {/* <CodeView/> */}
+    </main>
     {/* <span data-view-component="true">
       <clipboard-copy id="clipboard-button" aria-label="Copy" type="button" value="Text to copy"
         data-view-component="true" class="Button--secondary Button--medium Button">
