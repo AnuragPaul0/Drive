@@ -81,11 +81,11 @@ export function ReposFileTreePane({
   //   [focusActiveItem],
   // )
 
-  const {screenSize} = useScreenSize()
-  const showTreeOverlay =
-    !isSSR &&
-    ((openPanel && screenSize < TreeOverlayBreakpoint) || screenSize < ScreenSize.xlarge) &&
-    screenSize >= ScreenSize.large
+  // const {screenSize} = useScreenSize()
+  // const showTreeOverlay =
+  //   !isSSR &&
+  //   ((openPanel && screenSize < TreeOverlayBreakpoint) || screenSize < ScreenSize.xlarge) &&
+  //   screenSize >= ScreenSize.large
 
   /* on the server during SSR, the expanded value will purely be whatever their saved
   setting is, which might be expanded. On mobile widths we don't ever default to
