@@ -1,1 +1,1 @@
-export { SafeHTMLString } from "./SafeHTML"
+export * from "./SafeHTML"

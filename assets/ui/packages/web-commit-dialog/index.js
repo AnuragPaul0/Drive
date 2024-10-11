@@ -1,2 +1,2 @@
-export * from './noop'
+export * from './WebCommitDialog'
 //# sourceMappingURL=index.d.ts.map
