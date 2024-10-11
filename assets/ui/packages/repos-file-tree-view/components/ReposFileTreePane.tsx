@@ -43,7 +43,7 @@ export function ReposFileTreePane({
   // t
   const selectedElement = React.useRef<HTMLElement | null>(null)
   const {query} = useFileQueryContext()
-  // const [isSSR] = useClientValue(() => false, true, [])
+  const [isSSR] = useClientValue(() => false, true, [])
 
   // React.useEffect(() => {
   //   if (!showTree || !(!query || window.innerWidth >= ScreenSize.large)) {
