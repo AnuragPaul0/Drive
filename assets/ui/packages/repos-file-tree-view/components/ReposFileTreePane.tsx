@@ -186,7 +186,7 @@ export function ReposFileTreePane({
       //   rerendering */}
       <SplitPageLayout.Pane
         position="start"
-        sticky
+        // sticky
         // sx={{
         //   minWidth: 0,
         //   // ...displayNoneSx,
@@ -198,11 +198,11 @@ export function ReposFileTreePane({
         //   ...hidePaneSx,
         //   // ...paneSx,
         // }}
-        padding="none"
-        width="large"
-        resizable={paneResizable ? true : false}
+        // padding="none"
+        // width="large"
+        // resizable={paneResizable ? true : false}
         // widthStorageKey="codeView.tree-pane-width"
-        divider={{regular: 'none', narrow: 'none'}}
+        // divider={{regular: 'none', narrow: 'none'}}
       >
         <p>Hello.</p>
       </SplitPageLayout.Pane>
