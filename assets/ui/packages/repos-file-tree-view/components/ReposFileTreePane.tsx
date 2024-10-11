@@ -40,9 +40,10 @@ export function ReposFileTreePane({
 
   const {openPanel} = useOpenPanel()
   const scrollingRef = React.useRef<HTMLDivElement | null>(null)
-  const selectedElement = React.useRef<HTMLElement | null>(null)
-  const {query} = useFileQueryContext()
-  const [isSSR] = useClientValue(() => false, true, [])
+  // const selectedElement = React.useRef<HTMLElement | null>(null)
+  // const {query} = useFileQueryContext()
+  // const [isSSR] = useClientValue(() => false, true, [])
+
   // React.useEffect(() => {
   //   if (!showTree || !(!query || window.innerWidth >= ScreenSize.large)) {
   //     selectedElement.current = null
