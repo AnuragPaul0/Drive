@@ -19,7 +19,7 @@ export default function Home() {
   return <body
   // aria-describedby=":Rdd9lab:"
     className={`${geistSans.variable} ${geistMono.variable} antialiased`}><main>
-      <SplitPageLayout>
+      {/* <SplitPageLayout>
         
       <SplitPageLayout.Header>
         <Placeholder label="Header" height={100} />
@@ -32,6 +32,83 @@ export default function Home() {
       </SplitPageLayout.Content>
       <SplitPageLayout.Footer>
         <Placeholder label="Footer" height={100} />
+      </SplitPageLayout.Footer>
+    </SplitPageLayout> */}
+    <SplitPageLayout>
+      <SplitPageLayout.Header
+        divider={{
+          narrow: 'line',
+          regular: 'line',
+          wide: 'line'
+        }}
+        hidden={{
+          narrow: false,
+          regular: false,
+          wide: false
+        }}
+        padding="normal"
+      >
+        <Placeholder
+          height={64}
+          label="Header"
+        />
+      </SplitPageLayout.Header>
+      <SplitPageLayout.Content
+        hidden={{
+          narrow: false,
+          regular: false,
+          wide: false
+        }}
+        padding="normal"
+        width="xlarge"
+      >
+        <Placeholder
+          height={400}
+          label="Content"
+        />
+      </SplitPageLayout.Content>
+      <SplitPageLayout.Pane
+        divider={{
+          narrow: 'line',
+          regular: 'line',
+          wide: 'line'
+        }}
+        hidden={{
+          narrow: undefined,
+          regular: undefined,
+          wide: undefined
+        }}
+        padding="normal"
+        position={{
+          narrow: 'start',
+          regular: 'start',
+          wide: 'start'
+        }}
+        sticky
+        width="medium"
+      >
+        <Placeholder
+          height={200}
+          label="Pane"
+        />
+      </SplitPageLayout.Pane>
+      <SplitPageLayout.Footer
+        divider={{
+          narrow: 'line',
+          regular: 'line',
+          wide: 'line'
+        }}
+        hidden={{
+          narrow: false,
+          regular: false,
+          wide: false
+        }}
+        padding="normal"
+      >
+        <Placeholder
+          height={64}
+          label="Footer"
+        />
       </SplitPageLayout.Footer>
     </SplitPageLayout>
     {/* <CodeView/> */}
