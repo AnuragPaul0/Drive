@@ -34,20 +34,28 @@ export default function CodeView(
       openPanelRef={openPanelRef}>
       <SplitPageLayout>
         <Box ref={treeRef} tabIndex={0} sx={{width: ['100%', '100%', 'auto']}}>
-          <ReposFileTreePane
-            id={reposFileTreeId}
-            repo={repo}
-            isFilePath={isBlob || isEdit || isDelete}
-            showTree={isTreeExpanded}
-            headerContent={
-              <Box sx={{display: 'flex', width: '100%', mb: 3, alignItems: 'center'}}>
-                {/* {isTreeExpanded && treeToggleElement} */}
-                <Heading as="h2" sx={{fontSize: 2, ml: 2}}>
-                  Files
-                </Heading>
-              </Box>
-            }
-        />
+        <SplitPageLayout.Pane
+        position="start"
+        sticky
+        sx={{
+          minWidth: 0,
+          // ...displayNoneSx,
+          flexDirection: ['column', 'column', 'inherit'],
+          '@media screen and (min-width: 768px)': {
+            height: '100vh',
+            maxHeight: '100vh !important',
+          },
+          // ...hidePaneSx,
+          // ...paneSx,
+        }}
+        padding="none"
+        width="large"
+        // resizable={paneResizable ? true : false}
+        widthStorageKey="codeView.tree-pane-width"
+        divider={{regular: 'none', narrow: 'none'}}
+      >
+        // <p>Hello.</p>
+      </SplitPageLayout.Pane>
         </Box><SplitPageLayout.Content as="div" padding="none"
             width={codeCenterOption.enabled ? 'xlarge' : 'full'}
             hidden={{narrow: isTreeExpanded}}
