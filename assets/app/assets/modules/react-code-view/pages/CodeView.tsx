@@ -33,7 +33,7 @@ export default function CodeView(
         {/* <FileQueryProvider><OpenPanelProvider */}
     {/* // payload={payload} */}
       {/* openPanelRef={openPanelRef}> */}
-      <SplitPageLayout>
+      {/* <SplitPageLayout>
         
         <SplitPageLayout.Header>
           <Placeholder label="Header" height={100} />
@@ -47,7 +47,7 @@ export default function CodeView(
         <SplitPageLayout.Footer>
           <Placeholder label="Footer" height={100} />
         </SplitPageLayout.Footer>
-      </SplitPageLayout>
+      </SplitPageLayout> */}
       {/* </OpenPanelProvider>
       </FileQueryProvider> */}
       </div>
