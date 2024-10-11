@@ -177,42 +177,42 @@ export function ReposFileTreePane({
         }
 
   return (
-  <p>Hello.</p>)
+  // <p>Hello.</p>
   
   //   // <FileTreeContext.Provider value={fileTreeContextValue}>
   //     // {/* Render the TreeView in a portal that can be moved to different containers without rerendering */}
-      // <SplitPageLayout.Pane
-      //   position="start"
-      //   sticky
-      //   sx={{
-      //     minWidth: 0,
-      //     // ...displayNoneSx,
-      //     flexDirection: ['column', 'column', 'inherit'],
-      //     '@media screen and (min-width: 768px)': {
-      //       height: '100vh',
-      //       maxHeight: '100vh !important',
-      //     },
-      //     ...hidePaneSx,
-      //     // ...paneSx,
-      //   }}
-      //   padding="none"
-      //   width="large"
-      //   // resizable={paneResizable ? true : false}
-      //   widthStorageKey="codeView.tree-pane-width"
-      //   divider={{regular: 'none', narrow: 'none'}}
-      // >
-      //   {showTree && !showTreeOverlay && (
-      //     <div
-      //       className={
-      //         isSSR ? (openPanel ? 'react-tree-pane-contents-3-panel' : 'react-tree-pane-contents') : undefined
-      //       }
-      //     >
-      //       <>{paneContents}</>
-      //     </div>
-      //   )}
-      // </SplitPageLayout.Pane>
+      <SplitPageLayout.Pane
+        position="start"
+        sticky
+        sx={{
+          minWidth: 0,
+          // ...displayNoneSx,
+          flexDirection: ['column', 'column', 'inherit'],
+          '@media screen and (min-width: 768px)': {
+            height: '100vh',
+            maxHeight: '100vh !important',
+          },
+          ...hidePaneSx,
+          // ...paneSx,
+        }}
+        padding="none"
+        width="large"
+        // resizable={paneResizable ? true : false}
+        widthStorageKey="codeView.tree-pane-width"
+        divider={{regular: 'none', narrow: 'none'}}
+      >
+        {showTree && !showTreeOverlay && (
+          <div
+            className={
+              isSSR ? (openPanel ? 'react-tree-pane-contents-3-panel' : 'react-tree-pane-contents') : undefined
+            }
+          >
+            {/* <>{paneContents}</> */}
+          </div>
+        )}
+      </SplitPageLayout.Pane>
   //   // </FileTreeContext.Provider>
-  // )
+  )
 }
 
 function TreeBorder({scrollingRef}: {scrollingRef: React.RefObject<HTMLDivElement>}) {
