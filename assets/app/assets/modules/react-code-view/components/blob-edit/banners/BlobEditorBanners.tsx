@@ -4,16 +4,16 @@ import {useCurrentRepository} from '@github-ui/current-repository'
 import type {BypassMetadata} from '@github-ui/secret-scanning'
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
 
-import {SecretDetectedDialogBlob} from '../../../../secret-scanning/components/allow-secret/SecretDetectedDialogBlob'
-import {CitationFileBanner} from './CitationFileBanner'
-import {CustomSlashCommandsBanner} from './CustomSlashCommandsBanner'
+// import {SecretDetectedDialogBlob} from '../../../../secret-scanning/components/allow-secret/SecretDetectedDialogBlob'
+// import {CitationFileBanner} from './CitationFileBanner' req
+// import {CustomSlashCommandsBanner} from './CustomSlashCommandsBanner' nr
 import {EditingForkBanner} from './EditingForkBanner'
-import {FundingBanner} from './FundingBanner'
-import {IssueTemplateConfigBanner, IssueTemplateLegacyBanner, IssueTemplateValidBanner} from './IssueTemplateBanners'
-import {LeadingOrTrailingWhitespaceBanner} from './LeadingOrTrailingWhitespaceBanner'
-import {MixedLineEndingsBanner} from './MixedLineEndingsBanner'
-import {OrgMemberProfileReadmeBanner, OrgProfileReadmeBanner, ProfileReadmeBanner} from './ReadmeCalloutBanners'
-import {TranscodingBanner} from './TranscodingBanner'
+// import {FundingBanner} from './FundingBanner' small
+// import {IssueTemplateConfigBanner, IssueTemplateLegacyBanner, IssueTemplateValidBanner} from './IssueTemplateBanners'
+// import {LeadingOrTrailingWhitespaceBanner} from './LeadingOrTrailingWhitespaceBanner'
+// import {MixedLineEndingsBanner} from './MixedLineEndingsBanner' octi
+// import {OrgMemberProfileReadmeBanner, OrgProfileReadmeBanner, ProfileReadmeBanner} from './ReadmeCalloutBanners'
+// import {TranscodingBanner} from './TranscodingBanner'
 
 const queryClient = new QueryClient()
 
@@ -67,33 +67,6 @@ export function BlobEditorBanners({
 
   return (
     <>
-      {webCommitInfo.forkedRepo && (
-        <EditingForkBanner forkName={webCommitInfo.forkedRepo.name} forkOwner={webCommitInfo.forkedRepo.owner} />
-      )}
-
-      {banners.replacedDetectedEncoding && <TranscodingBanner detectedEncoding={banners.replacedDetectedEncoding} />}
-      {banners.hasMixedLineEndings && <MixedLineEndingsBanner />}
-
-      {showCitationBanner && (
-        <CitationFileBanner
-          citationHelpUrl={banners.citationHelpUrl}
-          repositoryCitationTemplateUrl={banners.repositoryCitationTemplateUrl}
-          setContent={onSetContent}
-        />
-      )}
-
-      {showFundingBanner && (
-        <FundingBanner
-          editRepoPath={banners.editRepoPath}
-          helpPath={helpUrl}
-          repositoryFundingLinksEnabled={banners.repositoryFundingLinksEnabled}
-        />
-      )}
-
-      {showCustomSlashCommandsBanner && (
-        <CustomSlashCommandsBanner customSlashCommandsDocsUrl={editInfo.customSlashCommandsDocsUrl} />
-      )}
-
       {showIssueTemplateConfigBanner && <IssueTemplateConfigBanner helpUrl={editInfo.helpUrl} />}
       {isIssueTemplate ? (
         <IssueTemplateValidBanner helpUrl={editInfo.helpUrl} filePath={filePath} />
@@ -104,11 +77,7 @@ export function BlobEditorBanners({
       {showProfileReadmeCallout && <ProfileReadmeBanner name={repo.name} owner={repo.ownerLogin} />}
       {showOrgProfileReadmeCallout && <OrgProfileReadmeBanner name={repo.name} owner={repo.ownerLogin} />}
       {showOrgMemberProfileReadmeCallout && <OrgMemberProfileReadmeBanner name={repo.name} owner={repo.ownerLogin} />}
-      {secretDetected && secretBypassMetadata && (
-        <QueryClientProvider client={queryClient}>
-          <SecretDetectedDialogBlob content={content} bypassMetadata={secretBypassMetadata} helpUrl={helpUrl} />
-        </QueryClientProvider>
-      )}
+      
       {hasLeadingOrTrailingWhitespaceInPath && <LeadingOrTrailingWhitespaceBanner />}
     </>
   )

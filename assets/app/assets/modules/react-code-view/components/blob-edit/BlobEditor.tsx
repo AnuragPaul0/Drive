@@ -23,30 +23,30 @@ import {Breadcrumb, Separator} from '../../../react-shared/Breadcrumb'
 import {usePrompt} from '../../hooks/UsePrompt'
 import {Panel} from '../Panel'
 import {BlobEditorBanners} from './banners/BlobEditorBanners'
-import {BlobEditHeader, BlobEditorTab} from './BlobEditHeader'
-import {ReactCodeMirror as CodeMirror} from './CodeMirror/CodeMirror'
+// import {BlobEditHeader, BlobEditorTab} from './BlobEditHeader' edit
+// import {ReactCodeMirror as CodeMirror} from './CodeMirror/CodeMirror' upload
 import {EditIssues} from './EditIssues'
-import {EditorPreview} from './EditorPreview'
-import {WorkflowEditor} from './Editors/WorkflowEditor'
-import {getEditorEnablements, getEditorExtensions} from './hooks/use-editors'
-import {
-  BlobEditSidePanel,
-  blobEditSidePanelEnabled,
-  type BlobEditSidePanelEnabledProps,
-} from './Panels/BlobEditSidePanel'
-import {normalizeRelativePathChange} from './utilities/relative-path-helper'
-import WebCommitDialog from './WebCommitDialog'
+// import {EditorPreview} from './EditorPreview' nr
+// import {WorkflowEditor} from './Editors/WorkflowEditor' uv
+// import {getEditorEnablements, getEditorExtensions} from './hooks/use-editors'
+// import {
+//   BlobEditSidePanel,
+//   blobEditSidePanelEnabled,
+//   type BlobEditSidePanelEnabledProps,
+// } from './Panels/BlobEditSidePanel'
+// import {normalizeRelativePathChange} from './utilities/relative-path-helper'
+// import WebCommitDialog from './WebCommitDialog' nr
 
 export const blobEditSidePanelId = 'blob-edit-side-panel-id'
 
 export default function BlobEditor({
-  collapseTree,
+  // collapseTree,
   editInfo,
   repo,
   showTree,
   treeToggleElement,
   webCommitInfo,
-  copilotInfo,
+  // copilotInfo,
 }: {
   collapseTree: CollapseTreeFunction
   editInfo: EditInfo
@@ -54,11 +54,11 @@ export default function BlobEditor({
   showTree: boolean
   treeToggleElement: JSX.Element
   webCommitInfo: WebCommitInfo
-  copilotInfo?: CopilotInfo
+  // copilotInfo?: CopilotInfo
 }) {
   const {helpUrl} = useReposAppPayload()
-  const {getUrl} = useUrlCreator()
-  const {refInfo, path} = useFilesPageInfo()
+  // const {getUrl} = useUrlCreator()
+  // const {refInfo, path} = useFilesPageInfo()
   const payloadFileContents = editInfo.content ?? ''
   const [initialFileContent, setInitialFileContent] = useState<string>(payloadFileContents)
   const [fileName, setFileName] = useState(editInfo.fileName.split('/').pop() ?? '')
@@ -86,40 +86,40 @@ export default function BlobEditor({
 
   const isNewFile = editInfo.isNewFile
 
-  let initialPath = path
+  // let initialPath = path
 
-  if (isNewFile && editInfo.fileName) {
-    if (initialPath) {
-      initialPath += `/${editInfo.fileName}`
-    } else {
-      initialPath = editInfo.fileName
-    }
-  }
+  // if (isNewFile && editInfo.fileName) {
+  //   if (initialPath) {
+  //     initialPath += `/${editInfo.fileName}`
+  //   } else {
+  //     initialPath = editInfo.fileName
+  //   }
+  // }
 
-  const [folderPath, setFolderPath] = useState(() => {
-    const initialFolders = initialPath
-      .split('/')
-      .slice(0, !fileName ? undefined : -1)
-      .join('/')
-    return initialFolders ? `${initialFolders}/` : ''
-  })
+  // const [folderPath, setFolderPath] = useState(() => {
+  //   const initialFolders = initialPath
+  //     .split('/')
+  //     .slice(0, !fileName ? undefined : -1)
+  //     .join('/')
+  //   return initialFolders ? `${initialFolders}/` : ''
+  // })
 
-  const initialFolderPath = useRef(folderPath)
+  // const initialFolderPath = useRef(folderPath)
 
-  const [hasLeadingOrTrailingWhitespaceInPath, setHasLeadingOrTrailingWhitespaceInPath] = useState(false)
-  useEffect(() => {
-    if (folderPath !== initialFolderPath.current) {
-      setHasLeadingOrTrailingWhitespaceInPath(folderPath.split('/').some(folder => folder.trim() !== folder))
-    }
-  }, [folderPath])
+  // const [hasLeadingOrTrailingWhitespaceInPath, setHasLeadingOrTrailingWhitespaceInPath] = useState(false)
+  // useEffect(() => {
+  //   if (folderPath !== initialFolderPath.current) {
+  //     setHasLeadingOrTrailingWhitespaceInPath(folderPath.split('/').some(folder => folder.trim() !== folder))
+  //   }
+  // }, [folderPath])
 
   const {screenSize} = useScreenSize()
 
   const isNarrow = screenSize <= ScreenSize.medium
 
-  const [selectedTab, setSelectedTab] = useState<BlobEditorTab>(BlobEditorTab.Edit)
-  const isEdit = selectedTab === BlobEditorTab.Edit
-  const isPreview = selectedTab === BlobEditorTab.Preview
+  // const [selectedTab, setSelectedTab] = useState<BlobEditorTab>(BlobEditorTab.Edit)
+  // const isEdit = selectedTab === BlobEditorTab.Edit
+  // const isPreview = selectedTab === BlobEditorTab.Preview
   const {selectEditTabShortcut} = useShortcut()
 
   const [codeMirrorSpacingOptions, setCodeMirrorSpacingOptions] = useState<CodeMirrorSpacingOptions>({
@@ -131,7 +131,7 @@ export default function BlobEditor({
   const [secretDetected, setSecretDetected] = useState(false)
   const [secretBypassMetadata, setSecretBypassMetadata] = useState<BypassMetadata>()
 
-  const completeFilePath = `${folderPath}${fileName}`
+  // const completeFilePath = `${folderPath}${fileName}`
 
   const nameInputRef = useRef<HTMLInputElement>(null)
   const commitChangesRef = useRef<HTMLButtonElement>(null)
@@ -147,42 +147,42 @@ export default function BlobEditor({
     setInitialFileContent(fileContentsRef.current)
 
     setFileName(newFileName)
-    setFolderPath(newFolderPath)
+    // setFolderPath(newFolderPath)
   }, [])
 
   const contentChanged = fileContentChanged || editInfo.enableCommitButton
 
-  const fileNameChanged = completeFilePath !== initialPath
+  // const fileNameChanged = completeFilePath !== initialPath
 
   // This value has to live in a ref because it is used in a callback that is
   // passed to the code mirror editor. That callback will only be bound once,
   // so we need a constant reference to the value.
   const commitDisabledRef = useRef(false)
-  commitDisabledRef.current = !(contentChanged || fileNameChanged) || fileName.length === 0
+  // commitDisabledRef.current = !(contentChanged || fileNameChanged) || fileName.length === 0
 
-  let placeholderMessage = `Update ${fileName}`
+  // let placeholderMessage = `Update ${fileName}`
 
-  if (isNewFile) {
-    placeholderMessage = `Create ${fileName}`
-  } else if (fileNameChanged) {
-    let messageAction
-    if (contentChanged) {
-      messageAction = 'Update and rename'
-    } else {
-      messageAction = 'Rename'
-    }
+  // if (isNewFile) {
+  //   placeholderMessage = `Create ${fileName}`
+  // } else if (fileNameChanged) {
+  //   let messageAction
+  //   if (contentChanged) {
+  //     messageAction = 'Update and rename'
+  //   } else {
+  //     messageAction = 'Rename'
+  //   }
 
-    if (folderPath.split('/').length !== initialPath.split('/').length) {
-      placeholderMessage = `${messageAction} ${initialPath} to ${folderPath}${fileName}`
-    } else {
-      placeholderMessage = `${messageAction} ${editInfo.fileName} to ${fileName}`
-    }
-  }
+  //   if (folderPath.split('/').length !== initialPath.split('/').length) {
+  //     placeholderMessage = `${messageAction} ${initialPath} to ${folderPath}${fileName}`
+  //   } else {
+  //     placeholderMessage = `${messageAction} ${editInfo.fileName} to ${fileName}`
+  //   }
+  // }
 
-  usePrompt(
-    'You have unsaved changes. Do you want to discard them?',
-    (contentChanged || fileNameChanged) && webCommitDialogState !== 'saved',
-  )
+  // usePrompt(
+  //   'You have unsaved changes. Do you want to discard them?',
+  //   (contentChanged || fileNameChanged) && webCommitDialogState !== 'saved',
+  // )
 
   const fileExtension = fileName.includes('.') ? `.${fileName.split('.').pop()}` : undefined
 
@@ -190,64 +190,64 @@ export default function BlobEditor({
 
   const [showMarkdownDiff, setShowMarkdownDiff] = useState(isNewFile)
 
-  const enabledEditors = getEditorEnablements(editInfo.editors, completeFilePath)
-  const {workflowEditorEnabled, devContainerEditorEnabled, dependabotEditorEnabled} = enabledEditors
+  // const enabledEditors = getEditorEnablements(editInfo.editors, completeFilePath)
+  // const {workflowEditorEnabled, devContainerEditorEnabled, dependabotEditorEnabled} = enabledEditors
 
-  const editorExtensions = getEditorExtensions(editInfo.editors, completeFilePath)
+  // const editorExtensions = getEditorExtensions(editInfo.editors, completeFilePath)
 
-  const isDiscussionTemplate =
-    completeFilePath.startsWith('.github/DISCUSSION_TEMPLATE/') && /\.(yml|yaml)$/i.test(fileName)
+  // const isDiscussionTemplate =
+  //   completeFilePath.startsWith('.github/DISCUSSION_TEMPLATE/') && /\.(yml|yaml)$/i.test(fileName)
 
-  const isIssueTemplate =
-    completeFilePath.startsWith('.github/ISSUE_TEMPLATE/') && /^((?!config).+\.(md|yml|yaml))$/i.test(fileName)
+  // const isIssueTemplate =
+  //   completeFilePath.startsWith('.github/ISSUE_TEMPLATE/') && /^((?!config).+\.(md|yml|yaml))$/i.test(fileName)
 
-  const isIssueForm =
-    completeFilePath.startsWith('.github/ISSUE_TEMPLATE/') && /^((?!config).+\.(yml|yaml))$/i.test(fileName)
+  // const isIssueForm =
+  //   completeFilePath.startsWith('.github/ISSUE_TEMPLATE/') && /^((?!config).+\.(yml|yaml))$/i.test(fileName)
 
-  const isLegacyIssueTemplate = /^(\.github\/)?issue(_|-)template\.md$/i.test(completeFilePath)
+  // const isLegacyIssueTemplate = /^(\.github\/)?issue(_|-)template\.md$/i.test(completeFilePath)
 
-  // a lot of these are being reused between here and banners - need to look into cleaning this up soon
-  const sidePanelEnabledProps: BlobEditSidePanelEnabledProps = {
-    workflowEditorEnabled,
-    devContainerEditorEnabled,
-    isIssueForm,
-    isIssueTemplate: isIssueTemplate || isLegacyIssueTemplate,
-    isDiscussionTemplate,
-  }
+  // // a lot of these are being reused between here and banners - need to look into cleaning this up soon
+  // const sidePanelEnabledProps: BlobEditSidePanelEnabledProps = {
+  //   workflowEditorEnabled,
+  //   devContainerEditorEnabled,
+  //   isIssueForm,
+  //   isIssueTemplate: isIssueTemplate || isLegacyIssueTemplate,
+  //   isDiscussionTemplate,
+  // }
 
-  const panelIsEnabled = blobEditSidePanelEnabled(sidePanelEnabledProps) && !editInfo.isOnboardingGuidance
+  // const panelIsEnabled = blobEditSidePanelEnabled(sidePanelEnabledProps) && !editInfo.isOnboardingGuidance
   const {openPanel, setOpenPanel} = useOpenPanel()
 
   const panelIsOpen = openPanel === 'edit'
 
-  useEffect(() => {
-    if (panelIsEnabled && !isNarrow) {
-      setOpenPanel('edit')
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [panelIsEnabled, setOpenPanel])
+  // useEffect(() => {
+  //   if (panelIsEnabled && !isNarrow) {
+  //     setOpenPanel('edit')
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [panelIsEnabled, setOpenPanel])
 
-  // If we lose the proper path, we need to close the panel or else it will just be blank
-  // But don't open the panel automatically if they gain the proper path
-  useEffect(() => {
-    if (panelIsOpen && !panelIsEnabled) {
-      setOpenPanel(undefined)
-    }
-  }, [panelIsEnabled, panelIsOpen, setOpenPanel])
+  // // If we lose the proper path, we need to close the panel or else it will just be blank
+  // // But don't open the panel automatically if they gain the proper path
+  // useEffect(() => {
+  //   if (panelIsOpen && !panelIsEnabled) {
+  //     setOpenPanel(undefined)
+  //   }
+  // }, [panelIsEnabled, panelIsOpen, setOpenPanel])
 
-  // set focus to name input box on page load if it is a new file
-  useEffect(() => {
-    if (isNewFile) {
-      nameInputRef?.current?.focus()
-    }
-  }, [isNewFile])
+  // // set focus to name input box on page load if it is a new file
+  // useEffect(() => {
+  //   if (isNewFile) {
+  //     nameInputRef?.current?.focus()
+  //   }
+  // }, [isNewFile])
 
-  // hide the tree if we're on an empty repo
-  useEffect(() => {
-    if (repo.isEmpty) {
-      collapseTree()
-    }
-  }, [collapseTree, repo.isEmpty])
+  // // hide the tree if we're on an empty repo
+  // useEffect(() => {
+  //   if (repo.isEmpty) {
+  //     collapseTree()
+  //   }
+  // }, [collapseTree, repo.isEmpty])
 
   if (webCommitInfo.shouldFork || webCommitInfo.shouldUpdate || webCommitInfo.lockedOnMigration) {
     return (
@@ -255,10 +255,10 @@ export default function BlobEditor({
         {!isNewFile && (
           <EditBreadcrumb
             showTree={showTree}
-            treeToggleElement={treeToggleElement}
+            // treeToggleElement={treeToggleElement}
             folderPath={folderPath}
             repo={repo}
-            refInfo={refInfo}
+            // refInfo={refInfo}
             onChange={onFileNameChange}
             fileName={fileName}
             nameInputRef={nameInputRef}
@@ -270,77 +270,53 @@ export default function BlobEditor({
     )
   }
 
-  let screenReaderHeading
+  let screenReaderHeading=''
 
-  if (isNewFile) {
-    screenReaderHeading = 'Creating a new'
-  } else {
-    screenReaderHeading = 'Editing'
-  }
+  // if (isNewFile) {
+  //   screenReaderHeading = 'Creating a new'
+  // } else {
+  //   screenReaderHeading = 'Editing'
+  // }
 
   let generic = false
 
-  if (workflowEditorEnabled) {
-    screenReaderHeading += ' workflow file'
-  } else if (dependabotEditorEnabled) {
-    screenReaderHeading += ' dependabot file'
-  } else if (devContainerEditorEnabled) {
-    screenReaderHeading += ' devcontainer file'
-  } else if (isIssueTemplate) {
-    screenReaderHeading += ' issue template file'
-  } else if (isDiscussionTemplate) {
-    screenReaderHeading += ' discussion template file'
-  } else {
-    generic = true
-  }
+  // if (workflowEditorEnabled) {
+  //   screenReaderHeading += ' workflow file'
+  // } else if (dependabotEditorEnabled) {
+  //   screenReaderHeading += ' dependabot file'
+  // } else if (devContainerEditorEnabled) {
+  //   screenReaderHeading += ' devcontainer file'
+  // } else if (isIssueTemplate) {
+  //   screenReaderHeading += ' issue template file'
+  // } else if (isDiscussionTemplate) {
+  //   screenReaderHeading += ' discussion template file'
+  // } else {
+  //   generic = true
+  // }
 
   screenReaderHeading += ` ${isNewFile ? (generic ? 'file' : '') : ` ${fileName}`} in ${repo.name}`
 
   return (
     <>
       <ScreenReaderHeading as="h1" text={screenReaderHeading} />
-
-      {workflowEditorEnabled && (
-        <WorkflowEditor
-          helpUrl={helpUrl}
-          isEnterprise={editInfo.editors.isEnterprise}
-          repositoryActionsEnabled={editInfo.editors.repositoryActionsEnabled}
-          repositoryActionsReadinessPath={editInfo.editors.repositoryActionsReadinessPath}
-        />
-      )}
-
-      <BlobEditorBanners
-        content={updatedFileContent}
-        editInfo={editInfo}
-        webCommitInfo={webCommitInfo}
-        fileName={fileName}
-        filePath={completeFilePath}
-        hasLeadingOrTrailingWhitespaceInPath={hasLeadingOrTrailingWhitespaceInPath}
-        isIssueTemplate={isIssueTemplate}
-        isLegacyIssueTemplate={isLegacyIssueTemplate}
-        secretDetected={secretDetected}
-        secretBypassMetadata={secretBypassMetadata}
-        onSetContent={setInitialFileContent}
-      />
-
       <Box
         sx={{display: 'flex', justifyContent: 'space-between', mb: 3, flexWrap: 'wrap', rowGap: 3, maxWidth: '100%'}}
       >
         <EditBreadcrumb
           showTree={showTree}
-          treeToggleElement={treeToggleElement}
+          // treeToggleElement={treeToggleElement}
           folderPath={folderPath}
           repo={repo}
-          refInfo={refInfo}
+          // refInfo={refInfo}
           onChange={onFileNameChange}
           fileName={fileName}
           nameInputRef={nameInputRef}
           inputDisabled={isPreview}
         />
         <Box sx={{alignItems: 'center', display: 'flex', flexDirection: 'row'}}>
-          <Button as={Link} to={getUrl({action: isNewFile ? 'tree' : 'blob'})} sx={{linkButtonSx}}>
+          {/* <Button as={Link} to={getUrl({action: isNewFile ? 'tree' : 'blob'})} sx={{linkButtonSx}}>
             Cancel changes
-          </Button>
+          </Button> */}
 
           <Button
             data-hotkey="Mod+s"
@@ -356,7 +332,7 @@ export default function BlobEditor({
       </Box>
       {!editInfo.binary ? (
         <Box sx={{display: 'flex', flexDirection: 'row', gap: 3, marginTop: 3}}>
-          <Panel
+          {/* <Panel
             sx={{
               display: 'flex',
               isolation: 'isolate',
@@ -366,8 +342,8 @@ export default function BlobEditor({
               zIndex: 1,
               flex: 1,
             }}
-          >
-            <BlobEditHeader
+          > */}
+            {/* <BlobEditHeader
               codeMirrorSpacingOptions={codeMirrorSpacingOptions}
               editInfo={editInfo}
               fileName={fileName}
@@ -382,64 +358,9 @@ export default function BlobEditor({
               setUpdatedFileContent={setInitialFileContent}
               showMarkdownDiff={showMarkdownDiff}
               copilotInfo={copilotInfo}
-            />
-            <>
-              <Box
-                sx={{display: isEdit ? 'flex' : 'none', isolation: 'isolate', minHeight: 0, flexDirection: 'column'}}
-                className="react-code-view-edit"
-              >
-                <CodeMirror
-                  fileName={fileName}
-                  value={initialFileContent}
-                  spacingOptions={codeMirrorSpacingOptions}
-                  onChange={onCodeMirrorChange}
-                  extensions={editorExtensions}
-                  onPreview={() => {
-                    setSelectedTab(BlobEditorTab.Preview)
-                    // Safari keeps codemirror focused even when display is set to none
-                    window.requestAnimationFrame(() => {
-                      previewContainerRef.current?.focus()
-                    })
-                  }}
-                  focusOnNextRender={focusCodeMirrorOnNextRender}
-                  // We need this in addition to the data-hotkey on the commit button because the editor
-                  // swallows the Ctrl+S events for some reason. So in order to handle hotkeys both
-                  // inside and outside the editor, we need both triggers.
-                  onSave={() => commitDisabledRef.current || setWebCommitDialogState('pending')}
-                  repositoryId={repo.id}
-                  uploadPolicyPath={editInfo.uploadPolicyPath}
-                  uploadExtensions={editInfo.uploadExtensions}
-                  markdownDocsUrl={editInfo.markdownDocsUrl}
-                />
-              </Box>
-              {isPreview && (
-                <Box
-                  ref={previewContainerRef}
-                  tabIndex={-1}
-                  sx={{outline: 'none', isolation: 'isolate', minHeight: 0, overflowY: 'auto'}}
-                >
-                  <button
-                    hidden={true}
-                    data-hotkey={selectEditTabShortcut.hotkey}
-                    onClick={() => {
-                      // Set focus to codemirror
-                      focusCodeMirrorOnNextRender.current = true
-                      setSelectedTab(BlobEditorTab.Edit)
-                    }}
-                  />
-                  <EditorPreview
-                    editInfo={editInfo}
-                    fileContent={updatedFileContent}
-                    fileName={fileName}
-                    refInfo={refInfo}
-                    showMarkdownDiff={showMarkdownDiff}
-                    isRichtextRenderable={isRichtextRenderable}
-                  />
-                </Box>
-              )}
-            </>
-          </Panel>
-          {panelIsOpen && (
+            /> */}
+          {/* </Panel> */}
+          {/* {panelIsOpen && (
             <BlobEditSidePanel
               id={blobEditSidePanelId}
               isEnterprise={editInfo.editors.isEnterprise}
@@ -448,12 +369,12 @@ export default function BlobEditor({
               isNarrow={isNarrow}
               onClosePanel={() => setOpenPanel(undefined)}
             />
-          )}
+          )} */}
         </Box>
       ) : (
         <EditIssues binary={true} helpUrl={helpUrl} webCommitInfo={webCommitInfo} />
       )}
-      {webCommitDialogState === 'pending' || webCommitDialogState === 'saving' ? (
+      {/* {webCommitDialogState === 'pending' || webCommitDialogState === 'saving' ? (
         <WebCommitDialog
           content={updatedFileContent}
           contentChanged={contentChanged}
@@ -482,27 +403,27 @@ export default function BlobEditor({
           setSecretDetected={setSecretDetected}
           setSecretBypassMetadata={setSecretBypassMetadata}
         />
-      ) : null}
+      ) : null} */}
     </>
   )
 }
 
 function EditBreadcrumb({
   showTree,
-  treeToggleElement,
+  // treeToggleElement,
   folderPath: initialFolderPath,
   repo,
-  refInfo,
+  // refInfo,
   onChange,
   fileName: initialFileName,
   nameInputRef,
   inputDisabled,
 }: {
   showTree: boolean
-  treeToggleElement: React.ReactNode
+  // treeToggleElement: React.ReactNode
   folderPath: string
   repo: Repository
-  refInfo: RefInfo
+  // refInfo: RefInfo
   onChange: (fileName: string, folderPath: string) => void
   fileName: string
   nameInputRef: React.RefObject<HTMLInputElement>
@@ -571,7 +492,7 @@ function EditBreadcrumb({
         newFileName = value
       }
 
-      newFolderPath = normalizeRelativePathChange(newFolderPath)
+      // newFolderPath = normalizeRelativePathChange(newFolderPath)
 
       if (newFolderPath !== initialFolderPath || newFileName !== initialFileName) {
         setFolderPath(newFolderPath)
@@ -584,7 +505,7 @@ function EditBreadcrumb({
 
   return (
     <Box sx={{display: 'flex', alignSelf: 'self-start', alignItems: 'center', flex: 1, pr: 3, maxWidth: '100%'}}>
-      {showTreeToggle && <Box sx={{mr: 2}}>{treeToggleElement}</Box>}
+      {/* {showTreeToggle && <Box sx={{mr: 2}}>{treeToggleElement}</Box>} */}
       <Box
         sx={{
           display: 'flex',
@@ -594,15 +515,15 @@ function EditBreadcrumb({
           maxWidth: showTreeToggle ? 'calc(100% - 75px)' : '100%',
         }}
       >
-        <Breadcrumb
+        {/* <Breadcrumb
           id="file-name-editor-breadcrumb"
           path={folderPath}
           repo={repo}
-          commitish={refInfo.name}
+          // commitish={refInfo.name}
           isFolder={false}
-        />
+        /> */}
         <Box sx={{display: 'flex', alignItems: 'center'}}>
-          <Separator />
+          {/* <Separator /> */}
           <TextInput
             aria-label="File name"
             aria-describedby="file-name-editor-breadcrumb"
@@ -614,15 +535,15 @@ function EditBreadcrumb({
             placeholder="Name your file..."
             sx={{minWidth: '100px'}}
           />
-          <Box sx={{flexShrink: 0, px: 1}}>in</Box>
-          <BranchName href={branchPath({owner: repo.ownerLogin, repo: repo.name, branch: refInfo.name})}>
+          {/* <Box sx={{flexShrink: 0, px: 1}}>in</Box> */}
+          {/* <BranchName href={branchPath({owner: repo.ownerLogin, repo: repo.name, branch: refInfo.name})}>
             {refInfo.name}
-          </BranchName>
+          </BranchName> */}
         </Box>
       </Box>
     </Box>
   )
 }
 
-try{ BlobEditor.displayName ||= 'BlobEditor' } catch {}
-try{ EditBreadcrumb.displayName ||= 'EditBreadcrumb' } catch {}
+try{ (BlobEditor as any).displayName ||= 'BlobEditor' } catch {}
+try{ (EditBreadcrumb as any).displayName ||= 'EditBreadcrumb' } catch {}

@@ -4,7 +4,7 @@ import {repositoryTreePath} from '@github-ui/paths'
 import {Link} from '@github-ui/react-core/link'
 import {ScreenReaderHeading} from '@github-ui/screen-reader-heading'
 import {Box, Heading, Link as PrimerLink, Text} from '@primer/react'
-import {useMemo} from 'react'
+// import {useMemo} from 'react'
 
 const separatorCharacter = '/'
   // commitish: string
@@ -21,15 +21,15 @@ interface BreadcrumbProps { id?: string
   // commitish,
 export function Breadcrumb({
   id = 'breadcrumb',
-  fileNameId,
+  // fileNameId,
   path,
   repo,
-  isFolder,
+  // isFolder,
   fontSize,
   showCopyPathButton,
 }: BreadcrumbProps) {
-  const {fileName, segments} = useMemo(() => getPathSegmentData(path), [path])
-  const isRoot = !path
+  // const {fileName, segments} = useMemo(() => getPathSegmentData(path), [path])
+  // const isRoot = !path
 
   return (
     <Box
@@ -54,27 +54,8 @@ export function Breadcrumb({
             <RepoLink repo={repo}
             // commitish={commitish}
             />
-          </Box>
-          {segments.map(({directoryPath}) => (
-            <Box as="li" sx={{display: 'inline-block', maxWidth: '100%'}} key={directoryPath}>
-              <Separator fontSize={fontSize} />
-              {/* {directoryName ? (
-                <DirectoryLink path={directoryPath} directoryName={directoryName} repo={repo} commitish={commitish} />
-              ) : null} */}
-            </Box>
-          ))}
-        </Box>
-      </Box>
-      {fileName && (
-        <Box data-testid="breadcrumbs-filename" sx={{display: 'inline-block', maxWidth: '100%'}} key={fileName}>
-          <Separator fontSize={fontSize} />
-
-          <FileName value={fileName} id={fileNameId} fontSize={fontSize} />
-
-          {!isRoot && isFolder && <Separator />}
-        </Box>
-      )}
-      {showCopyPathButton && (
+          </Box></Box>
+      </Box>{showCopyPathButton && (
         <CopyToClipboardButton
           ariaLabel="Copy path"
           textToCopy={path}
@@ -143,18 +124,18 @@ function FileName({value, id, fontSize}: {value: string; id?: string; fontSize?:
   )
 }
 
-function getPathSegmentData(path: string) {
-  const segments = path.split(separatorCharacter)
-  const fileName = segments.pop()!
+// function getPathSegmentData(path: string) {
+//   const segments = path.split(separatorCharacter)
+//   const fileName = segments.pop()!
 
-  return {
-    fileName,
-    segments: segments.map((segment, i) => ({
-      directoryName: segment,
-      directoryPath: segments.slice(0, i + 1).join(separatorCharacter),
-    })),
-  }
-}
+//   return {
+//     fileName,
+//     segments: segments.map((segment, i) => ({
+//       directoryName: segment,
+//       directoryPath: segments.slice(0, i + 1).join(separatorCharacter),
+//     })),
+//   }
+// }
 
 try{ (Breadcrumb as any).displayName ||= 'Breadcrumb' } catch {}
 try{ (RepoLink as any).displayName ||= 'RepoLink' } catch {}
