@@ -1,15 +1,15 @@
 // main button
 // import {ReposHeaderRefSelector} from '@github-ui/code-view-shared/components/ReposHeaderRefSelector'
 
-// import {useFileQueryContext} from '@github-ui/code-view-shared/contexts/FileQueryContext'
-// import {useOpenPanel} from '@github-ui/code-view-shared/contexts/OpenPanelContext'
-// import {ScreenSize , useScreenSize} from '@github-ui/screen-size'
-// import type {Repository} from '@github-ui/current-repository'
+import {useFileQueryContext} from '@github-ui/code-view-shared/contexts/FileQueryContext'
+import {useOpenPanel} from '@github-ui/code-view-shared/contexts/OpenPanelContext'
+import {ScreenSize , useScreenSize} from '@github-ui/screen-size'
+import type {Repository} from '@github-ui/current-repository'
 
-// import {useClientValue} from '@github-ui/use-client-value'
+import {useClientValue} from '@github-ui/use-client-value'
 // import {verifiedFetchJSON} from '@github-ui/verified-fetch' nr
 
-// import {scrollIntoView} from '@primer/behaviors'
+import {scrollIntoView} from '@primer/behaviors'
 import {Box
   // , IconButton
   // , Overlay

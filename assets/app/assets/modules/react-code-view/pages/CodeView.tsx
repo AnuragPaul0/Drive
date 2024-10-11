@@ -11,7 +11,9 @@ import {
   // , useTreePane
 } from '@github-ui/repos-file-tree-view'
 import {useCodeViewOptions} from '@github-ui/use-code-view-options'
-import {Box, Heading, SplitPageLayout } from '@primer/react'
+import {Box,
+  // Heading,
+  SplitPageLayout } from '@primer/react'
 import React from 'react'
 // import CodeViewHeader from '../components/headers/CodeViewHeader'
 
