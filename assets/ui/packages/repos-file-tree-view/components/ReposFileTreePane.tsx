@@ -201,6 +201,7 @@ export function ReposFileTreePane({
         widthStorageKey="codeView.tree-pane-width"
         divider={{regular: 'none', narrow: 'none'}}
       >
+        <p>Hello.</p>
       </SplitPageLayout.Pane>
   //   // </FileTreeContext.Provider>
   )
