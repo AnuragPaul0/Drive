@@ -1,20 +1,20 @@
-import {
+// import {
   // useFilesPageInfo,
-  useReposAppPayload} from '@github-ui/code-view-shared/contexts/FilesPageInfoContext'
-import {useOpenPanel} from '@github-ui/code-view-shared/contexts/OpenPanelContext'
+  // useReposAppPayload} from '@github-ui/code-view-shared/contexts/FilesPageInfoContext'
+// import {useOpenPanel} from '@github-ui/code-view-shared/contexts/OpenPanelContext'
 // import {useShortcut} from '@github-ui/code-view-shared/hooks/shortcuts'
 // import {useUrlCreator} from '@github-ui/code-view-shared/hooks/use-url-creator'
 // import {linkButtonSx} from '@github-ui/code-view-shared/utilities/styles'
-import type {CodeMirrorSpacingOptions, CollapseTreeFunction, EditInfo,
-    WebCommitInfo} from '@github-ui/code-view-types'
+// import type {CodeMirrorSpacingOptions, CollapseTreeFunction, EditInfo,
+//     WebCommitInfo} from '@github-ui/code-view-types'
 // import type {CopilotInfo} from '@github-ui/copilot-common-types'
 import type {Repository} from '@github-ui/current-repository'
 // import {branchPath} from '@github-ui/paths'
 // import {Link} from '@github-ui/react-core/link'
 // import type {RefInfo} from '@github-ui/repos-types' ua
 // import {ScreenReaderHeading} from '@github-ui/screen-reader-heading'
-import {ScreenSize, useScreenSize} from '@github-ui/screen-size'
-import type {BypassMetadata} from '@github-ui/secret-scanning'
+// import {ScreenSize, useScreenSize} from '@github-ui/screen-size'
+// import type {BypassMetadata} from '@github-ui/secret-scanning'
 import {useCodeViewOptions} from '@github-ui/use-code-view-options'
 import type {WebCommitDialogState} from '@github-ui/web-commit-dialog'
 import {Box, BranchName, Button, TextInput} from '@primer/react'
@@ -46,267 +46,121 @@ export const blobEditSidePanelId = 'blob-edit-side-panel-id'
 
 export default function BlobEditor({
   // collapseTree,
-  editInfo,
-  repo,
-  showTree,
+  editInfo = {enableCommitButton: 1},
+  repo = { isEmpty: !1,
+    id: 0,
+    name: '',
+    ownerLogin: '',
+    defaultBranch: '',
+    createdAt: '',
+    currentUserCanPush: false,
+    isFork: false,
+    ownerAvatar: '',
+    public: false,
+    private: false,
+    isOrgOwned: false },
+  showTree=true,
   // treeToggleElement,
-  webCommitInfo,
+  // webCommitInfo,
   // copilotInfo,
-}: {
-  collapseTree: CollapseTreeFunction
-  editInfo: EditInfo
-  repo: Repository
-  showTree: boolean
-  treeToggleElement: JSX.Element
-  webCommitInfo: WebCommitInfo
+}
+// : {
+  // collapseTree: CollapseTreeFunction
+  // editInfo: {enableCommitButton: number}
+  // EditInfo
+  // repo: Repository
+  // showTree: boolean
+  // treeToggleElement: JSX.Element
+  // webCommitInfo: WebCommitInfo
   // copilotInfo?: CopilotInfo
-}) {
-  const {helpUrl} = useReposAppPayload()
+// }
+) {
+  // const {helpUrl} = useReposAppPayload()
   // const {getUrl} = useUrlCreator()
   // const {refInfo, path} = useFilesPageInfo()
-  const payloadFileContents = editInfo.content ?? ''
-  const [initialFileContent, setInitialFileContent] = useState<string>(payloadFileContents)
-  const [fileName, setFileName] = useState(editInfo.fileName.split('/').pop() ?? '')
+  // const payloadFileContents = editInfo.content ?? ''
+  // const [initialFileContent, setInitialFileContent] = useState<string>(payloadFileContents)
+  const [fileName, setFileName] = useState(
+    // editInfo.fileName.split('/').pop() ??
+    '')
 
   // we're using a ref to track the contents without triggering re-renders
-  const fileContentsRef = useRef<string>(initialFileContent)
-  const updatedFileContent = fileContentsRef.current
+  // const fileContentsRef = useRef<string>(initialFileContent)
+  // const updatedFileContent = fileContentsRef.current
 
-  useEffect(() => {
-    // keep the ref in sync if a user sets content from a banner or template
-    fileContentsRef.current = initialFileContent
-  }, [initialFileContent])
+  // useEffect(() => {
+  //   // keep the ref in sync if a user sets content from a banner or template
+  //   fileContentsRef.current = initialFileContent
+  // }, [initialFileContent])
 
   const [fileContentChanged, setFileContentChanged] = useState(false)
 
-  const onCodeMirrorChange = useCallback(
-    (value: string) => {
-      fileContentsRef.current = value
-      if (payloadFileContents !== value) {
-        setFileContentChanged(true)
-      }
-    },
-    [payloadFileContents],
-  )
-
-  const isNewFile = editInfo.isNewFile
+  // const onCodeMirrorChange = useCallback(
+  //   (value: string) => {
+  //     fileContentsRef.current = value
+  //     if (payloadFileContents !== value) {
+  //       setFileContentChanged(true)
+  //     }
+  //   },
+  //   [payloadFileContents],
+  // )
 
   let initialPath = 'drive.google.com/viewerng/viewer?embedded=true&url='
   // path
 
-  // if (isNewFile && editInfo.fileName) {
-  //   if (initialPath) {
-  //     initialPath += `/${editInfo.fileName}`
-  //   } else {
-  //     initialPath = editInfo.fileName
-  //   }
-  // }
-
   const [folderPath, setFolderPath] = useState(() => {
     const initialFolders = initialPath
-      .split('/')
-      .slice(0, !fileName ? undefined : -1)
-      .join('/')
-    return initialFolders ? `${initialFolders}/` : ''
+      // .split('/')
+      // .slice(0, !fileName ? undefined : -1)
+      // .join('/')
+    return initialFolders
+    //  ? `${initialFolders}/` : ''
   })
 
-  // const initialFolderPath = useRef(folderPath)
+  // const {screenSize} = useScreenSize()
 
-  // const [hasLeadingOrTrailingWhitespaceInPath, setHasLeadingOrTrailingWhitespaceInPath] = useState(false)
-  // useEffect(() => {
-  //   if (folderPath !== initialFolderPath.current) {
-  //     setHasLeadingOrTrailingWhitespaceInPath(folderPath.split('/').some(folder => folder.trim() !== folder))
-  //   }
-  // }, [folderPath])
-
-  const {screenSize} = useScreenSize()
-
-  const isNarrow = screenSize <= ScreenSize.medium
+  // const isNarrow = screenSize <= ScreenSize.medium
 
   const [selectedTab, setSelectedTab] = useState<BlobEditorTab>(BlobEditorTab.Edit)
-  const isEdit = selectedTab === BlobEditorTab.Edit
+  // const isEdit = selectedTab === BlobEditorTab.Edit
   const isPreview = selectedTab === BlobEditorTab.Preview
-  // const {selectEditTabShortcut} = useShortcut()
-
-  const [codeMirrorSpacingOptions, setCodeMirrorSpacingOptions] = useState<CodeMirrorSpacingOptions>({
-    lineWrapping: editInfo.codeMirror?.lineWrapping,
-    indentMode: editInfo.codeMirror?.indentMode,
-    indentSize: editInfo.codeMirror?.indentSize,
-  })
-
-  const [secretDetected, setSecretDetected] = useState(false)
-  const [secretBypassMetadata, setSecretBypassMetadata] = useState<BypassMetadata>()
-
-  // const completeFilePath = `${folderPath}${fileName}`
 
   const nameInputRef = useRef<HTMLInputElement>(null)
   const commitChangesRef = useRef<HTMLButtonElement>(null)
-  const previewContainerRef = useRef<HTMLDivElement>(null)
-
-  const focusCodeMirrorOnNextRender = useRef<boolean>(false)
 
   const [webCommitDialogState, setWebCommitDialogState] = useState<WebCommitDialogState>('closed')
 
-  const onFileNameChange = useCallback((newFileName: string, newFolderPath: string) => {
-    // changing file name to/from markdown can cause the editor to re-render
-    // copy the ref value into the react state so folks dont lose their work
-    setInitialFileContent(fileContentsRef.current)
+  // const onFileNameChange = useCallback((newFileName: string, newFolderPath: string) => {
+  //   // changing file name to/from markdown can cause the editor to re-render
+  //   // copy the ref value into the react state so folks dont lose their work
+  //   // setInitialFileContent(fileContentsRef.current)
 
-    setFileName(newFileName)
-    // setFolderPath(newFolderPath)
-  }, [])
+  //   // setFileName(newFileName)
+  //   // setFolderPath(newFolderPath)
+  // }, [])
+
+  const completeFilePath = `${folderPath}`
 
   const contentChanged = fileContentChanged || editInfo.enableCommitButton
 
-  // const fileNameChanged = completeFilePath !== initialPath
+  const fileNameChanged = completeFilePath !== initialPath
 
   // This value has to live in a ref because it is used in a callback that is
   // passed to the code mirror editor. That callback will only be bound once,
   // so we need a constant reference to the value.
   const commitDisabledRef = useRef(false)
-  // commitDisabledRef.current = !(contentChanged || fileNameChanged) || fileName.length === 0
+  commitDisabledRef.current = !(contentChanged || fileNameChanged) || fileName.length === 0
+  
+  // const {openPanel, setOpenPanel} = useOpenPanel()
 
-  // let placeholderMessage = `Update ${fileName}`
-
-  // if (isNewFile) {
-  //   placeholderMessage = `Create ${fileName}`
-  // } else if (fileNameChanged) {
-  //   let messageAction
-  //   if (contentChanged) {
-  //     messageAction = 'Update and rename'
-  //   } else {
-  //     messageAction = 'Rename'
-  //   }
-
-  //   if (folderPath.split('/').length !== initialPath.split('/').length) {
-  //     placeholderMessage = `${messageAction} ${initialPath} to ${folderPath}${fileName}`
-  //   } else {
-  //     placeholderMessage = `${messageAction} ${editInfo.fileName} to ${fileName}`
-  //   }
-  // }
-
-  // usePrompt(
-  //   'You have unsaved changes. Do you want to discard them?',
-  //   (contentChanged || fileNameChanged) && webCommitDialogState !== 'saved',
-  // )
-
-  const fileExtension = fileName.includes('.') ? `.${fileName.split('.').pop()}` : undefined
-
-  const isRichtextRenderable = !!fileExtension && editInfo.renderableExtensions.includes(fileExtension)
-
-  const [showMarkdownDiff, setShowMarkdownDiff] = useState(isNewFile)
-
-  // const enabledEditors = getEditorEnablements(editInfo.editors, completeFilePath)
-  // const {workflowEditorEnabled, devContainerEditorEnabled, dependabotEditorEnabled} = enabledEditors
-
-  // const editorExtensions = getEditorExtensions(editInfo.editors, completeFilePath)
-
-  // const isDiscussionTemplate =
-  //   completeFilePath.startsWith('.github/DISCUSSION_TEMPLATE/') && /\.(yml|yaml)$/i.test(fileName)
-
-  // const isIssueTemplate =
-  //   completeFilePath.startsWith('.github/ISSUE_TEMPLATE/') && /^((?!config).+\.(md|yml|yaml))$/i.test(fileName)
-
-  // const isIssueForm =
-  //   completeFilePath.startsWith('.github/ISSUE_TEMPLATE/') && /^((?!config).+\.(yml|yaml))$/i.test(fileName)
-
-  // const isLegacyIssueTemplate = /^(\.github\/)?issue(_|-)template\.md$/i.test(completeFilePath)
-
-  // // a lot of these are being reused between here and banners - need to look into cleaning this up soon
-  // const sidePanelEnabledProps: BlobEditSidePanelEnabledProps = {
-  //   workflowEditorEnabled,
-  //   devContainerEditorEnabled,
-  //   isIssueForm,
-  //   isIssueTemplate: isIssueTemplate || isLegacyIssueTemplate,
-  //   isDiscussionTemplate,
-  // }
-
-  // const panelIsEnabled = blobEditSidePanelEnabled(sidePanelEnabledProps) && !editInfo.isOnboardingGuidance
-  const {openPanel, setOpenPanel} = useOpenPanel()
-
-  const panelIsOpen = openPanel === 'edit'
-
-  // useEffect(() => {
-  //   if (panelIsEnabled && !isNarrow) {
-  //     setOpenPanel('edit')
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [panelIsEnabled, setOpenPanel])
-
-  // // If we lose the proper path, we need to close the panel or else it will just be blank
-  // // But don't open the panel automatically if they gain the proper path
-  // useEffect(() => {
-  //   if (panelIsOpen && !panelIsEnabled) {
-  //     setOpenPanel(undefined)
-  //   }
-  // }, [panelIsEnabled, panelIsOpen, setOpenPanel])
-
-  // // set focus to name input box on page load if it is a new file
-  // useEffect(() => {
-  //   if (isNewFile) {
-  //     nameInputRef?.current?.focus()
-  //   }
-  // }, [isNewFile])
-
-  // // hide the tree if we're on an empty repo
-  // useEffect(() => {
-  //   if (repo.isEmpty) {
-  //     collapseTree()
-  //   }
-  // }, [collapseTree, repo.isEmpty])
-
-  if (webCommitInfo.shouldFork || webCommitInfo.shouldUpdate || webCommitInfo.lockedOnMigration) {
-    return (
-      <>
-        {!isNewFile && (
-          <EditBreadcrumb
-            showTree={showTree}
-            // treeToggleElement={treeToggleElement}
-            folderPath={folderPath}
-            repo={repo}
-            // refInfo={refInfo}
-            onChange={onFileNameChange}
-            fileName={fileName}
-            nameInputRef={nameInputRef}
-            inputDisabled={true}
-          />
-        )}
-        <EditIssues binary={false} helpUrl={helpUrl} webCommitInfo={webCommitInfo} />
-      </>
-    )
-  }
-
-  let screenReaderHeading=''
-
-  // if (isNewFile) {
-  //   screenReaderHeading = 'Creating a new'
-  // } else {
-  //   screenReaderHeading = 'Editing'
-  // }
-
-  let generic = false
-
-  // if (workflowEditorEnabled) {
-  //   screenReaderHeading += ' workflow file'
-  // } else if (dependabotEditorEnabled) {
-  //   screenReaderHeading += ' dependabot file'
-  // } else if (devContainerEditorEnabled) {
-  //   screenReaderHeading += ' devcontainer file'
-  // } else if (isIssueTemplate) {
-  //   screenReaderHeading += ' issue template file'
-  // } else if (isDiscussionTemplate) {
-  //   screenReaderHeading += ' discussion template file'
-  // } else {
-  //   generic = true
-  // }
-
-  screenReaderHeading += ` ${isNewFile ? (generic ? 'file' : '') : ` ${fileName}`} in ${repo.name}`
+  // const panelIsOpen = openPanel === 'edit'
 
   return (
     <>
       {/* <ScreenReaderHeading as="h1" text={screenReaderHeading} /> */}
       <Box
-        sx={{display: 'flex', justifyContent: 'space-between', mb: 3, flexWrap: 'wrap', rowGap: 3, maxWidth: '100%'}}
+        sx={{display: 'flex', justifyContent: 'space-between', mb: 3, flexWrap: 'wrap', rowGap: 3,
+          maxWidth: '100%'}}
       >
         <EditBreadcrumb
           showTree={showTree}
@@ -314,7 +168,7 @@ export default function BlobEditor({
           folderPath={folderPath}
           repo={repo}
           // refInfo={refInfo}
-          onChange={onFileNameChange}
+          // onChange={onFileNameChange}
           fileName={fileName}
           nameInputRef={nameInputRef}
           inputDisabled={isPreview}
@@ -336,11 +190,6 @@ export default function BlobEditor({
           </Button>
         </Box>
       </Box>
-      {!editInfo.binary ? (
-        <Box sx={{display: 'flex', flexDirection: 'row', gap: 3, marginTop: 3}}></Box>
-      ) : (
-        <EditIssues binary={true} helpUrl={helpUrl} webCommitInfo={webCommitInfo} />
-      )}
     </>
   )
 }
@@ -351,7 +200,7 @@ function EditBreadcrumb({
   folderPath: initialFolderPath,
   repo,
   // refInfo,
-  onChange,
+  // onChange,
   fileName: initialFileName,
   nameInputRef,
   inputDisabled,
@@ -361,7 +210,7 @@ function EditBreadcrumb({
   folderPath: string
   repo: Repository
   // refInfo: RefInfo
-  onChange: (fileName: string, folderPath: string) => void
+  // onChange: (fileName: string, folderPath: string) => void
   fileName: string
   nameInputRef: React.RefObject<HTMLInputElement>
   inputDisabled: boolean
@@ -412,39 +261,42 @@ function EditBreadcrumb({
       let newFileName = fileName
       let newFolderPath = folderPath
 
-      if (value.includes('/')) {
-        const pathParts = value.split('/')
+      // if (value.includes('/')) {
+      //   const pathParts = value.split('/')
 
-        if (value.endsWith('/')) {
-          newFileName = ''
-          newFolderPath = `${folderPath}${value}`
-        } else {
-          newFileName = pathParts[pathParts.length - 1] ?? ''
-          newFolderPath = `${folderPath}${pathParts.slice(0, -1).join('/')}/`
+      //   if (value.endsWith('/')) {
+          // newFileName = ''${folderPath}
+          newFolderPath = `${value}`
+        // } else {
+        //   newFileName = pathParts[pathParts.length - 1] ?? ''
+        //   newFolderPath = `${folderPath}${pathParts.slice(0, -1).join('/')}/`
 
-          if (pathParts.length > 1) {
-            window.requestAnimationFrame(() => {
-              nameInputRef.current?.setSelectionRange(0, 0)
-            })
-          }
-        }
-      } else {
-        newFileName = value
-      }
+        //   if (pathParts.length > 1) {
+        //     window.requestAnimationFrame(() => {
+        //       nameInputRef.current?.setSelectionRange(0, 0)
+        //     })
+        //   }
+        // }
+      // } else {
+      //   newFileName = value
+      // }
 
       // newFolderPath = normalizeRelativePathChange(newFolderPath)
 
       if (newFolderPath !== initialFolderPath || newFileName !== initialFileName) {
         setFolderPath(newFolderPath)
-        setFileName(newFileName)
-        onChange(newFileName, newFolderPath)
+        // setFileName(newFileName)
+        // onChange(newFileName, newFolderPath)
       }
     },
-    [onChange, fileName, folderPath, initialFileName, initialFolderPath, nameInputRef],
+    [
+      // onChange,
+      fileName, folderPath, initialFileName, initialFolderPath, nameInputRef],
   )
 
   return (
-    <Box sx={{display: 'flex', alignSelf: 'self-start', alignItems: 'center', flex: 1, pr: 3, maxWidth: '100%'}}>
+    <Box sx={{display: 'flex', alignSelf: 'self-start', alignItems: 'center', flex: 1, pr: 3,
+      maxWidth: '100%'}}>
       {/* {showTreeToggle && <Box sx={{mr: 2}}>{treeToggleElement}</Box>} */}
       <Box
         sx={{
@@ -454,15 +306,7 @@ function EditBreadcrumb({
           flexWrap: 'wrap',
           maxWidth: showTreeToggle ? 'calc(100% - 75px)' : '100%',
         }}
-      >
-        {/* <Breadcrumb
-          id="file-name-editor-breadcrumb"
-          path={folderPath}
-          repo={repo}
-          // commitish={refInfo.name}
-          isFolder={false}
-        /> */}
-        <Box sx={{display: 'flex', alignItems: 'center'}}>
+      ><Box sx={{display: 'flex', alignItems: 'center'}}>
           {/* <Separator /> */}
           <TextInput
             aria-label="File name"
@@ -473,13 +317,8 @@ function EditBreadcrumb({
             value={fileName}
             ref={nameInputRef}
             placeholder="Name your file..."
-            sx={{ minWidth: '100px' }} block={undefined} contrast={undefined} monospace={undefined}
-            width={undefined} maxWidth={undefined} minWidth={undefined} variant={undefined}
-            size={undefined} validationStatus={undefined} as={'input'}          />
-          {/* <Box sx={{flexShrink: 0, px: 1}}>in</Box> */}
-          {/* <BranchName href={branchPath({owner: repo.ownerLogin, repo: repo.name, branch: refInfo.name})}>
-            {refInfo.name}
-          </BranchName> */}
+            sx={{ minWidth: '100px' }}/>
+          <Box sx={{flexShrink: 0, px: 1}}>in</Box>
         </Box>
       </Box>
     </Box>

@@ -3,24 +3,26 @@ import {AllShortcutsEnabledProvider} from
 // import {CodeViewBannersProvider} from '@github-ui/code-view-shared/contexts/CodeViewBannersContext'
 import {FileQueryProvider} from '@github-ui/code-view-shared/contexts/FileQueryContext'
 import {OpenPanelProvider} from '@github-ui/code-view-shared/contexts/OpenPanelContext'
-import {useCurrentRepository} from '@github-ui/current-repository'
+// import {useCurrentRepository} from '@github-ui/current-repository'
 import {
   FileTreeControlProvider,
 // nc b
-   ReposFileTreePane
+  //  ReposFileTreePane
   // , useTreePane
 } from '@github-ui/repos-file-tree-view'
 import {useCodeViewOptions} from '@github-ui/use-code-view-options'
-import {Box, Heading, SplitPageLayout } from '@primer/react'
+import {Box
+  // , Heading
+  , SplitPageLayout } from '@primer/react'
 import React from 'react'
 import CodeViewHeader from '../components/headers/CodeViewHeader'
 
 export default function CodeView(
 ) {
-  const repo = useCurrentRepository(), isEdit = !1, isBlob = isEdit, isDelete =  isEdit,
-    treeRef = React.useRef<HTMLDivElement>(null),
+  // repo = useCurrentRepository(), isBlob = isEdit, isDelete =  isEdit,
+  // reposFileTreeId = 'repos-file-tree',
+  const isEdit = !1, treeRef = React.useRef<HTMLDivElement>(null),
     {codeCenterOption} = useCodeViewOptions(),
-    reposFileTreeId = 'repos-file-tree',
     openPanelRef = React.useRef<string | undefined>(), isTreeExpanded = !0
 
   return (
@@ -85,7 +87,8 @@ export default function CodeView(
                     }}
                   >
                   <input name="q" type="text" role="combobox" placeholder="Search…"
-                      autoComplete="off" maxLength={240} className="s-input s-input__search js-search-field wmn1"
+                      autoComplete="off" maxLength={240}
+                      className="s-input s-input__search js-search-field wmn1"
                       aria-label="Search" aria-controls="top-search" data-controller="s-popover"
                       data-action="focus->s-popover#show" data-s-popover-placement="bottom-start"
                   aria-expanded="false"/>
@@ -106,30 +109,30 @@ export default function CodeView(
   </AllShortcutsEnabledProvider>
   ) }
 
-  const Placeholder: React.FC<
-  React.PropsWithChildren<{
-    id?: string | undefined
-    width?: number | string
-    height: number | string
-    label?: string
-  }>
-> = ({width, height, id, label}) => {
-  return (
-    <Box
-      id={id}
-      sx={{
-        width: width ?? '100%',
-        height,
-        display: 'grid',
-        placeItems: 'center',
-        bg: 'canvas.inset',
-        borderRadius: 2,
-        border: '1px solid',
-        borderColor: 'border.subtle',
-      }}
-    >
-      {label}
-    </Box>
-  )
-}
+//   const Placeholder: React.FC<
+//   React.PropsWithChildren<{
+//     id?: string | undefined
+//     width?: number | string
+//     height: number | string
+//     label?: string
+//   }>
+// > = ({width, height, id, label}) => {
+//   return (
+//     <Box
+//       id={id}
+//       sx={{
+//         width: width ?? '100%',
+//         height,
+//         display: 'grid',
+//         placeItems: 'center',
+//         bg: 'canvas.inset',
+//         borderRadius: 2,
+//         border: '1px solid',
+//         borderColor: 'border.subtle',
+//       }}
+//     >
+//       {label}
+//     </Box>
+//   )
+// }
 try{ (CodeView as any).displayName ||= 'CodeView' } catch {}

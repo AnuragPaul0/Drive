@@ -1,6 +1,7 @@
 'use client'
 import localFont from "next/font/local"
 import CodeView from '@g-assets/modules/react-code-view/pages/CodeView'
+import BlobEditor from '@g-assets/modules/react-code-view/components/blob-edit/BlobEditor'
 import {
   // Box, Heading
   // , SplitPageLayout
@@ -18,10 +19,10 @@ weight: "100 900" } )
 
 export default function Home() {
   return <body
-  aria-describedby=":Rdd9lab:"
+    aria-describedby=":Rdd9lab:"
     className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
-      <main>
+      <main><BlobEditor/>
       {/* <SplitPageLayout>
         
       <SplitPageLayout.Header>
@@ -36,10 +37,9 @@ export default function Home() {
       <SplitPageLayout.Footer>
         <Placeholder label="Footer" height={100} />
       </SplitPageLayout.Footer>
-    </SplitPageLayout> */}
-
-    <CodeView/>
-    </main>
+      </SplitPageLayout> */}
+      {/* <CodeView/> */}
+      </main>
     {/* <span data-view-component="true">
       <clipboard-copy id="clipboard-button" aria-label="Copy" type="button" value="Text to copy"
         data-view-component="true" class="Button--secondary Button--medium Button">
