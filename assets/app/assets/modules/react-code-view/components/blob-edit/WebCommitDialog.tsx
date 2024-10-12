@@ -1,15 +1,15 @@
-import {useCodeViewAddQueuedBanner} from '@github-ui/code-view-shared/contexts/CodeViewBannersContext'
+// import {useCodeViewAddQueuedBanner} from '@github-ui/code-view-shared/contexts/CodeViewBannersContext'
 import type {SaveResponse, SaveResponseErrorDetails, WebCommitInfo} from '@github-ui/code-view-types'
 import {useFileTreeControlContext} from '@github-ui/repos-file-tree-view'
 import type {BypassMetadata} from '@github-ui/secret-scanning'
 import {useCSRFToken} from '@github-ui/use-csrf-token'
-import {resetMemoizeFetchJSON} from '@github-ui/use-latest-commit'
-import {useNavigate} from '@github-ui/use-navigate'
-import {verifiedFetch} from '@github-ui/verified-fetch'
+// import {resetMemoizeFetchJSON} from '@github-ui/use-latest-commit'
+// import {useNavigate} from '@github-ui/use-navigate'
+// import {verifiedFetch} from '@github-ui/verified-fetch'
 import {WebCommitDialog as CommitDialog, type WebCommitDialogState} from '@github-ui/web-commit-dialog'
 import React, {useEffect} from 'react'
 
-import {pollUntilCommitHasQuorum} from './utilities/fetch-is-commit-available'
+// import {pollUntilCommitHasQuorum} from './utilities/fetch-is-commit-available'
 
 interface ISaveBlobData {
   message: string
@@ -94,7 +94,7 @@ export default function WebCommitDialog(props: {
     saveUrl,
   } = webCommitInfo
   const savingToken = useCSRFToken(saveUrl, isDelete ? 'delete' : 'post')
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   const [message, setMessage] = React.useState(placeholderMessage)
   const [description, setDescription] = React.useState('')
@@ -104,7 +104,7 @@ export default function WebCommitDialog(props: {
   const [errorMessage, setErrorMessage] = React.useState('')
   const [errorDetails, setErrorDetails] = React.useState<SaveResponseErrorDetails>()
   const {refreshTree} = useFileTreeControlContext()
-  const addQueuedBanner = useCodeViewAddQueuedBanner()
+  // const addQueuedBanner = useCodeViewAddQueuedBanner()
 
   const commitMessageInputRef = React.useRef<HTMLInputElement>(null)
   useEffect(() => {
@@ -167,65 +167,65 @@ export default function WebCommitDialog(props: {
     // eslint-disable-next-line github/authenticity-token
     formData.append('authenticity_token', savingToken ?? '')
 
-    try {
-      const result = await verifiedFetch(saveUrl, {
-        method: 'post',
-        body: formData,
-        headers: {Accept: 'application/json'},
-      })
+    // try {
+    //   const result = await verifiedFetch(saveUrl, {
+    //     method: 'post',
+    //     body: formData,
+    //     headers: {Accept: 'application/json'},
+    //   })
 
-      const json: SaveResponse = await result.json()
+    //   const json: SaveResponse = await result.json()
 
-      if (json.data.commitQuorumPollPath) {
-        await pollUntilCommitHasQuorum(json.data.commitQuorumPollPath)
-      }
+    //   if (json.data.commitQuorumPollPath) {
+    //     await pollUntilCommitHasQuorum(json.data.commitQuorumPollPath)
+    //   }
 
-      // on a successful save, we are redirected to either back to the blob, back the PR, or to a quick pull PR
-      if (json.data.redirect) {
-        const redirectUrl = json.data.redirect
-        const url = redirectUrl.startsWith(window.location.origin)
-          ? redirectUrl.replace(window.location.origin, '')
-          : redirectUrl
+    //   // on a successful save, we are redirected to either back to the blob, back the PR, or to a quick pull PR
+    //   if (json.data.redirect) {
+    //     const redirectUrl = json.data.redirect
+    //     const url = redirectUrl.startsWith(window.location.origin)
+    //       ? redirectUrl.replace(window.location.origin, '')
+    //       : redirectUrl
 
-        // Reset the latest commit cache so that the next time the user navigates to the blob, they see the latest commit
-        resetMemoizeFetchJSON()
+    //     // Reset the latest commit cache so that the next time the user navigates to the blob, they see the latest commit
+    //     resetMemoizeFetchJSON()
 
-        // Refresh the file tree if the file name changed.
-        if (refreshTree?.current !== undefined) {
-          refreshTree.current = true
-        }
+    //     // Refresh the file tree if the file name changed.
+    //     if (refreshTree?.current !== undefined) {
+    //       refreshTree.current = true
+    //     }
 
-        if (json.data.message) {
-          addQueuedBanner({message: json.data.message, variant: 'default'})
-        }
+    //     if (json.data.message) {
+    //       addQueuedBanner({message: json.data.message, variant: 'default'})
+    //     }
 
-        setDialogState('saved')
+    //     setDialogState('saved')
 
-        // sometimes react will not have updated the dialog state before the redirect happens
-        // so we need to wait a bit for the state to update before redirecting
-        setTimeout(() => {
-          navigate(url)
-        }, 50)
+    //     // sometimes react will not have updated the dialog state before the redirect happens
+    //     // so we need to wait a bit for the state to update before redirecting
+    //     setTimeout(() => {
+    //       navigate(url)
+    //     }, 50)
 
-        return
-      } else if (json.data.error && json.data.secretBypassMetadata) {
-        setSecretDetected && setSecretDetected(true)
-        setSecretBypassMetadata?.(json.data.secretBypassMetadata)
-        setDialogState('closed')
-      } else if (json.data.error) {
-        setDialogState('pending')
-        setErrorMessage(json.data.error)
-        if (json.data.error_details) {
-          setErrorDetails(json.data.error_details)
-        }
-      } else {
-        setErrorMessage('File could not be edited')
-        setDialogState('pending')
-      }
-    } catch (e) {
-      setErrorMessage('File could not be edited')
-      setDialogState('pending')
-    }
+    //     return
+    //   } else if (json.data.error && json.data.secretBypassMetadata) {
+    //     setSecretDetected && setSecretDetected(true)
+    //     setSecretBypassMetadata?.(json.data.secretBypassMetadata)
+    //     setDialogState('closed')
+    //   } else if (json.data.error) {
+    //     setDialogState('pending')
+    //     setErrorMessage(json.data.error)
+    //     if (json.data.error_details) {
+    //       setErrorDetails(json.data.error_details)
+    //     }
+    //   } else {
+    //     setErrorMessage('File could not be edited')
+    //     setDialogState('pending')
+    //   }
+    // } catch (e) {
+    //   setErrorMessage('File could not be edited')
+    //   setDialogState('pending')
+    // }
   }
 
   // remove nulls from author emails
@@ -253,4 +253,4 @@ export default function WebCommitDialog(props: {
   )
 }
 
-try{ WebCommitDialog.displayName ||= 'WebCommitDialog' } catch {}
+try{ (WebCommitDialog as any).displayName ||= 'WebCommitDialog' } catch {}
