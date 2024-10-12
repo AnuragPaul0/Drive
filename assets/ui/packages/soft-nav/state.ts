@@ -6,7 +6,7 @@ import {
   SoftNavStartEvent,
   SoftNavSuccessEvent,
 } from './events'
-import {markStart, sendFailureStats, sendRenderStats} from './stats'
+// import {markStart, sendFailureStats, sendRenderStats} from './stats'
 import {
   clearSoftNav,
   getSoftNavFailReason,
@@ -44,7 +44,7 @@ export function startSoftNav(mechanism: SoftNavMechanism) {
   setSoftNavMechanism(mechanism)
   setSoftNavReactAppName()
   setSoftNavReferrer()
-  markStart()
+  // markStart()
 }
 
 export function succeedSoftNav(options: SoftNavOptions = {}) {
@@ -64,7 +64,7 @@ export function failSoftNav(options: SoftNavOptions = {}) {
   document.dispatchEvent(new SoftNavErrorEvent(getSoftNavMechanism(), reason))
 
   endProgressBar()
-  sendFailureStats(reason)
+  // sendFailureStats(reason)
   clearSoftNav()
 }
 
@@ -79,12 +79,12 @@ export function endSoftNav(options: SoftNavOptions = {}) {
   setLatestMechanism(mechanism)
 }
 
-export function renderedSoftNav(options: SoftNavOptions = {}) {
-  if (!canTriggerEvent(options)) return
+// export function renderedSoftNav(options: SoftNavOptions = {}) {
+//   if (!canTriggerEvent(options)) return
 
-  sendRenderStats()
-  document.dispatchEvent(new Event(SOFT_NAV_STATE.RENDER))
-}
+//   sendRenderStats()
+//   document.dispatchEvent(new Event(SOFT_NAV_STATE.RENDER))
+// }
 
 export function updateFrame() {
   document.dispatchEvent(new Event(SOFT_NAV_STATE.FRAME_UPDATE))
