@@ -3,11 +3,11 @@ import {ssrSafeLocation} from '@github-ui/ssr-utils'
 import {useCSRFToken} from '@github-ui/use-csrf-token'
 import {AlertIcon, GitBranchIcon, LockIcon, PencilIcon} from '@primer/octicons-react'
 import {Box, Button, Link, Text} from '@primer/react'
-import {Octicon} from '@primer/react/deprecated'
+// import {Octicon} from '@primer/react/deprecated'
 
 export function EditIssues({
   binary,
-  helpUrl,
+  // helpUrl,h  
   webCommitInfo,
 }: {
   binary: boolean
@@ -57,7 +57,7 @@ export function EditIssues({
 
   return (
     <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', m: 4}}>
-      <Octicon icon={issue.icon} size="medium" sx={{color: 'fg.muted', mb: 2}} />
+      {/* <Octicon icon={issue.icon} size="medium" sx={{color: 'fg.muted', mb: 2}} /> */}
       <Text as="h3" sx={{mb: 1}}>
         {issue.message}
       </Text>
@@ -72,7 +72,7 @@ export function EditIssues({
           </Button>
         </form>
       )}
-      {shouldFork && <Link href={`${helpUrl}/articles/fork-a-repo`}>Learn more about forks</Link>}
+      {/* {shouldFork && <Link href={`${helpUrl}/articles/fork-a-repo`}>Learn more about forks</Link>} */}
     </Box>
   )
 }
