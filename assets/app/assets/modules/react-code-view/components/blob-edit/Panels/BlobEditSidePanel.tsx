@@ -1,16 +1,16 @@
 import {AlertFillIcon, XIcon} from '@primer/octicons-react'
 import {Box, IconButton, Spinner, Text, UnderlineNav} from '@primer/react'
-import {Octicon} from '@primer/react/deprecated'
+// import {Octicon} from '@primer/react/deprecated'
 import {Dialog} from '@primer/react/experimental'
 import {useState} from 'react'
 
 import {useStickyHeaderSx} from '../../../hooks/use-sticky-observer'
 import {Panel} from '../../Panel'
-import {useSidePanelMetadata} from '../hooks/use-side-panel-metadata'
-import {DevContainerDocumentation} from './DevContainer/Documentation'
-import {DevContainerMarketplace} from './DevContainer/Marketplace'
-import {ServerSideDocumentation} from './ServerSideDocumentation'
-import {WorkflowMarketplace} from './Workflows/Marketplace'
+// import {useSidePanelMetadata} from '../hooks/use-side-panel-metadata'
+// import {DevContainerDocumentation} from './DevContainer/Documentation'
+// import {DevContainerMarketplace} from './DevContainer/Marketplace'
+// import {ServerSideDocumentation} from './ServerSideDocumentation'
+// import {WorkflowMarketplace} from './Workflows/Marketplace' nv
 
 export interface BlobEditSidePanelEnabledProps {
   workflowEditorEnabled: boolean
@@ -42,7 +42,6 @@ export function blobEditSidePanelEnabled(enabledProps: BlobEditSidePanelEnabledP
 function SidePanelErrorMessage() {
   return (
     <Text sx={{color: 'attention.fg', p: 3}} data-testid="side-panel-error-message">
-      <Octicon icon={AlertFillIcon} />
       &nbsp;Cannot retrieve help documentation at this time.
     </Text>
   )
@@ -92,27 +91,27 @@ function BlobEditSidePanelContent({
   let marketplaceComponent = null
   let documentationComponent = null
 
-  const [metadata, loading, error] = useSidePanelMetadata()
+  // const [metadata, loading, error] = useSidePanelMetadata()
 
-  switch (true) {
-    case enabledProps.workflowEditorEnabled:
-      marketplaceComponent = <WorkflowMarketplace src={metadata?.marketplaceUrls?.workflow} />
-      documentationComponent = <ServerSideDocumentation documentation={metadata?.docsHtml?.workflow} />
-      break
-    case enabledProps.devContainerEditorEnabled:
-      marketplaceComponent = <DevContainerMarketplace src={metadata?.marketplaceUrls?.devcontainers} />
-      documentationComponent = <DevContainerDocumentation />
-      break
-    case enabledProps.isIssueForm:
-      documentationComponent = <ServerSideDocumentation documentation={metadata?.docsHtml?.issueForm} />
-      break
-    case enabledProps.isIssueTemplate:
-      documentationComponent = <ServerSideDocumentation documentation={metadata?.docsHtml?.issueTemplate} />
-      break
-    case enabledProps.isDiscussionTemplate:
-      documentationComponent = <ServerSideDocumentation documentation={metadata?.docsHtml?.discussionTemplate} />
-      break
-  }
+  // switch (true) {
+  //   case enabledProps.workflowEditorEnabled:
+  //     marketplaceComponent = <WorkflowMarketplace src={metadata?.marketplaceUrls?.workflow} />
+  //     documentationComponent = <ServerSideDocumentation documentation={metadata?.docsHtml?.workflow} />
+  //     break
+  //   case enabledProps.devContainerEditorEnabled:
+  //     marketplaceComponent = <DevContainerMarketplace src={metadata?.marketplaceUrls?.devcontainers} />
+  //     documentationComponent = <DevContainerDocumentation />
+  //     break
+  //   case enabledProps.isIssueForm:
+  //     documentationComponent = <ServerSideDocumentation documentation={metadata?.docsHtml?.issueForm} />
+  //     break
+  //   case enabledProps.isIssueTemplate:
+  //     documentationComponent = <ServerSideDocumentation documentation={metadata?.docsHtml?.issueTemplate} />
+  //     break
+  //   case enabledProps.isDiscussionTemplate:
+  //     documentationComponent = <ServerSideDocumentation documentation={metadata?.docsHtml?.discussionTemplate} />
+  //     break
+  // }
 
   const widthSx = isNarrow ? {} : {width: '33%', maxHeight: '77vh', maxWidth: 460, minWidth: 320}
   const stickySx = useStickyHeaderSx()
@@ -127,7 +126,7 @@ function BlobEditSidePanelContent({
       data-testid="editor-side-panel"
       id={id}
     >
-      {isNarrow && (
+      {/* {isNarrow && (
         // eslint-disable-next-line primer-react/a11y-remove-disable-tooltip
         <IconButton
           unsafeDisableTooltip={true}
@@ -144,7 +143,7 @@ function BlobEditSidePanelContent({
           onClick={() => onClosePanel()}
           variant="invisible"
         />
-      )}
+      )} */}
 
       {error ? (
         <SidePanelErrorMessage />
