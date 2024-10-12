@@ -332,34 +332,6 @@ export default function BlobEditor({
       </Box>
       {!editInfo.binary ? (
         <Box sx={{display: 'flex', flexDirection: 'row', gap: 3, marginTop: 3}}>
-          {/* <Panel
-            sx={{
-              display: 'flex',
-              isolation: 'isolate',
-              maxWidth: panelIsOpen && !isNarrow ? '70%' : '100%',
-              overflowY: 'none',
-              contain: 'none',
-              zIndex: 1,
-              flex: 1,
-            }}
-          > */}
-            {/* <BlobEditHeader
-              codeMirrorSpacingOptions={codeMirrorSpacingOptions}
-              editInfo={editInfo}
-              fileName={fileName}
-              isRichtextRenderable={isRichtextRenderable}
-              onTabChange={setSelectedTab}
-              panelIsEnabled={panelIsEnabled}
-              panelIsOpen={panelIsOpen}
-              selectedTab={selectedTab}
-              setCodeMirrorSpacingOptions={setCodeMirrorSpacingOptions}
-              setOpenPanel={setOpenPanel}
-              setShowMarkdownDiff={setShowMarkdownDiff}
-              setUpdatedFileContent={setInitialFileContent}
-              showMarkdownDiff={showMarkdownDiff}
-              copilotInfo={copilotInfo}
-            /> */}
-          {/* </Panel> */}
           {panelIsOpen && (
             <BlobEditSidePanel
               id={blobEditSidePanelId}
