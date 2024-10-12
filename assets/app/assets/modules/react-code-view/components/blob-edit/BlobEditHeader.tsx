@@ -6,7 +6,7 @@ import type {CodeMirrorSpacingOptions, EditInfo, PanelType} from '@github-ui/cod
 
 // import {blobEditSidePanelId} from './BlobEditor'
 // import {CodeMirrorSpacingControls} from './CodeMirror/CodeMirrorSpacingControls'
-import {ExpandPanelButton} from './Panels/ExpandPanelButton'
+// import {ExpandPanelButton} from './Panels/ExpandPanelButton'
 // import CodeOfConductSelector from './templates/CodeOfConductSelector'
 // import {GitIgnoreTemplateSelector} from './templates/GitIgnoreTemplateSelector'
 // import LicenseSelector from './templates/LicenseSelector'

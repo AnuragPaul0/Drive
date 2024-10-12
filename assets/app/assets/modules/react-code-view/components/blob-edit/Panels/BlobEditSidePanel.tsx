@@ -20,14 +20,14 @@ export interface BlobEditSidePanelEnabledProps {
   isDiscussionTemplate: boolean
 }
 
-interface BlobEditSidePanelProps {
-  enabledProps: BlobEditSidePanelEnabledProps
-  isEnterprise: boolean
-  isProxima: boolean
-  isNarrow: boolean
-  onClosePanel: () => void
-  id: string
-}
+// interface BlobEditSidePanelProps {
+//   enabledProps: BlobEditSidePanelEnabledProps
+//   isEnterprise: boolean
+//   isProxima: boolean
+//   isNarrow: boolean
+//   onClosePanel: () => void
+//   id: string
+// }
 
 export function blobEditSidePanelEnabled(enabledProps: BlobEditSidePanelEnabledProps) {
   return (
