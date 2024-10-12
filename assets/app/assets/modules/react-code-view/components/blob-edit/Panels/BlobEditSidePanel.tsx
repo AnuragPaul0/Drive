@@ -63,128 +63,128 @@ function SidePanelLoading() {
   )
 }
 
-export function BlobEditSidePanel(props: BlobEditSidePanelProps) {
-  const {isProxima, isNarrow, ...innerProps} = props
+// export function BlobEditSidePanel(props: BlobEditSidePanelProps) {
+//   const {isProxima, isNarrow, ...innerProps} = props
 
-  return (
-    <>
-      {!isNarrow && <BlobEditSidePanelContent isProxima={isProxima} isNarrow={isNarrow} {...innerProps} />}
-      {isNarrow && (
-        <Dialog
-          onClose={() => innerProps.onClosePanel()}
-          renderHeader={() => null}
-          renderBody={() => BlobEditSidePanelContent({isProxima, isNarrow, ...innerProps})}
-        />
-      )}
-    </>
-  )
-}
+//   return (
+//     <>
+//       {!isNarrow && <BlobEditSidePanelContent isProxima={isProxima} isNarrow={isNarrow} {...innerProps} />}
+//       {isNarrow && (
+//         <Dialog
+//           onClose={() => innerProps.onClosePanel()}
+//           renderHeader={() => null}
+//           renderBody={() => BlobEditSidePanelContent({isProxima, isNarrow, ...innerProps})}
+//         />
+//       )}
+//     </>
+//   )
+// }
 
-function BlobEditSidePanelContent({
-  enabledProps,
-  isEnterprise,
-  isNarrow,
-  isProxima,
-  onClosePanel,
-  id,
-}: BlobEditSidePanelProps) {
-  let marketplaceComponent = null
-  let documentationComponent = null
+// function BlobEditSidePanelContent({
+//   enabledProps,
+//   isEnterprise,
+//   isNarrow,
+//   isProxima,
+//   onClosePanel,
+//   id,
+// }: BlobEditSidePanelProps) {
+//   let marketplaceComponent = null
+//   let documentationComponent = null
 
-  // const [metadata, loading, error] = useSidePanelMetadata()
+//   // const [metadata, loading, error] = useSidePanelMetadata()
 
-  // switch (true) {
-  //   case enabledProps.workflowEditorEnabled:
-  //     marketplaceComponent = <WorkflowMarketplace src={metadata?.marketplaceUrls?.workflow} />
-  //     documentationComponent = <ServerSideDocumentation documentation={metadata?.docsHtml?.workflow} />
-  //     break
-  //   case enabledProps.devContainerEditorEnabled:
-  //     marketplaceComponent = <DevContainerMarketplace src={metadata?.marketplaceUrls?.devcontainers} />
-  //     documentationComponent = <DevContainerDocumentation />
-  //     break
-  //   case enabledProps.isIssueForm:
-  //     documentationComponent = <ServerSideDocumentation documentation={metadata?.docsHtml?.issueForm} />
-  //     break
-  //   case enabledProps.isIssueTemplate:
-  //     documentationComponent = <ServerSideDocumentation documentation={metadata?.docsHtml?.issueTemplate} />
-  //     break
-  //   case enabledProps.isDiscussionTemplate:
-  //     documentationComponent = <ServerSideDocumentation documentation={metadata?.docsHtml?.discussionTemplate} />
-  //     break
-  // }
+//   // switch (true) {
+//   //   case enabledProps.workflowEditorEnabled:
+//   //     marketplaceComponent = <WorkflowMarketplace src={metadata?.marketplaceUrls?.workflow} />
+//   //     documentationComponent = <ServerSideDocumentation documentation={metadata?.docsHtml?.workflow} />
+//   //     break
+//   //   case enabledProps.devContainerEditorEnabled:
+//   //     marketplaceComponent = <DevContainerMarketplace src={metadata?.marketplaceUrls?.devcontainers} />
+//   //     documentationComponent = <DevContainerDocumentation />
+//   //     break
+//   //   case enabledProps.isIssueForm:
+//   //     documentationComponent = <ServerSideDocumentation documentation={metadata?.docsHtml?.issueForm} />
+//   //     break
+//   //   case enabledProps.isIssueTemplate:
+//   //     documentationComponent = <ServerSideDocumentation documentation={metadata?.docsHtml?.issueTemplate} />
+//   //     break
+//   //   case enabledProps.isDiscussionTemplate:
+//   //     documentationComponent = <ServerSideDocumentation documentation={metadata?.docsHtml?.discussionTemplate} />
+//   //     break
+//   // }
 
-  const widthSx = isNarrow ? {} : {width: '33%', maxHeight: '77vh', maxWidth: 460, minWidth: 320}
-  const stickySx = useStickyHeaderSx()
-  const showMarketplace = !!marketplaceComponent && !isEnterprise && !isProxima
-  const [selectedTab, setSelectedTab] = useState<'marketplace' | 'documentation'>(
-    showMarketplace ? 'marketplace' : 'documentation',
-  )
+//   const widthSx = isNarrow ? {} : {width: '33%', maxHeight: '77vh', maxWidth: 460, minWidth: 320}
+//   const stickySx = useStickyHeaderSx()
+//   const showMarketplace = !!marketplaceComponent && !isEnterprise && !isProxima
+//   const [selectedTab, setSelectedTab] = useState<'marketplace' | 'documentation'>(
+//     showMarketplace ? 'marketplace' : 'documentation',
+//   )
 
-  return (
-    <Panel
-      sx={{height: 'fit-content', overflow: 'auto', ...widthSx, ...stickySx}}
-      data-testid="editor-side-panel"
-      id={id}
-    >
-      {/* {isNarrow && (
-        // eslint-disable-next-line primer-react/a11y-remove-disable-tooltip
-        <IconButton
-          unsafeDisableTooltip={true}
-          aria-label="Close help panel"
-          data-hotkey="Escape"
-          icon={XIcon}
-          sx={{
-            position: 'absolute',
-            order: 3,
-            top: 2,
-            right: 2,
-            color: 'fg.default',
-          }}
-          onClick={() => onClosePanel()}
-          variant="invisible"
-        />
-      )} */}
+//   return (
+//     <Panel
+//       sx={{height: 'fit-content', overflow: 'auto', ...widthSx, ...stickySx}}
+//       data-testid="editor-side-panel"
+//       id={id}
+//     >
+//       {/* {isNarrow && (
+//         // eslint-disable-next-line primer-react/a11y-remove-disable-tooltip
+//         <IconButton
+//           unsafeDisableTooltip={true}
+//           aria-label="Close help panel"
+//           data-hotkey="Escape"
+//           icon={XIcon}
+//           sx={{
+//             position: 'absolute',
+//             order: 3,
+//             top: 2,
+//             right: 2,
+//             color: 'fg.default',
+//           }}
+//           onClick={() => onClosePanel()}
+//           variant="invisible"
+//         />
+//       )} */}
 
-      {error ? (
-        <SidePanelErrorMessage />
-      ) : loading ? (
-        <SidePanelLoading />
-      ) : metadata ? (
-        <>
-          {showMarketplace && (
-            <UnderlineNav aria-label="Help Panel">
-              <UnderlineNav.Item
-                sx={{paddingY: '10px', '&:hover': {textDecoration: 'none'}}}
-                {...(selectedTab === 'marketplace' && {'aria-current': true})}
-                onSelect={e => {
-                  setSelectedTab('marketplace')
-                  e.preventDefault()
-                }}
-              >
-                Marketplace
-              </UnderlineNav.Item>
-              <UnderlineNav.Item
-                sx={{paddingY: '10px', '&:hover': {textDecoration: 'none'}}}
-                {...(selectedTab === 'documentation' && {'aria-current': true})}
-                onSelect={e => {
-                  setSelectedTab('documentation')
-                  e.preventDefault()
-                }}
-              >
-                Documentation
-              </UnderlineNav.Item>
-            </UnderlineNav>
-          )}
+//       {/* {error ? (
+//         <SidePanelErrorMessage />
+//       ) : loading ? (
+//         <SidePanelLoading />
+//       ) : metadata ? (
+//         <>
+//           {showMarketplace && (
+//             <UnderlineNav aria-label="Help Panel">
+//               <UnderlineNav.Item
+//                 sx={{paddingY: '10px', '&:hover': {textDecoration: 'none'}}}
+//                 {...(selectedTab === 'marketplace' && {'aria-current': true})}
+//                 onSelect={e => {
+//                   setSelectedTab('marketplace')
+//                   e.preventDefault()
+//                 }}
+//               >
+//                 Marketplace
+//               </UnderlineNav.Item>
+//               <UnderlineNav.Item
+//                 sx={{paddingY: '10px', '&:hover': {textDecoration: 'none'}}}
+//                 {...(selectedTab === 'documentation' && {'aria-current': true})}
+//                 onSelect={e => {
+//                   setSelectedTab('documentation')
+//                   e.preventDefault()
+//                 }}
+//               >
+//                 Documentation
+//               </UnderlineNav.Item>
+//             </UnderlineNav>
+//           )}
 
-          {selectedTab === 'marketplace' && marketplaceComponent}
-          {selectedTab === 'documentation' && documentationComponent}
-        </>
-      ) : null}
-    </Panel>
-  )
-}
+//           {selectedTab === 'marketplace' && marketplaceComponent}
+//           {selectedTab === 'documentation' && documentationComponent}
+//         </>
+//       ) : null} */}
+//     </Panel>
+//   )
+// }
 
-try{ SidePanelErrorMessage.displayName ||= 'SidePanelErrorMessage' } catch {}
-try{ SidePanelLoading.displayName ||= 'SidePanelLoading' } catch {}
-try{ BlobEditSidePanel.displayName ||= 'BlobEditSidePanel' } catch {}
-try{ BlobEditSidePanelContent.displayName ||= 'BlobEditSidePanelContent' } catch {}
+try{ (SidePanelErrorMessage as any).displayName ||= 'SidePanelErrorMessage' } catch {}
+try{ (SidePanelLoading as any).displayName ||= 'SidePanelLoading' } catch {}
+// try{ BlobEditSidePanel.displayName ||= 'BlobEditSidePanel' } catch {}
+// try{ BlobEditSidePanelContent.displayName ||= 'BlobEditSidePanelContent' } catch {}
