@@ -1,10 +1,10 @@
-import {debounce} from '@github/mini-throttle'
+// import {debounce} from '@github/mini-throttle'
 // eslint-disable-next-line no-restricted-imports
-import {reportError} from '@github-ui/failbot'
-import {useEffect} from 'react'
+// import {reportError} from '@github-ui/failbot'
+// import {useEffect} from 'react'
 
-import {useCurrentBlame} from './CurrentBlame'
-import {useIsCursorEnabled} from './use-cursor-navigation'
+// import {useCurrentBlame} from './CurrentBlame'
+// import {useIsCursorEnabled} from './use-cursor-navigation'
 
 export interface SymbolUnderPointer {
   node: Node
@@ -16,26 +16,26 @@ export function useSymbolUnderPointer(
   onSymbolChanged: (symbolUnderPointer: SymbolUnderPointer) => void,
   validCodeNav: boolean,
 ): void {
-  const hasBlame = !!useCurrentBlame()
-  const cursorEnabled = useIsCursorEnabled()
+  // const hasBlame = !!useCurrentBlame()
+  // const cursorEnabled = useIsCursorEnabled()
 
-  useEffect(() => {
-    // We don't show the symbols pane on the blame page, so we don't need to add these event listeners.
-    if (hasBlame || !validCodeNav || cursorEnabled) return
+  // useEffect(() => {
+  //   // We don't show the symbols pane on the blame page, so we don't need to add these event listeners.
+  //   // if (hasBlame || !validCodeNav || cursorEnabled) return
 
-    let timer: ReturnType<typeof setTimeout>
+  //   let timer: ReturnType<typeof setTimeout>
 
-    const debouncedMouseMove = debounce((event: MouseEvent) => {
-      clearTimeout(timer)
-      timer = setTimeout(() => {
-        handleMouseMove(event, onSymbolChanged)
-      }, 15)
-    }, 5)
-    window.addEventListener('mousemove', debouncedMouseMove)
-    return () => {
-      window.removeEventListener('mousemove', debouncedMouseMove)
-    }
-  }, [onSymbolChanged, hasBlame, validCodeNav, cursorEnabled])
+  //   const debouncedMouseMove = debounce((event: MouseEvent) => {
+  //     clearTimeout(timer)
+  //     timer = setTimeout(() => {
+  //       handleMouseMove(event, onSymbolChanged)
+  //     }, 15)
+  //   }, 5)
+  //   window.addEventListener('mousemove', debouncedMouseMove)
+  //   return () => {
+  //     window.removeEventListener('mousemove', debouncedMouseMove)
+  //   }
+  // }, [onSymbolChanged, hasBlame, validCodeNav, cursorEnabled])
 }
 
 function handleMouseMove(event: MouseEvent, onSymbolChanged: (value: SymbolUnderPointer) => void) {
