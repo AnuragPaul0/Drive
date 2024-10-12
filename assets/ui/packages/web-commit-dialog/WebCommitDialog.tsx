@@ -1,7 +1,7 @@
 import {DuplicateOnKeydownButton} from '@github-ui/code-view-shared/components/DuplicateOnKeydownButton'
 import {useShortcut} from '@github-ui/code-view-shared/hooks/shortcuts'
 import type {SaveResponseErrorDetails, WebCommitInfo} from '@github-ui/code-view-types'
-import {FlashError} from '@github-ui/flash-error'
+// import {FlashError} from '@github-ui/flash-error'
 // import {TextExpander} from '@github-ui/text-expander'
 import {GitPullRequestIcon} from '@primer/octicons-react'
 import {
@@ -249,13 +249,13 @@ export function WebCommitDialog({
       )}
       {...dialogProps}
     >
-      <FlashError
+      {/* <FlashError
         prefix="There was an error committing your changes:"
         errorMessageUsingPrefix={errorMessage}
         ruleErrors={errorDetails?.ruleViolations}
         helpUrl={helpUrl}
         flashRef={flashErrorRef}
-      />
+      /> */}
 
       <form
         onSubmit={(event: React.FormEvent) => {
