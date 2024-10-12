@@ -23,7 +23,10 @@ import {Breadcrumb, Separator} from '../../../react-shared/Breadcrumb'
 import {usePrompt} from '../../hooks/UsePrompt'
 import {Panel} from '../Panel'
 import {BlobEditorBanners} from './banners/BlobEditorBanners'
-// import {BlobEditHeader, BlobEditorTab} from './BlobEditHeader' edit
+// edit
+import {
+  // BlobEditHeader,
+  BlobEditorTab} from './BlobEditHeader'
 // import {ReactCodeMirror as CodeMirror} from './CodeMirror/CodeMirror' upload
 import {EditIssues} from './EditIssues'
 // import {EditorPreview} from './EditorPreview' nr
@@ -86,7 +89,8 @@ export default function BlobEditor({
 
   const isNewFile = editInfo.isNewFile
 
-  // let initialPath = path
+  let initialPath = 'drive.google.com/viewerng/viewer?embedded=true&url='
+  // path
 
   // if (isNewFile && editInfo.fileName) {
   //   if (initialPath) {
@@ -96,13 +100,13 @@ export default function BlobEditor({
   //   }
   // }
 
-  // const [folderPath, setFolderPath] = useState(() => {
-  //   const initialFolders = initialPath
-  //     .split('/')
-  //     .slice(0, !fileName ? undefined : -1)
-  //     .join('/')
-  //   return initialFolders ? `${initialFolders}/` : ''
-  // })
+  const [folderPath, setFolderPath] = useState(() => {
+    const initialFolders = initialPath
+      .split('/')
+      .slice(0, !fileName ? undefined : -1)
+      .join('/')
+    return initialFolders ? `${initialFolders}/` : ''
+  })
 
   // const initialFolderPath = useRef(folderPath)
 
@@ -117,10 +121,10 @@ export default function BlobEditor({
 
   const isNarrow = screenSize <= ScreenSize.medium
 
-  // const [selectedTab, setSelectedTab] = useState<BlobEditorTab>(BlobEditorTab.Edit)
-  // const isEdit = selectedTab === BlobEditorTab.Edit
-  // const isPreview = selectedTab === BlobEditorTab.Preview
-  const {selectEditTabShortcut} = useShortcut()
+  const [selectedTab, setSelectedTab] = useState<BlobEditorTab>(BlobEditorTab.Edit)
+  const isEdit = selectedTab === BlobEditorTab.Edit
+  const isPreview = selectedTab === BlobEditorTab.Preview
+  // const {selectEditTabShortcut} = useShortcut()
 
   const [codeMirrorSpacingOptions, setCodeMirrorSpacingOptions] = useState<CodeMirrorSpacingOptions>({
     lineWrapping: editInfo.codeMirror?.lineWrapping,
@@ -298,7 +302,7 @@ export default function BlobEditor({
 
   return (
     <>
-      <ScreenReaderHeading as="h1" text={screenReaderHeading} />
+      {/* <ScreenReaderHeading as="h1" text={screenReaderHeading} /> */}
       <Box
         sx={{display: 'flex', justifyContent: 'space-between', mb: 3, flexWrap: 'wrap', rowGap: 3, maxWidth: '100%'}}
       >
@@ -331,18 +335,7 @@ export default function BlobEditor({
         </Box>
       </Box>
       {!editInfo.binary ? (
-        <Box sx={{display: 'flex', flexDirection: 'row', gap: 3, marginTop: 3}}>
-          {panelIsOpen && (
-            <BlobEditSidePanel
-              id={blobEditSidePanelId}
-              isEnterprise={editInfo.editors.isEnterprise}
-              isProxima={editInfo.editors.isProxima}
-              enabledProps={sidePanelEnabledProps}
-              isNarrow={isNarrow}
-              onClosePanel={() => setOpenPanel(undefined)}
-            />
-          )}
-        </Box>
+        <Box sx={{display: 'flex', flexDirection: 'row', gap: 3, marginTop: 3}}></Box>
       ) : (
         <EditIssues binary={true} helpUrl={helpUrl} webCommitInfo={webCommitInfo} />
       )}
@@ -386,20 +379,23 @@ function EditBreadcrumb({
         nameInputRef.current?.selectionStart === 0 &&
         nameInputRef.current?.selectionEnd === 0
       ) {
-        const pathParts = folderPath.split('/')
-        const unchangedPathParts = pathParts.slice(0, -2)
+        const pathParts = folderPath
+        // .split('/')
+        // const unchangedPathParts = pathParts.slice(0, -2)
 
-        const newFolderPath = unchangedPathParts.length ? `${unchangedPathParts.join('/')}/` : ''
-        const newFileName = pathParts[pathParts.length - 2] + fileName
+        // const newFolderPath = unchangedPathParts.length ? `${unchangedPathParts.join('/')}/` : ''
+        const newFileName = pathParts
+          // [pathParts.length - 2]
+          + fileName
 
-        const partLength = pathParts[pathParts.length - 2]!.length
+        // const partLength = pathParts[pathParts.length - 2]!.length
         event.preventDefault()
-        window.requestAnimationFrame(() => {
-          nameInputRef.current?.setSelectionRange(partLength, partLength)
-        })
+        // window.requestAnimationFrame(() => {
+        //   nameInputRef.current?.setSelectionRange(partLength, partLength)
+        // })
 
         setFileName(newFileName)
-        setFolderPath(newFolderPath)
+        // setFolderPath(newFolderPath)
         // we dont need to call onChange
         // onFileNameInputKeyPress triggers first and then onFileNameChange
         // onFileNameChange always fires the onChange when needed
@@ -475,8 +471,9 @@ function EditBreadcrumb({
             value={fileName}
             ref={nameInputRef}
             placeholder="Name your file..."
-            sx={{minWidth: '100px'}}
-          />
+            sx={{ minWidth: '100px' }} block={undefined} contrast={undefined} monospace={undefined}
+            width={undefined} maxWidth={undefined} minWidth={undefined} variant={undefined}
+            size={undefined} validationStatus={undefined} as={'input'}          />
           {/* <Box sx={{flexShrink: 0, px: 1}}>in</Box> */}
           {/* <BranchName href={branchPath({owner: repo.ownerLogin, repo: repo.name, branch: refInfo.name})}>
             {refInfo.name}
