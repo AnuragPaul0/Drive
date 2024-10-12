@@ -1,6 +1,6 @@
 'use client'
 import localFont from "next/font/local"
-import CodeView from '@g-assets/modules/react-code-view/pages/CodeView'
+// import CodeView from '@g-assets/modules/react-code-view/pages/CodeView'
 import BlobEditor from '@g-assets/modules/react-code-view/components/blob-edit/BlobEditor'
 import {
   // Box, Heading
