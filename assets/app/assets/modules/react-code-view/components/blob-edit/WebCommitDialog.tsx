@@ -2,7 +2,7 @@
 import type {SaveResponse, SaveResponseErrorDetails, WebCommitInfo} from '@github-ui/code-view-types'
 import {useFileTreeControlContext} from '@github-ui/repos-file-tree-view'
 import type {BypassMetadata} from '@github-ui/secret-scanning'
-import {useCSRFToken} from '@github-ui/use-csrf-token'
+// import {useCSRFToken} from '@github-ui/use-csrf-token'
 // import {resetMemoizeFetchJSON} from '@github-ui/use-latest-commit'
 // import {useNavigate} from '@github-ui/use-navigate'
 // import {verifiedFetch} from '@github-ui/verified-fetch'
@@ -93,7 +93,7 @@ export default function WebCommitDialog(props: {
     repoHeadEmpty,
     saveUrl,
   } = webCommitInfo
-  const savingToken = useCSRFToken(saveUrl, isDelete ? 'delete' : 'post')
+  // const savingToken = useCSRFToken(saveUrl, isDelete ? 'delete' : 'post')
   // const navigate = useNavigate()
 
   const [message, setMessage] = React.useState(placeholderMessage)
@@ -165,7 +165,7 @@ export default function WebCommitDialog(props: {
     }
 
     // eslint-disable-next-line github/authenticity-token
-    formData.append('authenticity_token', savingToken ?? '')
+    // formData.append('authenticity_token', savingToken ?? '')
 
     // try {
     //   const result = await verifiedFetch(saveUrl, {

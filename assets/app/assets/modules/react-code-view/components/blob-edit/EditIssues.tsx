@@ -1,6 +1,6 @@
 import type {WebCommitInfo} from '@github-ui/code-view-types'
 import {ssrSafeLocation} from '@github-ui/ssr-utils'
-import {useCSRFToken} from '@github-ui/use-csrf-token'
+// import {useCSRFToken} from '@github-ui/use-csrf-token'
 import {AlertIcon, GitBranchIcon, LockIcon, PencilIcon} from '@primer/octicons-react'
 import {Box, Button, Link, Text} from '@primer/react'
 // import {Octicon} from '@primer/react/deprecated'
@@ -24,7 +24,7 @@ export function EditIssues({
   }
 
   const currentPath = pathname + ssrSafeLocation.search
-  const token = useCSRFToken(currentPath, 'post')
+  // const token = useCSRFToken(currentPath, 'post')
 
   const issue = lockedOnMigration
     ? {
@@ -65,7 +65,7 @@ export function EditIssues({
       {(shouldFork || shouldUpdate) && (
         <form data-turbo="false" method="post" action={currentPath} data-testid="edit-issues-form">
           {/* eslint-disable-next-line github/authenticity-token */}
-          <input hidden name="authenticity_token" value={token} readOnly />
+          {/* <input hidden name="authenticity_token" value={token} readOnly /> */}
           {/** Sumbit the page as a POST request so we can fork the repository for the user **/}
           <Button type="submit" variant="primary">
             {shouldFork ? 'Fork this repository' : 'Update your fork'}
