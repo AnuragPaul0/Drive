@@ -29,11 +29,11 @@ import {EditIssues} from './EditIssues'
 // import {EditorPreview} from './EditorPreview' nr
 // import {WorkflowEditor} from './Editors/WorkflowEditor' uv
 // import {getEditorEnablements, getEditorExtensions} from './hooks/use-editors'
-// import {
-//   BlobEditSidePanel,
-//   blobEditSidePanelEnabled,
-//   type BlobEditSidePanelEnabledProps,
-// } from './Panels/BlobEditSidePanel'
+import {
+  BlobEditSidePanel,
+  blobEditSidePanelEnabled,
+  type BlobEditSidePanelEnabledProps,
+} from './Panels/BlobEditSidePanel'
 // import {normalizeRelativePathChange} from './utilities/relative-path-helper'
 // import WebCommitDialog from './WebCommitDialog' nr
 
@@ -360,7 +360,7 @@ export default function BlobEditor({
               copilotInfo={copilotInfo}
             /> */}
           {/* </Panel> */}
-          {/* {panelIsOpen && (
+          {panelIsOpen && (
             <BlobEditSidePanel
               id={blobEditSidePanelId}
               isEnterprise={editInfo.editors.isEnterprise}
@@ -369,41 +369,11 @@ export default function BlobEditor({
               isNarrow={isNarrow}
               onClosePanel={() => setOpenPanel(undefined)}
             />
-          )} */}
+          )}
         </Box>
       ) : (
         <EditIssues binary={true} helpUrl={helpUrl} webCommitInfo={webCommitInfo} />
       )}
-      {/* {webCommitDialogState === 'pending' || webCommitDialogState === 'saving' ? (
-        <WebCommitDialog
-          content={updatedFileContent}
-          contentChanged={contentChanged}
-          fileName={completeFilePath}
-          isDelete={false}
-          isNewFile={isNewFile}
-          helpUrl={helpUrl}
-          oldPath={initialPath}
-          ownerName={repo.ownerLogin}
-          placeholderMessage={placeholderMessage}
-          refName={refInfo.name}
-          returnFocusRef={commitChangesRef}
-          dialogState={webCommitDialogState}
-          setDialogState={(state: WebCommitDialogState) => {
-            setWebCommitDialogState(state)
-
-            if (state === 'closed' || state === 'saved') {
-              window.requestAnimationFrame(() => {
-                if (commitChangesRef.current) {
-                  commitChangesRef.current.focus()
-                }
-              })
-            }
-          }}
-          webCommitInfo={webCommitInfo}
-          setSecretDetected={setSecretDetected}
-          setSecretBypassMetadata={setSecretBypassMetadata}
-        />
-      ) : null} */}
     </>
   )
 }
