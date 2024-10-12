@@ -1,16 +1,18 @@
-import {useFilesPageInfo, useReposAppPayload} from '@github-ui/code-view-shared/contexts/FilesPageInfoContext'
+import {
+  // useFilesPageInfo,
+  useReposAppPayload} from '@github-ui/code-view-shared/contexts/FilesPageInfoContext'
 import {useOpenPanel} from '@github-ui/code-view-shared/contexts/OpenPanelContext'
-import {useShortcut} from '@github-ui/code-view-shared/hooks/shortcuts'
+// import {useShortcut} from '@github-ui/code-view-shared/hooks/shortcuts'
 // import {useUrlCreator} from '@github-ui/code-view-shared/hooks/use-url-creator'
-import {linkButtonSx} from '@github-ui/code-view-shared/utilities/styles'
+// import {linkButtonSx} from '@github-ui/code-view-shared/utilities/styles'
 import type {CodeMirrorSpacingOptions, CollapseTreeFunction, EditInfo,
     WebCommitInfo} from '@github-ui/code-view-types'
 // import type {CopilotInfo} from '@github-ui/copilot-common-types'
 import type {Repository} from '@github-ui/current-repository'
 // import {branchPath} from '@github-ui/paths'
-import {Link} from '@github-ui/react-core/link'
+// import {Link} from '@github-ui/react-core/link'
 // import type {RefInfo} from '@github-ui/repos-types' ua
-import {ScreenReaderHeading} from '@github-ui/screen-reader-heading'
+// import {ScreenReaderHeading} from '@github-ui/screen-reader-heading'
 import {ScreenSize, useScreenSize} from '@github-ui/screen-size'
 import type {BypassMetadata} from '@github-ui/secret-scanning'
 import {useCodeViewOptions} from '@github-ui/use-code-view-options'
@@ -19,10 +21,10 @@ import {Box, BranchName, Button, TextInput} from '@primer/react'
 import type React from 'react'
 import {useCallback, useEffect, useRef, useState} from 'react'
 
-import {Breadcrumb, Separator} from '../../../react-shared/Breadcrumb'
-import {usePrompt} from '../../hooks/UsePrompt'
-import {Panel} from '../Panel'
-import {BlobEditorBanners} from './banners/BlobEditorBanners'
+// import {Breadcrumb, Separator} from '../../../react-shared/Breadcrumb'
+// import {usePrompt} from '../../hooks/UsePrompt'
+// import {Panel} from '../Panel'
+// import {BlobEditorBanners} from './banners/BlobEditorBanners'
 // edit
 import {
   // BlobEditHeader,
@@ -32,11 +34,11 @@ import {EditIssues} from './EditIssues'
 // import {EditorPreview} from './EditorPreview' nr
 // import {WorkflowEditor} from './Editors/WorkflowEditor' uv
 // import {getEditorEnablements, getEditorExtensions} from './hooks/use-editors'
-import {
-  BlobEditSidePanel,
-  blobEditSidePanelEnabled,
-  type BlobEditSidePanelEnabledProps,
-} from './Panels/BlobEditSidePanel'
+// import {
+//   BlobEditSidePanel,
+//   blobEditSidePanelEnabled,
+//   type BlobEditSidePanelEnabledProps,
+// } from './Panels/BlobEditSidePanel'
 // import {normalizeRelativePathChange} from './utilities/relative-path-helper'
 // import WebCommitDialog from './WebCommitDialog' nr
 
@@ -47,7 +49,7 @@ export default function BlobEditor({
   editInfo,
   repo,
   showTree,
-  treeToggleElement,
+  // treeToggleElement,
   webCommitInfo,
   // copilotInfo,
 }: {
