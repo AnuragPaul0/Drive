@@ -1,6 +1,6 @@
-import {verifiedFetch} from '@github-ui/verified-fetch'
+// import {verifiedFetch} from '@github-ui/verified-fetch'
 
-const UPDATE_EXPAND_PREFERENCES_URL = '/repos/preferences'
+// const UPDATE_EXPAND_PREFERENCES_URL = '/repos/preferences'
 
 export function useUpdatePanelExpandPreferences() {
   async function updateExpandPreferences(
@@ -12,11 +12,11 @@ export function useUpdatePanelExpandPreferences() {
     formData.set('tree_view_expanded_preference', treeValue === null ? '' : treeValue ? 'true' : 'false')
     formData.set('symbols_view_expanded_preference', symbolsValue === null ? '' : symbolsValue ? 'true' : 'false')
     formData.set('code_line_wrap_enabled', lineWrapValue === null ? '' : lineWrapValue ? 'true' : 'false')
-    verifiedFetch(UPDATE_EXPAND_PREFERENCES_URL, {
-      method: 'PUT',
-      body: formData,
-      headers: {Accept: 'application/json'},
-    })
+    // verifiedFetch(UPDATE_EXPAND_PREFERENCES_URL, {
+    //   method: 'PUT',
+    //   body: formData,
+    //   headers: {Accept: 'application/json'},
+    // })
   }
 
   return updateExpandPreferences
