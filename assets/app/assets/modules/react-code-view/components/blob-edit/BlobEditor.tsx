@@ -1,4 +1,5 @@
-import type {Repository} from '@github-ui/current-repository'
+import {ThemeProvider, BaseStyles} from '@primer/react'
+// import type {Repository} from '@github-ui/current-repository'
 import {useCodeViewOptions} from '@github-ui/use-code-view-options'
 import type {WebCommitDialogState} from '@github-ui/web-commit-dialog'
 import {Box, BranchName, Button, TextInput} from '@primer/react'
@@ -41,7 +42,8 @@ export default function BlobEditor({
 
   // const panelIsOpen = openPanel === 'edit'
 
-  return (
+  return ( <ThemeProvider>
+    <BaseStyles>
     <>
       {/* <ScreenReaderHeading as="h1" text={screenReaderHeading} /> */}
       <Box
@@ -63,6 +65,8 @@ export default function BlobEditor({
         </Box>
       </Box>
     </>
+    </BaseStyles>
+  </ThemeProvider>
   )
 }
 
