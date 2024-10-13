@@ -4,11 +4,11 @@
 body { color: var(--foreground); background: var(--background); margin: 8px }
 .kowOcT { display: flex; flex: 1 1 100%; flex-wrap: wrap; max-width: 100% }
 .split { height: 100%; position: relative; z-index: 1; top: 0; overflow-x: hidden }
-/* left: var(--sl); padding-top: 20px;
+/* left: var(--sl); padding-top: 20px; width: calc(100% - 2*var(--sl));
 color-scheme: dark */
-.sl { left: 0; width: var(--sl) }
-.sm { width: calc(100% - 2*var(--sl)) }
-.sr { right: 0; width: var(--sl) }
+/* .sl { left: 0; width: var(--sl) } */
+.sm { margin: 1vw var(--sl) 0 }
+/* .sr { right: 0; width: var(--sl) } */
 .centered { text-align: center }
 
 span.lmZlSR { background-color: unset; font-size: 14px; line-height: 20px;
