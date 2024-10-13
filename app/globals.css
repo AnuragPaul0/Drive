@@ -20,7 +20,7 @@ font-family: Arial, Helvetica, sans-serif }
 .sr { right: 0; width: var(--sl) }
 .centered { text-align: center }
 
-.lmZlSR { background-color: unset; font-size: 14px;
+span.lmZlSR { background-color: unset; font-size: 14px;
   line-height: 20px;
   color: var(--fgColor-default, var(--color-fg-default, #e6edf3));
   vertical-align: middle;
