@@ -7,9 +7,9 @@ body { color: var(--foreground); background: var(--background); margin: 8px }
 /* left: var(--sl); padding-top: 20px;
 color-scheme: dark */
 /* .sl { left: 0; width: var(--sl) } */
-.sm { width: calc(100% - 2*var(--sl)); margin: 1vw var(--sl) 0 0 }
+.sm { width: calc(100% - 2*var(--sl)); margin: 1vw 0 var(--sl) 0 }
 /* .sr { right: 0; width: var(--sl) } */
-.centered { text-align: center }
+/* .centered { text-align: center } */
 
 span.lmZlSR { background-color: unset; font-size: 14px; line-height: 20px;
   color: var(--fgColor-default, var(--color-fg-default, #e6edf3)); vertical-align: middle;

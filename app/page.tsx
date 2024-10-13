@@ -25,7 +25,9 @@ export default function Home() {
       <main className="kowOcT">
         {/* <div className="split left sl"></div> */}
         <div id='ml' className="split right sm">
-          <div className="centered"><BlobEditor/></div>
+          {/* <div className="centered"> */}
+            <BlobEditor/>
+            {/* </div> */}
         </div>
         {/* <div className="split left sr"></div> */}
       {/* <SplitPageLayout>
