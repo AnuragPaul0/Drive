@@ -155,8 +155,7 @@ function EditBreadcrumb({
           flex: 1,
           flexWrap: 'wrap',
           maxWidth: showTreeToggle ? 'calc(100% - 75px)' : '100%',
-        }}
-      ><Box id='ml' sx={{display: 'flex', alignItems: 'center'}}>
+        }}><Box id='ml' sx={{display: 'flex', alignItems: 'center'}}>
           {/* <Separator /> */}
           <TextInput aria-label="File name"
           aria-describedby="file-name-editor-breadcrumb"

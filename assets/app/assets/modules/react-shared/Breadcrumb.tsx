@@ -51,9 +51,9 @@ export function Breadcrumb({
         <Box as="ol" sx={{maxWidth: '100%', listStyle: 'none', display: 'inline-block'}}>
           <Box as="li" sx={{display: 'inline-block', maxWidth: '100%'}}>
             {/* directoryName, */}
-            <RepoLink repo={repo}
-            // commitish={commitish}
-            />
+            {/* <RepoLink repo={repo} */}
+            {/* // commitish={commitish} */}
+            {/* /> */}
           </Box></Box>
       </Box>{showCopyPathButton && (
         <CopyToClipboardButton
@@ -138,7 +138,7 @@ export function Separator({fontSize}: {fontSize?: number}) {
 // }
 
 try{ (Breadcrumb as any).displayName ||= 'Breadcrumb' } catch {}
-try{ (RepoLink as any).displayName ||= 'RepoLink' } catch {}
+// try{ (RepoLink as any).displayName ||= 'RepoLink' } catch {}
 // try{ DirectoryLink.displayName ||= 'DirectoryLink' } catch {}
 try{ (Separator as any).displayName ||= 'Separator' } catch {}
-try{ (FileName as any).displayName ||= 'FileName' } catch {}
+// try{ (FileName as any).displayName ||= 'FileName' } catch {}
