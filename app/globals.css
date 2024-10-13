@@ -20,8 +20,7 @@ font-family: Arial, Helvetica, sans-serif }
 .sr { right: 0; width: var(--sl) }
 .centered { text-align: center }
 
-span.lmZlSR { background-color: unset; font-size: 14px;
-  line-height: 20px;
+span.lmZlSR { background-color: unset; font-size: 14px; line-height: 20px;
   color: var(--fgColor-default, var(--color-fg-default, #e6edf3));
   vertical-align: middle;
   border: 1px solid var(--control-borderColor-rest, var(--borderColor-default, var(--color-border-default, #30363d)));
@@ -36,8 +35,8 @@ span.lmZlSR { background-color: unset; font-size: 14px;
   min-width: 100px;
 }
 
-input { border-width: 1px; border-color: light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
-border-radius: 2px }
+input { margin-left: 1vw ;border-width: 1px;
+  border-color: light-dark(rgb(118, 118, 118), rgb(133, 133, 133)); border-radius: 2px }
 
 input[type="text" i] { padding-block: 1px; padding-inline: 2px }
 svg { display:inline-block; user-select:none; vertical-align:text-bottom; overflow:visible }
