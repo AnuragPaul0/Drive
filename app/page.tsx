@@ -1,5 +1,5 @@
 'use client'
-import localFont from "next/font/local"
+// import localFont from "next/font/local"
 // import CodeView from '@g-assets/modules/react-code-view/pages/CodeView'
 import BlobEditor from '@g-assets/modules/react-code-view/components/blob-edit/BlobEditor'
 import {
@@ -9,18 +9,18 @@ import {
 // import {Placeholder} from '../Placeholder'
 // import '@github/clipboard-copy-element'
 
-const geistSans = localFont ( { src: "./fonts/GeistVF.woff", variable: "--font-geist-sans",
-weight: "100 900" } )
+// const geistSans = localFont ( { src: "./fonts/GeistVF.woff", variable: "--font-geist-sans",
+// weight: "100 900" } )
 
-const geistMono = localFont( { src: "./fonts/GeistMonoVF.woff", variable: "--font-geist-mono",
-weight: "100 900" } )
+// const geistMono = localFont( { src: "./fonts/GeistMonoVF.woff", variable: "--font-geist-mono",
+// weight: "100 900" } )
 
 // let p = 0 , copied = 0 
-
+// ${geistSans.variable} ${geistMono.variable}
 export default function Home() {
   return <body
     aria-describedby=":Rdd9lab:"
-    className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+    className={`antialiased`}
     >
       <main className="kowOcT"><div className="split left sl"></div>
         <div className="split right sm">

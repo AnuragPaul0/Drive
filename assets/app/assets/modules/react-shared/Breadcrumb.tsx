@@ -69,25 +69,25 @@ export function Breadcrumb({
   )
 }
 
-function RepoLink({repo
-  // , commitish
-}: {repo: Repository;
-  // commitish: string
-}) {
-  return (
-    <PrimerLink
-      as={Link}
-      sx={{fontWeight: 'bold'}}
-      to={repositoryTreePath({repo
-        // , commitish
-        , action: 'tree'})}
-      data-testid="breadcrumbs-repo-link"
-      reloadDocument
-    >
-      {repo.name}
-    </PrimerLink>
-  )
-}
+// function RepoLink({repo
+//   // , commitish
+// }: {repo: Repository;
+//   // commitish: string
+// }) {
+//   return (
+//     <PrimerLink
+//       as={Link}
+//       sx={{fontWeight: 'bold'}}
+//       to={repositoryTreePath({repo
+//         // , commitish
+//         , action: 'tree'})}
+//       data-testid="breadcrumbs-repo-link"
+//       reloadDocument
+//     >
+//       {repo.name}
+//     </PrimerLink>
+//   )
+// }
 // interface DirectoryLinkProps {
 //   commitish: string
 //   directoryName: string
@@ -111,18 +111,18 @@ export function Separator({fontSize}: {fontSize?: number}) {
   )
 }
 
-function FileName({value, id, fontSize}: {value: string; id?: string; fontSize?: number}) {
-  return (
-    <Heading
-      as="h1"
-      tabIndex={-1}
-      sx={{fontWeight: 600, display: 'inline-block', maxWidth: '100%', fontSize: fontSize ?? 2}}
-      id={id}
-    >
-      {value}
-    </Heading>
-  )
-}
+// function FileName({value, id, fontSize}: {value: string; id?: string; fontSize?: number}) {
+//   return (
+//     <Heading
+//       as="h1"
+//       tabIndex={-1}
+//       sx={{fontWeight: 600, display: 'inline-block', maxWidth: '100%', fontSize: fontSize ?? 2}}
+//       id={id}
+//     >
+//       {value}
+//     </Heading>
+//   )
+// }
 
 // function getPathSegmentData(path: string) {
 //   const segments = path.split(separatorCharacter)
