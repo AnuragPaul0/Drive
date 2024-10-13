@@ -157,7 +157,7 @@ function EditBreadcrumb({
           maxWidth: showTreeToggle ? 'calc(100% - 75px)' : '100%',
         }}><Box id='ml' sx={{display: 'flex', alignItems: 'center'}}>
           {/* <Separator /> */}
-          <TextInput aria-label="File name"
+          <TextInput id='inp' aria-label="File name"
           aria-describedby="file-name-editor-breadcrumb"
           disabled={inputDisabled}
           // onChange={onFileNameChange}
