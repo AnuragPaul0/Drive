@@ -27,8 +27,9 @@ export default function BlobEditor({
   const [webCommitDialogState, setWebCommitDialogState] = useState<WebCommitDialogState>('closed')
   const folderPath = 'drive.google.com/viewerng/viewer?embedded=true&url=',
     completeFilePath = `${folderPath}`
-
-  const contentChanged = fileContentChanged || editInfo.enableCommitButton
+  // 1
+  const contentChanged = fileContentChanged
+  //  || editInfo.enableCommitButton
 
   const initialPath = completeFilePath, fileNameChanged = completeFilePath !== initialPath
 
@@ -53,8 +54,7 @@ export default function BlobEditor({
       >
         <EditBreadcrumb foldrPath='drive.google.com/viewerng/viewer?embedded=true&url'/>
         <Box sx={{alignItems: 'center', display: 'flex', flexDirection: 'row'}}>
-          <Button data-hotkey="Mod+s"
-            disabled={commitDisabledRef.current}
+          <Button data-hotkey="Mod+s" disabled={commitDisabledRef.current}
             onClick={() => commitDisabledRef.current || setWebCommitDialogState('pending')}
             variant="primary"
             sx={{ml: 2}}
@@ -155,8 +155,7 @@ function EditBreadcrumb({
         }}><Box sx={{display: 'flex', alignItems: 'center'}}>
           {/* <Separator /> */}
           <TextInput id='inp' aria-label="File name"
-          aria-describedby="file-name-editor-breadcrumb"
-          disabled={inputDisabled}
+          aria-describedby="file-name-editor-breadcrumb" disabled={inputDisabled}
           // onChange={onFileNameChange}
           // onKeyDown={onFileNameInputKeyPress}
           // value={fileName}
