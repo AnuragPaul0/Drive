@@ -7,8 +7,7 @@ color-scheme: dark } }
 body { color: var(--foreground); background: var(--background); margin: 8px;
 font-family: Arial, Helvetica, sans-serif }
 
-.split { height: 100%; position: fixed; z-index: 1; top: 0; overflow-x: hidden;
-  padding-top: 20px;
+.split { height: 100%; position: relative; z-index: 1; top: 0; overflow-x: hidden; padding-top: 20px;
 }
 
 .sl { left: 0; width: var(--sl) }
