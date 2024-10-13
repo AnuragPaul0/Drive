@@ -7,24 +7,15 @@ color-scheme: dark } }
 body { color: var(--foreground); background: var(--background); margin: 8px;
 font-family: Arial, Helvetica, sans-serif }
 
-.split { height: 100%; position: fixed; z-index: 1;
-  top: 0;
+.split { height: 100%; position: fixed; z-index: 1; top: 0;
   overflow-x: hidden;
   padding-top: 20px;
 }
 
-.sl { width: var(--sl) }
-.sm { width: calc(100% - 2*var(--sl)) }
-.sr { width: var(--sl) }
-
-.left {
-  left: 0 }
-
-.right {
-  right: 0 }
-
-.centered { text-align: center
-}
+.sl { left: 0; width: var(--sl) }
+.sm { left: var(--sl); width: calc(100% - 2*var(--sl)) }
+.sr { right: 0; width: var(--sl) }
+.centered { text-align: center }
 
 input { border-width: 1px; border-color: light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
 border-radius: 2px }
