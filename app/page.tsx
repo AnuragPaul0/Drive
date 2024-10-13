@@ -22,7 +22,7 @@ export default function Home() {
     aria-describedby=":Rdd9lab:"
     className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
-      <main><div className="split left sl"></div>
+      <main className="kowOcT"><div className="split left sl"></div>
         <div className="split right sm">
           <div className="centered"><BlobEditor/></div>
         </div><div className="split left sr"></div>
