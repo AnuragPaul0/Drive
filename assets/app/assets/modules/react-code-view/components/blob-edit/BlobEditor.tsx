@@ -1,4 +1,5 @@
 import {ThemeProvider, BaseStyles} from '@primer/react'
+import useColorModes from './use-color-modes'
 // import type {Repository} from '@github-ui/current-repository'
 import {useCodeViewOptions} from '@github-ui/use-code-view-options'
 import type {WebCommitDialogState} from '@github-ui/web-commit-dialog'
@@ -41,8 +42,10 @@ export default function BlobEditor({
   // const {openPanel, setOpenPanel} = useOpenPanel()
 
   // const panelIsOpen = openPanel === 'edit'
-
-  return ( <ThemeProvider>
+  const {colorMode, dayScheme, nightScheme} = useColorModes()
+  
+  return ( <ThemeProvider colorMode={colorMode} dayScheme={dayScheme} nightScheme={nightScheme}
+    preventSSRMismatch>
     <BaseStyles>
     <>
       {/* <ScreenReaderHeading as="h1" text={screenReaderHeading} /> */}
