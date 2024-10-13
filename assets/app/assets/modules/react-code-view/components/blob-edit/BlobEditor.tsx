@@ -151,8 +151,7 @@ function EditBreadcrumb({
         }}
       ><Box sx={{display: 'flex', alignItems: 'center'}}>
           {/* <Separator /> */}
-          <TextInput
-            aria-label="File name"
+          <TextInput aria-label="File name"
             aria-describedby="file-name-editor-breadcrumb"
             disabled={inputDisabled}
             onChange={onFileNameChange}
@@ -161,7 +160,6 @@ function EditBreadcrumb({
             ref={nameInputRef}
             placeholder="Name your file..."
             sx={{ minWidth: '100px' }}/>
-          <Box sx={{flexShrink: 0, px: 1}}>in</Box>
         </Box>
       </Box>
     </Box>
