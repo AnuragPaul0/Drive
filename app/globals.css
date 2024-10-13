@@ -6,8 +6,8 @@ body { color: var(--foreground); background: var(--background); margin: 8px }
 .split { height: 100%; position: relative; z-index: 1; top: 0; overflow-x: hidden }
 /* left: var(--sl); padding-top: 20px;
 color-scheme: dark */
-/* .sl { left: 0; width: var(--sl) } */
-.sm { width: calc(100% - 2*var(--sl)); margin: 1vw 0 var(--sl) 0 }
+/* .sl { left: 0; width: var(--sl) } .sm*/
+main { width: calc(100% - 2*var(--sl)); margin: 1vw 0 0 var(--sl) }
 /* .sr { right: 0; width: var(--sl) } */
 /* .centered { text-align: center } */
 
@@ -24,7 +24,7 @@ span.lmZlSR { background-color: unset; font-size: 14px; line-height: 20px;
   min-height: 32px;
   overflow: hidden; min-width: 100px }
 
-#ml { padding: 1vw 1vw 0}
+/* #ml { padding: 1vw 1vw 0} */
 input { border-width: 1px;
   border-color: light-dark(rgb(118, 118, 118), rgb(133, 133, 133)); border-radius: 2px }
 

@@ -19,7 +19,6 @@ export default function BlobEditor({
 ) {
   const [fileContentChanged, setFileContentChanged] = useState(false)
   // const {screenSize} = useScreenSize()
-
   // const isNarrow = screenSize <= ScreenSize.medium
 
   const [selectedTab, setSelectedTab] = useState<BlobEditorTab>(BlobEditorTab.Edit)
@@ -40,14 +39,13 @@ export default function BlobEditor({
   commitDisabledRef.current = !(contentChanged || fileNameChanged) || fileName.length === 0
   console.log({commitChangesRef})
   // const {openPanel, setOpenPanel} = useOpenPanel()
-
   // const panelIsOpen = openPanel === 'edit'
   const {colorMode, dayScheme, nightScheme} = useColorModes()
   
   return ( <ThemeProvider colorMode={colorMode} dayScheme={dayScheme} nightScheme={nightScheme}
     preventSSRMismatch>
     <BaseStyles>
-    <>
+    {/* <> */}
       {/* <ScreenReaderHeading as="h1" text={screenReaderHeading} /> */}
       <Box
         sx={{display: 'flex', justifyContent: 'space-between', mb: 3, flexWrap: 'wrap', rowGap: 3,
@@ -66,7 +64,7 @@ export default function BlobEditor({
           </Button>
         </Box>
       </Box>
-    </>
+    {/* </> */}
     </BaseStyles>
   </ThemeProvider>
   )
