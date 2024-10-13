@@ -4,5 +4,4 @@ const nextConfig = {};
 export default nextConfig
 
 module.exports = {
-    productionBrowserSourceMaps: true,
-  };
+    productionBrowserSourceMaps: true }

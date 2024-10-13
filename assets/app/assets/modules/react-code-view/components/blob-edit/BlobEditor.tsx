@@ -37,7 +37,7 @@ export default function BlobEditor({
   // so we need a constant reference to the value.
   const commitDisabledRef = useRef(false), fileName = folderPath
   commitDisabledRef.current = !(contentChanged || fileNameChanged) || fileName.length === 0
-  console.log({commitChangesRef})
+  console.log({commitDisabledRef})
   // const {openPanel, setOpenPanel} = useOpenPanel()
   // const panelIsOpen = openPanel === 'edit'
   const {colorMode, dayScheme, nightScheme} = useColorModes()
@@ -53,8 +53,7 @@ export default function BlobEditor({
       >
         <EditBreadcrumb foldrPath='drive.google.com/viewerng/viewer?embedded=true&url'/>
         <Box sx={{alignItems: 'center', display: 'flex', flexDirection: 'row'}}>
-          <Button
-            data-hotkey="Mod+s"
+          <Button data-hotkey="Mod+s"
             disabled={commitDisabledRef.current}
             onClick={() => commitDisabledRef.current || setWebCommitDialogState('pending')}
             variant="primary"
