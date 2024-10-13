@@ -23,10 +23,9 @@ export default function Home() {
     className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
       <main><div className="split left sl"></div>
-
         <div className="split right sm">
           <div className="centered"><BlobEditor/></div>
-        </div>
+        </div><div className="split left sr"></div>
       {/* <SplitPageLayout>
         
       <SplitPageLayout.Header>
