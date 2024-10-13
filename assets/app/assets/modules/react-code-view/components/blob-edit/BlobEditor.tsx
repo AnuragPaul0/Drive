@@ -156,7 +156,7 @@ function EditBreadcrumb({
           {/* <Separator /> */}
           <TextInput id='inp' aria-label="File name"
           aria-describedby="file-name-editor-breadcrumb" disabled={inputDisabled}
-          // onChange={onFileNameChange}
+          onChange={onFileNameChange}
           // onKeyDown={onFileNameInputKeyPress}
           // value={fileName}
           // ref={nameInputRef}
