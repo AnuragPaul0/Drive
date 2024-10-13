@@ -30,7 +30,9 @@ input { border-width: 1px;
 
 input[type="text" i] { padding-block: 1px; padding-inline: 2px }
 svg { display:inline-block; user-select:none; vertical-align:text-bottom; overflow:visible }
-button { background-color: rebeccapurple}
+.RCArp:disabled { background-color: var(--button-primary-bgColor-disabled,
+  var(--color-btn-primary-disabled-bg, rgba(102, 51, 153, 0.6))) }
+button { background-color: rebeccapurple }
 
 .hQsKGs { margin-left: 1vw; color: var(--button-invisible-iconColor-rest, var(--fgColor-muted,
   var(--color-fg-muted, #848d97))); padding: unset; user-select: none; border-radius: 6px;
