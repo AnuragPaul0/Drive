@@ -2,7 +2,7 @@
 :root { --background: #fff; --sl: 30%; --foreground: #171717 }
 @media (prefers-color-scheme: dark) { :root { --background: #000; --foreground: #ededed } }
 body { color: var(--foreground); background: var(--background); margin: 8px }
-.kowOcT { display: flex; flex: 1 1 100%; flex-wrap: wrap; max-width: 100% }
+/* .kowOcT { display: flex; flex: 1 1 100%; flex-wrap: wrap; max-width: 100% } */
 .split { height: 100%; position: relative; z-index: 1; top: 0; overflow-x: hidden }
 /* left: var(--sl); padding-top: 20px;
 color-scheme: dark */
@@ -15,8 +15,7 @@ span.lmZlSR { background-color: unset; font-size: 14px; line-height: 20px;
   color: var(--fgColor-default, var(--color-fg-default, #e6edf3)); vertical-align: middle;
 
   border: 1px solid var(--control-borderColor-rest, var(--borderColor-default,
-  var(--color-border-default, #30363d))); border-radius: 6px;
-  outline: none;
+    var(--color-border-default, #30363d))); border-radius: 6px; outline: none;
   
   box-shadow: var(--shadow-inset, var(--color-primer-shadow-inset, 0 0 transparent));
   display: inline-flex;

@@ -38,7 +38,7 @@ export default function BlobEditor({
   // so we need a constant reference to the value.
   const commitDisabledRef = useRef(false), fileName = folderPath
   commitDisabledRef.current = !(contentChanged || fileNameChanged) || fileName.length === 0
-  
+  console.log({commitChangesRef})
   // const {openPanel, setOpenPanel} = useOpenPanel()
 
   // const panelIsOpen = openPanel === 'edit'
@@ -62,8 +62,7 @@ export default function BlobEditor({
             variant="primary"
             sx={{ml: 2}}
             ref={commitChangesRef}
-          >
-            Commit changes...
+          >Commit changes...
           </Button>
         </Box>
       </Box>
@@ -99,6 +98,7 @@ function EditBreadcrumb({
 
   const initialFileName = fileNam, [fileName, setFileName] = useState(initialFileName)
   const [folderPath, setFolderPath] = useState(initialFolderPath)
+
   const onFileNameInputKeyPress = useCallback(
     (event: React.KeyboardEvent<HTMLInputElement>) => {
       if (

@@ -16,20 +16,17 @@ import {
 // weight: "100 900" } )
 
 // let p = 0 , copied = 0 
-// ${geistSans.variable} ${geistMono.variable}
+// ${geistSans.variable} ${geistMono.variable} className="kowOcT"
 export default function Home() {
-  return <body
-    aria-describedby=":Rdd9lab:"
-    className={`antialiased`}
-    >
-      <main className="kowOcT">
-        {/* <div className="split left sl"></div> */}
-        <div id='ml' className="split right sm">
-          {/* <div className="centered"> */}
-            <BlobEditor/>
-            {/* </div> */}
-        </div>
-        {/* <div className="split left sr"></div> */}
+  return <body className={`antialiased`}
+    ><main>
+      {/* <div className="split left sl"></div> */}
+      <div id='ml' className="split right sm">
+        {/* <div className="centered"> */}
+          <BlobEditor/>
+          {/* </div> */}
+      </div>
+      {/* <div className="split left sr"></div> */}
       {/* <SplitPageLayout>
       <SplitPageLayout.Header>
         <Placeholder label="Header" height={100} />
