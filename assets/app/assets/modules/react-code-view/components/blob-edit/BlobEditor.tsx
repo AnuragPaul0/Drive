@@ -29,14 +29,14 @@ export default function BlobEditor({
     completeFilePath = `${folderPath}`
   // 1
   const contentChanged = fileContentChanged
-  //  || editInfo.enableCommitButton
-
+  //  || editInfo.enableCommitButton 0
   const initialPath = completeFilePath, fileNameChanged = completeFilePath !== initialPath
 
   // This value has to live in a ref because it is used in a callback that is
   // passed to the code mirror editor. That callback will only be bound once,
   // so we need a constant reference to the value.
-  const commitDisabledRef = useRef(false), fileName = folderPath
+  const commitDisabledRef = useRef(false), fileName = ''
+  folderPath
   commitDisabledRef.current = !(contentChanged || fileNameChanged) || fileName.length === 0
   console.log({commitDisabledRef})
   // const {openPanel, setOpenPanel} = useOpenPanel()
