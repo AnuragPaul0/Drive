@@ -12,6 +12,10 @@ import {
   BlobEditorTab} from './BlobEditHeader'
 
 let fileContentChanged = false, fileName = ''
+const contentChanged = fileContentChanged,
+  folderPath = 'drive.google.com/viewerng/viewer?embedded=true&url=',
+  completeFilePath = `${folderPath}`, initialPath = completeFilePath,
+  fileNameChanged = completeFilePath !== initialPath
 
 export const blobEditSidePanelId = 'blob-edit-side-panel-id'
 
@@ -26,13 +30,8 @@ export default function BlobEditor({
   const isPreview = selectedTab === BlobEditorTab.Preview
   const commitChangesRef = useRef<HTMLButtonElement>(null)
   const [webCommitDialogState, setWebCommitDialogState] = useState<WebCommitDialogState>('closed')
-  const folderPath = 'drive.google.com/viewerng/viewer?embedded=true&url=',
-    completeFilePath = `${folderPath}`
   // 1
-  const contentChanged = fileContentChanged
   //  || editInfo.enableCommitButton 0
-  const initialPath = completeFilePath, fileNameChanged = completeFilePath !== initialPath
-
   // This value has to live in a ref because it is used in a callback that is
   // passed to the code mirror editor. That callback will only be bound once,
   // so we need a constant reference to the value.
@@ -136,6 +135,7 @@ function EditBreadcrumb({
         setFolderPath(newFolderPath), fileContentChanged = !0, fileName = newFileName
         // setFileName(newFileName)
         // onChange(newFileName, newFolderPath)
+        console.log({contentChanged, fileNameChanged, fileName})
       }
     },
     [
