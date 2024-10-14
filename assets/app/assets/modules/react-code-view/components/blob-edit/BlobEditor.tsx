@@ -11,9 +11,8 @@ import {
   // BlobEditHeader,
   BlobEditorTab} from './BlobEditHeader'
 
-let fileContentChanged = false, fileName = ''
-const contentChanged = fileContentChanged,
-  folderPath = 'drive.google.com/viewerng/viewer?embedded=true&url=',
+let fileContentChanged = false, fileName = '', contentChanged = fileContentChanged
+const folderPath = 'drive.google.com/viewerng/viewer?embedded=true&url=',
   completeFilePath = `${folderPath}`, initialPath = completeFilePath,
   fileNameChanged = completeFilePath !== initialPath
 
@@ -133,7 +132,8 @@ function EditBreadcrumb({
         newFolderPath = `${value}`
       
       if (newFolderPath !== initialFolderPath || newFileName !== initialFileName) {
-        setFolderPath(newFolderPath), fileContentChanged = !0, fileName = value
+        setFolderPath(newFolderPath), fileContentChanged = !0, contentChanged = fileContentChanged,
+          fileName = value
         // setFileName(newFileName)
         // onChange(newFileName, newFolderPath)
         console.log({contentChanged, fileNameChanged, fileName})
