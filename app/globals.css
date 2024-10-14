@@ -1,9 +1,9 @@
 @import 'tailwindcss/base'; @import 'tailwindcss/components'; @import 'tailwindcss/utilities';
 :root { --background: #fff; --sl: 30%; --foreground: #171717 }
-@media (prefers-color-scheme: dark) { :root { --background: #000; --foreground: #ededed } }
+@media (prefers-color-scheme: dark) { :root { --background: #000; --foreground: #ededed;
+  color-scheme: dark } }
 body { color: var(--foreground); background: var(--background); margin: 8px }
 .split { height: 100%; position: relative; z-index: 1; top: 0; overflow-x: hidden }
-/* color-scheme: dark */
 main { width: calc(100% - 2*var(--sl)); margin: 1vw 0 0 var(--sl) }
 
 span.lmZlSR { background-color: unset; font-size: 14px; line-height: 20px;
@@ -16,9 +16,8 @@ span.lmZlSR { background-color: unset; font-size: 14px; line-height: 20px;
   display: inline-flex; -webkit-box-align: stretch; align-items: stretch; min-height: 32px;
   overflow: hidden; min-width: 100px }
 
-input { border-width: 1px;
-  border-color: light-dark(rgb(118, 118, 118), rgb(133, 133, 133)); border-radius: 2px }
-
+input { border-width: 1px; background-color: transparent }
+  /* border-color: light-dark(rgb(118, 118, 118), rgb(133, 133, 133)); border-radius: 2px; */
 input[type="text" i] { padding-block: 1px; padding-inline: 2px }
 svg { display:inline-block; user-select:none; vertical-align:text-bottom; overflow:visible }
 
