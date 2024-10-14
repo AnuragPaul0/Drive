@@ -3,7 +3,7 @@
   --ds-gray-1000-value: 0, 0%, 93% }
 @media (prefers-color-scheme: dark) { :root { --background: #000; --foreground: #ededed;
   color-scheme: dark } }
-body { color: var(--foreground); background: var(--background); margin: 8px !important }
+body { color: var(--foreground); background: var(--background); margin: 8px }
 .split { height: 100%; position: relative; z-index: 1; top: 0; overflow-x: hidden }
 main { width: calc(100% - 2*var(--sl)); margin: 1vw 0 0 var(--sl) }
 .kbCLEG:focus { outline: 0px }

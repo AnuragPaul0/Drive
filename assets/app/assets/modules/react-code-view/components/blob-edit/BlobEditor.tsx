@@ -142,7 +142,7 @@ export default function BlobEditor({
 
   function handleLastNameChange(e: any) { setFirstName(e.target.value) }
 
-// mmitDisabledRef.current || 
+// mmitDisabledRef.current ||
   return ( <ThemeProvider colorMode={colorMode} dayScheme={dayScheme} nightScheme={nightScheme}
     preventSSRMismatch>
     {/* <BaseStyles> */}
@@ -169,15 +169,15 @@ export default function BlobEditor({
             flex: 1,
             flexWrap: 'wrap',
             // maxWidth: showTreeToggle ? 'calc(100% - 75px)' : '100%',
-          }}>
-            <Box sx={{display: 'flex', alignItems: 'center'}}> */}
-            <span className="TextInputWrapper__TextInputBaseWrapper-sc-1mqhpbi-0 TextInputWrapper-sc-1mqhpbi-1 lmZlSR igQCti TextInput-wrapper"
-              aria-busy="false">
-              <input value={firstName} onChange={handleLastNameChange}
-                id='inp' aria-label={file} style={{ minWidth: '100px' }}
-                placeholder={file} className='UnstyledTextInput-sc-14ypya-0 kbCLEG'
-                aria-describedby="file-name-editor-breadcrumb"
-                /></span>
+          }}> */}
+            <Box sx={{display: 'flex', alignItems: 'center', flex: .5 }}>
+              <span className="TextInputWrapper__TextInputBaseWrapper-sc-1mqhpbi-0 TextInputWrapper-sc-1mqhpbi-1 lmZlSR igQCti TextInput-wrapper"
+                aria-busy="false">
+                <input value={firstName} onChange={handleLastNameChange}
+                  id='inp' aria-label={file} style={{ minWidth: '100px' }}
+                  placeholder={file} className='UnstyledTextInput-sc-14ypya-0 kbCLEG'
+                  aria-describedby="file-name-editor-breadcrumb"
+              /></span>
             {/* <TextInput */}
               {/* // disabled={inputDisabled}
               // onKeyDown={onFileNameInputKeyPress}fileName
@@ -185,10 +185,10 @@ export default function BlobEditor({
               {/* block={undefined} contrast={undefined} monospace={undefined}
               width={undefined} maxWidth={undefined} minWidth={undefined} variant={undefined}
               size={undefined} validationStatus={undefined} as={'input'} disabled={undefined}/> */}
-          {/* </Box>
-        </Box>
+          </Box>
+        {/* </Box>
       </Box> */}
-      <Box sx={{alignItems: 'center', display: 'flex', flexDirection: 'row'}}
+      <Box sx={{alignItems: 'center', display: 'flex', flexDirection: 'row', flex: .5 }}
         className="tailwind"><BranchName style={{ display: firstName ? 'flex' : 'none' }}
           href={folderPath+firstName}>Open in drive</BranchName>
         {/* <a href={} data-zone="mktng" 
