@@ -44,66 +44,41 @@ export default function BlobEditor({
   // const panelIsOpen = openPanel === 'edit'
   const {colorMode, dayScheme, nightScheme} = useColorModes()
   
+    const {codeCenterOption} = useCodeViewOptions()
+    // , initialFolderPath = foldrPath
+    // const showTreeToggle = !showTree && !repo.isEmpty && !codeCenterOption.enabled
 
-  try{ (EditBreadcrumb as any).displayName ||= 'EditBreadcrumb' } catch {}
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-
-  function EditBreadcrumb({
-    showTree =true,
-    // treeToggleElement,
-    foldrPath = '',
-    repo= { isEmpty: !1,
-      id: 0,
-      name: '',
-      ownerLogin: '',
-      defaultBranch: '',
-      createdAt: '',
-      currentUserCanPush: false,
-      isFork: false,
-      ownerAvatar: '',
-      public: false,
-      private: false,
-      isOrgOwned: false },
-    fileNam = '',
-    nameInputRef = useRef<HTMLInputElement>(null),
-    inputDisabled = !1,
-  }
-  ) {
-    const {codeCenterOption} = useCodeViewOptions(), initialFolderPath = foldrPath
-    const showTreeToggle = !showTree && !repo.isEmpty && !codeCenterOption.enabled
-
-    const initialFileName = fileNam
+    // const initialFileName = fileNam
     // , [fileName, setFileName] = useState(initialFileName)
-    const [folderPath, setFolderPath] = useState(initialFolderPath)
+    // const [folderPath, setFolderPath] = useState(initialFolderPath)
 
-    const onFileNameInputKeyPress = useCallback(
-      (event: React.KeyboardEvent<HTMLInputElement>) => {
-        if (
-          // eslint-disable-next-line @github-ui/ui-commands/no-manual-shortcut-logic
-          event.key === 'Backspace' &&
-          folderPath.length > 0 &&
-          nameInputRef.current?.selectionStart === 0 &&
-          nameInputRef.current?.selectionEnd === 0
-        ) {
-          const pathParts = folderPath
-          const newFileName = pathParts
-            // [pathParts.length - 2]
-            + fileName
+    // const onFileNameInputKeyPress = useCallback(
+    //   (event: React.KeyboardEvent<HTMLInputElement>) => {
+    //     if (
+    //       // eslint-disable-next-line @github-ui/ui-commands/no-manual-shortcut-logic
+    //       event.key === 'Backspace' &&
+    //       folderPath.length > 0 &&
+    //       // nameInputRef.current?.selectionStart === 0 &&
+    //       // nameInputRef.current?.selectionEnd === 0
+    //     ) {
+    //       const pathParts = folderPath
+    //       const newFileName = pathParts
+    //         // [pathParts.length - 2]
+    //         + fileName
 
-          // const partLength = pathParts[pathParts.length - 2]!.length
-          event.preventDefault()
+    //       // const partLength = pathParts[pathParts.length - 2]!.length
+    //       event.preventDefault()
           
-          // setFileName(newFileName)
-          fileName = newFileName
-          // console.log({contentChanged, fileNameChanged, fileName})
-          // we dont need to call onChange
-          // onFileNameInputKeyPress triggers first and then onFileNameChange
-          // onFileNameChange always fires the onChange when needed
-        }
-      },
-      [fileName, folderPath, nameInputRef],
-    )
+    //       // setFileName(newFileName)
+    //       fileName = newFileName
+    //       // console.log({contentChanged, fileNameChanged, fileName})
+    //       // we dont need to call onChange
+    //       // onFileNameInputKeyPress triggers first and then onFileNameChange, nameInputRef
+    //       // onFileNameChange always fires the onChange when needed
+    //     }
+    //   },
+    //   [fileName, folderPath],
+    // )
 
     const onFileNameChange = useCallback(
       (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -113,8 +88,8 @@ export default function BlobEditor({
 
           newFolderPath = `${value}`
         
-        if (newFolderPath !== initialFolderPath || newFileName !== initialFileName) {
-          setFolderPath(newFolderPath), fileContentChanged = !0, contentChanged = fileContentChanged,
+        // if (newFolderPath !== initialFolderPath || newFileName !== initialFileName) {
+          // setFolderPath(newFolderPath), fileContentChanged = !0, contentChanged = fileContentChanged,
             fileName = value, count = !value.length
             // , commitDisabledRef.current = !()
             // setCount(!value.length)
@@ -122,43 +97,45 @@ export default function BlobEditor({
           // onChange(newFileName, newFolderPath)
           console.log({contentChanged, fileNameChanged, fileName
             // , commitDisabledRef
-          })
-        }
+          }
+        )
+        // }
       },
       [
-        // onChange,
-        fileName, folderPath, initialFileName, initialFolderPath, nameInputRef],
+        // onChange,, nameInputRef, initialFileName, initialFolderPath
+        fileName, folderPath],
     )
 
-    return (
-      <Box sx={{display: 'flex', alignSelf: 'self-start', alignItems: 'center', flex: 1, pr: 3,
-        maxWidth: '100%'}}>
-        {/* {showTreeToggle && <Box sx={{mr: 2}}>{treeToggleElement}</Box>} */}
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            flex: 1,
-            flexWrap: 'wrap',
-            maxWidth: showTreeToggle ? 'calc(100% - 75px)' : '100%',
-          }}><Box sx={{display: 'flex', alignItems: 'center'}}>
-            {/* <Separator /> */}
-            <TextInput id='inp' aria-label="File name"
-              aria-describedby="file-name-editor-breadcrumb"
-              disabled={inputDisabled}
-              onChange={onFileNameChange}
-              // onKeyDown={onFileNameInputKeyPress}fileName
-              value={firstName}
-              // ref={nameInputRef}
-              placeholder="Name your file..."
-              sx={{ minWidth: '100px' }} block={undefined} contrast={undefined} monospace={undefined}
-                width={undefined} maxWidth={undefined} minWidth={undefined} variant={undefined}
-                size={undefined} validationStatus={undefined} as={'input'}/>
-          </Box>
-        </Box>
-      </Box>
-    )
-  }
+  // try{ (EditBreadcrumb as any).displayName ||= 'EditBreadcrumb' } catch {}
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+
+  // function EditBreadcrumb({
+  //   showTree =true,
+  //   // treeToggleElement,
+  //   foldrPath = '',
+  //   repo= { isEmpty: !1,
+  //     id: 0,
+  //     name: '',
+  //     ownerLogin: '',
+  //     defaultBranch: '',
+  //     createdAt: '',
+  //     currentUserCanPush: false,
+  //     isFork: false,
+  //     ownerAvatar: '',
+  //     public: false,
+  //     private: false,
+  //     isOrgOwned: false },
+  //   fileNam = '',
+  //   nameInputRef = useRef<HTMLInputElement>(null),
+  //   inputDisabled = !1,
+  // }
+  // ) {
+
+  //   return (
+      
+  //   )
+  // }
   function handleFirstNameChange(e: any) {
     setFirstName(e.target.value);
   }
@@ -192,8 +169,32 @@ export default function BlobEditor({
         sx={{display: 'flex', justifyContent: 'space-between', mb: 3, flexWrap: 'wrap', rowGap: 3,
           maxWidth: '100%'}}
       >
-         <EditBreadcrumb foldrPath='drive.google.com/viewerng/viewer?embedded=true&url'/>
-         <Box sx={{alignItems: 'center', display: 'flex', flexDirection: 'row'}}>
+         {/* <EditBreadcrumb foldrPath='drive.google.com/viewerng/viewer?embedded=true&url'/> */}
+         <Box sx={{display: 'flex', alignSelf: 'self-start', alignItems: 'center', flex: 1, pr: 3,
+        maxWidth: '100%'}}>
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            flex: 1,
+            flexWrap: 'wrap',
+            // maxWidth: showTreeToggle ? 'calc(100% - 75px)' : '100%',
+          }}><Box sx={{display: 'flex', alignItems: 'center'}}>
+            {/* <Separator /> */}
+            <TextInput id='inp' aria-label="File name"
+              aria-describedby="file-name-editor-breadcrumb"
+              // disabled={inputDisabled}
+              onChange={onFileNameChange}
+              // onKeyDown={onFileNameInputKeyPress}fileName
+              value={firstName}
+              // ref={nameInputRef}
+              placeholder="Name your file..."
+              sx={{ minWidth: '100px' }} block={undefined} contrast={undefined} monospace={undefined}
+              width={undefined} maxWidth={undefined} minWidth={undefined} variant={undefined}
+              size={undefined} validationStatus={undefined} as={'input'} disabled={undefined}/>
+          </Box>
+        </Box>
+      </Box><Box sx={{alignItems: 'center', display: 'flex', flexDirection: 'row'}}>
            <Button data-hotkey="Mod+s" disabled={!firstName.length}
 //             onClick={() => setWebCommitDialogState('pending')}
             variant="primary" sx={{ml: 2}}
