@@ -56,8 +56,7 @@ export default function BlobEditor({
         <Box sx={{alignItems: 'center', display: 'flex', flexDirection: 'row'}}>
           <Button data-hotkey="Mod+s" disabled={commitDisabledRef.current}
             onClick={() => commitDisabledRef.current || setWebCommitDialogState('pending')}
-            variant="primary"
-            sx={{ml: 2}}
+            variant="primary" sx={{ml: 2}}
             ref={commitChangesRef}
           >Commit changes...
           </Button>
