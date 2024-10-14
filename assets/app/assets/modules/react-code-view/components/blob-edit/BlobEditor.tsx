@@ -156,29 +156,65 @@ export default function BlobEditor({
   }
 
   try{ (EditBreadcrumb as any).displayName ||= 'EditBreadcrumb' } catch {}
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [fullName, setFullName] = useState('');
 
-// mmitDisabledRef.current || 
-  return ( <ThemeProvider colorMode={colorMode} dayScheme={dayScheme} nightScheme={nightScheme}
-    preventSSRMismatch>
-    <BaseStyles><Box
-        sx={{display: 'flex', justifyContent: 'space-between', mb: 3, flexWrap: 'wrap', rowGap: 3,
-          maxWidth: '100%'}}
-      >
-        <EditBreadcrumb foldrPath='drive.google.com/viewerng/viewer?embedded=true&url'/>
-        <Box sx={{alignItems: 'center', display: 'flex', flexDirection: 'row'}}>
-          <Button data-hotkey="Mod+s" disabled={count}
-            onClick={() => setWebCommitDialogState('pending')}
-            variant="primary" sx={{ml: 2}}
-            // ref={commitChangesRef}
-          >Commit changes...
-          </Button>
-        </Box>
-      </Box>
-    {/* </> */}
-    </BaseStyles>
-  </ThemeProvider>
-  )
+  function handleFirstNameChange(e: any) {
+    setFirstName(e.target.value);
+    setFullName(e.target.value + ' ' + lastName);
+  }
+
+  function handleLastNameChange(e: any) {
+    setLastName(e.target.value);
+    setFullName(firstName + ' ' + e.target.value);
+  }
+
+  return (
+    <>
+      <h2>Let’s check you in</h2>
+      <label>
+        First name:{' '}
+        <input
+          value={firstName}
+          onChange={handleFirstNameChange}
+        />
+      </label>
+      <label>
+        Last name:{' '}
+        <input
+          value={lastName}
+          onChange={handleLastNameChange}
+        />
+      </label>
+      <p>
+        Your ticket will be issued to: <b>{fullName}</b>
+      </p>
+    </>
+  );
 }
+// mmitDisabledRef.current || 
+//   return ( <ThemeProvider colorMode={colorMode} dayScheme={dayScheme} nightScheme={nightScheme}
+//     preventSSRMismatch>
+//     <BaseStyles><Box
+//         sx={{display: 'flex', justifyContent: 'space-between', mb: 3, flexWrap: 'wrap', rowGap: 3,
+//           maxWidth: '100%'}}
+//       >
+//         <EditBreadcrumb foldrPath='drive.google.com/viewerng/viewer?embedded=true&url'/>
+//         <Box sx={{alignItems: 'center', display: 'flex', flexDirection: 'row'}}>
+//           <Button data-hotkey="Mod+s" disabled={count}
+//             onClick={() => setWebCommitDialogState('pending')}
+//             variant="primary" sx={{ml: 2}}
+//             // ref={commitChangesRef}
+//           >Commit changes...
+//           </Button>
+//         </Box>
+//       </Box>
+//     {/* </> */}
+//     </BaseStyles>
+//   </ThemeProvider>
+//   )
+// }
 
 
 try{ (BlobEditor as any).displayName ||= 'BlobEditor' } catch {}
