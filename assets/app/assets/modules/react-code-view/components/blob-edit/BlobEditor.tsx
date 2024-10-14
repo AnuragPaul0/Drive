@@ -170,8 +170,10 @@ export default function BlobEditor({
     setFullName(firstName + ' ' + e.target.value);
   }
 
-  return (
-    <>
+// mmitDisabledRef.current || 
+  return ( <ThemeProvider colorMode={colorMode} dayScheme={dayScheme} nightScheme={nightScheme}
+    preventSSRMismatch>
+    <BaseStyles>
       <h2>Let’s check you in</h2>
       <label>
         First name:{' '}
@@ -189,32 +191,25 @@ export default function BlobEditor({
       </label>
       <p>
         Your ticket will be issued to: <b>{fullName}</b>
-      </p>
-    </>
-  );
-}
-// mmitDisabledRef.current || 
-//   return ( <ThemeProvider colorMode={colorMode} dayScheme={dayScheme} nightScheme={nightScheme}
-//     preventSSRMismatch>
-//     <BaseStyles><Box
-//         sx={{display: 'flex', justifyContent: 'space-between', mb: 3, flexWrap: 'wrap', rowGap: 3,
-//           maxWidth: '100%'}}
-//       >
+      </p><Box
+        sx={{display: 'flex', justifyContent: 'space-between', mb: 3, flexWrap: 'wrap', rowGap: 3,
+          maxWidth: '100%'}}
+      >
 //         <EditBreadcrumb foldrPath='drive.google.com/viewerng/viewer?embedded=true&url'/>
 //         <Box sx={{alignItems: 'center', display: 'flex', flexDirection: 'row'}}>
 //           <Button data-hotkey="Mod+s" disabled={count}
 //             onClick={() => setWebCommitDialogState('pending')}
-//             variant="primary" sx={{ml: 2}}
+            variant="primary" sx={{ml: 2}}
 //             // ref={commitChangesRef}
-//           >Commit changes...
-//           </Button>
-//         </Box>
-//       </Box>
+          >Commit changes...
+          </Button>
+        </Box>
+      </Box>
 //     {/* </> */}
-//     </BaseStyles>
-//   </ThemeProvider>
-//   )
-// }
+    </BaseStyles>
+  </ThemeProvider>
+  )
+}
 
 
 try{ (BlobEditor as any).displayName ||= 'BlobEditor' } catch {}
