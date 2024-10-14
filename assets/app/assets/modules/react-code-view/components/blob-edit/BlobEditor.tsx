@@ -136,7 +136,8 @@ export default function BlobEditor({
           }}><Box sx={{display: 'flex', alignItems: 'center'}}>
             {/* <Separator /> */}
             <TextInput id='inp' aria-label="File name"
-            aria-describedby="file-name-editor-breadcrumb" disabled={inputDisabled}
+            aria-describedby="file-name-editor-breadcrumb"
+            disabled={inputDisabled}
             onChange={onFileNameChange}
             // onKeyDown={onFileNameInputKeyPress}
             value={fileName}
@@ -165,7 +166,7 @@ export default function BlobEditor({
           <Button data-hotkey="Mod+s" disabled={count}
             onClick={() => commitDisabledRef.current || setWebCommitDialogState('pending')}
             variant="primary" sx={{ml: 2}}
-            ref={commitChangesRef}
+            // ref={commitChangesRef}
           >Commit changes...
           </Button>
         </Box>
