@@ -197,10 +197,10 @@ export default function BlobEditor({
       >
 //         <EditBreadcrumb foldrPath='drive.google.com/viewerng/viewer?embedded=true&url'/>
 //         <Box sx={{alignItems: 'center', display: 'flex', flexDirection: 'row'}}>
-//           <Button data-hotkey="Mod+s" disabled={count}
+//           <Button data-hotkey="Mod+s" disabled={!firstName.length}
 //             onClick={() => setWebCommitDialogState('pending')}
             variant="primary" sx={{ml: 2}}
-//             // ref={commitChangesRef}
+//             // ref={commitChangesRef}count
           >Commit changes...
           </Button>
         </Box>
