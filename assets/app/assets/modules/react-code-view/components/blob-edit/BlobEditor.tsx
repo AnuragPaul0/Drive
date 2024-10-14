@@ -110,8 +110,8 @@ export default function BlobEditor({
         if (newFolderPath !== initialFolderPath || newFileName !== initialFileName) {
           setFolderPath(newFolderPath), fileContentChanged = !0, contentChanged = fileContentChanged,
             fileName = value
-            , commitDisabledRef.current = !(value.length)
-            setCount(!1)
+            // , commitDisabledRef.current = !()
+            setCount(!value.length)
           // setFileName(newFileName)
           // onChange(newFileName, newFolderPath)
           console.log({contentChanged, fileNameChanged, fileName, commitDisabledRef})
