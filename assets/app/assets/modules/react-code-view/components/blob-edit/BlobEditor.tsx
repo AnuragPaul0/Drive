@@ -115,7 +115,7 @@ function EditBreadcrumb({
         
         // setFileName(newFileName)
         fileName = newFileName
-        console.log({contentChanged, fileNameChanged, fileName})
+        // console.log({contentChanged, fileNameChanged, fileName})
         // we dont need to call onChange
         // onFileNameInputKeyPress triggers first and then onFileNameChange
         // onFileNameChange always fires the onChange when needed
@@ -159,10 +159,10 @@ function EditBreadcrumb({
           {/* <Separator /> */}
           <TextInput id='inp' aria-label="File name"
           aria-describedby="file-name-editor-breadcrumb" disabled={inputDisabled}
-          // onChange={onFileNameChange}
-          onKeyDown={onFileNameInputKeyPress}
-          // value={fileName}
-          // ref={nameInputRef}
+          onChange={onFileNameChange}
+          // onKeyDown={onFileNameInputKeyPress}
+          value={fileName}
+          ref={nameInputRef}
           placeholder="Name your file..."
           sx={{ minWidth: '100px' }} block={undefined} contrast={undefined} monospace={undefined}
             width={undefined} maxWidth={undefined} minWidth={undefined} variant={undefined}
