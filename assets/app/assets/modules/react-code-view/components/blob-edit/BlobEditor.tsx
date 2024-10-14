@@ -134,7 +134,7 @@ function EditBreadcrumb({
       
       if (newFolderPath !== initialFolderPath || newFileName !== initialFileName) {
         setFolderPath(newFolderPath), fileContentChanged = !0, contentChanged = fileContentChanged,
-          fileName = value
+          fileName = value, commitDisabledRef = !1
         // setFileName(newFileName)
         // onChange(newFileName, newFolderPath)
         console.log({contentChanged, fileNameChanged, fileName, commitDisabledRef})
