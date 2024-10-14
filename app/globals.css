@@ -10,6 +10,23 @@ main { display: flex }
 #left { justify-content: flex-end; display: flex; align-items: center; flex: .5  }
 #right { align-items: center; display: flex; flex-direction: row; flex: .5 }
 /* width: calc(100% - 2*var(--sl)); margin: 1vw 0 0 var(--sl) */
+
+.lmZlSR { font-size: 14px;
+  line-height: 20px;
+  color: var(--fgColor-default, var(--color-fg-default, #e6edf3));
+  vertical-align: middle;
+  background-color: var(--bgColor-default, var(--color-canvas-default, #0d1117));
+  border: 1px solid var(--control-borderColor-rest, var(--borderColor-default, var(--color-border-default, #30363d)));
+  border-radius: 6px;
+  outline: none;
+  box-shadow: var(--shadow-inset, var(--color-primer-shadow-inset, 0 0 transparent));
+  display: inline-flex;
+  -webkit-box-align: stretch;
+  align-items: stretch;
+  min-height: 32px;
+  overflow: hidden;
+  min-width: 100px }
+
 .lmZlSR:focus-within { border-color: var(--fgColor-accent, var(--color-accent-fg, #2f81f7));
   outline: 2px solid var(--fgColor-accent, var(--color-accent-fg, #2f81f7)); outline-offset: -1px }
 

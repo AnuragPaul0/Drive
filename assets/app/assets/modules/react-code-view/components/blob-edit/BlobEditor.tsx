@@ -145,7 +145,7 @@ export default function BlobEditor({
 // mmitDisabledRef.current ||
   return ( <ThemeProvider colorMode={colorMode} dayScheme={dayScheme} nightScheme={nightScheme}
     preventSSRMismatch>
-    <BaseStyles>{/*  , flex: 1
+    {/* <BaseStyles> , flex: 1
         Your ticket will be issued to: <b>{firstName}</b>, justifyContent: 'space-between'
       </p> */}
       {/* <Box sx={{display: 'flex', mb: 3, flexWrap: 'wrap', rowGap: 3,
@@ -192,7 +192,7 @@ export default function BlobEditor({
         </Button> */}
         {/* </Box> */}
       </Box>
-      </BaseStyles>
+      {/* </BaseStyles> */}
   </ThemeProvider>
   )
 }
