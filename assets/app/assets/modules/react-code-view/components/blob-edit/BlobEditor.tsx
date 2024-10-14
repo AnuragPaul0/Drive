@@ -189,11 +189,11 @@ export default function BlobEditor({
         </Box>
       </Box> */}
       <Box sx={{alignItems: 'center', display: 'flex', flexDirection: 'row'}}
-        className="tailwind">
-        <a href={folderPath+firstName} data-zone="mktng" 
+        className="tailwind"><BranchName href={folderPath+firstName}>Open in drive</BranchName>
+        {/* <a href={} data-zone="mktng" 
           style={{ display: firstName ? 'flex' : 'none' }}
           className="link_link__hbWKh text-sm text-gray-900 hover:text-gray-1000" data-prefetch="true"
-          >Open in drive</a>
+          ></a> */}
         {/* <Button data-hotkey="Mod+s" disabled={!firstName.length}
 //             onClick={() => setWebCommitDialogState('pending')}
             variant="primary" sx={{ml: 2}}
