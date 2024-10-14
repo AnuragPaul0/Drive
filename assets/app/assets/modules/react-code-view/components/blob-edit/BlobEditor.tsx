@@ -11,13 +11,13 @@ import {
   // BlobEditHeader,
   BlobEditorTab} from './BlobEditHeader'
 
+  const [fileContentChanged, setFileContentChanged] = useState(false)
 export const blobEditSidePanelId = 'blob-edit-side-panel-id'
 
 export default function BlobEditor({
   // collapseTree,
   editInfo = {enableCommitButton: 1} }
 ) {
-  const [fileContentChanged, setFileContentChanged] = useState(false)
   // const {screenSize} = useScreenSize()
   // const isNarrow = screenSize <= ScreenSize.medium
 
@@ -36,7 +36,7 @@ export default function BlobEditor({
   // passed to the code mirror editor. That callback will only be bound once,
   // so we need a constant reference to the value.
   const commitDisabledRef = useRef(false), fileName = ''
-  folderPath
+  // folderPath
   commitDisabledRef.current = !(contentChanged || fileNameChanged) || fileName.length === 0
   console.log({commitDisabledRef})
   // const {openPanel, setOpenPanel} = useOpenPanel()
@@ -130,7 +130,7 @@ function EditBreadcrumb({
         newFolderPath = `${value}`
       
       if (newFolderPath !== initialFolderPath || newFileName !== initialFileName) {
-        setFolderPath(newFolderPath)
+        setFolderPath(newFolderPath), setFileContentChanged(!0)
         // setFileName(newFileName)
         // onChange(newFileName, newFolderPath)
       }
