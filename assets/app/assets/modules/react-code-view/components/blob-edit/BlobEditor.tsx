@@ -44,6 +44,11 @@ export default function BlobEditor({
   // const panelIsOpen = openPanel === 'edit'
   const {colorMode, dayScheme, nightScheme} = useColorModes()
   
+
+  try{ (EditBreadcrumb as any).displayName ||= 'EditBreadcrumb' } catch {}
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+
   function EditBreadcrumb({
     showTree =true,
     // treeToggleElement,
@@ -139,26 +144,21 @@ export default function BlobEditor({
           }}><Box sx={{display: 'flex', alignItems: 'center'}}>
             {/* <Separator /> */}
             <TextInput id='inp' aria-label="File name"
-            aria-describedby="file-name-editor-breadcrumb"
-            disabled={inputDisabled}
-            onChange={onFileNameChange}
-            // onKeyDown={onFileNameInputKeyPress}fileName
-            value={firstName}
-            // ref={nameInputRef}
-            placeholder="Name your file..."
-            sx={{ minWidth: '100px' }} block={undefined} contrast={undefined} monospace={undefined}
-              width={undefined} maxWidth={undefined} minWidth={undefined} variant={undefined}
-              size={undefined} validationStatus={undefined} as={'input'}/>
+              aria-describedby="file-name-editor-breadcrumb"
+              disabled={inputDisabled}
+              onChange={onFileNameChange}
+              // onKeyDown={onFileNameInputKeyPress}fileName
+              value={firstName}
+              // ref={nameInputRef}
+              placeholder="Name your file..."
+              sx={{ minWidth: '100px' }} block={undefined} contrast={undefined} monospace={undefined}
+                width={undefined} maxWidth={undefined} minWidth={undefined} variant={undefined}
+                size={undefined} validationStatus={undefined} as={'input'}/>
           </Box>
         </Box>
       </Box>
     )
   }
-
-  try{ (EditBreadcrumb as any).displayName ||= 'EditBreadcrumb' } catch {}
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-
   function handleFirstNameChange(e: any) {
     setFirstName(e.target.value);
   }
