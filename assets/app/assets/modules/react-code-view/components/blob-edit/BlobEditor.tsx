@@ -184,9 +184,9 @@ export default function BlobEditor({
             <TextInput id='inp' aria-label="File name"
               aria-describedby="file-name-editor-breadcrumb"
               // disabled={inputDisabled}
+              value={firstName}
               onChange={onFileNameChange}
               // onKeyDown={onFileNameInputKeyPress}fileName
-              value={firstName}
               // ref={nameInputRef}
               placeholder="Name your file..."
               sx={{ minWidth: '100px' }} block={undefined} contrast={undefined} monospace={undefined}
