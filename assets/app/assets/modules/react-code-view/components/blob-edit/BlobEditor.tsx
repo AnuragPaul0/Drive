@@ -20,8 +20,8 @@ let fileContentChanged = false, fileName = '', contentChanged = fileContentChang
 export const blobEditSidePanelId = 'blob-edit-side-panel-id'
 
 export default function BlobEditor({
-  // collapseTree,
-  editInfo = {enableCommitButton: 1} }
+  // collapseTree, editInfo = {enableCommitButton: 1}
+  }
 ) {
   // const {screenSize} = useScreenSize()
   // const isNarrow = screenSize <= ScreenSize.medium
@@ -110,7 +110,7 @@ export default function BlobEditor({
         if (newFolderPath !== initialFolderPath || newFileName !== initialFileName) {
           setFolderPath(newFolderPath), fileContentChanged = !0, contentChanged = fileContentChanged,
             fileName = value
-            , commitDisabledRef.current = !1
+            , commitDisabledRef.current = !(value.length)
             setCount(!1)
           // setFileName(newFileName)
           // onChange(newFileName, newFolderPath)
