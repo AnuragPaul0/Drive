@@ -35,10 +35,11 @@ export default function BlobEditor({
   // This value has to live in a ref because it is used in a callback that is
   // passed to the code mirror editor. That callback will only be bound once,
   // so we need a constant reference to the value.
-  const commitDisabledRef = useRef(false)
+  // const commitDisabledRef = useRef(false)
   // folderPath 0 || 0 || 1
-  commitDisabledRef.current = !(contentChanged || fileNameChanged) || fileName.length === 0
-  console.log({commitDisabledRef})
+  // commitDisabledRef.current = !(contentChanged || fileNameChanged) || fileName.length === 0
+  // console.log({commitDisabledRef})
+  console.log(1)
   // const {openPanel, setOpenPanel} = useOpenPanel()
   // const panelIsOpen = openPanel === 'edit'
   const {colorMode, dayScheme, nightScheme} = useColorModes()
@@ -114,7 +115,9 @@ export default function BlobEditor({
             setCount(!value.length)
           // setFileName(newFileName)
           // onChange(newFileName, newFolderPath)
-          console.log({contentChanged, fileNameChanged, fileName, commitDisabledRef})
+          console.log({contentChanged, fileNameChanged, fileName
+            // , commitDisabledRef
+          })
         }
       },
       [
@@ -154,7 +157,7 @@ export default function BlobEditor({
 
   try{ (EditBreadcrumb as any).displayName ||= 'EditBreadcrumb' } catch {}
 
-// mmitDisabledRef.current
+// mmitDisabledRef.current || 
   return ( <ThemeProvider colorMode={colorMode} dayScheme={dayScheme} nightScheme={nightScheme}
     preventSSRMismatch>
     <BaseStyles><Box
@@ -164,7 +167,7 @@ export default function BlobEditor({
         <EditBreadcrumb foldrPath='drive.google.com/viewerng/viewer?embedded=true&url'/>
         <Box sx={{alignItems: 'center', display: 'flex', flexDirection: 'row'}}>
           <Button data-hotkey="Mod+s" disabled={count}
-            onClick={() => commitDisabledRef.current || setWebCommitDialogState('pending')}
+            onClick={() => setWebCommitDialogState('pending')}
             variant="primary" sx={{ml: 2}}
             // ref={commitChangesRef}
           >Commit changes...
