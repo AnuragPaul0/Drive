@@ -190,7 +190,8 @@ export default function BlobEditor({
       </Box> */}
       <Box sx={{alignItems: 'center', display: 'flex', flexDirection: 'row'}}
         className="tailwind">
-        <a href={folderPath+firstName} data-zone="mktng"  style={{ display: firstName ? 'flex' : 'none' }}
+        <a href={folderPath+firstName} data-zone="mktng" 
+          style={{ display: firstName ? 'flex' : 'none' }}
           className="link_link__hbWKh text-sm text-gray-900 hover:text-gray-1000" data-prefetch="true"
           >Open in drive</a>
         {/* <Button data-hotkey="Mod+s" disabled={!firstName.length}

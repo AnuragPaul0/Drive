@@ -9,22 +9,22 @@ main { width: calc(100% - 2*var(--sl)); margin: 1vw 0 0 var(--sl) }
 .kbCLEG:focus { outline: 0px }
 
 .lmZlSR:focus-within { border-color: var(--fgColor-accent, var(--color-accent-fg, #2f81f7));
-  outline: 2px solid var(--fgColor-accent, var(--color-accent-fg, #2f81f7));
-  outline-offset: -1px }
+  outline: 2px solid var(--fgColor-accent, var(--color-accent-fg, #2f81f7)); outline-offset: -1px }
 
 .kbCLEG { border: 0px; font-size: inherit; font-family: inherit; background-color: transparent;
   appearance: none; color: inherit; width: 100% }
 
-input { padding-left: 12px;
-  padding-right: 12px; border-width: 1px; background-color: transparent }
+input { padding-left: 12px; padding-right: 12px; border-width: 1px; background-color: transparent }
   /* border-color: light-dark(rgb(118, 118, 118), rgb(133, 133, 133)); border-radius: 2px; */
 input[type="text" i] { padding-block: 1px; padding-inline: 2px }
-svg { display:inline-block; user-select:none; vertical-align:text-bottom; overflow:visible }
 
 .tailwind :is(.text-gray-900) { --tw-text-opacity: 1;
   color: hsla(var(--ds-gray-900-value),var(--tw-text-opacity)) }
+
 .tailwind :is(.hover\:text-gray-1000:hover){--tw-text-opacity:1;
   color:hsla(var(--ds-gray-1000-value),var(--tw-text-opacity))}
+
+a { margin-left: 1vw }
 /* button:disabled { background-color: var(--button-primary-bgColor-disabled,
   var(--color-btn-primary-disabled-bg, rgba(102, 51, 153, 0.6))) !important }
 
