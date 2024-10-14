@@ -174,10 +174,10 @@ export default function BlobEditor({
       <h2>Let’s check you in</h2>
       <label>
         First name:{' '}
-        <input
+        {/* <input
           value={firstName}
           onChange={handleFirstNameChange}
-        />
+        /> */}
       </label>
       <label>
         Last name:{' '}
@@ -192,18 +192,16 @@ export default function BlobEditor({
         sx={{display: 'flex', justifyContent: 'space-between', mb: 3, flexWrap: 'wrap', rowGap: 3,
           maxWidth: '100%'}}
       >
-//         <EditBreadcrumb foldrPath='drive.google.com/viewerng/viewer?embedded=true&url'/>
-//         <Box sx={{alignItems: 'center', display: 'flex', flexDirection: 'row'}}>
-//           <Button data-hotkey="Mod+s" disabled={!firstName.length}
+         <EditBreadcrumb foldrPath='drive.google.com/viewerng/viewer?embedded=true&url'/>
+         <Box sx={{alignItems: 'center', display: 'flex', flexDirection: 'row'}}>
+           <Button data-hotkey="Mod+s" disabled={!firstName.length}
 //             onClick={() => setWebCommitDialogState('pending')}
             variant="primary" sx={{ml: 2}}
-//             // ref={commitChangesRef}count
+             // ref={commitChangesRef}count
           >Commit changes...
           </Button>
         </Box>
-      </Box>
-//     {/* </> */}
-    </BaseStyles>
+      </Box></BaseStyles>
   </ThemeProvider>
   )
 }
