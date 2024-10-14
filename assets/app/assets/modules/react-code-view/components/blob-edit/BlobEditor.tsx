@@ -154,10 +154,6 @@ export default function BlobEditor({
       </label> */}
       {/* <label>
         Last name:{' '}
-        <input
-          value={lastName}
-          onChange={handleLastNameChange}
-        />
       </label>
       <p>, flex: 1
         Your ticket will be issued to: <b>{firstName}</b>, justifyContent: 'space-between'
@@ -177,17 +173,19 @@ export default function BlobEditor({
             // maxWidth: showTreeToggle ? 'calc(100% - 75px)' : '100%',
           }}>
             <Box sx={{display: 'flex', alignItems: 'center'}}> */}
-            <TextInput id='inp' aria-label="File name"
-              aria-describedby="file-name-editor-breadcrumb"
-              // disabled={inputDisabled}
-              value={firstName}
-              onChange={handleFirstNameChange}
-              // onKeyDown={onFileNameInputKeyPress}fileName
-              // ref={nameInputRef}onFileNameChange
+            <input id='inp' aria-label="file link..." style={{ minWidth: '100px' }}
               placeholder="file link..."
-              sx={{ minWidth: '100px' }} block={undefined} contrast={undefined} monospace={undefined}
+              aria-describedby="file-name-editor-breadcrumb"
+              value={firstName}
+              onChange={handleLastNameChange}
+            />
+            {/* <TextInput */}
+              {/* // disabled={inputDisabled}
+              // onKeyDown={onFileNameInputKeyPress}fileName
+              // ref={nameInputRef}onFileNameChange */}
+              {/* block={undefined} contrast={undefined} monospace={undefined}
               width={undefined} maxWidth={undefined} minWidth={undefined} variant={undefined}
-              size={undefined} validationStatus={undefined} as={'input'} disabled={undefined}/>
+              size={undefined} validationStatus={undefined} as={'input'} disabled={undefined}/> */}
           {/* </Box>
         </Box>
       </Box> */}
