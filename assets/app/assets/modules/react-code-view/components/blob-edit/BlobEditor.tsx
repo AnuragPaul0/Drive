@@ -161,8 +161,8 @@ try{ (EditBreadcrumb as any).displayName ||= 'EditBreadcrumb' } catch {}
       >
         <EditBreadcrumb foldrPath='drive.google.com/viewerng/viewer?embedded=true&url'/>
         <Box sx={{alignItems: 'center', display: 'flex', flexDirection: 'row'}}>
-          <Button data-hotkey="Mod+s" disabled={commitDisabledRef}
-            onClick={() => commitDisabledRef || setWebCommitDialogState('pending')}
+          <Button data-hotkey="Mod+s" disabled={commitDisabledRef.current}
+            onClick={() => commitDisabledRef.current || setWebCommitDialogState('pending')}
             variant="primary" sx={{ml: 2}}
             ref={commitChangesRef}
           >Commit changes...
