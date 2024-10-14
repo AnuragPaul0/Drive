@@ -12,7 +12,7 @@ import {
   BlobEditorTab} from './BlobEditHeader'
 
 let fileContentChanged = false, fileName = '', contentChanged = fileContentChanged,
-  folderPath = 'drive.google.com/viewerng/viewer?embedded=true&url=',
+  folderPath = 'https://drive.google.com/viewerng/viewer?embedded=true&url=',
   completeFilePath = `${folderPath}`, initialPath = completeFilePath,
   fileNameChanged = completeFilePath !== initialPath, count = !0
   // commitDisabledRef = !(contentChanged || fileNameChanged) || fileName.length === 0
