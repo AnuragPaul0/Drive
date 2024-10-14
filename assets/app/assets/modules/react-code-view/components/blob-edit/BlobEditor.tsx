@@ -161,7 +161,7 @@ function EditBreadcrumb({
           aria-describedby="file-name-editor-breadcrumb" disabled={inputDisabled}
           onChange={onFileNameChange}
           // onKeyDown={onFileNameInputKeyPress}
-          value={fileName}
+          // value={fileName}
           ref={nameInputRef}
           placeholder="Name your file..."
           sx={{ minWidth: '100px' }} block={undefined} contrast={undefined} monospace={undefined}
