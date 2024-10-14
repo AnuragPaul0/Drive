@@ -7,7 +7,8 @@ body { color: var(--foreground); background: var(--background); margin: 8px }
 .split { height: 100%; position: relative; z-index: 1; top: 0; overflow-x: hidden }
 main { width: calc(100% - 2*var(--sl)); margin: 1vw 0 0 var(--sl) }
 
-input { border-width: 1px; background-color: transparent }
+input { padding-left: 12px;
+  padding-right: 12px; border-width: 1px; background-color: transparent }
   /* border-color: light-dark(rgb(118, 118, 118), rgb(133, 133, 133)); border-radius: 2px; */
 input[type="text" i] { padding-block: 1px; padding-inline: 2px }
 svg { display:inline-block; user-select:none; vertical-align:text-bottom; overflow:visible }
