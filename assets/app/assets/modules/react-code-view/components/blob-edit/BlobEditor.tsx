@@ -145,7 +145,7 @@ export default function BlobEditor({
 // mmitDisabledRef.current || 
   return ( <ThemeProvider colorMode={colorMode} dayScheme={dayScheme} nightScheme={nightScheme}
     preventSSRMismatch>
-    <BaseStyles>
+    {/* <BaseStyles> */}
       {/* <h2>Let’s check you in</h2>
       <label>
         First name:{' '}
@@ -202,7 +202,8 @@ export default function BlobEditor({
           >Commit changes...
         </Button> */}
         </Box>
-      </Box></BaseStyles>
+      </Box>
+      {/* </BaseStyles> */}
   </ThemeProvider>
   )
 }
