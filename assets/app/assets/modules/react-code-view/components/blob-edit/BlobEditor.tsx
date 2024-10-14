@@ -140,7 +140,7 @@ export default function BlobEditor({
     setFirstName(e.target.value);
   }
 
-  function handleLastNameChange(e: any) { setLastName(e.target.value) }
+  function handleLastNameChange(e: any) { setFirstName(e.target.value) }
 
 // mmitDisabledRef.current || 
   return ( <ThemeProvider colorMode={colorMode} dayScheme={dayScheme} nightScheme={nightScheme}
@@ -174,9 +174,9 @@ export default function BlobEditor({
             <span className="TextInputWrapper__TextInputBaseWrapper-sc-1mqhpbi-0 TextInputWrapper-sc-1mqhpbi-1 lmZlSR igQCti TextInput-wrapper"
               aria-busy="false">
               <input value={firstName} onChange={handleLastNameChange}
-                // id='inp' aria-label="file link..." style={{ minWidth: '100px' }}
-                // placeholder="file link..." className='UnstyledTextInput-sc-14ypya-0 kbCLEG'
-                // aria-describedby="file-name-editor-breadcrumb"
+                id='inp' aria-label="file link..." style={{ minWidth: '100px' }}
+                placeholder="file link..." className='UnstyledTextInput-sc-14ypya-0 kbCLEG'
+                aria-describedby="file-name-editor-breadcrumb"
                 /></span>
             {/* <TextInput */}
               {/* // disabled={inputDisabled}
