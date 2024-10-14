@@ -14,7 +14,7 @@ import {
 let fileContentChanged = false, fileName = '', contentChanged = fileContentChanged,
   folderPath = 'drive.google.com/viewerng/viewer?embedded=true&url=',
   completeFilePath = `${folderPath}`, initialPath = completeFilePath,
-  fileNameChanged = completeFilePath !== initialPath
+  fileNameChanged = completeFilePath !== initialPath, count = !0
   // commitDisabledRef = !(contentChanged || fileNameChanged) || fileName.length === 0
 
 export const blobEditSidePanelId = 'blob-edit-side-panel-id'
@@ -25,7 +25,7 @@ export default function BlobEditor({
 ) {
   // const {screenSize} = useScreenSize()
   // const isNarrow = screenSize <= ScreenSize.medium
-  const [count, setCount] = useState(!0);
+  // const [count, setCount] = useState(!0);
   const [selectedTab, setSelectedTab] = useState<BlobEditorTab>(BlobEditorTab.Edit)
   const isPreview = selectedTab === BlobEditorTab.Preview
   const commitChangesRef = useRef<HTMLButtonElement>(null)
@@ -110,9 +110,9 @@ export default function BlobEditor({
         
         if (newFolderPath !== initialFolderPath || newFileName !== initialFileName) {
           setFolderPath(newFolderPath), fileContentChanged = !0, contentChanged = fileContentChanged,
-            fileName = value
+            fileName = value, count = !value.length
             // , commitDisabledRef.current = !()
-            setCount(!value.length)
+            // setCount(!value.length)
           // setFileName(newFileName)
           // onChange(newFileName, newFolderPath)
           console.log({contentChanged, fileNameChanged, fileName
