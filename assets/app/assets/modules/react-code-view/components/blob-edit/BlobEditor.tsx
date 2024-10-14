@@ -177,7 +177,7 @@ export default function BlobEditor({
               aria-busy="false">
               <input id='inp' aria-label="file link..." style={{ minWidth: '100px' }}
                 placeholder="file link..." className='UnstyledTextInput-sc-14ypya-0 kbCLEG'
-                aria-describedby="file-name-editor-breadcrumb"
+                // aria-describedby="file-name-editor-breadcrumb"
                 value={firstName}
                 onChange={handleLastNameChange}/></span>
             {/* <TextInput */}
