@@ -185,9 +185,9 @@ export default function BlobEditor({
               aria-describedby="file-name-editor-breadcrumb"
               // disabled={inputDisabled}
               value={firstName}
-              onChange={onFileNameChange}
+              onChange={handleFirstNameChange}
               // onKeyDown={onFileNameInputKeyPress}fileName
-              // ref={nameInputRef}
+              // ref={nameInputRef}onFileNameChange
               placeholder="Name your file..."
               sx={{ minWidth: '100px' }} block={undefined} contrast={undefined} monospace={undefined}
               width={undefined} maxWidth={undefined} minWidth={undefined} variant={undefined}
