@@ -170,7 +170,7 @@ export default function BlobEditor({
             flexWrap: 'wrap',
             // maxWidth: showTreeToggle ? 'calc(100% - 75px)' : '100%',
           }}> */}
-            <Box sx={{display: 'flex', alignItems: 'center', flex: .5 }}>
+            <Box id='left' sx={{display: 'flex', alignItems: 'center', flex: .5 }}>
               <span className="TextInputWrapper__TextInputBaseWrapper-sc-1mqhpbi-0 TextInputWrapper-sc-1mqhpbi-1 lmZlSR igQCti TextInput-wrapper"
                 aria-busy="false">
                 <input value={firstName} onChange={handleLastNameChange}
