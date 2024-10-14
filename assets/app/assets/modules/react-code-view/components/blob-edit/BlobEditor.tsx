@@ -11,8 +11,7 @@ import {
   // BlobEditHeader,
   BlobEditorTab} from './BlobEditHeader'
 
-  // [, setFileContentChanged] useState()
-let fileContentChanged = false
+let fileContentChanged = false, fileName = ''
 
 export const blobEditSidePanelId = 'blob-edit-side-panel-id'
 
@@ -37,8 +36,8 @@ export default function BlobEditor({
   // This value has to live in a ref because it is used in a callback that is
   // passed to the code mirror editor. That callback will only be bound once,
   // so we need a constant reference to the value.
-  const commitDisabledRef = useRef(false), fileName = ''
-  // folderPath
+  const commitDisabledRef = useRef(false)
+  // folderPath 0 || 0 || 1
   commitDisabledRef.current = !(contentChanged || fileNameChanged) || fileName.length === 0
   console.log({commitDisabledRef})
   // const {openPanel, setOpenPanel} = useOpenPanel()
@@ -94,7 +93,8 @@ function EditBreadcrumb({
   const {codeCenterOption} = useCodeViewOptions(), initialFolderPath = foldrPath
   const showTreeToggle = !showTree && !repo.isEmpty && !codeCenterOption.enabled
 
-  const initialFileName = fileNam, [fileName, setFileName] = useState(initialFileName)
+  const initialFileName = fileNam
+  // , [fileName, setFileName] = useState(initialFileName)
   const [folderPath, setFolderPath] = useState(initialFolderPath)
 
   const onFileNameInputKeyPress = useCallback(
@@ -114,7 +114,8 @@ function EditBreadcrumb({
         // const partLength = pathParts[pathParts.length - 2]!.length
         event.preventDefault()
         
-        setFileName(newFileName)
+        // setFileName(newFileName)
+        fileName = newFileName
         // we dont need to call onChange
         // onFileNameInputKeyPress triggers first and then onFileNameChange
         // onFileNameChange always fires the onChange when needed
@@ -132,7 +133,7 @@ function EditBreadcrumb({
         newFolderPath = `${value}`
       
       if (newFolderPath !== initialFolderPath || newFileName !== initialFileName) {
-        setFolderPath(newFolderPath), fileContentChanged = !0
+        setFolderPath(newFolderPath), fileContentChanged = !0, fileName = newFileName
         // setFileName(newFileName)
         // onChange(newFileName, newFolderPath)
       }
