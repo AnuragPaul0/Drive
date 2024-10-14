@@ -11,7 +11,9 @@ import {
   // BlobEditHeader,
   BlobEditorTab} from './BlobEditHeader'
 
-  const [fileContentChanged, setFileContentChanged] = useState(false)
+  // [, setFileContentChanged] useState()
+let fileContentChanged = false
+
 export const blobEditSidePanelId = 'blob-edit-side-panel-id'
 
 export default function BlobEditor({
@@ -130,7 +132,7 @@ function EditBreadcrumb({
         newFolderPath = `${value}`
       
       if (newFolderPath !== initialFolderPath || newFileName !== initialFileName) {
-        setFolderPath(newFolderPath), setFileContentChanged(!0)
+        setFolderPath(newFolderPath), fileContentChanged = !0
         // setFileName(newFileName)
         // onChange(newFileName, newFolderPath)
       }
