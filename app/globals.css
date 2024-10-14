@@ -1,5 +1,6 @@
 @import 'tailwindcss/base'; @import 'tailwindcss/components'; @import 'tailwindcss/utilities';
-:root { --background: #fff; --sl: 30%; --foreground: #171717 }
+:root { --background: #fff; --sl: 30%; --foreground: #171717; --ds-gray-900-value: 0, 0%, 63%;
+  --ds-gray-1000-value: 0, 0%, 93% }
 @media (prefers-color-scheme: dark) { :root { --background: #000; --foreground: #ededed;
   color-scheme: dark } }
 body { color: var(--foreground); background: var(--background); margin: 8px }
