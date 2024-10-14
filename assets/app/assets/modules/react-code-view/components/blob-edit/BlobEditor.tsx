@@ -148,15 +148,11 @@ export default function BlobEditor({
   return ( <ThemeProvider colorMode={colorMode} dayScheme={dayScheme} nightScheme={nightScheme}
     preventSSRMismatch>
     <BaseStyles>
-      <h2>Let’s check you in</h2>
+      {/* <h2>Let’s check you in</h2>
       <label>
         First name:{' '}
-        {/* <input
-          value={firstName}
-          onChange={handleFirstNameChange}
-        /> */}
-      </label>
-      <label>
+      </label> */}
+      {/* <label>
         Last name:{' '}
         <input
           value={lastName}
@@ -165,7 +161,8 @@ export default function BlobEditor({
       </label>
       <p>
         Your ticket will be issued to: <b>{firstName}</b>
-      </p><Box
+      </p> */}
+      <Box
         sx={{display: 'flex', justifyContent: 'space-between', mb: 3, flexWrap: 'wrap', rowGap: 3,
           maxWidth: '100%'}}
       >
