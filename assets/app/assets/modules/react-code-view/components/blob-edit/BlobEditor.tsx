@@ -192,7 +192,7 @@ export default function BlobEditor({
           </Box>
         </Box>
       </Box><Box sx={{alignItems: 'center', display: 'flex', flexDirection: 'row'}}>
-        <a href="/changelog" data-zone="mktng"
+        <a href={folderPath+firstName} data-zone="mktng"
           className="link_link__hbWKh text-sm text-gray-900 hover:text-gray-1000" data-prefetch="true"
           >Changelog</a>
         {/* <Button data-hotkey="Mod+s" disabled={!firstName.length}
