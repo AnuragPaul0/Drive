@@ -185,7 +185,7 @@ export default function BlobEditor({
               onChange={handleFirstNameChange}
               // onKeyDown={onFileNameInputKeyPress}fileName
               // ref={nameInputRef}onFileNameChange
-              placeholder="Name your file..."
+              placeholder="file link..."
               sx={{ minWidth: '100px' }} block={undefined} contrast={undefined} monospace={undefined}
               width={undefined} maxWidth={undefined} minWidth={undefined} variant={undefined}
               size={undefined} validationStatus={undefined} as={'input'} disabled={undefined}/>
@@ -194,7 +194,7 @@ export default function BlobEditor({
       </Box><Box sx={{alignItems: 'center', display: 'flex', flexDirection: 'row'}}>
         <a href={folderPath+firstName} data-zone="mktng"  style={{ display: firstName ? 'flex' : 'none' }}
           className="link_link__hbWKh text-sm text-gray-900 hover:text-gray-1000" data-prefetch="true"
-          >Changelog</a>
+          >Open</a>
         {/* <Button data-hotkey="Mod+s" disabled={!firstName.length}
 //             onClick={() => setWebCommitDialogState('pending')}
             variant="primary" sx={{ml: 2}}
