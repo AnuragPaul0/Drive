@@ -140,7 +140,7 @@ export default function BlobEditor({
             onChange={onFileNameChange}
             // onKeyDown={onFileNameInputKeyPress}
             value={fileName}
-            ref={nameInputRef}
+            // ref={nameInputRef}
             placeholder="Name your file..."
             sx={{ minWidth: '100px' }} block={undefined} contrast={undefined} monospace={undefined}
               width={undefined} maxWidth={undefined} minWidth={undefined} variant={undefined}
@@ -152,6 +152,7 @@ export default function BlobEditor({
   }
 
   try{ (EditBreadcrumb as any).displayName ||= 'EditBreadcrumb' } catch {}
+
 // mmitDisabledRef.current
   return ( <ThemeProvider colorMode={colorMode} dayScheme={dayScheme} nightScheme={nightScheme}
     preventSSRMismatch>
