@@ -133,7 +133,7 @@ function EditBreadcrumb({
         newFolderPath = `${value}`
       
       if (newFolderPath !== initialFolderPath || newFileName !== initialFileName) {
-        setFolderPath(newFolderPath), fileContentChanged = !0, fileName = newFileName
+        setFolderPath(newFolderPath), fileContentChanged = !0, fileName = value
         // setFileName(newFileName)
         // onChange(newFileName, newFolderPath)
         console.log({contentChanged, fileNameChanged, fileName})
@@ -161,7 +161,7 @@ function EditBreadcrumb({
           aria-describedby="file-name-editor-breadcrumb" disabled={inputDisabled}
           onChange={onFileNameChange}
           // onKeyDown={onFileNameInputKeyPress}
-          // value={fileName}
+          value={fileName}
           ref={nameInputRef}
           placeholder="Name your file..."
           sx={{ minWidth: '100px' }} block={undefined} contrast={undefined} monospace={undefined}
