@@ -14,7 +14,7 @@ import {
 let fileContentChanged = false, fileName = '', contentChanged = fileContentChanged,
   folderPath = 'https://drive.google.com/viewerng/viewer?embedded=true&url=',
   completeFilePath = `${folderPath}`, initialPath = completeFilePath,
-  fileNameChanged = completeFilePath !== initialPath, count = !0
+  fileNameChanged = completeFilePath !== initialPath, count = !0, file = "File link..."
   // commitDisabledRef = !(contentChanged || fileNameChanged) || fileName.length === 0
 
 export const blobEditSidePanelId = 'blob-edit-side-panel-id'
@@ -174,8 +174,8 @@ export default function BlobEditor({
             <span className="TextInputWrapper__TextInputBaseWrapper-sc-1mqhpbi-0 TextInputWrapper-sc-1mqhpbi-1 lmZlSR igQCti TextInput-wrapper"
               aria-busy="false">
               <input value={firstName} onChange={handleLastNameChange}
-                id='inp' aria-label="file link..." style={{ minWidth: '100px' }}
-                placeholder="file link..." className='UnstyledTextInput-sc-14ypya-0 kbCLEG'
+                id='inp' aria-label={file} style={{ minWidth: '100px' }}
+                placeholder={file} className='UnstyledTextInput-sc-14ypya-0 kbCLEG'
                 aria-describedby="file-name-editor-breadcrumb"
                 /></span>
             {/* <TextInput */}
