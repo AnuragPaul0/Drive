@@ -159,15 +159,14 @@ export default function BlobEditor({
           onChange={handleLastNameChange}
         />
       </label>
-      <p>
+      <p>, flex: 1
         Your ticket will be issued to: <b>{firstName}</b>, justifyContent: 'space-between'
       </p> */}
       <Box
         sx={{display: 'flex', mb: 3, flexWrap: 'wrap', rowGap: 3,
           maxWidth: '100%'}}
       >
-         {/* <EditBreadcrumb foldrPath='drive.google.com/viewerng/viewer?embedded=true&url'/> */}
-         <Box sx={{display: 'flex', alignSelf: 'self-start', alignItems: 'center', flex: 1, pr: 3,
+         {/* <Box sx={{display: 'flex', alignSelf: 'self-start', alignItems: 'center', pr: 3,
         maxWidth: '100%'}}>
         <Box
           sx={{
@@ -176,8 +175,8 @@ export default function BlobEditor({
             flex: 1,
             flexWrap: 'wrap',
             // maxWidth: showTreeToggle ? 'calc(100% - 75px)' : '100%',
-          }}><Box sx={{display: 'flex', alignItems: 'center'}}>
-            {/* <Separator /> */}
+          }}>
+            <Box sx={{display: 'flex', alignItems: 'center'}}> */}
             <TextInput id='inp' aria-label="File name"
               aria-describedby="file-name-editor-breadcrumb"
               // disabled={inputDisabled}
@@ -189,9 +188,10 @@ export default function BlobEditor({
               sx={{ minWidth: '100px' }} block={undefined} contrast={undefined} monospace={undefined}
               width={undefined} maxWidth={undefined} minWidth={undefined} variant={undefined}
               size={undefined} validationStatus={undefined} as={'input'} disabled={undefined}/>
-          </Box>
+          {/* </Box>
         </Box>
-      </Box><Box sx={{alignItems: 'center', display: 'flex', flexDirection: 'row'}}
+      </Box> */}
+      <Box sx={{alignItems: 'center', display: 'flex', flexDirection: 'row'}}
         className="tailwind">
         <a href={folderPath+firstName} data-zone="mktng"  style={{ display: firstName ? 'flex' : 'none' }}
           className="link_link__hbWKh text-sm text-gray-900 hover:text-gray-1000" data-prefetch="true"
