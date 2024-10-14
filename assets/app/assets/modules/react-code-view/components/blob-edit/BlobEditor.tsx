@@ -115,6 +115,7 @@ function EditBreadcrumb({
         
         // setFileName(newFileName)
         fileName = newFileName
+        console.log({contentChanged, fileNameChanged, fileName})
         // we dont need to call onChange
         // onFileNameInputKeyPress triggers first and then onFileNameChange
         // onFileNameChange always fires the onChange when needed
