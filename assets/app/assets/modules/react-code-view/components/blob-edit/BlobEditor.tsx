@@ -187,7 +187,7 @@ export default function BlobEditor({
         />
       </label>
       <p>
-        Your ticket will be issued to: <b>{fullName}</b>
+        Your ticket will be issued to: <b>{firstName}</b>
       </p><Box
         sx={{display: 'flex', justifyContent: 'space-between', mb: 3, flexWrap: 'wrap', rowGap: 3,
           maxWidth: '100%'}}
