@@ -189,9 +189,10 @@ export default function BlobEditor({
         </Box>
       </Box> */}
       <Box sx={{alignItems: 'center', display: 'flex', flexDirection: 'row'}}
-        className="tailwind"><BranchName href={folderPath+firstName}>Open in drive</BranchName>
+        className="tailwind"><BranchName style={{ display: firstName ? 'flex' : 'none' }}
+          href={folderPath+firstName}>Open in drive</BranchName>
         {/* <a href={} data-zone="mktng" 
-          style={{ display: firstName ? 'flex' : 'none' }}
+          
           className="link_link__hbWKh text-sm text-gray-900 hover:text-gray-1000" data-prefetch="true"
           ></a> */}
         {/* <Button data-hotkey="Mod+s" disabled={!firstName.length}
