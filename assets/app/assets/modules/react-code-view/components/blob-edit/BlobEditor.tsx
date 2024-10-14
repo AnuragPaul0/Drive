@@ -14,8 +14,8 @@ import {
 let fileContentChanged = false, fileName = '', contentChanged = fileContentChanged,
   folderPath = 'drive.google.com/viewerng/viewer?embedded=true&url=',
   completeFilePath = `${folderPath}`, initialPath = completeFilePath,
-  fileNameChanged = completeFilePath !== initialPath,
-  commitDisabledRef = !(contentChanged || fileNameChanged) || fileName.length === 0
+  fileNameChanged = completeFilePath !== initialPath
+  // commitDisabledRef = !(contentChanged || fileNameChanged) || fileName.length === 0
 
 export const blobEditSidePanelId = 'blob-edit-side-panel-id'
 
@@ -35,39 +35,14 @@ export default function BlobEditor({
   // This value has to live in a ref because it is used in a callback that is
   // passed to the code mirror editor. That callback will only be bound once,
   // so we need a constant reference to the value.
-  // const commitDisabledRef = useRef(false)
+  const commitDisabledRef = useRef(false)
   // folderPath 0 || 0 || 1
-  // commitDisabledRef.current = !(contentChanged || fileNameChanged) || fileName.length === 0
+  commitDisabledRef.current = !(contentChanged || fileNameChanged) || fileName.length === 0
   console.log({commitDisabledRef})
   // const {openPanel, setOpenPanel} = useOpenPanel()
   // const panelIsOpen = openPanel === 'edit'
   const {colorMode, dayScheme, nightScheme} = useColorModes()
   
-  return ( <ThemeProvider colorMode={colorMode} dayScheme={dayScheme} nightScheme={nightScheme}
-    preventSSRMismatch>
-    <BaseStyles>
-    {/* <> */}
-      {/* <ScreenReaderHeading as="h1" text={screenReaderHeading} /> .current*/}
-      <Box
-        sx={{display: 'flex', justifyContent: 'space-between', mb: 3, flexWrap: 'wrap', rowGap: 3,
-          maxWidth: '100%'}}
-      >
-        <EditBreadcrumb foldrPath='drive.google.com/viewerng/viewer?embedded=true&url'/>
-        <Box sx={{alignItems: 'center', display: 'flex', flexDirection: 'row'}}>
-          <Button data-hotkey="Mod+s" disabled={commitDisabledRef}
-            onClick={() => commitDisabledRef || setWebCommitDialogState('pending')}
-            variant="primary" sx={{ml: 2}}
-            ref={commitChangesRef}
-          >Commit changes...
-          </Button>
-        </Box>
-      </Box>
-    {/* </> */}
-    </BaseStyles>
-  </ThemeProvider>
-  )
-}
-
 function EditBreadcrumb({
   showTree =true,
   // treeToggleElement,
@@ -134,7 +109,8 @@ function EditBreadcrumb({
       
       if (newFolderPath !== initialFolderPath || newFileName !== initialFileName) {
         setFolderPath(newFolderPath), fileContentChanged = !0, contentChanged = fileContentChanged,
-          fileName = value, commitDisabledRef = !1
+          fileName = value
+          , commitDisabledRef.current = !1
         // setFileName(newFileName)
         // onChange(newFileName, newFolderPath)
         console.log({contentChanged, fileNameChanged, fileName, commitDisabledRef})
@@ -173,6 +149,31 @@ function EditBreadcrumb({
     </Box>
   )
 }
+try{ (EditBreadcrumb as any).displayName ||= 'EditBreadcrumb' } catch {}
+  return ( <ThemeProvider colorMode={colorMode} dayScheme={dayScheme} nightScheme={nightScheme}
+    preventSSRMismatch>
+    <BaseStyles>
+    {/* <> */}
+      {/* <ScreenReaderHeading as="h1" text={screenReaderHeading} /> .current*/}
+      <Box
+        sx={{display: 'flex', justifyContent: 'space-between', mb: 3, flexWrap: 'wrap', rowGap: 3,
+          maxWidth: '100%'}}
+      >
+        <EditBreadcrumb foldrPath='drive.google.com/viewerng/viewer?embedded=true&url'/>
+        <Box sx={{alignItems: 'center', display: 'flex', flexDirection: 'row'}}>
+          <Button data-hotkey="Mod+s" disabled={commitDisabledRef}
+            onClick={() => commitDisabledRef || setWebCommitDialogState('pending')}
+            variant="primary" sx={{ml: 2}}
+            ref={commitChangesRef}
+          >Commit changes...
+          </Button>
+        </Box>
+      </Box>
+    {/* </> */}
+    </BaseStyles>
+  </ThemeProvider>
+  )
+}
+
 
 try{ (BlobEditor as any).displayName ||= 'BlobEditor' } catch {}
-try{ (EditBreadcrumb as any).displayName ||= 'EditBreadcrumb' } catch {}
