@@ -156,10 +156,8 @@ export default function BlobEditor({
       <p>, flex: 1
         Your ticket will be issued to: <b>{firstName}</b>, justifyContent: 'space-between'
       </p> */}
-      <Box
-        sx={{display: 'flex', mb: 3, flexWrap: 'wrap', rowGap: 3,
-          maxWidth: '100%'}}
-      >
+      {/* <Box sx={{display: 'flex', mb: 3, flexWrap: 'wrap', rowGap: 3,
+          maxWidth: '100%'}}> */}
          {/* <Box sx={{display: 'flex', alignSelf: 'self-start', alignItems: 'center', pr: 3,
         maxWidth: '100%'}}>
         <Box
@@ -200,7 +198,7 @@ export default function BlobEditor({
              // ref={commitChangesRef}count
           >Commit changes...
         </Button> */}
-        </Box>
+        {/* </Box> */}
       </Box>
       {/* </BaseStyles> */}
   </ThemeProvider>
