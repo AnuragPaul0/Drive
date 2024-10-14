@@ -136,7 +136,7 @@ function EditBreadcrumb({
           fileName = value
         // setFileName(newFileName)
         // onChange(newFileName, newFolderPath)
-        console.log({contentChanged, fileNameChanged, fileName})
+        console.log({contentChanged, fileNameChanged, fileName, commitDisabledRef})
       }
     },
     [
