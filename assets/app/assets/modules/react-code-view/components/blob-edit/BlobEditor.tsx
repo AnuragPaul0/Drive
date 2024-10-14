@@ -160,10 +160,10 @@ export default function BlobEditor({
         />
       </label>
       <p>
-        Your ticket will be issued to: <b>{firstName}</b>
+        Your ticket will be issued to: <b>{firstName}</b>, justifyContent: 'space-between'
       </p> */}
       <Box
-        sx={{display: 'flex', justifyContent: 'space-between', mb: 3, flexWrap: 'wrap', rowGap: 3,
+        sx={{display: 'flex', mb: 3, flexWrap: 'wrap', rowGap: 3,
           maxWidth: '100%'}}
       >
          {/* <EditBreadcrumb foldrPath='drive.google.com/viewerng/viewer?embedded=true&url'/> */}
@@ -191,7 +191,8 @@ export default function BlobEditor({
               size={undefined} validationStatus={undefined} as={'input'} disabled={undefined}/>
           </Box>
         </Box>
-      </Box><Box sx={{alignItems: 'center', display: 'flex', flexDirection: 'row'}}>
+      </Box><Box sx={{alignItems: 'center', display: 'flex', flexDirection: 'row'}}
+        className="tailwind">
         <a href={folderPath+firstName} data-zone="mktng"  style={{ display: firstName ? 'flex' : 'none' }}
           className="link_link__hbWKh text-sm text-gray-900 hover:text-gray-1000" data-prefetch="true"
           >Open in drive</a>
