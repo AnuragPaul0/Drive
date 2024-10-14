@@ -142,8 +142,8 @@ export default function BlobEditor({
             aria-describedby="file-name-editor-breadcrumb"
             disabled={inputDisabled}
             onChange={onFileNameChange}
-            // onKeyDown={onFileNameInputKeyPress}
-            value={fileName}
+            // onKeyDown={onFileNameInputKeyPress}fileName
+            value={firstName}
             // ref={nameInputRef}
             placeholder="Name your file..."
             sx={{ minWidth: '100px' }} block={undefined} contrast={undefined} monospace={undefined}
@@ -158,16 +158,13 @@ export default function BlobEditor({
   try{ (EditBreadcrumb as any).displayName ||= 'EditBreadcrumb' } catch {}
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const [fullName, setFullName] = useState('');
 
   function handleFirstNameChange(e: any) {
     setFirstName(e.target.value);
-    setFullName(e.target.value + ' ' + lastName);
   }
 
   function handleLastNameChange(e: any) {
     setLastName(e.target.value);
-    setFullName(firstName + ' ' + e.target.value);
   }
 
 // mmitDisabledRef.current || 
