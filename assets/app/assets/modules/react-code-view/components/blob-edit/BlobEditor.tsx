@@ -170,7 +170,7 @@ export default function BlobEditor({
             flexWrap: 'wrap',
             // maxWidth: showTreeToggle ? 'calc(100% - 75px)' : '100%',
           }}> */}
-            <Box id='left' sx={{}}>
+            <Box id='left'>
               <span className="TextInputWrapper__TextInputBaseWrapper-sc-1mqhpbi-0 TextInputWrapper-sc-1mqhpbi-1 lmZlSR igQCti TextInput-wrapper"
                 aria-busy="false">
                 <input value={firstName} onChange={handleLastNameChange}
@@ -188,8 +188,7 @@ export default function BlobEditor({
           </Box>
         {/* </Box>
       </Box> */}
-      <Box sx={{alignItems: 'center', display: 'flex', flexDirection: 'row', flex: .5 }}
-        className="tailwind"><BranchName style={{ display: firstName ? 'flex' : 'none' }}
+      <Box id='right'className="tailwind"><BranchName style={{ display: firstName ? 'flex' : 'none' }}
           href={folderPath+firstName}>Open in drive</BranchName>
         {/* <a href={} data-zone="mktng" 
           
