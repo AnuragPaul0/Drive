@@ -13,19 +13,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 document.onreadystatechange = () => { console.log(document.readyState);
 // debugger;
 document.querySelector('#left').classList.add(innerWidth < innerHeight ? "mob" : 'desk')
-}
-document.querySelector('#left').classList.add(innerWidth < innerHeight ? "mob" : 'desk')})();
-</head> */}
-<script dangerouslySetInnerHTML={{__html:
-`target = document.querySelector('#left');
-
-// create an observer instance
+}.nodeNameinnerHTML += "Change Detected<br>";// create an observer instance
 var observer = new MutationObserver(function(mutations) {
     mutations.forEach(function(mutation) {
     document.querySelector('#left').classList.add(innerWidth < innerHeight ? "mob" : 'desk')
         console.log(mutation.type);
-        // Later, you can stop observing
-observer.disconnect();
     });
 });
 
@@ -34,5 +26,17 @@ var config = { attributes: true, childList: true, characterData: true }
 
 // pass in the target node, as well as the observer options
 observer.observe(target, config);
-`}}>
+document.querySelector('#left').classList.add(innerWidth < innerHeight ? "mob" : 'desk')})();
+</head> */}
+<script dangerouslySetInnerHTML={{__html:
+`target = document.querySelector('#left');
+
+var observer = new MutationObserver(function (m) { ad = m[0].addedNodes[0]
+  if (ad.id === "left")
+    {console.log(m); ad.classList.add(innerWidth < innerHeight ? "mob" : 'desk')
+        // Later, you can stop observing
+observer.disconnect()}
+})
+
+observer.observe(document.body, {childList: true})`}}>
 </script>{children}</html> }
