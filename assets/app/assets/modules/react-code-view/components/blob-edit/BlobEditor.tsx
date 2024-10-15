@@ -14,7 +14,6 @@ export const blobEditSidePanelId = 'blob-edit-side-panel-id'
 
 export default function BlobEditor() {
   // console.log(1)
-  const {colorMode, dayScheme, nightScheme} = useColorModes()
   const [firstName, setFirstName] = useState('');
   function handleLastNameChange(e: any) { setFirstName(e.target.value) }
 
