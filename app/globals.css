@@ -41,7 +41,18 @@ input[type="text" i] { padding-block: 1px; padding-inline: 2px }
 .tailwind :is(.hover\:text-gray-1000:hover){--tw-text-opacity:1;
   color:hsla(var(--ds-gray-1000-value),var(--tw-text-opacity))}
 
-a { margin-left: 1vw }
+a { margin-left: 1vw; display: inline-block; padding: 2px 6px;
+  font-size: var(--text-body-size-small, 12px);
+
+  font-family: var(--fontStack-monospace, var(--fontStack-monospace, SFMono-Regular, Consolas,
+    "Liberation Mono", Menlo, Courier, monospace));
+
+  color: var(--fgColor-link, var(--fgColor-accent, var(--color-accent-fg, #2f81f7)));
+
+  background-color: var(--bgColor-accent-muted, var(--bgColor-accent-muted, var(--color-accent-subtle,
+    rgba(56, 139, 253, 0.1))));
+
+  border-radius: var(--borderRadius-medium, 6px); text-decoration: none}
 /* button:disabled { background-color: var(--button-primary-bgColor-disabled,
   var(--color-btn-primary-disabled-bg, rgba(102, 51, 153, 0.6))) !important }
 
@@ -56,16 +67,7 @@ border-width: 1px; border-style: solid; border-color: transparent }
 var(--color-action-list-item-default-hover-bg, rgba(177, 186, 196, 0.12) ) ) }
 
 .hQsKGs[data-size="small"][data-component="IconButton"] { width: 28px; height: 28px }
-.ePZvcf {
-  display: inline-block;
-  padding: 2px 6px;
-  font-size: var(--text-body-size-small, 12px);
-  font-family: var(--fontStack-monospace, var(--fontStack-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace));
-  color: var(--fgColor-link, var(--fgColor-accent, var(--color-accent-fg, #2f81f7)));
-  background-color: var(--bgColor-accent-muted, var(--bgColor-accent-muted, var(--color-accent-subtle, rgba(56, 139, 253, 0.1))));
-  border-radius: var(--borderRadius-medium, 6px);
-  text-decoration: none;
-}
+
 .__primerPortalRoot__ { position: absolute; top: 0px; left: 0px }
 #rel { position: relative; z-index: 1 }
 .eAydfi { position: absolute; left: 441.453px; top: 122px }
