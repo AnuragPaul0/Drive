@@ -10,5 +10,5 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   }>) { return <html lang="en">
     <head><script dangerouslySetInnerHTML={{__html:
 `console.log(document, document.querySelector('#left'))
-document.querySelector('#left').classList.add(innerWidth < innerHeight ? "mob" : 'desk')`}}></script>
+(()=>{document.querySelector('#left').classList.add(innerWidth < innerHeight ? "mob" : 'desk')})();`}}></script>
 </head>{children}</html> }
