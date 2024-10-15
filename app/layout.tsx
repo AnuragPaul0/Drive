@@ -8,12 +8,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode
   }>) { return <html lang="en">
-    {/* <head>
+    {/* <head>;console.log(document, document.querySelector('#left'));
+(()=>{console.log(document.querySelector('#left'));
+document.querySelector('#left').classList.add(innerWidth < innerHeight ? "mob" : 'desk')})();
 </head> */}
 <script dangerouslySetInnerHTML={{__html:
-`document.onreadystatechange = () => { console.log(document.readyState);debugger;
+`document.onreadystatechange = () => { console.log(document.readyState);
+// debugger;
 document.querySelector('#left').classList.add(innerWidth < innerHeight ? "mob" : 'desk')
-};console.log(document, document.querySelector('#left'));
-(()=>{console.log(document.querySelector('#left'));
-document.querySelector('#left').classList.add(innerWidth < innerHeight ? "mob" : 'desk')})();`}}>
+}`}}>
 </script>{children}</html> }
