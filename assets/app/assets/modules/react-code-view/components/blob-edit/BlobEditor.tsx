@@ -1,13 +1,13 @@
-import {ThemeProvider, BaseStyles} from '@primer/react'
+import {ThemeProvider} from '@primer/react'
 import useColorModes from './use-color-modes'
-import {Box, BranchName, Button, TextInput} from '@primer/react'
+import {Box, BranchName} from '@primer/react'
 import type React from 'react'
-import {useCallback, useEffect, useRef, useState} from 'react'
-
-let fileContentChanged = false, fileName = '', contentChanged = fileContentChanged,
-  folderPath = 'https://drive.google.com/viewerng/viewer?embedded=true&url=',
-  completeFilePath = `${folderPath}`, initialPath = completeFilePath,
-  fileNameChanged = completeFilePath !== initialPath, count = !0, file = "File link..."
+import { useEffect, useState} from 'react'
+// , Button, TextInput, BaseStyles, useRefuseCallback,
+let folderPath = 'https://drive.google.com/viewerng/viewer?embedded=true&url=', file = "File link..."
+  // completeFilePath = `${folderPath}`, initialPath = completeFilePath,
+  // ,fileNameChanged = completeFilePath !== initialPath, count = !0
+  //  fileContentChanged = false, fileName = '', contentChanged = fileContentChanged,
   // commitDisabledRef = !(contentChanged || fileNameChanged) || fileName.length === 0
 
 export const blobEditSidePanelId = 'blob-edit-side-panel-id'
