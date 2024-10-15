@@ -37,16 +37,15 @@ export default function BlobEditor() {
 
   // mmitDisabledRef.current ||
   return (<div><Box id='left'>
-              <span className="TextInputWrapper__TextInputBaseWrapper-sc-1mqhpbi-0 TextInputWrapper-sc-1mqhpbi-1 lmZlSR igQCti TextInput-wrapper"
-                aria-busy="false">
-                <input value={firstName} onChange={handleLastNameChange}
-                  id='inp' aria-label={file} style={{ minWidth: '100px' }}
-                  placeholder={file} className='UnstyledTextInput-sc-14ypya-0 kbCLEG'
-                  aria-describedby="file-name-editor-breadcrumb"
-              /></span>
-          </Box>
-      <Box id='right'className="tailwind"><a style={{ display: firstName ? 'flex' : 'none' }}
-          href={folderPath+firstName}>Open in drive</a>
+    <span className="TextInputWrapper__TextInputBaseWrapper-sc-1mqhpbi-0 TextInputWrapper-sc-1mqhpbi-1 lmZlSR igQCti TextInput-wrapper"
+      aria-busy="false">
+      <input value={firstName} onChange={handleLastNameChange}
+        id='inp' aria-label={file} style={{ minWidth: '100px' }}
+        placeholder={file} className='UnstyledTextInput-sc-14ypya-0 kbCLEG'
+        aria-describedby="file-name-editor-breadcrumb"
+    /></span></Box>
+    <Box id='right'className="tailwind"><a style={{ display: firstName ? 'flex' : 'none' }}
+      href={folderPath+firstName}>Open in drive</a>
         {/* <a href={} data-zone="mktng"BranchNameBranchName
           className="link_link__hbWKh text-sm text-gray-900 hover:text-gray-1000" data-prefetch="true"
           ></a> */}
@@ -57,7 +56,7 @@ export default function BlobEditor() {
           >Commit changes...
         </Button> */}
         {/* </Box> */}
-      </Box></div>
+    </Box></div>
   )
 }
 
