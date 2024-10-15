@@ -28,7 +28,7 @@ var config = { attributes: true, childList: true, characterData: true }
 observer.observe(target, config);
 document.querySelector('#left').classList.add(innerWidth < innerHeight ? "mob" : 'desk')})();
 </head> */}
-<script dangerouslySetInnerHTML={{__html:
+{/* <script dangerouslySetInnerHTML={{__html:
 `target = document.querySelector('#left');
 
 var observer = new MutationObserver(function (m) { ad = m[0].addedNodes[0]
@@ -39,4 +39,5 @@ observer.disconnect()}
 })
 
 observer.observe(document.body, {childList: true})`}}>
-</script>{children}</html> }
+</script> */}
+{children}</html> }

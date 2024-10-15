@@ -6,11 +6,12 @@
 body { color: var(--foreground); background: var(--background); margin: 8px }
 .split { height: 100%; position: relative; z-index: 1; top: 0; overflow-x: hidden }
 main { display: flex }
+@media (max-width: 400px) { #left { flex: .7 } }
 .kbCLEG:focus { outline: 0px }
-#left { justify-content: flex-end; display: flex; align-items: center } .desk { flex: .5 }
-.mob { flex: .7 }
+#left { justify-content: flex-end; display: flex; align-items: center; flex: .5 }
+
 #right { align-items: center; display: flex; flex-direction: row; flex: .5 }
-/* width: calc(100% - 2*var(--sl)); margin: 1vw 0 0 var(--sl) */
+/* width: calc(100% - 2*var(--sl)); margin: 1vw 0 0 var(--sl) display: none .desk { }.mob {  } */
 
 .lmZlSR { font-size: 14px; line-height: 20px;
   color: var(--fgColor-default, var(--color-fg-default, #e6edf3)); vertical-align: middle;
