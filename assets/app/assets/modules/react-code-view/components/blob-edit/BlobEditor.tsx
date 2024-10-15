@@ -45,10 +45,9 @@ export default function BlobEditor() {
                   aria-describedby="file-name-editor-breadcrumb"
               /></span>
           </Box>
-      <Box id='right'className="tailwind"><BranchName style={{ display: firstName ? 'flex' : 'none' }}
-          href={folderPath+firstName}>Open in drive</BranchName>
-        {/* <a href={} data-zone="mktng" 
-          
+      <Box id='right'className="tailwind"><a style={{ display: firstName ? 'flex' : 'none' }}
+          href={folderPath+firstName}>Open in drive</a>
+        {/* <a href={} data-zone="mktng"BranchNameBranchName
           className="link_link__hbWKh text-sm text-gray-900 hover:text-gray-1000" data-prefetch="true"
           ></a> */}
         {/* <Button data-hotkey="Mod+s" disabled={!firstName.length}
