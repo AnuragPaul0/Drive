@@ -8,9 +8,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode
   }>) { return <html lang="en">
-    <head><script dangerouslySetInnerHTML={{__html:
+    {/* <head>
+</head> */}
+<script dangerouslySetInnerHTML={{__html:
 `console.log(document, document.querySelector('#left'));
 (()=>{console.log(document.querySelector('#left'));
 document.querySelector('#left').classList.add(innerWidth < innerHeight ? "mob" : 'desk')})();`}}>
-</script>
-</head>{children}</html> }
+</script>{children}</html> }
