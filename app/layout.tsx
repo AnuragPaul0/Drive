@@ -1,23 +1,43 @@
 import type { Metadata } from "next"; import "./globals.css"
 
 const title = 'Open in Drive', href = "https://nextjs-boilerplate-xi-sooty-98.vercel.app",
-  description = `Link  to open a pdf appears when the user inputs a pdf link.`
+  description = `Link, to open a pdf in google drive without downloading, appears when the user inputs
+   a pdf web link in mobile.`, site = 'Anurag Paul',
+  image = "https://res.cloudinary.com/desijzgrw/image/upload/v1729082467/o_qxaivf.jpg",
+  imalt = `UI of open a pdf in google drive without downloading appears when the user inputs
+   a pdf web link in mobile`
 
 export const metadata: Metadata = { title: title,
   description: description, icons: {
   icon: "https://avatars.githubusercontent.com/u/88148165" } }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode
-  }>) { return <html lang="en"><head> {/* <!-- Open Graph / Facebook --> */}
-    <meta property="og:type" content="website"/>
-    <meta property="og:title" content={title}/>
-    <meta property="og:description" content={description}/>
-    {/* <!-- Twitter --> */}
-    <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:title" content={title}/>
-    <meta name="twitter:description" content={description}/>
-    <link rel="canonical" href={href}/>
-    <meta property="og:url" content={href}/>
+  }>) { return <html lang="en">
+    <head>{/* <!-- Open Graph / Facebook --> */}
+      <meta property="og:type" content="website"/><meta property="og:title" content={title}/>
+      <meta property="og:url" content={href}/><meta property="og:image" content={image}/>
+      <meta property="og:description" content={description}/>
+      <meta property="og:site_name" content='Anurag'/>
+      <meta property="og:image:height" content="274"/>
+      <meta content="en_US" property="og:locale"/><meta property="og:image:width" content="503"/>
+      <meta name="keywords" content=
+        "Open, Drive, React, TypeScript, October 2024, Photos, Link, pdf, user input"/>
+      <meta name="author" content={site}></meta>{/* <!-- Twitter --> */}
+      <meta property="twitter:site" content={"@" + site}/>
+      <meta name="twitter:card" content="summary_large_image"/>
+      <meta name="twitter:title" content={title}/>
+      <meta name="twitter:description" content={description}/>
+      <meta property="twitter:image" content={image}/>
+      <meta property="twitter:image:alt" content={imalt}/><link rel="canonical" href={href}/>
+      <link rel="alternate" href={href + "/?language=hi-in"} hrefLang="hi-in"/>
+      <link rel="alternate" href={href + "/?language=pt-br"} hrefLang="pt-br"/>
+      <link rel="alternate" href={href + "/?language=de-de"} hrefLang="de-de"/>
+      <link rel="alternate" href={href + "/?language=es-mx"} hrefLang="es-mx"/>
+      <link rel="alternate" href={href + "/?language=es-es"} hrefLang="es-es"/>
+      <link rel="alternate" href={href + "/?language=fr-fr"} hrefLang="fr-fr"/>
+      <link rel="alternate" href={href + "/?language=fr-ca"} hrefLang="fr-ca"/>
+      <link rel="alternate" href={href + "/?language=it-it"} hrefLang="it-it"/>
+      <link rel="alternate" href={href} hrefLang="x-default"/>
     {/* console.log(document, document.querySelector('#left'));
     (()=>{console.log(document.querySelector('#left'));
     document.onreadystatechange = () => { console.log(document.readyState);
@@ -29,9 +49,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         document.querySelector('#left').classList.add(innerWidth < innerHeight ? "mob" : 'desk')
             console.log(mutation.type);
         });
-    }); */}
-
-    {/* // configuration of the observer:
+    }); */}{/* // configuration of the observer:
     var config = { attributes: true, childList: true, characterData: true }
 
     // pass in the target node, as well as the observer options
