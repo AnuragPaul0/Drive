@@ -1,6 +1,8 @@
 import type { Metadata } from "next"; import "./globals.css"
+
 const title = 'Open in Drive', href = "https://nextjs-boilerplate-xi-sooty-98.vercel.app",
   description = `Link  to open a pdf appears when the user inputs a pdf link.`
+
 export const metadata: Metadata = { title: title,
   description: description, icons: {
   icon: "https://avatars.githubusercontent.com/u/88148165" } }
