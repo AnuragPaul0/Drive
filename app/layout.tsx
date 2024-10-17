@@ -38,6 +38,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <link rel="alternate" href={href + "/?language=fr-ca"} hrefLang="fr-ca"/>
       <link rel="alternate" href={href + "/?language=it-it"} hrefLang="it-it"/>
       <link rel="alternate" href={href} hrefLang="x-default"/>
+      <link rel="icon" sizes="32x32" href="https://m.media-amazon.com/images/G/01/imdb/images-ANDW73HA/favicon_desktop_32x32._CB1582158068_.png">
     {/* console.log(document, document.querySelector('#left'));
     (()=>{console.log(document.querySelector('#left'));
     document.onreadystatechange = () => { console.log(document.readyState);
