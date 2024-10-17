@@ -1,8 +1,8 @@
 import type { Metadata } from "next"; import "./globals.css"
 
 const title = 'Open in Drive', href = "https://nextjs-boilerplate-xi-sooty-98.vercel.app",
-  description = `Link, to open a pdf in google drive without downloading, appears when the user inputs
-   a pdf web link in mobile.`, site = 'Anurag Paul',
+  description = `Link, to open a pdf in google drive without downloading, appears when the user`+
+    ` inputs a pdf web link in mobile.`, site = 'Anurag Paul',
   image = "https://res.cloudinary.com/desijzgrw/image/upload/v1729082467/o_qxaivf.jpg",
   imalt = `UI of open a pdf in google drive without downloading appears when the user inputs
    a pdf web link in mobile`
@@ -13,7 +13,9 @@ export const metadata: Metadata = { title: title,
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode
   }>) { return <html lang="en">
-    <head>{/* <!-- Open Graph / Facebook --> */}
+    <head>
+      {/* <meta property="description" content={description}/> */}
+      {/* <!-- Open Graph / Facebook --> */}
       <meta property="og:type" content="website"/><meta property="og:title" content={title}/>
       <meta property="og:url" content={href}/><meta property="og:image" content={image}/>
       <meta property="og:description" content={description}/>
@@ -27,6 +29,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <meta name="twitter:card" content="summary_large_image"/>
       <meta name="twitter:title" content={title}/>
       <meta name="twitter:description" content={description}/>
+      {/* <meta property="twitter:description" content={description}/> */}
       <meta property="twitter:image" content={image}/>
       <meta property="twitter:image:alt" content={imalt}/><link rel="canonical" href={href}/>
       <link rel="alternate" href={href + "/?language=hi-in"} hrefLang="hi-in"/>
