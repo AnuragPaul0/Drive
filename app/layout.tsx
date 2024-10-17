@@ -22,7 +22,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <meta content="en_US" property="og:locale"/><meta property="og:image:width" content="503"/>
       <meta name="keywords" content=
         "Open, Drive, React, TypeScript, October 2024, Photos, Link, pdf, user input"/>
-      <meta name="author" content={site}></meta>{/* <!-- Twitter --> */}
+      <meta name="author" content={site}/>{/* <!-- Twitter --> */}
       <meta property="twitter:site" content={"@" + site}/>
       <meta name="twitter:card" content="summary_large_image"/>
       <meta name="twitter:title" content={title}/>
@@ -39,7 +39,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <link rel="alternate" href={href + "/?language=it-it"} hrefLang="it-it"/>
       <link rel="alternate" href={href} hrefLang="x-default"/>
       <link rel="icon" sizes="32x32" href=
-        "https://res.cloudinary.com/desijzgrw/image/upload/v1729135928/32_ltbsvx.png">
+        "https://res.cloudinary.com/desijzgrw/image/upload/v1729135928/32_ltbsvx.png"/>
       <link rel="apple-touch-icon" href={image}/>
       <link rel="shortcut icon" sizes="196x196" href=
         "https://res.cloudinary.com/desijzgrw/image/upload/v1729136339/196_kfrzfa.png"/>
